@@ -14,7 +14,7 @@ gitinit() {
 }
 
 closure() {
-    ARG=$@
+    ARG=$*
     if [ "$ARG" = '' ]; then
         ARG='--help'
     fi;
