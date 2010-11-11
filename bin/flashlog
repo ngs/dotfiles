@@ -1,0 +1,25 @@
+#!/usr/bin/env perl -w
+use strict;
+use warnings;
+use FileHandle;
+use Getopt::Long;
+
+my $file = $ENV{FLASH_LOG};
+my $filter = undef;
+
+GetOptions( 'filter|f=s' => \$filter );
+
+die 'No flash log' unless $file;
+
+my $fh = FileHandle->new($file,"w");
+$fh->write("");
+$fh->close;
+
+
+my $sys = "tail -f '$file'";
+print "Starting tail $file\n";
+if($filter) {
+    $sys = "$sys | grep $filter";
+    print qq{Filter is "$filter"\n};
+}
+system($sys);

@@ -1,0 +1,11 @@
+[user]
+    name = Atsushi NAGASE <atsn.ngs@gmail.com>
+    email = atsn.ngs@gmail.com
+
+[alias] 
+    st = status
+    ci = commit
+    co = checkout
+    sm = submodule
+    pullsm = submodule foreach 'git pull'
+    addorg = remote add origin

@@ -1,0 +1,6 @@
+shelltitle ""
+hardstatus alwayslastline "%`%-w%{=b bw}%n %t%{-}%+w"
+bind s
+startup_message off
+autodetach on
+defscrollback 5120

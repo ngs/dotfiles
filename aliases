@@ -1,0 +1,13 @@
+alias apk2emulator='ant debug && adb -s emulator-5554 install -r bin/*-debug.apk'
+alias apk2device1='ant debug && adb -s HT97VLF03606 install -r bin/*-debug.apk'
+alias apk2device2='ant debug && adb -s HT963LF01318 install -r bin/*-debug.apk'
+
+alias logcat-emulator='adb -s HT963LF01318 logcat'
+alias logcat-device1='adb -s HT97VLF03606 logcat'
+alias logcat-device2='adb -s HT963LF01318 logcat'
+
+alias ls='ls -G'
+alias ll='ls -lsG'
+alias tmux='tmux -2'
+
+alias svn-add-all="svn st | grep ^? | cut -d ' ' -f 8 | xargs svn add"
