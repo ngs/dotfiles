@@ -6,7 +6,16 @@ gitinit() {
     remote=$1
     git init .
     touch README
-    echo ".DS_Store" > .gitignore
+    echo ".DS_Store
+.prove
+.*.swp
+*.mode1v3
+*.pbxuser
+build
+Build
+_build
+MYMETA.yml
+" > .gitignore
     git add .gitignore README
     git commit -a -m "Initial"
     git remote add origin $remote
