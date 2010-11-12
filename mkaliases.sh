@@ -5,7 +5,7 @@ ln -s dotfiles/screenrc   .screenrc
 ln -s dotfiles/tmux.conf  .tmux.conf
 ln -s dotfiles/vim        .vim
 ln -s dotfiles/lynx.cfg   .lynx.cfg
-ln -s dotfiles/my.cfg   .my.cfg
+ln -s dotfiles/my.cnf     .my.cnf
 ln -s .vim/vimrc          .vimrc
 ln -s dotfiles/jsdoc.conf .jsdoc.conf
 ln -s dotfiles/mm.cfg     mm.cfg
