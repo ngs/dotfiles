@@ -2,6 +2,10 @@ calc(){
     awk "BEGIN{ print $* }" ;
 }
 
+gs() {
+    open -a Safari "http://www.google.com/search?q=$1";
+}
+
 gitinit() {
     remote=$1
     git init .
@@ -64,3 +68,4 @@ jsdoc() {
     fi
     ${JSDOCDIR}/jsrun.sh $ARGCONF $ARG
 }
+
