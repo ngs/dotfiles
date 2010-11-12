@@ -2,7 +2,7 @@ alias apk2emulator='ant debug && adb -s emulator-5554 install -r bin/*-debug.apk
 alias apk2device1='ant debug && adb -s HT97VLF03606 install -r bin/*-debug.apk'
 alias apk2device2='ant debug && adb -s HT963LF01318 install -r bin/*-debug.apk'
 
-alias logcat-emulator='adb -s HT963LF01318 logcat'
+alias logcat-emulator='adb -s emulator-5554 logcat'
 alias logcat-device1='adb -s HT97VLF03606 logcat'
 alias logcat-device2='adb -s HT963LF01318 logcat'
 
