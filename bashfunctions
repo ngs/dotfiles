@@ -22,14 +22,13 @@ closure() {
 }
 
 jslint() {
-    ARG=$1
-    BASEDIR=$(dirname $0)
-    JSLINT="$BASEDIR/jslint.js"
-    if [ ! -f "$ARG" ]; then
-      echo "File not found: $ARG"
-      exit
-    fi
+  ARG=$1
+  JSLINT="${HOME}/dotfiles/tools/jslint.js"
+  if [ -f "$ARG" ]; then
     java org.mozilla.javascript.tools.shell.Main "$JSLINT" "$ARG" 2>&1
+  else
+    echo "File not found: $ARG"
+  fi
 }
 
 js() {
