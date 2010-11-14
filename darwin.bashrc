@@ -70,6 +70,11 @@ export FLASH_LOG="${HOME}/Library/Preferences/Macromedia/Flash Player/Logs/flash
 export JSDOCDIR="${SDKROOT}/jsdoc-toolkit"
 export JSDOCTEMPLATEDIR="${JSDOCDIR}/templates/jsdoc"
 
+##
+# MacPorts
+##
+PATH=${PATH}:/opt/local/bin
+
 export PATH
 export PYTHONPATH
 source "${HOME}/dotfiles/bashrc"
