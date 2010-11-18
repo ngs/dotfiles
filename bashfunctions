@@ -78,3 +78,11 @@ jsdoc() {
     ${JSDOCDIR}/jsrun.sh $ARGCONF $ARG
 }
 
+standby() {
+osascript << EOT
+tell application "System Events"
+    sleep
+end
+EOT
+}
+
