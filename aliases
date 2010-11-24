@@ -17,4 +17,5 @@ alias pscs3="open -a /Applications/Adobe\ Photoshop\ CS3/Adobe\ Photoshop\ CS3.a
 alias safari="open -a Safari"
 alias xcode="open -a Xcode"
 
-alias setlang="defaults write NSGlobalDomain AppleLanguages "
+alias setlang-en='defaults write NSGlobalDomain AppleLanguages "(en,ja,zh-Hans,zh-Hant)"'
+alias setlang-ja='defaults write NSGlobalDomain AppleLanguages "(ja,en,zh-Hans,zh-Hant)"'
