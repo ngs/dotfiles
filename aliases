@@ -13,5 +13,8 @@ alias tmux='tmux -2'
 alias svn-add-all="svn st | grep ^? | cut -d ' ' -f 8 | xargs svn add"
 
 alias photoshop="open -a /Applications/Adobe/Adobe\ Photoshop\ CS4/Adobe\ Photoshop\ CS4.app"
+alias pscs3="open -a /Applications/Adobe\ Photoshop\ CS3/Adobe\ Photoshop\ CS3.app"
 alias safari="open -a Safari"
 alias xcode="open -a Xcode"
+
+alias setlang="defaults write NSGlobalDomain AppleLanguages "
