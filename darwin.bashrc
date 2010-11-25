@@ -78,3 +78,7 @@ PATH=${PATH}:/opt/local/bin
 export PATH
 export PYTHONPATH
 source "${HOME}/dotfiles/bashrc"
+
+alias ls='ls -G'
+alias ll='ls -lsG'
+

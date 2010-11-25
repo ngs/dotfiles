@@ -6,8 +6,6 @@ alias logcat-emulator='adb -s emulator-5554 logcat'
 alias logcat-device1='adb -s CB511J9139 logcat'
 alias logcat-device2='adb -s HT963LF01318 logcat'
 
-alias ls='ls -G'
-alias ll='ls -lsG'
 alias tmux='tmux -2'
 
 alias svn-add-all="svn st | grep ^? | cut -d ' ' -f 8 | xargs svn add"
