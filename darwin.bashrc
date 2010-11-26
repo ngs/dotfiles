@@ -54,6 +54,12 @@ PATH=${PATH}:/usr/local/git/bin
 # MySQL http://dev.mysql.com/downloads/mysql/
 ##
 PATH=${PATH}:/usr/local/mysql/bin
+
+##
+# MeCab
+##
+PATH=${PATH}:/usr/local/mecab-0.98/bin
+
 ##
 # ClamXAV http://www.clamxav.com/
 #
