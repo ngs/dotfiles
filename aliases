@@ -17,3 +17,6 @@ alias xcode="open -a Xcode"
 
 alias setlang-en='defaults write NSGlobalDomain AppleLanguages "(en,ja,zh-Hans,zh-Hant)"'
 alias setlang-ja='defaults write NSGlobalDomain AppleLanguages "(ja,en,zh-Hans,zh-Hant)"'
+
+alias md=mkdir
+alias rd=rmdir
