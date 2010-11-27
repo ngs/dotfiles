@@ -34,5 +34,11 @@ export PATH=${PATH}:"${HOME}/bin":"${HOME}/dotfiles/bin"
 ##
 source "${HOME}/dotfiles/bashfunctions"
 source "${HOME}/dotfiles/aliases"
-source "${HOME}/perl5/perlbrew/etc/bashrc"
-source "${HOME}/.pythonbrew/etc/bashrc"
+
+if [ -d "${HOME}/perl5" ]; then
+    source "${HOME}/perl5/perlbrew/etc/bashrc"
+fi
+
+if [ -d "${HOME}/.pythonbrew" ]; then
+    source "${HOME}/.pythonbrew/etc/bashrc"
+fi
