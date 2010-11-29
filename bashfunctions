@@ -1,3 +1,5 @@
+# $Id$
+
 calc(){
     awk "BEGIN{ print $* }" ;
 }
@@ -9,6 +11,7 @@ gs() {
 gitinit() {
     remote=$1
     git init .
+    echo '* ident' > ./.git/info/attributes
     touch README
     echo ".DS_Store
 .prove

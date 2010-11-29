@@ -9,5 +9,3 @@
     sm = submodule
     pullsm = submodule foreach 'git pull'
     addorg = remote add origin
-[core]
-	autocrlf = input
