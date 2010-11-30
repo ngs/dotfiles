@@ -1,0 +1,21 @@
+#! /usr/bin/env ruby
+data = STDIN.read
+
+hash     = `git log --pretty=format:"%H"  -1`
+tree     = `git log --pretty=format:"%T"  -1`
+parent   = `git log --pretty=format:"%P"  -1`
+author   = `git log --pretty=format:"%an" -1`
+commiter = `git log --pretty=format:"%cn" -1`
+log      = `git log --pretty=format:"%s"  -1`
+date     = `git log --pretty=format:"%ad" -1`
+
+
+data = data.gsub('$Id$',       '$Id: '        + hash.to_s      + '$')
+data = data.gsub('$Tree$',     '$Tree: '      + tree.to_s      + '$')
+data = data.gsub('$Parent$',   '$Parent: '    + parent.to_s    + '$')
+data = data.gsub('$Author$',   '$Author: '    + author.to_s    + '$')
+data = data.gsub('$Commiter$', '$Commiter: '  + commiter.to_s  + '$')
+data = data.gsub('$Log$',      '$Log: '       + log.to_s       + '$')
+data = data.gsub('$Date$',     '$Date: '      + date.to_s      + '$')
+
+puts data

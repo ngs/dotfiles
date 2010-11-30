@@ -11,7 +11,7 @@ gs() {
 gitinit() {
     remote=$1
     git init .
-    echo '* ident' > .gitattributes
+    echo '* filter=ident' > .gitattributes
     touch README
     echo ".DS_Store
 .prove
