@@ -20,3 +20,11 @@ alias setlang-ja='defaults write NSGlobalDomain AppleLanguages "(ja,en,zh-Hans,z
 
 alias md=mkdir
 alias rd=rmdir
+
+alias count="ls -l | wc"
+alias screenls="screen -ls"
+alias screenx="screen -x"
+alias screenr="screen -r"
+
+alias tmuxls="tmux list-sessions"
+alias tmuxattach="tmux attach"
