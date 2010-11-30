@@ -1,3 +1,5 @@
+# $Id$
+
 calc(){
     awk "BEGIN{ print $* }" ;
 }
@@ -9,6 +11,7 @@ gs() {
 gitinit() {
     remote=$1
     git init .
+    echo '* filter=ident' > .gitattributes
     touch README
     echo ".DS_Store
 .prove
@@ -20,7 +23,7 @@ Build
 _build
 MYMETA.yml
 " > .gitignore
-    git add .gitignore README
+    git add .gitignore README .gitattributes
     git commit -a -m "Initial"
     git remote add origin $remote
     git push origin master

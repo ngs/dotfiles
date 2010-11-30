@@ -10,4 +10,7 @@
     pullsm = submodule foreach 'git pull'
     addorg = remote add origin
 [core]
-	autocrlf = input
+	quotepath = false
+[filter "ident"]
+    smudge = git-expand-ident
+	clean = perl -pe \"s/\\\\\\$(Id|Tree|Parent|Author|Commiter|Log|Date)[^\\\\\\$]*\\\\\\$/\\\\\\$\\${1}\\\\\\$/\"
