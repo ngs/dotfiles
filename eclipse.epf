@@ -1,4 +1,4 @@
-#Wed Dec 01 07:10:55 JST 2010
+#Wed Dec 01 07:13:31 JST 2010
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.indent_parameter_description=true
 @org.eclipse.ui.editors=3.6.1.r361_v20100825-0800
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_at_in_annotation_type_declaration=do not insert
@@ -32,6 +32,7 @@
 /instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.overrideannotation=true
 /instance/org.eclipse.jdt.ui/java_operator=191,196,190
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.new_lines_at_block_boundaries=true
+/instance/org.eclipse.wst.sse.ui/content_assist_number_of_computers=2
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.keep_else_statement_on_same_line=false
 /instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter=true
 /instance/org.eclipse.ui.editors/printMargin=true
@@ -173,6 +174,7 @@
 /instance/org.eclipse.jdt.ui/hoverModifierMasks=org.eclipse.jdt.ui.BestMatchHover;0;org.eclipse.jdt.internal.debug.ui.JavaDebugHover;0;org.eclipse.jdt.ui.ProblemHover;0;org.eclipse.jdt.ui.NLSStringHover;4259840;org.eclipse.jdt.ui.JavadocHover;0;org.eclipse.jdt.ui.JavaSourceHover;131072;org.eclipse.jdt.ui.AnnotationHover;0;
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_enum_constant=16
 /instance/org.eclipse.ui.editors/occurrenceHighlighting=false
+/instance/org.eclipse.ui.workbench/OPEN_ON_SINGLE_CLICK=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_constructor_declaration_parameters=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_type_declaration=end_of_line
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_for=do not insert
@@ -256,8 +258,8 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_declaration_parameters=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.tabulation.size=4
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_angle_bracket_in_type_parameters=do not insert
-@org.eclipse.ui.browser=3.3.0.v20100517
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_method_declaration=do not insert
+@org.eclipse.ui.browser=3.3.0.v20100517
 /instance/org.eclipse.jdt.ui/useQuickDiffPrefPage=true
 /instance/org.eclipse.jdt.ui/java_multi_line_comment=64,203,68
 /instance/org.eclipse.ant.ui/problem_security=warning
@@ -279,6 +281,7 @@
 /instance/org.eclipse.ui.workbench/editors=<?xml version\="1.0" encoding\="UTF-8"?>\n<editors>\n<descriptor class\="org.eclipse.jdt.internal.debug.ui.snippeteditor.JavaSnippetEditor" id\="org.eclipse.jdt.debug.ui.SnippetEditor" image\="$nl$/icons/full/obj16/jsbook_obj.gif" internal\="true" label\="Scrapbook" openMode\="1" open_in_place\="false" plugin\="org.eclipse.jdt.debug.ui"/>\n<descriptor id\="org.eclipse.ui.browser.editorSupport" image\="$nl$/icons/obj16/internal_browser.gif" internal\="false" label\="Web Browser" launcher\="org.eclipse.ui.internal.browser.BrowserLauncher" openMode\="4" open_in_place\="false" plugin\="org.eclipse.ui.browser"/>\n<descriptor class\="org.eclipse.pde.internal.ui.samples.SampleEditor" id\="org.eclipse.pde.ui.sampleEditor" image\="$nl$/icons/obj16/build_exec.gif" internal\="true" label\="Code Sample Editor" openMode\="1" open_in_place\="false" plugin\="org.eclipse.pde.ui"/>\n<descriptor class\="org.eclipse.ui.editors.text.TextEditor" id\="org.eclipse.jdt.ui.JARDescEditor" image\="$nl$/icons/full/obj16/jar_desc_obj.gif" internal\="true" label\="JAR Description Editor" openMode\="1" open_in_place\="false" plugin\="org.eclipse.jdt.ui"/>\n</editors>
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_type_header=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_unary_operator=do not insert
+/instance/org.eclipse.jdt.ui/sourceHoverBackgroundColor=25,25,25
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.continuation_indentation=2
 /instance/org.eclipse.jdt.ui/internal.default.compliance=default
 /instance/org.eclipse.jdt.ui/semanticHighlighting.inheritedMethodInvocation.color=227,183,53
@@ -301,6 +304,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.use_on_off_tags=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_enum_declarations=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_constructor_declaration=do not insert
+/instance/org.eclipse.ui.workbench/OPEN_AFTER_DELAY=true
 /instance/org.eclipse.ant.ui/problem_imports=warning
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.format_source_code=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_brace_in_array_initializer=do not insert
@@ -441,8 +445,8 @@ file_export_version=3.0
 /instance/org.eclipse.ui.ide/tipsAndTricks=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.localSuffixes=
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_superinterfaces_in_enum_declaration=64
-/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<launchPerspectives/>\n
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_and_in_type_parameter=insert
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<launchPerspectives/>\n
 /instance/org.eclipse.jdt.ui/semanticHighlighting.typeParameter.enabled=true
 /instance/org.tigris.subversion.subclipse.ui/pref_svninterface=javasvn
 /instance/org.eclipse.jdt.ui/pf_coloring_key=255,200,0
