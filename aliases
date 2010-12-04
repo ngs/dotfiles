@@ -27,4 +27,4 @@ alias screenx="screen -x"
 alias screenr="screen -r"
 
 alias tmuxls="tmux list-sessions"
-alias tmuxattach="tmux attach"
+alias tmuxa="tmux attach"
