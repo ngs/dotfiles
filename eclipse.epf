@@ -1,4 +1,4 @@
-#Sat Dec 04 07:45:02 JST 2010
+#Fri Dec 10 16:11:54 JST 2010
 /instance/org.eclipse.jdt.ui/sp_cleanup.always_use_parentheses_in_expressions=false
 /instance/org.eclipse.team.ui/org.eclipse.team.ui.first_time=false
 /instance/org.eclipse.jdt.ui/java_operator=191,196,190
@@ -12,8 +12,8 @@
 /instance/org.eclipse.ant.ui/problem_security=warning
 /instance/org.eclipse.jdt.ui/sp_cleanup.remove_private_constructors=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_qualified_allocation_expression=16
-/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.continuation_indentation=2
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_conditional_expression=48
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.continuation_indentation=2
 /instance/org.eclipse.jdt.ui/java_keyword_return=210,23,149
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_enum_constant_header=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_between_type_declarations=0
@@ -28,6 +28,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_allocation_expression=do not insert
 /instance/org.eclipse.jdt.ui/sp_cleanup.add_missing_override_annotations=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_package=0
+/instance/org.eclipse.debug.ui/preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|org.eclipse.jdt.debug.ui.DETAIL_PANE_LINE_BREAKPOINT\:org.eclipse.jdt.debug.ui.DETAIL_PANE_LINE_BREAKPOINT|
 /instance/org.eclipse.jdt.ui/spelling_locale=en_US
 /instance/org.eclipse.ui.editors/occurrenceHighlighting=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_ellipsis=do not insert
@@ -113,6 +114,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_type_arguments=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_parenthesized_expression=do not insert
 /instance/org.eclipse.ui.workbench/org.eclipse.jdt.ui.PropertiesFileEditor.textfont=1||12|0|CARBON|1|;
+/instance/org.eclipse.debug.ui/pref_state_memento.org.eclipse.debug.ui.DebugVieworg.eclipse.debug.ui.DebugView=<?xml version\="1.0" encoding\="UTF-8"?>\n<DebugViewMemento org.eclipse.debug.ui.BREADCRUMB_DROPDOWN_AUTO_EXPAND\="false"/>
 /instance/org.eclipse.jdt.ui/spelling_ignore_non_letters=true
 /instance/org.eclipse.jdt.ui/hoverModifierMasks=org.eclipse.jdt.ui.BestMatchHover;0;org.eclipse.jdt.internal.debug.ui.JavaDebugHover;0;org.eclipse.jdt.ui.ProblemHover;0;org.eclipse.jdt.ui.NLSStringHover;4259840;org.eclipse.jdt.ui.JavadocHover;0;org.eclipse.jdt.ui.JavaSourceHover;131072;org.eclipse.jdt.ui.AnnotationHover;0;
 /instance/org.eclipse.jdt.ui/semanticHighlighting.parameterVariable.color=59,175,112
@@ -152,6 +154,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_enum_constant=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_field=0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_method_invocation=do not insert
+/instance/org.eclipse.jdt.debug.ui/org.eclipse.jdt.debug.ui.javaDebug.alertHCRNotSupported=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_parameterized_type_reference=insert
 /instance/org.eclipse.jdt.ui/semanticHighlighting.typeArgument.enabled=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=*.launch
@@ -190,6 +193,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_annotation=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_closing_brace_in_block=insert
+/instance/com.android.ide.eclipse.ddms/emulatorControl.waypoint.desc=98
 @org.eclipse.team.cvs.ui=3.3.301.R36x_v20100825-0800
 /instance/org.eclipse.jdt.ui/sp_cleanup.use_this_for_non_static_method_access=false
 /instance/org.eclipse.jdt.ui/sp_cleanup.always_use_this_for_non_static_method_access=false
@@ -219,6 +223,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_ellipsis=insert
 /instance/org.eclipse.debug.ui/Console.highWaterMark=808000
 /instance/org.eclipse.ui.workbench/ColorsAndFontsPreferencePage.selectedElement=Corg.eclipse.ui.workbench.ACTIVE_TAB_BG_END
+/instance/com.android.ide.eclipse.ddms/emulatorControl.track.comment=77
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.format_line_comments=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_type_parameters=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_bracket_in_array_allocation_expression=do not insert
@@ -226,6 +231,7 @@
 /instance/org.eclipse.jdt.ui/semanticHighlighting.enum.enabled=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.use_tabs_only_for_leading_indentations=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_colon_in_case=insert
+/instance/com.android.ide.eclipse.ddms/emulatorControl.track.last=128
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.indent_root_tags=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_method_invocation=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_parenthesized_expression_in_throw=insert
@@ -271,9 +277,11 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_bracket_in_array_allocation_expression=do not insert
 /instance/org.eclipse.wst.sse.ui/useAnnotationsPrefPage=true
 @org.eclipse.wst.sse.ui=1.2.2.v201008232126
+/instance/com.android.ide.eclipse.ddms/com.android.ide.eclipse.ddms.logcat.level=13
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_method_declaration=end_of_line
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_colon_in_for=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_switch=do not insert
+/instance/com.android.ide.eclipse.ddms/emulatorControl.track.count=32
 /instance/org.eclipse.jdt.ui/java_bracket=255,255,255
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_angle_bracket_in_type_arguments=do not insert
 /instance/org.eclipse.ui.workbench/org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\n<org.eclipse.ui.commands>\n<keyBinding commandId\="org.eclipse.ui.edit.findPrevious" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+G"/>\n<keyBinding contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+K"/>\n<keyBinding contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+K"/>\n<keyBinding commandId\="org.eclipse.ui.edit.findNext" contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+G"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+G"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.pageUp" contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+ARROW_UP"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.pageDown" contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+ARROW_DOWN"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.wordNext" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+ARROW_RIGHT"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.wordPrevious" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+ARROW_LEFT"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.pageUp" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+PAGE_UP"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.pageDown" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+PAGE_DOWN"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.lineStart" contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+ARROW_LEFT"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.lineEnd" contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+ARROW_RIGHT"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.textStart" contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+ARROW_UP"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.goto.textEnd" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+ARROW_DOWN"/>\n<keyBinding contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+ARROW_DOWN"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.select.lineEnd" contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+ARROW_RIGHT"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.select.lineStart" contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+ARROW_LEFT"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+COMMAND+CTRL+D T"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+COMMAND+CTRL+D J"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+SHIFT+A D"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+SHIFT+A D"/>\n<keyBinding commandId\="org.eclipse.jdt.junit.junitShortcut.debug" contextId\="org.eclipse.jdt.debug.ui.debugging" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+J"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+SHIFT+A R"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.dialogAndWindow" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+Z"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.dialogAndWindow" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+Z"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+R"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+R"/>\n<keyBinding contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+CR"/>\n<keyBinding contextId\="org.eclipse.ui.textEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+CR"/>\n<keyBinding commandId\="com.android.ide.eclipse.adt.launch.LaunchShortcut.run" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+R"/>\n<keyBinding commandId\="com.android.ide.eclipse.adt.launch.LaunchShortcut.debug" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+R"/>\n<keyBinding commandId\="org.eclipse.ui.edit.undo" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+Z"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.dialogAndWindow" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+Z"/>\n<keyBinding commandId\="org.eclipse.ui.edit.redo" contextId\="org.eclipse.ui.contexts.dialogAndWindow" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+Z"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.shiftLeft" contextId\="org.eclipse.jdt.ui.javaEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+["/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+]"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+]"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.shiftRight" contextId\="org.eclipse.jdt.ui.javaEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+]"/>\n</org.eclipse.ui.commands>
@@ -327,12 +335,13 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_parameter=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.argumentSuffixes=
 /instance/org.eclipse.ant.ui/problem_classpath=warning
-/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_annotation_declaration_header=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.indent_parameter_description=true
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_annotation_declaration_header=true
 /instance/org.eclipse.jdt.ui/sp_cleanup.add_default_serial_version_id=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_type_header=true
 @org.eclipse.pde.ui=3.6.1.v20100810_r361
 /instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.PackageExplorer_patternFilterId_*$*.class=true
+/instance/org.eclipse.debug.ui/pref_state_memento.org.eclipse.debug.ui.BreakpointView=<?xml version\="1.0" encoding\="UTF-8"?>\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="315" org.eclipse.debug.ui.SASH_VIEW_PART\="684">\n<PRESENTATION_CONTEXT_PROPERTIES IMemento.internal.id\="org.eclipse.debug.ui.BreakpointView">\n<BOOLEAN BOOLEAN\="true" IMemento.internal.id\="org.eclipse.debug.ui.check"/>\n</PRESENTATION_CONTEXT_PROPERTIES>\n</VariablesViewMemento>
 /instance/org.eclipse.ui.workbench/OPEN_AFTER_DELAY=true
 @org.eclipse.ui.workbench=3.6.1.M20100826-1330
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_catch=insert
@@ -350,6 +359,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.comment.line_length=80
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.number_of_empty_lines_to_preserve=1
 /instance/org.eclipse.jdt.ui/java_single_line_comment=64,203,68
+/instance/org.eclipse.jdt.debug.ui/org.eclipse.debug.ui.VariableView.org.eclipse.jdt.debug.ui.show_null_entries=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_enum_declaration=end_of_line
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_semicolon=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.fieldSuffixes=
@@ -377,8 +387,10 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_annotation=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.disabling_tag=@formatter\:off
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.lineSplit=80
+/instance/com.android.ide.eclipse.ddms/com.android.ide.eclipse.ddms.logcat.tag=54
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_throws_clause_in_constructor_declaration=16
 @org.eclipse.ui.ide=3.6.1.M20100825-0800
+/instance/com.android.ide.eclipse.ddms/com.android.ide.eclipse.ddms.logcat.message=395
 @org.eclipse.core.runtime=3.6.0.v20100505
 /instance/org.eclipse.jdt.ui/sp_cleanup.remove_trailing_whitespaces_ignore_empty=false
 /instance/org.eclipse.jdt.ui/sp_cleanup.always_use_blocks=true
@@ -404,12 +416,14 @@
 @org.eclipse.debug.core=3.6.0.v20100519
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_before_while_in_do_statement=do not insert
 file_export_version=3.0
+@org.eclipse.jdt.debug.ui=3.5.0.v20100602-0830
 /instance/org.eclipse.jdt.ui/sp_cleanup.remove_trailing_whitespaces=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.never_indent_block_comments_on_first_column=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_new_chunk=0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_explicit_constructor_call=16
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_annotation=0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_bracket_in_array_type_reference=do not insert
+/instance/com.android.ide.eclipse.ddms/emulatorControl.track.name=119
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_semicolon_in_for=do not insert
 /instance/org.eclipse.jdt.ui/outlinesortoption=T,SF,SI,SM,F,I,C,M,
 /configuration/org.eclipse.ui.ide/RECENT_WORKSPACES=/Users/ngs/Sites/DEV\n/Volumes/Data/Code/Eclipse workspace
@@ -422,6 +436,7 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.ui/sp_cleanup.sort_members_all=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_block_in_case=end_of_line
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_for_increments=do not insert
+/instance/com.android.ide.eclipse.ddms/com.android.ide.eclipse.ddms.logcat.time=91
 /instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.argumentPrefixes=
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_constructor_declaration_throws=insert
@@ -435,6 +450,7 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_closing_angle_bracket_in_type_parameters=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_enum_declaration_header=true
 /instance/org.eclipse.jdt.ui/java_doc_tag_italic=true
+/instance/org.eclipse.debug.ui/pref_state_memento.org.eclipse.debug.ui.VariableView=<?xml version\="1.0" encoding\="UTF-8"?>\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="315" org.eclipse.debug.ui.SASH_VIEW_PART\="684">\n<PRESENTATION_CONTEXT_PROPERTIES IMemento.internal.id\="org.eclipse.debug.ui.VariableView"/>\n</VariablesViewMemento>
 /instance/org.eclipse.jdt.ui/sp_cleanup.use_this_for_non_static_field_access_only_if_necessary=true
 /instance/org.eclipse.jdt.ui/sp_cleanup.make_parameters_final=false
 /instance/org.eclipse.jdt.ui/semanticHighlighting.staticMethodInvocation.color=34,254,130
@@ -449,6 +465,7 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.ui/java_doc_link_italic=true
 /instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.staticondemandthreshold=99
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.fieldPrefixes=
+/instance/com.android.ide.eclipse.ddms/emulatorControl.track.first=128
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.localPrefixes=
 /instance/org.eclipse.jdt.ui/content_assist_parameters_background=0,0,0
 /instance/org.eclipse.ui.workbench/org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=232,232,232
@@ -462,6 +479,7 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_enum_constant=end_of_line
 /instance/org.eclipse.ui.workbench/OPEN_ON_SINGLE_CLICK=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_semicolon_in_for=insert
+/instance/com.android.ide.eclipse.ddms/emulatorControl.waypoint.latitude=77
 /instance/org.eclipse.jdt.ui/semanticHighlighting.inheritedMethodInvocation.color=227,183,53
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_question_in_wildcard=do not insert
 /instance/org.eclipse.jdt.ui/semanticHighlighting.localVariable.enabled=true
@@ -476,7 +494,9 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.ui/spelling_ignore_ampersand_in_properties=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.use_on_off_tags=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.source=1.5
+/instance/com.android.ide.eclipse.ddms/emulatorControl.waypoint.longitude=77
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_superinterfaces=insert
+/instance/com.android.ide.eclipse.ddms/emulatorControl.waypoint.elevation=50
 /instance/org.eclipse.ui.editors/AbstractTextEditor.Color.FindScope=25,25,25
 /instance/org.eclipse.jdt.ui/sp_cleanup.remove_unused_private_fields=true
 /instance/org.eclipse.jdt.ui/sp_cleanup.make_local_variable_final=false
@@ -503,6 +523,7 @@ file_export_version=3.0
 /instance/org.eclipse.ui.editors/spellingEnabled=false
 /instance/org.eclipse.jdt.ui/pf_coloring_assignment=255,255,255
 /instance/org.eclipse.jdt.ui/semanticHighlighting.number.enabled=true
+/instance/com.android.ide.eclipse.ddms/emulatorControl.waypoint.name=68
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_question_in_conditional=insert
 /instance/org.eclipse.jdt.ui/java_multi_line_comment=64,203,68
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_constructor_declaration=insert
@@ -548,11 +569,13 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation=16
 /instance/org.eclipse.wst.xml.ui/xml_content_assist_own_page_sort_order=org.eclipse.wst.xml.ui.proposalCategory.xmlTemplates\u0000org.eclipse.wst.xml.ui.proposalCategory.xmlTags\u0000
 /instance/org.eclipse.jdt.ui/sp_cleanup.add_missing_methods=false
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.switch_perspective_on_suspend=never
 /instance/org.eclipse.jdt.ui/sp_cleanup.remove_unused_private_types=true
 /instance/org.eclipse.jdt.ui/java_keyword_return_bold=false
-/instance/org.eclipse.jdt.ui/content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.CharSequence"><rhs name\="java.lang.String"/></lhs><lhs name\="com.bezurk.web.dao.IHotelCitySearchRequestDAO"><rhs name\="com.bezurk.web.dao.HotelCitySearchRequestDAO"/></lhs><lhs name\="com.bezurk.web.dao.HotelCitySearchRequestDAO"><rhs name\="com.bezurk.web.dao.HotelCitySearchRequestDAO"/></lhs><lhs name\="com.bezurk.web.dao.IHotelSearchClickThroughDAO"><rhs name\="com.bezurk.web.dao.HotelSearchClickThroughDAO"/></lhs><lhs name\="com.bezurk.web.dao.SomewhatMagicalDAO"><rhs name\="com.bezurk.web.dao.HotelSearchClickThroughDAO"/></lhs><lhs name\="com.bezurk.web.dao.HotelSearchClickThroughDAO"><rhs name\="com.bezurk.web.dao.HotelSearchClickThroughDAO"/></lhs><lhs name\="com.bezurk.web.model.HotelSearchClickThrough"><rhs name\="com.bezurk.web.model.HotelSearchClickThrough"/></lhs><lhs name\="java.lang.Enum"><rhs name\="com.bezurk.web.ajax.LocationService$LocationType"/></lhs><lhs name\="com.bezurk.web.ajax.LocationService$LocationType"><rhs name\="com.bezurk.web.ajax.LocationService$LocationType"/></lhs></history>
+/instance/org.eclipse.jdt.ui/content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.CharSequence"><rhs name\="java.lang.String"/></lhs><lhs name\="com.bezurk.web.dao.IHotelCitySearchRequestDAO"><rhs name\="com.bezurk.web.dao.HotelCitySearchRequestDAO"/></lhs><lhs name\="com.bezurk.web.dao.HotelCitySearchRequestDAO"><rhs name\="com.bezurk.web.dao.HotelCitySearchRequestDAO"/></lhs><lhs name\="com.bezurk.web.dao.IHotelSearchClickThroughDAO"><rhs name\="com.bezurk.web.dao.HotelSearchClickThroughDAO"/></lhs><lhs name\="com.bezurk.web.dao.SomewhatMagicalDAO"><rhs name\="com.bezurk.web.dao.HotelSearchClickThroughDAO"/></lhs><lhs name\="com.bezurk.web.dao.HotelSearchClickThroughDAO"><rhs name\="com.bezurk.web.dao.HotelSearchClickThroughDAO"/></lhs><lhs name\="com.bezurk.web.model.HotelSearchClickThrough"><rhs name\="com.bezurk.web.model.HotelSearchClickThrough"/></lhs><lhs name\="java.lang.Enum"><rhs name\="com.bezurk.web.ajax.LocationService$LocationType"/></lhs><lhs name\="com.bezurk.web.ajax.LocationService$LocationType"><rhs name\="com.bezurk.web.ajax.LocationService$LocationType"/></lhs></history>
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_annotation_type_member_declaration=do not insert
 /instance/org.eclipse.ui/SHOW_MEMORY_MONITOR=true
+/instance/com.android.ide.eclipse.ddms/com.android.ide.eclipse.ddms.logcat.filters=Android20\:2\:Android20|
 /instance/org.eclipse.ui.editors/spacesForTabs=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_constructor_declaration=end_of_line
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_opening_brace_in_array_initializer=do not insert
@@ -573,6 +596,7 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_type_arguments=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_enum_constant_arguments=do not insert
 /instance/org.eclipse.ant.ui/problem_imports=warning
+/instance/com.android.ide.eclipse.ddms/com.android.ide.eclipse.ddms.logcat.pid=32
 /instance/org.eclipse.jdt.ui/semanticHighlighting.interface.color=34,254,130
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_array_initializer=do not insert
 /instance/org.eclipse.jdt.ui/java_doc_link=64,203,68
