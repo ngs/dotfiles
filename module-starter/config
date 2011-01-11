@@ -1,0 +1,4 @@
+author:  Atsushi NAGASE
+email:   ngs@cpan.org
+plugins: Module::Starter::PBP
+template_dir: /Users/ngs/.module-starter/PBP

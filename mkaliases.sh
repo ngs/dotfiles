@@ -9,3 +9,4 @@ ln -s dotfiles/my.cnf     .my.cnf
 ln -s .vim/vimrc          .vimrc
 ln -s dotfiles/jsdoc.conf .jsdoc.conf
 ln -s dotfiles/mm.cfg     mm.cfg
+ln -s dotfiles/module-starter .module-starter
