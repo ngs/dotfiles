@@ -61,6 +61,11 @@ PATH=${PATH}:/usr/local/mysql/bin
 PATH=${PATH}:/usr/local/mecab-0.98/bin
 
 ##
+# Node
+##
+PATH=${PATH}:/usr/local/node/bin
+
+##
 # ClamXAV http://www.clamxav.com/
 #
 PATH=${PATH}:/usr/local/clamXav/bin
