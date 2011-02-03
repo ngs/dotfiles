@@ -53,7 +53,13 @@ PATH=${PATH}:/usr/local/git/bin
 ##
 # MySQL http://dev.mysql.com/downloads/mysql/
 ##
-PATH=${PATH}:/usr/local/mysql/bin
+MYSQL_HOME=/usr/local/mysql
+PATH=${PATH}:${MYSQL_HOME}/bin
+LD_LIBRARY_PATH=${MYSQL_HOME}/lib
+LDFLAGS=-L${MYSQL_HOME}/lib
+CPPFLAGS=-I${MYSQL_HOME}/include
+DYLD_FALLBACK_LIBRARY_PATH=${MYSQL_HOME}/lib
+
 
 ##
 # MeCab
@@ -63,7 +69,7 @@ PATH=${PATH}:/usr/local/mecab-0.98/bin
 ##
 # Node
 ##
-PATH=${PATH}:/usr/local/node/bin
+PATH=${PATH}:${HOME}/local/node/bin
 
 ##
 # ClamXAV http://www.clamxav.com/
@@ -93,3 +99,7 @@ source "${HOME}/dotfiles/bashrc"
 alias ls='ls -G'
 alias ll='ls -lsG'
 
+export LD_LIBRARY_PATH
+export LDFLAGS
+export CPPFLAGS
+export DYLD_FALLBACK_LIBRARY_PATH
