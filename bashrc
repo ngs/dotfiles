@@ -30,6 +30,16 @@ export EC2_CERT=~/.ec2/cert.pem
 export PATH=${PATH}:"${HOME}/bin":"${HOME}/dotfiles/bin"
 
 ##
+# Java CLASSPATH
+##
+CLASSPATH=${CLASSPATH}
+jars=( $(find "${HOME}/dotfiles/java/lib" -name "*.jar") )
+for jar in ${jars}; do
+    CLASSPATH=${CLASSPATH}:${jar}
+done
+export CLASSPATH
+
+##
 # Refercences
 ##
 source "${HOME}/dotfiles/bashfunctions"
