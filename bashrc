@@ -6,6 +6,10 @@ export EDITOR=vim
 export LC_ALL=en_US.UTF-8
 export CLICOLOR=1
 export LSCOLORS=dxgxcxdxcxegedabagacad
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
+export LDFLAGS+=-L/usr/local/lib
+export CPPFLAGS+=-I/usr/local/include
+export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/lib:$DYLD_FALLBACK_LIBRARY_PATH
 
 ##
 # Perl
