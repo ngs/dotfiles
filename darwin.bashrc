@@ -92,6 +92,12 @@ export JSDOCTEMPLATEDIR="${JSDOCDIR}/templates/jsdoc"
 ##
 PATH=${PATH}:/opt/local/bin
 
+##
+# PEAR
+##
+PATH=${HOME}/pear/bin:${PATH}
+
+
 export PATH
 export PYTHONPATH
 source "${HOME}/dotfiles/bashrc"

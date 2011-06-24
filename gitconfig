@@ -1,5 +1,5 @@
 [user]
-    name = Atsushi NAGASE <atsn.ngs@gmail.com>
+	name = Atsushi NAGASE
     email = atsn.ngs@gmail.com
 
 [alias] 
@@ -14,3 +14,9 @@
 [filter "ident"]
     smudge = git-expand-ident
 	clean = perl -pe \"s/\\\\\\$(Id|Tree|Parent|Author|Commiter|Log|Date)[^\\\\\\$]*\\\\\\$/\\\\\\$\\${1}\\\\\\$/\"
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
