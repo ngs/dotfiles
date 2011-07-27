@@ -70,6 +70,7 @@ PATH=${PATH}:/usr/local/mecab-0.98/bin
 # Node
 ##
 PATH=${PATH}:${HOME}/local/node/bin
+export NODE_PATH=$HOME/local/node/lib/node_modules
 
 ##
 # ClamXAV http://www.clamxav.com/

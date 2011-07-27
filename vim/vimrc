@@ -8,9 +8,9 @@ au Filetype html,xml,xsl,mxml,kon,tt,tt2 source ~/.vim/macros/closetag.vim
 set notitle
 set autoindent
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 set nocompatible
 set number
