@@ -44,6 +44,11 @@ done
 export CLASSPATH
 
 ##
+# rvm
+##
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+##
 # Refercences
 ##
 source "${HOME}/dotfiles/bashfunctions"
