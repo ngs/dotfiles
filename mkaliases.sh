@@ -10,3 +10,4 @@ ln -s .vim/vimrc          .vimrc
 ln -s dotfiles/jsdoc.conf .jsdoc.conf
 ln -s dotfiles/mm.cfg     mm.cfg
 ln -s dotfiles/module-starter .module-starter
+ln -s dotfiles/subversion-config .subversion/config

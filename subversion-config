@@ -1,0 +1,52 @@
+[auth]
+# password-stores = keychain
+# store-passwords = no
+# store-auth-creds = no
+
+[helpers]
+editor-cmd = vim
+# diff-cmd = diff_program (diff, gdiff, etc.)
+# diff3-cmd = diff3_program (diff3, gdiff3, etc.)
+# diff3-has-program-arg = [yes | no]
+# merge-tool-cmd = merge_command
+
+[tunnels]
+# ssh = $SVN_SSH ssh
+# rsh = rsh
+# rsh = /path/to/rsh -l myusername
+
+[miscellany]
+global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.pyc *.pyo .DS_Store Thumbs.db .*.swp *.xcuserdatad
+log-encoding = utf-8
+# use-commit-times = yes
+# no-unlock = yes
+# mime-types-file = /path/to/mime.types
+# preserved-conflict-file-exts = doc ppt xls od?
+enable-auto-props = yes
+# interactive-conflicts = no
+
+[auto-props]
+*.c = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+*.cpp = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+*.css = svn:keywords=Id Date Revision Author;svn:eol-style=LF;svn:mime-type=text/css
+*.dsp = svn:keywords=Id Date Revision Author;svn:eol-style=CRLF
+*.dsw = svn:keywords=Id Date Revision Author;svn:eol-style=CRLF
+*.gif = svn:mime-type=image/gif
+*.h = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+*.html = svn:keywords=Id Date Revision Author;svn:eol-style=LF;svn:mime-type=text/html
+*.java = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+*.jpg = svn:mime-type=image/jpeg
+*.m = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+*.pch = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+*.pl = svn:keywords=Id Date Revision Author;svn:eol-style=LF;svn:executable
+*.plist = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+*.pm = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+*.png = svn:mime-type=image/png
+*.sh = svn:keywords=Id Date Revision Author;svn:eol-style=native;svn:executable
+*.strings = svn:keywords=Id Date Revision Author;svn:eol-style=LF;svn:executable
+*.txt = svn:keywords=Id Date Revision Author;svn:eol-style=native
+*.xcconfig = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+*.xml = svn:keywords=Id Date Revision Author;svn:eol-style=LF;svn:mime-type=text/xml
+*.yaml = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+Makefile = svn:keywords=Id Date Revision Author;svn:eol-style=LF
+
