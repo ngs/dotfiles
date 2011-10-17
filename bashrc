@@ -6,16 +6,22 @@ export EDITOR=vim
 export LC_ALL=en_US.UTF-8
 export CLICOLOR=1
 export LSCOLORS=dxgxcxdxcxegedabagacad
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
-export LDFLAGS+=-L/usr/local/lib
-export CPPFLAGS+=-I/usr/local/include
-export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/lib:$DYLD_FALLBACK_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$HOME/local/lib
+export LDFLAGS+="-L/usr/local/lib -L$HOME/local/lib"
+export CPPFLAGS+="-I/usr/local/include -I$HOME/local/include"
+export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/lib:$HOME/local/lib:$DYLD_FALLBACK_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=/usr/local/lib:$HOME/local/lib:$DYLD_LIBRARY_PATH
 
 ##
 # Perl
 ##
 export PERL_AUTOINSTALL="--alldeps"
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+
+##
+# rvm
+##
+[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" 
 
 ##
 # Java
@@ -31,7 +37,7 @@ export EC2_CERT=~/.ec2/cert.pem
 ##
 # Pathes
 ##
-export PATH=${PATH}:"${HOME}/bin":"${HOME}/dotfiles/bin"
+export PATH=${PATH}:"${HOME}/bin":"${HOME}/local/bin":"${HOME}/dotfiles/bin"
 
 ##
 # Java CLASSPATH

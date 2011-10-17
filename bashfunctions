@@ -8,6 +8,10 @@ gs() {
     open -a Safari "http://www.google.com/search?q=$1";
 }
 
+line() {
+    echo '-----------------------------------------------------------------------------------'
+}
+
 gitinit() {
     remote=$1
     git init .
