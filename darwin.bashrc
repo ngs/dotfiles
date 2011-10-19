@@ -25,6 +25,7 @@ PATH=${PATH}:${LEJOS_HOME}/bin
 export ANDROID_HOME=${SDKROOT}/android-sdk-mac_x86
 export ANDROID_SDK_ROOT=${ANDROID_HOME}
 PATH=${PATH}:${ANDROID_HOME}/tools
+PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 ##
 # Amazon EC2 http://aws.amazon.com/developertools/351
