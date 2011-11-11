@@ -24,6 +24,11 @@ export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" 
 
 ##
+# pythonbrew
+##
+[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+
+##
 # Java
 ##
 export _JAVA_OPTIONS=-Duser.language=en
