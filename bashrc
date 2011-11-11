@@ -60,6 +60,13 @@ export CLASSPATH
 source "${HOME}/dotfiles/bashfunctions"
 source "${HOME}/dotfiles/aliases"
 
+##
+# node
+##
+if [ -d ${HOME}/local/node/lib/node_modules/less/bin ]; then
+  export PATH=${HOME}/local/node/lib/node_modules/less/bin:$PATH
+fi
+
 if [ -d "${HOME}/perl5" ]; then
     source "${HOME}/perl5/perlbrew/etc/bashrc"
 fi
