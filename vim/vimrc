@@ -1,7 +1,7 @@
 syntax on
 
 set t_Co=256
-colorscheme colorful256
+colorscheme Tomorrow-Night
 let g:NeoComplCache_EnableAtStartup = 1
 let g:closetag_html_style=1
 au Filetype html,xml,xsl,mxml,kon,tt,tt2 source ~/.vim/macros/closetag.vim
@@ -50,4 +50,4 @@ augroup InsertHook
     autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
 augroup END
 
-set bg=dark
+"set bg=dark
