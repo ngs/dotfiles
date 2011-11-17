@@ -92,7 +92,7 @@ export JSDOCTEMPLATEDIR="${JSDOCDIR}/templates/jsdoc"
 ##
 # MacPorts
 ##
-PATH=${PATH}:/opt/local/bin
+PATH=/opt/local/bin:${PATH}
 
 ##
 # PEAR
