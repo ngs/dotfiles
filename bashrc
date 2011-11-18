@@ -42,7 +42,7 @@ export EC2_CERT=~/.ec2/cert.pem
 ##
 # Pathes
 ##
-export PATH=${PATH}:"${HOME}/bin":"${HOME}/local/bin":"${HOME}/dotfiles/bin"
+export PATH="${HOME}/bin":"${HOME}/local/bin":"${HOME}/dotfiles/bin":${PATH}
 
 ##
 # Java CLASSPATH
