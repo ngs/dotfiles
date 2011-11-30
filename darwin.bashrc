@@ -111,3 +111,4 @@ export LD_LIBRARY_PATH
 export LDFLAGS
 export CPPFLAGS
 export DYLD_FALLBACK_LIBRARY_PATH
+export RAILS_ENV=localhost
