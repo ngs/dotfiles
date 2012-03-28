@@ -51,3 +51,5 @@ augroup InsertHook
 augroup END
 
 "set bg=dark
+"
+set exrc

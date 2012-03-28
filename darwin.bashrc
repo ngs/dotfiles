@@ -39,7 +39,7 @@ PATH=${PATH}:${EC2_HOME}/bin
 export GSUTIL_HOME=${SDKROOT}/gsutil
 export BOTO_HOME=${GSUTIL_HOME}/boto
 PATH=${PATH}:${GSUTIL_HOME}:${BOTO_HOME}/bin
-PYTHONPATH=${PYTHONPATH}:${BOTO_HOME}
+PYTHONPATH=${PYTHONPATH}:${HOME}/python/lib:${BOTO_HOME}
 
 ##
 # Apple Developer Tools
@@ -99,6 +99,12 @@ PATH=/opt/local/bin:${PATH}
 ##
 PATH=${HOME}/pear/bin:${PATH}
 
+##
+# Postgres
+##
+export POSTGRES_HOME=/Library/PostgreSQL/Current
+export PGDATA=${POSTGRES_HOME}/data
+PATH=${POSTGRES_HOME}/bin:${PATH}
 
 export PATH
 export PYTHONPATH
@@ -112,3 +118,4 @@ export LDFLAGS
 export CPPFLAGS
 export DYLD_FALLBACK_LIBRARY_PATH
 export RAILS_ENV=localhost
+export TM_TAB_SIZE=2

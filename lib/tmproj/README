@@ -1,0 +1,23 @@
+This script uses a simple eruby template to create a new TextMate project file. It is opinionated in that it's set up for my preferred working environment on Linux/Mac OS X.
+
+Requirements
+
+ruby :-)
+erubis
+~/Documents/projects directory
+
+Installation
+
+$ rake install
+
+This creates ~/bin and ~/lib, and copies the script and template, respectively.
+
+Usage
+
+ARGV[0] is the name of the directory where the project is located.
+ARGV[1] can be anything, and is whether the project file should be created in the PWD, or in the projects directory.
+
+$ cd ~/code
+$ tmproj rails_app y
+
+This will create ~/code/rails_app.tmproj. Simply open the file up in TextMate!
