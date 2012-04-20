@@ -106,6 +106,8 @@ export POSTGRES_HOME=/Library/PostgreSQL/Current
 export PGDATA=${POSTGRES_HOME}/data
 PATH=${POSTGRES_HOME}/bin:${PATH}
 
+PATH=/Applications/Xcode.app/Contents/Developer/usr/bin:${PATH}
+
 export PATH
 export PYTHONPATH
 source "${HOME}/dotfiles/bashrc"
