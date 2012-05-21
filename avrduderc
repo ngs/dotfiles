@@ -1,0 +1,2 @@
+default_programmer = "arduino";
+default_serial = "/dev/cu.usbserial-A900aede";

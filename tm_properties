@@ -2,4 +2,12 @@ softTabs             = true
 tabSize              = 2
 projectDirectory     = "$CWD"
 windowTitle          = "$TM_DISPLAYNAME — ${CWD/^.*\///}"
+showInvisibles       = true
+
+ARDUINO_UPLOAD_RATE        = 57600
+ARDUINO_PORT               = "/dev/cu.usbserial-A900aede"
+ARDUINO_AVRDUDE_PROGRAMMER = arduino
+ARDUINO_MCU                = atmega328p
+ARDUINO_F_CPU              = 16000000
+ARDUINO_VARIANT            = standard
 

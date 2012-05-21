@@ -12,3 +12,5 @@ ln -s dotfiles/mm.cfg     mm.cfg
 ln -s dotfiles/module-starter .module-starter
 ln -s dotfiles/subversion-config .subversion/config
 ln -s dotfiles/tm_properties .tm_properties
+ln -s dotfiles/ssh_config .ssh/config
+

@@ -120,4 +120,5 @@ export LDFLAGS
 export CPPFLAGS
 export DYLD_FALLBACK_LIBRARY_PATH
 export RAILS_ENV=localhost
-export TM_TAB_SIZE=2
+
+export PATH=$PATH:/usr/local/CrossPack-AVR/bin
