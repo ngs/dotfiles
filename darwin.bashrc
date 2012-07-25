@@ -100,11 +100,16 @@ PATH=/opt/local/bin:${PATH}
 PATH=${HOME}/pear/bin:${PATH}
 
 ##
+# php-version
+##
+export PHP_VERSIONS=$HOME/php/versions
+source $(/usr/local/bin/brew --prefix php-version)/php-version.sh && php-version 5.4.4 >/dev/null
+
+##
 # Postgres
 ##
-export POSTGRES_HOME=/Library/PostgreSQL/Current
-export PGDATA=${POSTGRES_HOME}/data
-PATH=${POSTGRES_HOME}/bin:${PATH}
+PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+export PGDATA="${HOME}/Application Support/Postgres/var"
 
 PATH=/Applications/Xcode.app/Contents/Developer/usr/bin:${PATH}
 
