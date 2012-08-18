@@ -59,7 +59,6 @@ PATH=${PATH}:${MYSQL_HOME}/bin
 LD_LIBRARY_PATH=${MYSQL_HOME}/lib:$LD_LIBRARY_PATH
 LDFLAGS+=" -L${MYSQL_HOME}/lib "
 CPPFLAGS+=" -I${MYSQL_HOME}/include "
-DYLD_FALLBACK_LIBRARY_PATH=${MYSQL_HOME}/lib:$DYLD_FALLBACK_LIBRARY_PATH
 
 
 ##
@@ -103,7 +102,10 @@ PATH=${HOME}/pear/bin:${PATH}
 # php-version
 ##
 export PHP_VERSIONS=$HOME/php/versions
-source $(/usr/local/bin/brew --prefix php-version)/php-version.sh && php-version 5.4.4 >/dev/null
+PHP_VERSION=$(/usr/local/bin/brew --prefix php-version)/php-version.sh
+if [ -f "$PHP_VERSION" ]; then
+  source $PHP_VERSION  && php-version 5.4.4 >/dev/null
+fi
 
 ##
 # Postgres
@@ -123,7 +125,6 @@ alias ll='ls -lsG'
 export LD_LIBRARY_PATH
 export LDFLAGS
 export CPPFLAGS
-export DYLD_FALLBACK_LIBRARY_PATH
 export RAILS_ENV=localhost
 
 export PATH=$PATH:/usr/local/CrossPack-AVR/bin
