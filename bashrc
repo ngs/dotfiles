@@ -82,4 +82,4 @@ if [ -d "${HOME}/.pythonbrew" ]; then
 fi
 
 # http://www.commandlinefu.com/commands/view/10046/automatically-rename-tmux-window-using-the-current-working-directory
-f(){ if [ "$PWD" != "$LPWD" ];then LPWD="$PWD"; tmux rename-window ${PWD//*\//}; fi }; export PROMPT_COMMAND=f;
+f(){ if [ "$PWD" != "$LPWD" ];then LPWD="$PWD"; [ $TMUX ] && tmux rename-window ${PWD//*\//}; fi }; export PROMPT_COMMAND=f;
