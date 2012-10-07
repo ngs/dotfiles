@@ -13,6 +13,12 @@ export FLEX_HOME=${SDKROOT}/flex_sdk_3
 PATH=${PATH}:${FLEX_HOME}/bin
 
 ##
+# Adobe AIR SDK
+##
+export ADOBE_AIR_HOME=${SDKROOT}/AdobeAIRSDK
+PATH=${PATH}:${ADOBE_AIR_HOME}/bin
+
+##
 # LeJOS http://lejos.sourceforge.net/
 ##
 export LEJOS_HOME=${SDKROOT}/lejos_nxj
