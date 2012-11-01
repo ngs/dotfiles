@@ -2,7 +2,7 @@
 	name = Atsushi NAGASE
 	email = atsn.ngs@gmail.com
 
-[alias] 
+[alias]
     st = status
     ci = commit
     co = checkout
@@ -11,6 +11,7 @@
     addorg = remote add origin
 [core]
 	quotepath = false
+	ignorecase = false
 [filter "ident"]
     smudge = git-expand-ident
 	clean = perl -pe \"s/\\\\\\$(Id|Tree|Parent|Author|Commiter|Log|Date)[^\\\\\\$]*\\\\\\$/\\\\\\$\\${1}\\\\\\$/\"

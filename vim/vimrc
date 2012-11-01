@@ -53,3 +53,5 @@ augroup END
 "set bg=dark
 "
 set exrc
+
+autocmd BufWritePre * :%s/\s\+$//e
