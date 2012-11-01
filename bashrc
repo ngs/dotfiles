@@ -22,7 +22,7 @@ export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
 ##
 # rvm
 ##
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" 
+[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
 ##
 # pythonbrew
@@ -82,4 +82,4 @@ if [ -d "${HOME}/.pythonbrew" ]; then
 fi
 
 # http://www.commandlinefu.com/commands/view/10046/automatically-rename-tmux-window-using-the-current-working-directory
-f(){ if [ "$PWD" != "$LPWD" ];then LPWD="$PWD"; [ $TMUX ] && tmux rename-window ${PWD//*\//}; fi }; export PROMPT_COMMAND=f;
+f(){ if [ "$PWD" != "$LPWD" ];then LPWD="$PWD"; [ $TMUX ] && tmux rename-window "${PWD//*\//}"; fi }; export PROMPT_COMMAND=f;
