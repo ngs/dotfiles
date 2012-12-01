@@ -21,3 +21,5 @@
 	prompt = false
 [diff]
 	tool = Kaleidoscope
+[color]
+	ui = auto

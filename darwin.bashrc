@@ -34,6 +34,12 @@ PATH=${PATH}:${ANDROID_HOME}/tools
 PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 ##
+# AWS Elastic Beanstalk http://aws.amazon.com/code/6752709412171743
+##
+export EB_HOME=${SDKROOT}/awseb
+PATH=${PATH}:${EB_HOME}/eb/macosx/python2.7
+
+##
 # Amazon EC2 http://aws.amazon.com/developertools/351
 ##
 export EC2_HOME=${SDKROOT}/ec2-api-tools
