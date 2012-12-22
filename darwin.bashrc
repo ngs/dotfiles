@@ -13,6 +13,13 @@ export FLEX_HOME=${SDKROOT}/flex_sdk_3
 PATH=${PATH}:${FLEX_HOME}/bin
 
 ##
+# Adobe Font Development Kit for OpenType
+##
+export FDK_HOME=${SDKROOT}/FDK
+PATH=${PATH}:${FDK_HOME}/Tools/osx
+
+
+##
 # Adobe AIR SDK
 ##
 export ADOBE_AIR_HOME=${SDKROOT}/AdobeAIRSDK

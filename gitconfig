@@ -12,6 +12,7 @@
 [core]
 	quotepath = false
 	ignorecase = false
+	excludesfile = ~/.gitignore
 [filter "ident"]
     smudge = git-expand-ident
 	clean = perl -pe \"s/\\\\\\$(Id|Tree|Parent|Author|Commiter|Log|Date)[^\\\\\\$]*\\\\\\$/\\\\\\$\\${1}\\\\\\$/\"
@@ -21,3 +22,9 @@
 	prompt = false
 [diff]
 	tool = Kaleidoscope
+[mergetool]
+	keepBackup = true
+[github]
+	user = ngs
+[push]
+	default = matching
