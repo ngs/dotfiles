@@ -15,3 +15,4 @@ ln -s dotfiles/tm_properties .tm_properties
 ln -s dotfiles/ssh_config .ssh/config
 ln -s dotfiles/rspec .rspec
 ln -s dotfiles/gitignore .gitignore
+ln -s dotfiles/gemrc .gemrc
