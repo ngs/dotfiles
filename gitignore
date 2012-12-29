@@ -1,0 +1,6 @@
+.DS_Store
+*.swp
+*.tmp
+.work
+.svn
+xcuserdata
