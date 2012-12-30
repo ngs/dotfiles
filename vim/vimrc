@@ -1,5 +1,15 @@
-syntax on
+set nocompatible               " be iMproved
+filetype off                   " required!
 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'vim-ruby/vim-ruby'
+
+filetype plugin indent on
+
+syntax on
 set t_Co=256
 colorscheme Tomorrow-Night
 let g:NeoComplCache_EnableAtStartup = 1
@@ -55,3 +65,4 @@ augroup END
 set exrc
 
 autocmd BufWritePre * :%s/\s\+$//e
+
