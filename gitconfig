@@ -30,3 +30,5 @@
 	default = matching
 [color]
 	ui = auto
+[credential]
+	helper = cache

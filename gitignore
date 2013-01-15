@@ -4,3 +4,5 @@
 .work
 .svn
 xcuserdata
+*.sublime-project
+*.sublime-workspace

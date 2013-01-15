@@ -35,7 +35,7 @@ PATH=${PATH}:${LEJOS_HOME}/bin
 ##
 # Android SDK http://developer.android.com/sdk/
 ##
-export ANDROID_HOME=${SDKROOT}/android-sdk-mac_x86
+export ANDROID_HOME=${SDKROOT}/adt-bundle-mac/sdk
 export ANDROID_SDK_ROOT=${ANDROID_HOME}
 PATH=${PATH}:${ANDROID_HOME}/tools
 PATH=${PATH}:${ANDROID_HOME}/platform-tools
