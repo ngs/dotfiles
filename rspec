@@ -1,1 +1,1 @@
---color --format NyanCatFormatter --format Blink1Formatter --require ~/dotfiles/rspec_formatters.rb
+--color -r $HOME/dotfiles/rspec_formatters.rb --format NyanCatFormatter --format Blink1Formatter
