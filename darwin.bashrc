@@ -127,6 +127,13 @@ PATH=${HOME}/pear/bin:${PATH}
 # fi
 
 ##
+# phpbrew
+##
+if [ -f "${HOME}/.phpbrew/bashrc" ]; then
+  source "${HOME}/.phpbrew/bashrc"
+fi
+
+##
 # Postgres
 ##
 PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
