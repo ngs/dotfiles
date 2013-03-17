@@ -120,11 +120,11 @@ PATH=${HOME}/pear/bin:${PATH}
 ##
 # php-version
 ##
-export PHP_VERSIONS=$HOME/php/versions
-PHP_VERSION=$(/usr/local/bin/brew --prefix php-version)/php-version.sh
-if [ -f "$PHP_VERSION" ]; then
-  source $PHP_VERSION  && php-version 5.4.4 >/dev/null
-fi
+# export PHP_VERSIONS=$HOME/php/versions
+# PHP_VERSION=$(/usr/local/bin/brew --prefix php-version)/php-version.sh
+# if [ -f "$PHP_VERSION" ]; then
+#  source $PHP_VERSION  && php-version 5.4.4 >/dev/null
+# fi
 
 ##
 # Postgres

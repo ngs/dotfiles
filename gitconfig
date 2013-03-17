@@ -1,6 +1,6 @@
 [user]
-	name = Atsushi NAGASE
-	email = atsn.ngs@gmail.com
+	name = Atsushi Naganse
+	email = a@ngs.io
 
 [alias]
     st = status
@@ -35,3 +35,150 @@
 
 [hub]
 protocol = https
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[merge]
+tool = Kaleidoscope
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
