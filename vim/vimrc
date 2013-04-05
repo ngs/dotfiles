@@ -6,6 +6,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'rodjek/vim-puppet'
 
 filetype plugin indent on
 
