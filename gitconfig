@@ -1,5 +1,5 @@
 [user]
-	name = Atsushi Nagase
+	name = Atsushi Naganse
 	email = a@ngs.io
 
 [alias]
@@ -42,3 +42,141 @@ protocol = https
 
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[merge]
+tool = Kaleidoscope
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+
+[mergetool "Kaleidoscope"]
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "" -- "" ""

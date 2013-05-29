@@ -151,6 +151,6 @@ alias ll='ls -lsG'
 export LD_LIBRARY_PATH
 export LDFLAGS
 export CPPFLAGS
-export RAILS_ENV=localhost
+export RAILS_ENV=development
 
 export PATH=$PATH:/usr/local/CrossPack-AVR/bin
