@@ -9,10 +9,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'rodjek/vim-puppet'
+Bundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on
-
 syntax on
+syntax enable
+filetype plugin indent on
+
 set t_Co=256
 colorscheme Tomorrow-Night
 let g:NeoComplCache_EnableAtStartup = 1
