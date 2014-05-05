@@ -22,6 +22,7 @@ loadenv() {
 }
 
 loadenv $ENVD
+loadenv $ENVD/secret
 if [ $UNAME = 'Darwin' ]; then
   loadenv $ENVD/darwin
 fi

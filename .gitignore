@@ -3,3 +3,4 @@
 .*.swp
 /vim/bundle/vim-*
 /rc.d/atom/compile-cache/
+/env.d/secret/*.sh

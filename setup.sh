@@ -1,6 +1,6 @@
 #!/bin/bash
 ###
-UNAME=$(uname -s)
+UNAM=E$(uname -s)
 TS=$(date +'%Y%m%d%H%M%S')
 DOTFILES=$(cd $(dirname $0) && pwd)
 DOTATOM="${HOME}/.atom"
