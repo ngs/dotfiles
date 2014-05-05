@@ -8,27 +8,22 @@ export EDITOR=vim
 
 loadenv() {
   for f in $1/*.sh ; do
-    if [ -f $f ]; then
+    if [ -f $f ] ; then
       source $f
     fi
   done
-  if [ "$SHELL" = '/bin/bash' ]; then
+  if [ $BASH ]; then
     for f in $1/*.bash ; do
-      if [ -f $f ]; then
+      if [ -f $f ] ; then
         source $f
       fi
     done
   fi
 }
 
+[ -f $ENVD/secret/env.sh   ] && loadenv $ENVD/secret
+[ $UNAME    = 'Darwin'     ] && loadenv $ENVD/darwin
+[ $UNAME    = 'Linux'      ] && loadenv $ENVD/linux
+[ $HOSTNAME = 'oglethorpe' ] && loadenv $ENVD/dreamhost
 loadenv $ENVD
-loadenv $ENVD/secret
-if [ $UNAME = 'Darwin' ]; then
-  loadenv $ENVD/darwin
-fi
-if [ $UNAME = 'Linux' ]; then
-  loadenv $ENVD/darwin
-fi
-if [ $HOSTNAME = 'oglethorpe' ]; then
-  loadenv $ENVD/dreamhost
-fi
+

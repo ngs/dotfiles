@@ -23,4 +23,4 @@ alias screenr="screen -r"
 # alias tmux='SHELL=zsh tmux -2'
 alias tmuxls="tmux list-sessions"
 alias tmuxa="tmux attach"
-
+alias tmux="tmux -2"
