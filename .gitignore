@@ -1,4 +1,5 @@
 .DS_Store
 .netrwhist
 .*.swp
-vim/bundle/vim-*
+/vim/bundle/vim-*
+/rc.d/atom/compile-cache/

@@ -1,0 +1,19 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer': [
+      'Run Grunt (default)': 'grunt-helper:run-default'
+      'Run Grunt (custom)': 'grunt-helper:run-custom'
+  ]
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'grunt-helper'
+      'submenu': [
+        { 'label': 'Run Grunt (default)', 'command': 'grunt-helper:run-default' }
+        { 'label': 'Run Grunt (custom)', 'command': 'grunt-helper:run-custom' }
+      ]
+    ]
+  }
+]

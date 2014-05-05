@@ -1,0 +1,27 @@
+{
+  "name": "language-slim",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Slim language package for Atom.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slim-template/language-slim"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Slim Atom language package [![endorse](http://api.coderwall.com/fredwu/endorsecount.png)](http://coderwall.com/fredwu)\n\n## Description\n\nThis is the [Atom](http://atom.io/) language package, converted from the [Slim TextMate/Sublime bundle](https://github.com/slim-template/ruby-slim.tmbundle).\n\n## Author\n\n[Fred Wu](http://fredwu.me/)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/slim-template/language-slim/issues"
+  },
+  "homepage": "https://github.com/slim-template/language-slim",
+  "_id": "language-slim@0.2.0",
+  "dist": {
+    "shasum": "d3a05011c26260d8f0b1c9e8792813b62c660438"
+  },
+  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114316-30018-pcmn4l/package.tgz",
+  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114316-30018-pcmn4l/package.tgz"
+}

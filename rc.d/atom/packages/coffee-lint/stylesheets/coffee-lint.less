@@ -1,0 +1,51 @@
+@import "octicon-utf-codes.less";
+@import "ui-variables.less";
+
+.editor .gutter .line-number {
+  &.coffee-error .icon-right {
+    visibility: visible;
+
+  &:before {
+      content: @alert;
+      color: @text-color-error;
+    }
+  }
+
+  &.coffee-warn .icon-right {
+    visibility: visible;
+
+    &:before {
+      content: @info;
+      color: @text-color-warning;
+    }
+  }
+}
+
+.coffee-lint {
+  margin-bottom: 0;
+
+  .panel-body {
+    height: 150px;
+    overflow-y: scroll;
+
+    .result-item {
+      cursor: pointer;
+
+      &.lint-error {
+        color: fade(@text-color-error, 70%);
+
+        &:hover {
+          color: @text-color-error;
+        }
+      }
+
+      &.lint-warn {
+        color: fade(@text-color-warning, 70%);
+
+        &:hover {
+          color: @text-color-warning;
+        }
+      }
+    }
+  }
+}

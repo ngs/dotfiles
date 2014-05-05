@@ -1,0 +1,3 @@
+export PERL_AUTOINSTALL="--alldeps"
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+

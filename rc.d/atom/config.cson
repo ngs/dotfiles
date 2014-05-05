@@ -1,0 +1,17 @@
+'exception-reporting':
+  'userId': '58c8490b-aaf1-e94d-fb4d-0262f023bd65'
+'release-notes':
+  'viewedVersion': '0.92.0'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': 'a53b8eac7d1a1d2a340dbf87b28b34feb3c0e677'
+'editor':
+  'fontSize': 16
+'core':
+  'themes': [
+    'atom-dark-ui'
+    'base16-tomorrow-dark-theme'
+  ]
+  'projectHome': '/Users/ngs/Sites/Dev'
+'autosave': {}
