@@ -28,11 +28,6 @@ cask install virtualbox
 cask install vagrant
 cask install kobito
 
-## KAIZEN platform
-tap kaizenplatform/homebrew-kaizenplatform || true
-install planbcd --HEAD
-install planbcd-log --HEAD
-
 ## Finalize
 update
 doctor

@@ -1,6 +1,6 @@
 #!/bin/bash
 ###
-UNAM=E$(uname -s)
+UNAME=$(uname -s)
 TS=$(date +'%Y%m%d%H%M%S')
 DOTFILES=$(cd $(dirname $0) && pwd)
 DOTATOM="${HOME}/.atom"
@@ -56,8 +56,18 @@ fi
 ##
 ## Homebrew
 ##
-if [ $UNAME == 'Darwin' ]; then
-  [ `which brew` ] || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+[ `which brew` ] || [ $UNAME == 'Darwin' ] && ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+if [ `which brew` ]; then
   brew bundle "${DOTFILES}/Brewfile"
+  brew bundle "${DOTFILES}/Brewfile-kaizen"
+  ##
+  ## Import iTerm 2 Themes
+  ##
+  for f in $DOTFILES/themes/iterm2/*; do
+    THEME=$(basename "$f")
+    echo $THEME
+    echo $f
+    # defaults write -app iTerm 'Custom Color Presets' -dict-add "$THEME" "$(cat "$THEME")"
+  done
 fi
 
