@@ -1,1 +1,1 @@
-eval "$(rbenv init -)"
+[ `which rbenv` ] && eval "$(rbenv init -)"

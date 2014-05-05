@@ -24,6 +24,12 @@ ensure_directory() {
   fi
 }
 ##
+## submodule update
+##
+cd $DOTFILES
+git submodule update --init --recursive
+cd -
+##
 ## ZShell
 ##
 ZSH=$HOME/.oh-my-zsh
@@ -53,21 +59,5 @@ if [ -d $ATOM_CACHE_BK ] && [ ! -d $ATOM_CACHE ]; then
   echo "Moving: ${ATOM_CACHE_BK} ${ATOM_CACHE}"
   mv $ATOM_CACHE_BK $ATOM_CACHE
 fi
-##
-## Homebrew
-##
-[ `which brew` ] || [ $UNAME == 'Darwin' ] && ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-if [ `which brew` ]; then
-  brew bundle "${DOTFILES}/Brewfile"
-  brew bundle "${DOTFILES}/Brewfile-kaizen"
-  ##
-  ## Import iTerm 2 Themes
-  ##
-  for f in $DOTFILES/themes/iterm2/*; do
-    THEME=$(basename "$f")
-    echo $THEME
-    echo $f
-    # defaults write -app iTerm 'Custom Color Presets' -dict-add "$THEME" "$(cat "$THEME")"
-  done
-fi
-
+[ $UNAME == 'Darwin' ] && [ ! -f /opt/boxen/env.sh ] && /bin/sh $DOTFILES/setup.darwin.sh
+tmux set-option -g default-shell /bin/zsh

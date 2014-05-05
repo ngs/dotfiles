@@ -12,7 +12,7 @@
 [core]
 	quotepath = false
 	ignorecase = false
-	excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = ~/dotfiles/rc.d/gitignore
 [filter "ident"]
     smudge = git-expand-ident
 	clean = perl -pe \"s/\\\\\\$(Id|Tree|Parent|Author|Commiter|Log|Date)[^\\\\\\$]*\\\\\\$/\\\\\\$\\${1}\\\\\\$/\"
@@ -28,155 +28,9 @@
 	default = matching
 [color]
 	ui = auto
-[credential]
-	helper = /opt/boxen/bin/boxen-git-credential
 
 [hub]
 protocol = https
 
-[mergetool "Kaleidoscope"]
-	trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[merge]
-tool = Kaleidoscope
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
-
-[mergetool "Kaleidoscope"]
-trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output "" --base "" -- "" --snapshot "" --snapshot
-
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path "" -- "" ""
+[credential]
+helper = cache
