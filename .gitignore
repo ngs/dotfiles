@@ -5,3 +5,5 @@
 /rc.d/atom/storage/
 /env.d/secret/*.sh
 /rc.d/vim/bundle/
+/.bundle
+/vendor/ruby/

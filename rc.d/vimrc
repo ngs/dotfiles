@@ -67,20 +67,21 @@ colorscheme Tomorrow-Night
 filetype plugin indent on
 retab
 set autoindent
-set notitle
 set bs=indent,eol,start
 set cmdheight=1
 set expandtab
 set laststatus=1
 set list
 set listchars=tab:>_,trail:\.,nbsp:%,eol:\$
+set notitle
 set number
 set ruler
 set shiftwidth=2
-set shiftwidth=2
 set showcmd
 set showmatch
+set smartindent
 set t_Co=256
+set tabstop=2
 set title
 syntax enable
 

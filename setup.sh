@@ -28,13 +28,14 @@ ensure_directory() {
 ##
 cd $DOTFILES
 git submodule update --init --recursive
+bundle install --path=vendor
 cd -
 ##
 ## ZShell
 ##
 ZSH=$HOME/.oh-my-zsh
 grep `which zsh` /etc/shells > /dev/null || sudo sh -c 'which zsh >> /etc/shells'
-[ -d $ZSH ] || git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
+[ -d $ZSH ] || git clone https://github.com/ngs/oh-my-zsh.git $ZSH
 ##
 ## Backup .atom
 [ -d $DOTATOM ] && [ ! -L $DOTATOM ] && mv $DOTATOM $DOTATOM_BK
@@ -62,9 +63,9 @@ if [ -d $ATOM_CACHE_BK ] && [ ! -d $ATOM_CACHE ]; then
 fi
 if [ $UNAME == 'Darwin' ]; then
   if [ -f /opt/boxen/env.sh ]; then
-    /bin/sh $DOTFILES/setup.boxen.sh
+    /bin/sh $DOTFILES/setup/boxen.sh
   else
-    /bin/sh $DOTFILES/setup.darwin.sh
+    /bin/sh $DOTFILES/setup/darwin.sh
   fi
 fi
 
