@@ -2,5 +2,6 @@
 .netrwhist
 .*.swp
 /rc.d/atom/compile-cache/
+/rc.d/atom/storage/
 /env.d/secret/*.sh
 /rc.d/vim/bundle/
