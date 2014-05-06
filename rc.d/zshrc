@@ -1,12 +1,13 @@
 UNAME=$(uname -s)
 source $HOME/dotfiles/env.sh
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="dieter"
+# ZSH_THEME="dieter"
+ZSH_THEME="adben"
 if [ $UNAME = 'Darwin' ]; then
-  plugins=(rails git ruby atom aws brew brew-cask battery bower bundler coffee cpanm gem git-extras heroku history node npm osx tmux vundle)
+  plugins=(rails git ruby atom aws brew brew-cask battery bower bundler coffee cpanm gem git-extras heroku history node npm osx vundle)
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 else
-  plugins=(githistory node tmux vundle)
+  plugins=(githistory node vundle)
   fpath=(~/.zsh/completion $fpath)
 fi
 
