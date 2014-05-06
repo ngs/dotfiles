@@ -5,5 +5,5 @@ just run
 --------
 
 ```
-./setup.sh
+curl -Ls http://s.liap.us/setup | sh
 ```
