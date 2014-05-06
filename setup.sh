@@ -54,6 +54,7 @@ symlink "${DOTFILES}/rc.d/subversion/config" "${HOME}/.subversion/config"
 ## SSH
 ensure_directory "${HOME}/.ssh"
 symlink "${DOTFILES}/rc.d/ssh/config" "${HOME}/.ssh/config"
+chmod 600 "${HOME}/.ssh/config"
 ## Move .atom compile-cache
 if [ -d $ATOM_CACHE_BK ] && [ ! -d $ATOM_CACHE ]; then
   echo "Moving: ${ATOM_CACHE_BK} ${ATOM_CACHE}"
