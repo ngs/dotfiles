@@ -1,0 +1,2 @@
+[ -d ~/dotfiles ] || git clone git@github.com:ngs/dotfiles.git ~/dotfiles
+/bin/sh ~/dotfiles/setup.sh
