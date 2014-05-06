@@ -59,5 +59,10 @@ if [ -d $ATOM_CACHE_BK ] && [ ! -d $ATOM_CACHE ]; then
   echo "Moving: ${ATOM_CACHE_BK} ${ATOM_CACHE}"
   mv $ATOM_CACHE_BK $ATOM_CACHE
 fi
-[ $UNAME == 'Darwin' ] && [ ! -f /opt/boxen/env.sh ] && /bin/sh $DOTFILES/setup.darwin.sh
-tmux set-option -g default-shell /bin/zsh
+if [ $UNAME == 'Darwin' ]; then
+  if [ -f /opt/boxen/env.sh ]; then
+    /bin/sh $DOTFILES/setup.boxen.sh
+  else
+    /bin/sh $DOTFILES/setup.darwin.sh
+  fi
+fi
