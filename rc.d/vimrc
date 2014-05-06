@@ -1,74 +1,131 @@
-call pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set nocompatible               " be iMproved
-filetype off                   " required!
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+call vundle#begin()
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'gmarik/vundle'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'rodjek/vim-puppet'
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'Haml'
+Plugin 'Jasmine-snippets-for-snipMate'
+Plugin 'JavaScript-syntax'
+Plugin 'Markdown'
+Plugin 'Markdown-syntax'
+Plugin 'Puppet-Syntax-Highlighting'
+Plugin 'RubySinatra'
+Plugin 'vim-addon-ruby-debug-ide'
+Plugin 'Vim-Rspec'
+Plugin 'chef.vim'
+Plugin 'cocoa.vim'
+Plugin 'flymaker'
+Plugin 'ftpluginruby.vim'
+Plugin 'javascript.vim'
+Plugin 'perl.vim'
+Plugin 'rails.vim'
+Plugin 'ruby.vim'
+Plugin 'vim-coffee-script'
+Plugin 'xml.vim'
 
-filetype plugin indent on
-syntax on
-syntax enable
-filetype plugin indent on
+" From GitHub
+Plugin 'Shougo/neocomplcache.vim'
+" Lua needed
+" Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'docunext/closetag.vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'slim-template/vim-slim'
+Plugin 'tomtom/tlib_vim'
 
-set t_Co=256
-colorscheme Tomorrow-Night
-let g:NeoComplCache_EnableAtStartup = 1
-let g:closetag_html_style=1
-au Filetype html,xml,xsl,mxml,kon,tt,tt2 source ~/.vim/macros/closetag.vim
-set notitle
-set autoindent
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-
-set nocompatible
-set number
-set ruler
-
-filetype on
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
 filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
+" =================================================
+" Editor
+" =================================================
+
+colorscheme Tomorrow-Night
+filetype plugin indent on
+retab
+set autoindent
+set notitle
+set bs=indent,eol,start
+set cmdheight=1
+set expandtab
+set laststatus=1
 set list
 set listchars=tab:>_,trail:\.,nbsp:%,eol:\$
-set bs=indent,eol,start
-
-set laststatus=1
-set cmdheight=1
+set number
+set ruler
+set shiftwidth=2
+set shiftwidth=2
 set showcmd
-set title
-
 set showmatch
+set t_Co=256
+set title
+syntax enable
 
-highlight LineNr ctermfg=darkyellow
-highlight NonText ctermfg=darkblue ctermbg=NONE guibg=darkgray
-highlight Folded ctermfg=blue
-highlight SpecialKey ctermfg=darkgray ctermbg=NONE
-highlight Pmenu ctermbg=lightgray ctermfg=magenta
-highlight PmenuSel ctermbg=magenta ctermfg=white
-highlight PmenuSbar ctermbg=darkblue
+" =================================================
+" autocmd
+" =================================================
 
+" Close XML tags
+autocmd FileType html,erb,php,xml,xslt let b:closetag_html_style=1
+autocmd FileType html,erb,php,xml,xslt source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+" Highlight status line on edit mode
+augroup InsertHook
+  autocmd!
+  autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
+  autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
+augroup END
+
+" Remove all trailing spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" =================================================
+" Highlight
+" =================================================
+
+highlight LineNr     ctermfg=darkyellow
+highlight NonText    ctermfg=darkblue   ctermbg=NONE guibg=darkgray
+highlight Folded     ctermfg=blue
+highlight SpecialKey ctermfg=darkgray   ctermbg=NONE
+highlight Pmenu      ctermbg=lightgray  ctermfg=23
+highlight PmenuSel   ctermbg=black      ctermfg=yellow
+highlight PmenuSbar  ctermbg=yellow
+" Zenkaku Space
 highlight ZenkakuSpace cterm=underline ctermfg=darkgray ctermbg=NONE
 match ZenkakuSpace /　/
-
+" Hankaku Space
 "highlight HankakuSpace cterm=underline ctermfg=darkgray ctermbg=NONE
 "match HankakuSpace /\s/
 
-augroup InsertHook
-    autocmd!
-    autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
-    autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
-augroup END
+" =================================================
+" NeoComplCache
+" =================================================
 
-"set bg=dark
-"
-set exrc
-
-autocmd BufWritePre * :%s/\s\+$//e
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
