@@ -5,3 +5,7 @@ plugins=(rails git ruby atom aws brew brew-cask battery bower bundler coffee cpa
 
 source $ZSH/oh-my-zsh.sh
 
+[ `which brew` ] && fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
+autoload -U compinit
+compinit -u

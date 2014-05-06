@@ -1,36 +1,38 @@
 [user]
-	name = Atsushi Nagase
-	email = a@ngs.io
+  name = Atsushi Nagase
+  email = a@ngs.io
 
 [alias]
-    st = status
-    ci = commit
-    co = checkout
-    sm = submodule
-    pullsm = submodule foreach 'git pull'
-    addorg = remote add origin
+  st = status
+  ci = commit
+  co = checkout
+  sm = submodule
+  pullsm = submodule foreach 'git pull'
+  addorg = remote add origin
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+  pruneall = fetch --all --prune
 [core]
-	quotepath = false
-	ignorecase = false
-	excludesfile = ~/dotfiles/rc.d/gitignore
+  quotepath = false
+  ignorecase = false
+  excludesfile = ~/dotfiles/rc.d/gitignore
 [filter "ident"]
-    smudge = git-expand-ident
-	clean = perl -pe \"s/\\\\\\$(Id|Tree|Parent|Author|Commiter|Log|Date)[^\\\\\\$]*\\\\\\$/\\\\\\$\\${1}\\\\\\$/\"
+smudge = git-expand-ident
+  clean = perl -pe \"s/\\\\\\$(Id|Tree|Parent|Author|Commiter|Log|Date)[^\\\\\\$]*\\\\\\$/\\\\\\$\\${1}\\\\\\$/\"
 [difftool]
-	prompt = false
+  prompt = false
 [diff]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 [mergetool]
-	keepBackup = true
+  keepBackup = true
 [github]
-	user = ngs
+  user = ngs
 [push]
-	default = matching
+  default = matching
 [color]
-	ui = auto
+  ui = auto
 
 [hub]
-protocol = https
+  protocol = https
 
 [credential]
-helper = cache
+  helper = cache
