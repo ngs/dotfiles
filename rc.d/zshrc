@@ -1,3 +1,4 @@
+UNAME=$(uname -s)
 source $HOME/dotfiles/env.sh
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="dieter"
@@ -5,7 +6,7 @@ plugins=(rails git ruby atom aws brew brew-cask battery bower bundler coffee cpa
 
 source $ZSH/oh-my-zsh.sh
 
-if [ `which brew` ]; then
+if [ $UNAME = 'Darwin' ]; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 else
   fpath=(~/.zsh/completion $fpath)
