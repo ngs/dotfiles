@@ -1,0 +1,117 @@
+{
+    'Selected Text Color' = {
+        'Green Component' = '0.8470588326454163';
+        'Red Component' = '0.8235294222831726';
+        'Blue Component' = '0.8509804010391235';
+    };
+    'Ansi 7 Color' = {
+        'Green Component' = '0.8470588326454163';
+        'Red Component' = '0.8235294222831726';
+        'Blue Component' = '0.8509804010391235';
+    };
+    'Cursor Text Color' = {
+        'Green Component' = '0.15575926005840302';
+        'Red Component' = '0.0';
+        'Blue Component' = '0.1937013864517212';
+    };
+    'Ansi 15 Color' = {
+        'Green Component' = '0.8470588326454163';
+        'Red Component' = '0.8235294222831726';
+        'Blue Component' = '0.8509804010391235';
+    };
+    'Ansi 2 Color' = {
+        'Green Component' = '0.5882353186607361';
+        'Red Component' = '0.3843137323856354';
+        'Blue Component' = '0.3333333432674408';
+    };
+    'Ansi 8 Color' = {
+        'Green Component' = '0.16078431904315948';
+        'Red Component' = '0.14509804546833038';
+        'Blue Component' = '0.16470588743686676';
+    };
+    'Ansi 11 Color' = {
+        'Green Component' = '0.5333333611488342';
+        'Red Component' = '0.7137255072593689';
+        'Blue Component' = '0.0';
+    };
+    'Bold Color' = {
+        'Green Component' = '0.9264177680015564';
+        'Red Component' = '0.9262398481369019';
+        'Blue Component' = '0.9262101054191589';
+    };
+    'Ansi 3 Color' = {
+        'Green Component' = '0.5333333611488342';
+        'Red Component' = '0.7137255072593689';
+        'Blue Component' = '0.0';
+    };
+    'Ansi 9 Color' = {
+        'Green Component' = '0.2823529541492462';
+        'Red Component' = '0.9490196108818054';
+        'Blue Component' = '0.250980406999588';
+    };
+    'Ansi 14 Color' = {
+        'Green Component' = '0.5882353186607361';
+        'Red Component' = '0.08235294371843338';
+        'Blue Component' = '0.5529412031173706';
+    };
+    'Background Color' = {
+        'Green Component' = '0.24705882370471954';
+        'Red Component' = '0.239215686917305';
+        'Blue Component' = '0.2549019753932953';
+    };
+    'Ansi 10 Color' = {
+        'Green Component' = '0.5882353186607361';
+        'Red Component' = '0.3843137323856354';
+        'Blue Component' = '0.3333333432674408';
+    };
+    'Ansi 4 Color' = {
+        'Green Component' = '0.4588235294117647';
+        'Red Component' = '0.12549019607843137';
+        'Blue Component' = '0.7803921568627451';
+    };
+    'Cursor Color' = {
+        'Green Component' = '0.5096293091773987';
+        'Red Component' = '0.44058024883270264';
+        'Blue Component' = '0.5168579816818237';
+    };
+    'Ansi 5 Color' = {
+        'Green Component' = '0.49803921580314636';
+        'Red Component' = '0.4745098054409027';
+        'Blue Component' = '0.8313725590705872';
+    };
+    'Ansi 13 Color' = {
+        'Green Component' = '0.49803921580314636';
+        'Red Component' = '0.4745098054409027';
+        'Blue Component' = '0.8313725590705872';
+    };
+    'Ansi 0 Color' = {
+        'Green Component' = '0.16078431904315948';
+        'Red Component' = '0.14509804546833038';
+        'Blue Component' = '0.16470588743686676';
+    };
+    'Ansi 6 Color' = {
+        'Green Component' = '0.5882353186607361';
+        'Red Component' = '0.08235294371843338';
+        'Blue Component' = '0.5529412031173706';
+    };
+    'Selection Color' = {
+        'Green Component' = '0.25882354378700256';
+        'Red Component' = '0.12941177189350128';
+        'Blue Component' = '0.5137255191802979';
+    };
+    'Ansi 12 Color' = {
+        'Green Component' = '0.4588235294117647';
+        'Red Component' = '0.12549019607843137';
+        'Blue Component' = '0.7803921568627451';
+    };
+    'Foreground Color' = {
+        'Green Component' = '0.8470588326454163';
+        'Red Component' = '0.8235294222831726';
+        'Blue Component' = '0.8509804010391235';
+    };
+    'Ansi 1 Color' = {
+        'Green Component' = '0.2823529541492462';
+        'Red Component' = '0.9490196108818054';
+        'Blue Component' = '0.250980406999588';
+    };
+}

@@ -1,0 +1,117 @@
+{
+    'Selected Text Color' = {
+        'Green Component' = '1';
+        'Red Component' = '1';
+        'Blue Component' = '1';
+    };
+    'Ansi 7 Color' = {
+        'Green Component' = '0.66666668653488159';
+        'Red Component' = '0.73333334922790527';
+        'Blue Component' = '0.60000002384185791';
+    };
+    'Cursor Text Color' = {
+        'Green Component' = '0.0';
+        'Red Component' = '0.0';
+        'Blue Component' = '0.0';
+    };
+    'Ansi 15 Color' = {
+        'Green Component' = '0.80000001192092896';
+        'Red Component' = '0.86666667461395264';
+        'Blue Component' = '0.73333334922790527';
+    };
+    'Ansi 2 Color' = {
+        'Green Component' = '0.68627452850341797';
+        'Red Component' = '0.52549022436141968';
+        'Blue Component' = '0.50196081399917603';
+    };
+    'Ansi 8 Color' = {
+        'Green Component' = '0.26666668057441711';
+        'Red Component' = '0.3333333432674408';
+        'Blue Component' = '0.26666668057441711';
+    };
+    'Ansi 11 Color' = {
+        'Green Component' = '1';
+        'Red Component' = '0.65490198135375977';
+        'Blue Component' = '0.364705890417099';
+    };
+    'Bold Color' = {
+        'Green Component' = '1';
+        'Red Component' = '1';
+        'Blue Component' = '1';
+    };
+    'Ansi 3 Color' = {
+        'Green Component' = '0.68235296010971069';
+        'Red Component' = '0.90980392694473267';
+        'Blue Component' = '0.35686275362968445';
+    };
+    'Ansi 9 Color' = {
+        'Green Component' = '0.3333333432674408';
+        'Red Component' = '0.80000001192092896';
+        'Blue Component' = '0.20000000298023224';
+    };
+    'Ansi 14 Color' = {
+        'Green Component' = '0.76862746477127075';
+        'Red Component' = '0.69019609689712524';
+        'Blue Component' = '0.87058824300765991';
+    };
+    'Background Color' = {
+        'Green Component' = '0.10980392247438431';
+        'Red Component' = '0.10980392247438431';
+        'Blue Component' = '0.10980392247438431';
+    };
+    'Ansi 10 Color' = {
+        'Green Component' = '0.66666668653488159';
+        'Red Component' = '0.53333336114883423';
+        'Blue Component' = '0.13333334028720856';
+    };
+    'Ansi 4 Color' = {
+        'Green Component' = '0.58431375026702881';
+        'Red Component' = '0.39215686917304993';
+        'Blue Component' = '0.92941176891326904';
+    };
+    'Cursor Color' = {
+        'Green Component' = '0.73333334922790527';
+        'Red Component' = '0.88627451658248901';
+        'Blue Component' = '0.93725490570068359';
+    };
+    'Ansi 5 Color' = {
+        'Green Component' = '0.72156864404678345';
+        'Red Component' = '0.87058824300765991';
+        'Blue Component' = '0.52941179275512695';
+    };
+    'Ansi 13 Color' = {
+        'Green Component' = '0.40000000596046448';
+        'Red Component' = '0.60000002384185791';
+        'Blue Component' = '0.0';
+    };
+    'Ansi 0 Color' = {
+        'Green Component' = '0.20784313976764679';
+        'Red Component' = '0.23921568691730499';
+        'Blue Component' = '0.16470588743686676';
+    };
+    'Ansi 6 Color' = {
+        'Green Component' = '0.76862746477127075';
+        'Red Component' = '0.69019609689712524';
+        'Blue Component' = '0.87058824300765991';
+    };
+    'Selection Color' = {
+        'Green Component' = '0.30241936445236206';
+        'Red Component' = '0.30241936445236206';
+        'Blue Component' = '0.30241936445236206';
+    };
+    'Ansi 12 Color' = {
+        'Green Component' = '0.80784314870834351';
+        'Red Component' = '0.52941179275512695';
+        'Blue Component' = '0.92156863212585449';
+    };
+    'Foreground Color' = {
+        'Green Component' = '0.93333333730697632';
+        'Red Component' = '0.86666667461395264';
+        'Blue Component' = '0.86666667461395264';
+    };
+    'Ansi 1 Color' = {
+        'Green Component' = '0.36078432202339172';
+        'Red Component' = '0.80392158031463623';
+        'Blue Component' = '0.36078432202339172';
+    };
+}

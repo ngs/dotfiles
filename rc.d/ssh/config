@@ -1,0 +1,6 @@
+Host *
+ForwardAgent yes
+Host remote rubyforge.org
+Hostname rubyforge.org
+IdentityFile ~/Dropbox/Credentials/ssh/id_dsa.rubyforge
+

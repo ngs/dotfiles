@@ -1,15 +1,18 @@
-[submodule "vim/bundle/vundle"]
-	path = vim/bundle/vundle
+[submodule "rc.d/vim/bundle/vundle"]
+	path = rc.d/vim/bundle/vundle
 	url = git://github.com/gmarik/vundle.git
-[submodule "vim/bundle/vim-ruby"]
-	path = vim/bundle/vim-ruby
+[submodule "rc.d/vim/bundle/vim-ruby"]
+	path = rc.d/vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
-[submodule "vim/bundle/puppet"]
-	path = vim/bundle/puppet
+[submodule "rc.d/vim/bundle/puppet"]
+	path = rc.d/vim/bundle/puppet
 	url = git://github.com/rodjek/vim-puppet.git
-[submodule "vim/bundle/vim-puppet"]
-	path = vim/bundle/vim-puppet
+[submodule "rc.d/vim/bundle/vim-puppet"]
+	path = rc.d/vim/bundle/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
-[submodule "vim/bundle/vim-slim"]
-	path = vim/bundle/vim-slim
+[submodule "rc.d/vim/bundle/vim-slim"]
+	path = rc.d/vim/bundle/vim-slim
 	url = git@github.com:slim-template/vim-slim.git
+[submodule "rc.d/vim/bundle/Vundle.vim"]
+	path = rc.d/vim/bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git

@@ -1,0 +1,5 @@
+'.platform-darwin .editor:not(.mini)':
+  'cmd-ctrl-l': 'coffee-lint:lint'
+
+'.platform-win32 .editor:not(.mini)':
+  'cmd-ctrl-l': 'coffee-lint:lint'

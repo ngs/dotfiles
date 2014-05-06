@@ -1,0 +1,36 @@
+[user]
+	name = Atsushi Nagase
+	email = a@ngs.io
+
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    sm = submodule
+    pullsm = submodule foreach 'git pull'
+    addorg = remote add origin
+[core]
+	quotepath = false
+	ignorecase = false
+	excludesfile = ~/dotfiles/rc.d/gitignore
+[filter "ident"]
+    smudge = git-expand-ident
+	clean = perl -pe \"s/\\\\\\$(Id|Tree|Parent|Author|Commiter|Log|Date)[^\\\\\\$]*\\\\\\$/\\\\\\$\\${1}\\\\\\$/\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[mergetool]
+	keepBackup = true
+[github]
+	user = ngs
+[push]
+	default = matching
+[color]
+	ui = auto
+
+[hub]
+protocol = https
+
+[credential]
+helper = cache

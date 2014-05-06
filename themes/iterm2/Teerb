@@ -1,0 +1,117 @@
+{
+    'Selected Text Color' = {
+        'Green Component' = '1.0';
+        'Red Component' = '1.0';
+        'Blue Component' = '1.0';
+    };
+    'Ansi 7 Color' = {
+        'Green Component' = '0.8156862854957581';
+        'Red Component' = '0.8156862854957581';
+        'Blue Component' = '0.8156862854957581';
+    };
+    'Cursor Text Color' = {
+        'Green Component' = '0.0';
+        'Red Component' = '0.0';
+        'Blue Component' = '0.0';
+    };
+    'Ansi 15 Color' = {
+        'Green Component' = '0.9372549057006836';
+        'Red Component' = '0.9372549057006836';
+        'Blue Component' = '0.9372549057006836';
+    };
+    'Ansi 2 Color' = {
+        'Green Component' = '0.8392157554626465';
+        'Red Component' = '0.6823529601097107';
+        'Blue Component' = '0.5254902243614197';
+    };
+    'Ansi 8 Color' = {
+        'Green Component' = '0.1098039299249649';
+        'Red Component' = '0.1098039299249649';
+        'Blue Component' = '0.1098039299249649';
+    };
+    'Ansi 11 Color' = {
+        'Green Component' = '0.7882353067398071';
+        'Red Component' = '0.8941176533699036';
+        'Blue Component' = '0.686274528503418';
+    };
+    'Bold Color' = {
+        'Green Component' = '0.899193525314331';
+        'Red Component' = '0.899193525314331';
+        'Blue Component' = '0.899193525314331';
+    };
+    'Ansi 3 Color' = {
+        'Green Component' = '0.686274528503418';
+        'Red Component' = '0.843137264251709';
+        'Blue Component' = '0.529411792755127';
+    };
+    'Ansi 9 Color' = {
+        'Green Component' = '0.5254902243614197';
+        'Red Component' = '0.8392157554626465';
+        'Blue Component' = '0.5254902243614197';
+    };
+    'Ansi 14 Color' = {
+        'Green Component' = '0.9058823585510254';
+        'Red Component' = '0.6941176652908325';
+        'Blue Component' = '0.8666666746139526';
+    };
+    'Background Color' = {
+        'Green Component' = '0.14901961386203766';
+        'Red Component' = '0.14901961386203766';
+        'Blue Component' = '0.14901961386203766';
+    };
+    'Ansi 10 Color' = {
+        'Green Component' = '0.8392157554626465';
+        'Red Component' = '0.6823529601097107';
+        'Blue Component' = '0.5254902243614197';
+    };
+    'Ansi 4 Color' = {
+        'Green Component' = '0.6823529601097107';
+        'Red Component' = '0.5254902243614197';
+        'Blue Component' = '0.8392157554626465';
+    };
+    'Cursor Color' = {
+        'Green Component' = '0.7865433692932129';
+        'Red Component' = '0.8926511406898499';
+        'Blue Component' = '0.6852307915687561';
+    };
+    'Ansi 5 Color' = {
+        'Green Component' = '0.6823529601097107';
+        'Red Component' = '0.8392157554626465';
+        'Blue Component' = '0.8392157554626465';
+    };
+    'Ansi 13 Color' = {
+        'Green Component' = '0.6823529601097107';
+        'Red Component' = '0.8392157554626465';
+        'Blue Component' = '0.8392157554626465';
+    };
+    'Ansi 0 Color' = {
+        'Green Component' = '0.1098039299249649';
+        'Red Component' = '0.1098039299249649';
+        'Blue Component' = '0.1098039299249649';
+    };
+    'Ansi 6 Color' = {
+        'Green Component' = '0.8588235378265381';
+        'Red Component' = '0.5411764979362488';
+        'Blue Component' = '0.7058823704719543';
+    };
+    'Selection Color' = {
+        'Green Component' = '0.30241936445236206';
+        'Red Component' = '0.30241936445236206';
+        'Blue Component' = '0.30241936445236206';
+    };
+    'Ansi 12 Color' = {
+        'Green Component' = '0.6823529601097107';
+        'Red Component' = '0.5254902243614197';
+        'Blue Component' = '0.8392157554626465';
+    };
+    'Foreground Color' = {
+        'Green Component' = '0.8156862854957581';
+        'Red Component' = '0.8156862854957581';
+        'Blue Component' = '0.8156862854957581';
+    };
+    'Ansi 1 Color' = {
+        'Green Component' = '0.5254902243614197';
+        'Red Component' = '0.8392157554626465';
+        'Blue Component' = '0.5254902243614197';
+    };
+}

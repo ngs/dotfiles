@@ -1,0 +1,117 @@
+{
+    'Selected Text Color' = {
+        'Green Component' = '0.0';
+        'Red Component' = '0.0';
+        'Blue Component' = '0.0';
+    };
+    'Ansi 7 Color' = {
+        'Green Component' = '0.8823529411764706';
+        'Red Component' = '0.8823529411764706';
+        'Blue Component' = '0.8784313725490196';
+    };
+    'Cursor Text Color' = {
+        'Green Component' = '1.0';
+        'Red Component' = '1.0';
+        'Blue Component' = '1.0';
+    };
+    'Ansi 15 Color' = {
+        'Green Component' = '1.0';
+        'Red Component' = '1.0';
+        'Blue Component' = '1.0';
+    };
+    'Ansi 2 Color' = {
+        'Green Component' = '0.6862745098039216';
+        'Red Component' = '0.4549019607843137';
+        'Blue Component' = '0.40784313725490196';
+    };
+    'Ansi 8 Color' = {
+        'Green Component' = '0.3333333333333333';
+        'Red Component' = '0.3333333333333333';
+        'Blue Component' = '0.3333333333333333';
+    };
+    'Ansi 11 Color' = {
+        'Green Component' = '0.7254901960784313';
+        'Red Component' = '1.0';
+        'Blue Component' = '0.1607843137254902';
+    };
+    'Bold Color' = {
+        'Green Component' = '0.0';
+        'Red Component' = '0.0';
+        'Blue Component' = '0.0';
+    };
+    'Ansi 3 Color' = {
+        'Green Component' = '0.6784313725490196';
+        'Red Component' = '1.0';
+        'Blue Component' = '0.1607843137254902';
+    };
+    'Ansi 9 Color' = {
+        'Green Component' = '0.19607843137254902';
+        'Red Component' = '1.0';
+        'Blue Component' = '0.25882352941176473';
+    };
+    'Ansi 14 Color' = {
+        'Green Component' = '0.9294117647058824';
+        'Red Component' = '0.0';
+        'Blue Component' = '0.8823529411764706';
+    };
+    'Background Color' = {
+        'Green Component' = '0.21568627655506134';
+        'Red Component' = '0.1764705926179886';
+        'Blue Component' = '0.26274511218070984';
+    };
+    'Ansi 10 Color' = {
+        'Green Component' = '0.803921568627451';
+        'Red Component' = '0.4549019607843137';
+        'Blue Component' = '0.40784313725490196';
+    };
+    'Ansi 4 Color' = {
+        'Green Component' = '0.5607843137254902';
+        'Red Component' = '0.2';
+        'Blue Component' = '0.5254901960784314';
+    };
+    'Cursor Color' = {
+        'Green Component' = '0.0';
+        'Red Component' = '0.0';
+        'Blue Component' = '0.0';
+    };
+    'Ansi 5 Color' = {
+        'Green Component' = '0.07716363668441772';
+        'Red Component' = '0.5808563828468323';
+        'Blue Component' = '0.9009263515472412';
+    };
+    'Ansi 13 Color' = {
+        'Green Component' = '0.21568627655506134';
+        'Red Component' = '1.0';
+        'Blue Component' = '1.0';
+    };
+    'Ansi 0 Color' = {
+        'Green Component' = '0.0';
+        'Red Component' = '0.0';
+        'Blue Component' = '0.0';
+    };
+    'Ansi 6 Color' = {
+        'Green Component' = '0.8431372549019608';
+        'Red Component' = '0.13725490196078433';
+        'Blue Component' = '0.8431372549019608';
+    };
+    'Selection Color' = {
+        'Green Component' = '0.21568627655506134';
+        'Red Component' = '0.1764705926179886';
+        'Blue Component' = '1.0';
+    };
+    'Ansi 12 Color' = {
+        'Green Component' = '0.8431372549019608';
+        'Red Component' = '0.13725490196078433';
+        'Blue Component' = '0.8431372549019608';
+    };
+    'Foreground Color' = {
+        'Green Component' = '0.8823529481887817';
+        'Red Component' = '0.8823529481887817';
+        'Blue Component' = '0.8784313797950745';
+    };
+    'Ansi 1 Color' = {
+        'Green Component' = '0.25882352941176473';
+        'Red Component' = '1.0';
+        'Blue Component' = '0.25882352941176473';
+    };
+}

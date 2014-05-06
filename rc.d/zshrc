@@ -1,0 +1,7 @@
+source $HOME/dotfiles/env.sh
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="dieter"
+plugins=(rails git ruby atom aws brew brew-cask battery bower bundler coffee cpanm gem git-extras heroku history node npm osx tmux vundle)
+
+source $ZSH/oh-my-zsh.sh
+

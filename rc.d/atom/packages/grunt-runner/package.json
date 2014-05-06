@@ -1,0 +1,43 @@
+{
+  "name": "grunt-runner",
+  "description": "Run your grunt tasks from Atom.",
+  "keywords": [
+    "grunt",
+    "task",
+    "runner",
+    "build",
+    "watch",
+    "atom",
+    "package",
+    "run"
+  ],
+  "version": "0.4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickclaw/atom-grunt-runner"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Nicholas Clawson",
+    "url": "http://nickclaw.com"
+  },
+  "main": "./lib/grunt-runner.coffee",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "grunt": "~0.4.2"
+  },
+  "readme": "[grunt-runner](https://atom.io/packages/grunt-runner) (WIP)\n================\n\nBuild your project using Grunt from Atom.\n\n![in action!](http://i.imgur.com/a8N7y5S.png)\n\n## How to use\n\n * Open a project that has a `Gruntfile.js` in the root.\n * Choose a task to run from `Packages->Grunt->Task: your-task`, or press\n `ctrl-alt-g` to run the `default` task.\n * All output from the grunt process can be found in the bottom tool panel. You\n can toggle it with `ctrl-alt-t`.\n * If your task doesn't end automatically (e.g. watches files for changes) you\n can force it stop from the menu or by pressing `ctrl-alt-shift-g`.\n\nSome [issues still exist](#known-issues).\n\n## Installation\n\n#### For Use\nInstall Grunt Runner package using the command line\n\n    apm install grunt-runner\n\nOr install it from the Atom Package Manager.\n\n#### For Development\nIf you want to make changes to this project. Install the package using\n\n    apm develop grunt-runner\n\nThen open Atom in developer mode (Atom command tools must be installed)\n\n    cd path/to/package\n    atom --dev\n\n## Known issues\n\n * Grunt Runner currently only supports one open project at a time. If\n multiple projects with Gruntfiles are open then running a task from\n `Packages->Grunt->` menu will have unexpected results.\n\n * Tasks added to a Gruntfile will not be reflected in the menu until\n the package reloads, this can forced by reopening your project or\n pressing `ctlr-alt-cmd-L`.\n\n * `.coffee` files are not currently supported.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/nickclaw/atom-grunt-runner/issues"
+  },
+  "homepage": "https://github.com/nickclaw/atom-grunt-runner",
+  "_id": "grunt-runner@0.4.0",
+  "dist": {
+    "shasum": "2b89d457a0d9ba502100f75747c159f46768f5ea"
+  },
+  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48549-47ia3f/package.tgz",
+  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48549-47ia3f/package.tgz"
+}

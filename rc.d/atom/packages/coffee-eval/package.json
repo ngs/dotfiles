@@ -1,0 +1,30 @@
+{
+  "name": "coffee-eval",
+  "main": "./lib/coffee-eval",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Evals CoffeeScript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/probablycorey/coffee-eval"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.39.0"
+  },
+  "dependencies": {
+    "coffee-script": "1.7.x"
+  },
+  "readme": "# Coffee Eval package\n\nEval CoffeeScript from an Atom editor using `cmd-k enter`\n\n![http://f.cl.ly/items/190p12091p1e3u2K3I43/repl.gif](http://f.cl.ly/items/190p12091p1e3u2K3I43/repl.gif)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/probablycorey/coffee-eval/issues"
+  },
+  "homepage": "https://github.com/probablycorey/coffee-eval",
+  "_id": "coffee-eval@0.3.0",
+  "dist": {
+    "shasum": "ecbc4383701b1479fc7831305897caf09901a236"
+  },
+  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48508-18ra69t/package.tgz",
+  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48508-18ra69t/package.tgz"
+}
