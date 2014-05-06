@@ -1,4 +1,4 @@
-DOTFILES=$(cd $(dirname $0) && pwd)
+DOTFILES=$(cd $(dirname $0)/.. && pwd)
 ##
 [ `which brew` ] || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew bundle "${DOTFILES}/Brewfiles/default"

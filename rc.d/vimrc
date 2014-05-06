@@ -17,16 +17,16 @@ Plugin 'Markdown'
 Plugin 'Markdown-syntax'
 Plugin 'Puppet-Syntax-Highlighting'
 Plugin 'RubySinatra'
-Plugin 'vim-addon-ruby-debug-ide'
 Plugin 'Vim-Rspec'
 Plugin 'chef.vim'
 Plugin 'cocoa.vim'
 Plugin 'flymaker'
 Plugin 'ftpluginruby.vim'
-Plugin 'javascript.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'perl.vim'
 Plugin 'rails.vim'
 Plugin 'ruby.vim'
+Plugin 'vim-addon-ruby-debug-ide'
 Plugin 'vim-coffee-script'
 Plugin 'xml.vim'
 
@@ -75,6 +75,7 @@ set list
 set listchars=tab:>_,trail:\.,nbsp:%,eol:\$
 set notitle
 set number
+set regexpengine=1
 set ruler
 set shiftwidth=2
 set showcmd
