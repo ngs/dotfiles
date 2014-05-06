@@ -1,7 +1,9 @@
 UNAME=$(uname -s)
-source $HOME/dotfiles/env.sh
+DOTFILES=$HOME/dotfiles
+source $DOTFILES/env.sh
 export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="dieter"
+ZSH_CUSTOM=$DOTFILES/rc.d/zsh/custom
 ZSH_THEME="ngs"
 # ZSH_THEME="ducknorris"
 if [ $UNAME = 'Darwin' ]; then
