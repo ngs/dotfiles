@@ -66,3 +66,5 @@ if [ $UNAME == 'Darwin' ]; then
     /bin/sh $DOTFILES/setup.darwin.sh
   fi
 fi
+
+vim +PluginInstall +qall

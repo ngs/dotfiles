@@ -1,6 +1,6 @@
 .DS_Store
 .netrwhist
 .*.swp
-/vim/bundle/vim-*
 /rc.d/atom/compile-cache/
 /env.d/secret/*.sh
+/rc.d/vim/bundle/

@@ -1,1 +1,0 @@
-au BufNewFile,BufRead *.ino setf arduino
