@@ -69,4 +69,4 @@ if [ $UNAME == 'Darwin' ]; then
   fi
 fi
 
-vim +PluginInstall +qall
+vim +PluginInstall +qall > /dev/null 2>&1
