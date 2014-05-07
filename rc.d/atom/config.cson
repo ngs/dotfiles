@@ -14,4 +14,9 @@
     'base16-tomorrow-dark-theme'
   ]
   'projectHome': '/Users/ngs/src'
+  'disabledPackages': [
+    'visual-bell'
+  ]
 'autosave': {}
+'visual-bell':
+  'enabled': false

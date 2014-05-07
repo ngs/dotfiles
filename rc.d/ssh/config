@@ -4,3 +4,14 @@ Host remote rubyforge.org
 Hostname rubyforge.org
 IdentityFile ~/Dropbox/Credentials/ssh/id_dsa.rubyforge
 
+Host planbcd.vm
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/ngs/.vagrant.d/insecure_private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+  ForwardAgent yes
