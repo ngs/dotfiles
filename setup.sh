@@ -71,4 +71,4 @@ fi
 
 vim +PluginInstall +qall > /dev/null 2>&1
 
-[ -L $DOTFILRS/rc.d/vim/bundle/closetag ] || ln -s $DOTFILRS/rc.d/vim/bundle/closetag.vim $DOTFILRS/rc.d/vim/bundle/closetag
+[ -L $DOTFILES/rc.d/vim/bundle/closetag ] || ln -s $DOTFILES/rc.d/vim/bundle/closetag.vim $DOTFILES/rc.d/vim/bundle/closetag
