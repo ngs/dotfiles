@@ -31,16 +31,17 @@ Plugin 'xml.vim'
 " Plugin 'pangloss/vim-javascript'
 
 " From GitHub
-Plugin 'Shougo/neocomplcache.vim'
 " Lua needed
 " Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/neosnippet-snippets'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'Rip-Rip/clang_complete'
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neosnippet.vim'
 Plugin 'docunext/closetag.vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'slim-template/vim-slim'
 Plugin 'tomtom/tlib_vim'
 
