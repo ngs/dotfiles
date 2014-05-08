@@ -16,5 +16,6 @@ fi
 
 
 source $ZSH/oh-my-zsh.sh
+source $DOTFILES/rc.d/zsh/zaw/zaw.zsh
 autoload -U compinit
 compinit -u

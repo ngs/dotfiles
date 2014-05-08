@@ -70,3 +70,5 @@ if [ $UNAME == 'Darwin' ]; then
 fi
 
 vim +PluginInstall +qall > /dev/null 2>&1
+
+[ -L $DOTFILRS/rc.d/vim/bundle/closetag ] || ln -s $DOTFILRS/rc.d/vim/bundle/closetag.vim $DOTFILRS/rc.d/vim/bundle/closetag
