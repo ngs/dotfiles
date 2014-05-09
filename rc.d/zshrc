@@ -1,11 +1,12 @@
 UNAME=$(uname -s)
 DOTFILES=$HOME/dotfiles
 source $DOTFILES/env.sh
+#
+# ohmyzsh
+#
 export ZSH=$HOME/.oh-my-zsh
-# ZSH_THEME="dieter"
 ZSH_CUSTOM=$DOTFILES/rc.d/zsh/custom
 ZSH_THEME="ngs"
-# ZSH_THEME="ducknorris"
 if [ $UNAME = 'Darwin' ]; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
   plugins=(git rbenv osx)
@@ -13,9 +14,20 @@ else
   fpath=(~/.zsh/completion $fpath)
   plugins=(git rbenv)
 fi
-
-
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES/rc.d/zsh/zaw/zaw.zsh
 autoload -U compinit
 compinit -u
+#
+# zaw
+#
+## http://shibayu36.hatenablog.com/entry/20120130/1327937835
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
+#
+source $DOTFILES/rc.d/zsh/zaw/zaw.zsh
+#
+zstyle ':filter-select' case-insensitive yes
+bindkey '^@' zaw-cdr

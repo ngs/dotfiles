@@ -3,10 +3,11 @@ update
 upgrade
 
 ## Modules
+install git
+install hub
+install jq
 install mecab
 install mecab-ipadic
-install git
-install jq
 install tig
 install tmux
 install tree
