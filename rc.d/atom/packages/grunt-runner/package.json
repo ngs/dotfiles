@@ -11,7 +11,7 @@
     "package",
     "run"
   ],
-  "version": "0.4.0",
+  "version": "0.5.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/nickclaw/atom-grunt-runner"
@@ -28,16 +28,16 @@
   "dependencies": {
     "grunt": "~0.4.2"
   },
-  "readme": "[grunt-runner](https://atom.io/packages/grunt-runner) (WIP)\n================\n\nBuild your project using Grunt from Atom.\n\n![in action!](http://i.imgur.com/a8N7y5S.png)\n\n## How to use\n\n * Open a project that has a `Gruntfile.js` in the root.\n * Choose a task to run from `Packages->Grunt->Task: your-task`, or press\n `ctrl-alt-g` to run the `default` task.\n * All output from the grunt process can be found in the bottom tool panel. You\n can toggle it with `ctrl-alt-t`.\n * If your task doesn't end automatically (e.g. watches files for changes) you\n can force it stop from the menu or by pressing `ctrl-alt-shift-g`.\n\nSome [issues still exist](#known-issues).\n\n## Installation\n\n#### For Use\nInstall Grunt Runner package using the command line\n\n    apm install grunt-runner\n\nOr install it from the Atom Package Manager.\n\n#### For Development\nIf you want to make changes to this project. Install the package using\n\n    apm develop grunt-runner\n\nThen open Atom in developer mode (Atom command tools must be installed)\n\n    cd path/to/package\n    atom --dev\n\n## Known issues\n\n * Grunt Runner currently only supports one open project at a time. If\n multiple projects with Gruntfiles are open then running a task from\n `Packages->Grunt->` menu will have unexpected results.\n\n * Tasks added to a Gruntfile will not be reflected in the menu until\n the package reloads, this can forced by reopening your project or\n pressing `ctlr-alt-cmd-L`.\n\n * `.coffee` files are not currently supported.\n",
+  "readme": "[grunt-runner](https://atom.io/packages/grunt-runner)\n================\n\nBuild your project using Grunt from Atom.\n\n![in action!](http://i.imgur.com/bqn9QQY.png)\n\n## How to use\n * Set a path to your local `grunt-cli` in the settings\n (may not be necessary).\n * Open a project that has a `Gruntfile.js` in the root.\n * Open the task list (`ctrl-alt-g`) and choose a task to run, or input a new one.\n * The output from the grunt task will be shown in bottom toolbar. Toggle\n the log with `ctrl-alt-t`, toggle the entire toolbar with\n `ctrl-alt-shift-t`. The toolbar will appear automatically if Grunt Runner was able to find and\n parse a `Gruntfile`, otherwise you can toggle it on yourself.\n * If your task doesn't end automatically (e.g. watches files for changes) you\n can force it stop from the toolbar or by pressing `ctrl-alt-shift-g`.\n\nSome [issues still exist](#known-issues).\n\n## Installation\n\nInstall Grunt Runner package using the command line\n\n    apm install grunt-runner\n\nOr install it from the Atom Package Manager.\n\n## Known issues\n\n * The Gruntfile must be in the root of your project directory to successfully\n get the available tasks. Additionally, all `grunt` commands will be called\n in the root directory.\n\n * Tasks added to a Gruntfile will not be automatically added until the project\n is reloaded or the page gets refreshed. They will still be callable from from\n the toolbar.\n\n * Currently hard to add tasks that prefix another task. For example, if you\n have a task in the task list called `develop`, it is impossible to add or call\n a task called `dev`\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/nickclaw/atom-grunt-runner/issues"
   },
   "homepage": "https://github.com/nickclaw/atom-grunt-runner",
-  "_id": "grunt-runner@0.4.0",
+  "_id": "grunt-runner@0.5.1",
   "dist": {
-    "shasum": "2b89d457a0d9ba502100f75747c159f46768f5ea"
+    "shasum": "1e91ea83d7ef4bfc23cdaac029ab5652c12a7c54"
   },
-  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48549-47ia3f/package.tgz",
-  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48549-47ia3f/package.tgz"
+  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91718-1mxbn1n/package.tgz",
+  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91718-1mxbn1n/package.tgz"
 }

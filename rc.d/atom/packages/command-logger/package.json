@@ -1,8 +1,8 @@
 {
   "name": "command-logger",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "main": "./lib/command-logger",
-  "description": "View a heat map of your Atom activity. Open from the command palette.",
+  "description": "View a treemap of your Atom activity. Open from the command palette.",
   "license": "MIT",
   "dependencies": {
     "d3-browserify": "3.3.13",
@@ -16,16 +16,16 @@
   "engines": {
     "atom": "*"
   },
-  "readme": "# Command Logger package\n\nView a heat map of all the commands you have run in Atom, open from the Command\nPalette (`cmd-shift-p`) or from the _Packages > Command Logger > Open_ menu.\n\n![](https://f.cloud.github.com/assets/671378/2253951/aafbb124-9dc9-11e3-99be-5ddb43d7e901.png)\n",
+  "readme": "# Command Logger package [![Build Status](https://travis-ci.org/kevinsawicki/command-logger.svg?branch=master)](https://travis-ci.org/kevinsawicki/command-logger)\n\nView a treemap of all the commands you have run in Atom, open from the Command\nPalette (`cmd-shift-p`) or from the _Packages > Command Logger > Open_ menu.\n\n![](https://f.cloud.github.com/assets/671378/2253951/aafbb124-9dc9-11e3-99be-5ddb43d7e901.png)\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/kevinsawicki/command-logger/issues"
   },
   "homepage": "https://github.com/kevinsawicki/command-logger",
-  "_id": "command-logger@0.15.0",
+  "_id": "command-logger@0.16.0",
   "dist": {
-    "shasum": "1c0d6544a468b601d70af8198549d30f4ce4e60e"
+    "shasum": "ac7f9d0b6c91203a2c5de31fb31803be6214842e"
   },
-  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48343-1c6xwmd/package.tgz",
-  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48343-1c6xwmd/package.tgz"
+  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91705-1uihpgl/package.tgz",
+  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91705-1uihpgl/package.tgz"
 }

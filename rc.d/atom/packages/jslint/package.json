@@ -1,6 +1,6 @@
 {
   "name": "jslint",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "JSLint error reports for your Atom editor",
   "main": "lib/init",
   "repository": {
@@ -26,10 +26,10 @@
     "url": "https://github.com/tcarlsen/atom-jslint/issues"
   },
   "homepage": "https://github.com/tcarlsen/atom-jslint",
-  "_id": "jslint@0.9.0",
+  "_id": "jslint@0.9.1",
   "dist": {
-    "shasum": "6d6a90af83d9ae59665c34296c72ebd8ed3f7a26"
+    "shasum": "34a516e2d308998805a0c660c0e2efc26efebb51"
   },
-  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114316-30131-1qkz2oy/package.tgz",
-  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114316-30131-1qkz2oy/package.tgz"
+  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91726-1h3qry0/package.tgz",
+  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91726-1h3qry0/package.tgz"
 }

@@ -1,7 +1,7 @@
 {
   "name": "coffee-eval",
   "main": "./lib/coffee-eval",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "Evals CoffeeScript",
   "repository": {
@@ -21,10 +21,10 @@
     "url": "https://github.com/probablycorey/coffee-eval/issues"
   },
   "homepage": "https://github.com/probablycorey/coffee-eval",
-  "_id": "coffee-eval@0.3.0",
+  "_id": "coffee-eval@0.4.0",
   "dist": {
-    "shasum": "ecbc4383701b1479fc7831305897caf09901a236"
+    "shasum": "24dbf1caf5dbf9f6e52fb6171012707004164e37"
   },
-  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48508-18ra69t/package.tgz",
-  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48508-18ra69t/package.tgz"
+  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91689-17vzs8h/package.tgz",
+  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91689-17vzs8h/package.tgz"
 }

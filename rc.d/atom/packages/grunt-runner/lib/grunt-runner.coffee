@@ -1,92 +1,40 @@
-fs = require 'fs'
-grunt = require 'grunt'
-{BufferedProcess} = require 'atom'
-window.View = require './results-view.coffee'
+###
+Nicholas Clawson -2014
+
+Entry point for the package, creates the toolbar and starts
+listening for any commands or changes
+###
+
+window.View = require './grunt-runner-view.coffee'
 
 module.exports =
+    configDefaults:
+        gruntPaths: []
 
-    path:""
-    process:null
-    view:null
+    originalPath: ''
 
-    # Activates the packages
-    # tests for a gruntfile in the project directory
-    # if one exists reads it and starts building the menu
-    activate:(state) ->
-        atom.workspaceView.command 'grunt-runner:stop', @stopProcess.bind @
-        atom.workspaceView.command 'grunt-runner:toggle', @toggleView.bind @
-        @path = atom.project.getPath()
-        @view = new View()
+    # creates grunt-runner view andstarts listening for commands
+    activate:(state = {}) ->
+        @originalPath = process.env.PATH
+        atom.config.observe 'grunt-runner.gruntPaths', @updateSettings.bind @
 
-        self = @
-        fs.exists self.path + '/Gruntfile.js', (doesExist) ->
-            if doesExist
-                try # in case of bad syntax
-                    require(self.path + '/Gruntfile.js')(grunt)
+        @view = new View(state)
+        atom.workspaceView.command 'grunt-runner:stop', @view.stopProcess.bind @view
+        atom.workspaceView.command 'grunt-runner:toggle-log', @view.toggleLog.bind @view
+        atom.workspaceView.command 'grunt-runner:toggle-panel', @view.togglePanel.bind @view
+        atom.workspaceView.command 'grunt-runner:run', @view.toggleTaskList.bind @view
 
-                # wish there was a less hackier way than _tasks
-                self.buildMenu Object.keys grunt.task._tasks if grunt.task._tasks
+    # called whenever the settings for grunt runner changes
+    # updates the env.process.PATH value to include custom paths
+    updateSettings: ->
+        gruntPaths = atom.config.get('grunt-runner').gruntPaths
+        gruntPaths = if Array.isArray gruntPaths then gruntPaths else []
+        process.env.PATH = @originalPath + (if gruntPaths.length > 0 then ':' else '') + gruntPaths.join ':'
 
-    # fills the grunt runner menu with the given tasks
-    # attaches event listeners to each task
-    buildMenu:(tasks) ->
-        handler = @handleCommand.bind @
-        submenu = tasks.map (value) ->
-            command = "grunt-runner:#{value}"
-            atom.workspaceView.command command, handler
-            {label:"Task: #{value}", command:command}
-        .concat [
-            {label:''} # temporary seperator
-            {label:'Stop Current Task', command:'grunt-runner:stop'}
-            {label:'Toggle Grunt Output', command: 'grunt-runner:toggle'}
-        ]
+    # returns a JSON object representing the packages state
+    serialize: ->
+        @view.serialize()
 
-        atom.menu.add [
-            label: 'Packages'
-            submenu: [
-                label: 'Grunt'
-                submenu: submenu
-            ]
-        ]
-
-        atom.menu.update()
-
-    # attaches/detaches the view
-    toggleView: ->
-        return atom.workspaceView.prependToBottom @view unless @view.isOnDom()
-        return @view.detach() if @view.isOnDom()
-
-
-    # kills process if one is running
-    stopProcess: ->
-        @view.addLine "Grunt task was ended." if @process and not @process.killed
-        @process?.kill()
-        @process = null
-
-    # handles a menu item being pressed
-    # runs a grunt process in the background
-    handleCommand:(evt)->
-
-        #stop process if one is running
-        @stopProcess()
-
-        taskToRun = evt.type.substring "grunt-runner:".length
-
-        # prepare view
-        @view.emptyView().changeTask taskToRun
-        @toggleView() unless @view.isOnDom()
-        @view.addLine "Running : grunt #{taskToRun}"
-
-        view = @view
-        @process = new BufferedProcess
-            command: 'grunt'
-            options:
-                cwd : @path
-            args: [taskToRun]
-            stdout: (out) ->
-                # borrowed from https://github.com/Filirom1/stripcolorcodes (MIT license)
-                view.addLine out.replace /\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]/g, ''
-            exit: (code) ->
-                view.addLine "Grunt exited: code #{code}\n"
-                if code != 0
-                    atom.beep()
+    # stops any currently running processes
+    deactivate: ->
+        @view.stopProcess()

@@ -7,3 +7,4 @@
 /rc.d/vim/bundle/
 /.bundle
 /vendor/ruby/
+/rc.d/atom/.node-gyp

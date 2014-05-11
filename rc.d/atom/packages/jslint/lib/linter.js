@@ -65,6 +65,7 @@ module.exports = function () {
 
         atom.workspaceView.on('pane-container:active-pane-item-changed destroyed', function () {
             msgPanel.destroy();
+            atom.workspaceView.find('.line-number').removeClass('text-error');
         });
     }
 };

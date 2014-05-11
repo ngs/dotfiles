@@ -8,6 +8,11 @@ describe "sorting lines", ->
     waitsForPromise -> activationPromise
     runs(callback)
 
+  sortLinesReversed = (callback) ->
+    editorView.trigger "sort-lines:reverse-sort"
+    waitsForPromise -> activationPromise
+    runs(callback)
+
   beforeEach ->
     atom.workspaceView = new WorkspaceView
     atom.workspaceView.openSync()
@@ -31,6 +36,23 @@ describe "sorting lines", ->
           Helium
           Hydrogen
           Lithium
+        """
+
+    it "sorts all lines, ignoring the trailing new line", ->
+      editor.setText """
+        Hydrogen
+        Helium
+        Lithium
+
+      """
+      editor.setCursorBufferPosition([0, 0])
+
+      sortLines ->
+        expect(editor.getText()).toBe """
+          Helium
+          Hydrogen
+          Lithium
+
         """
 
   describe "when entire lines are selected", ->
@@ -98,4 +120,21 @@ describe "sorting lines", ->
           Fluorine  # selection 2
           Gallium
           Europium
+        """
+
+  describe "reversed sorting", ->
+    it "sorts all lines in reverse order", ->
+      editor.setText """
+        Hydrogen
+        Helium
+        Lithium
+      """
+
+      editor.setCursorBufferPosition([0, 0])
+
+      sortLinesReversed ->
+        expect(editor.getText()).toBe """
+          Lithium
+          Hydrogen
+          Helium
         """

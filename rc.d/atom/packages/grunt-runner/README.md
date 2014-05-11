@@ -1,49 +1,42 @@
-[grunt-runner](https://atom.io/packages/grunt-runner) (WIP)
+[grunt-runner](https://atom.io/packages/grunt-runner)
 ================
 
 Build your project using Grunt from Atom.
 
-![in action!](http://i.imgur.com/a8N7y5S.png)
+![in action!](http://i.imgur.com/bqn9QQY.png)
 
 ## How to use
-
+ * Set a path to your local `grunt-cli` in the settings
+ (may not be necessary).
  * Open a project that has a `Gruntfile.js` in the root.
- * Choose a task to run from `Packages->Grunt->Task: your-task`, or press
- `ctrl-alt-g` to run the `default` task.
- * All output from the grunt process can be found in the bottom tool panel. You
- can toggle it with `ctrl-alt-t`.
+ * Open the task list (`ctrl-alt-g`) and choose a task to run, or input a new one.
+ * The output from the grunt task will be shown in bottom toolbar. Toggle
+ the log with `ctrl-alt-t`, toggle the entire toolbar with
+ `ctrl-alt-shift-t`. The toolbar will appear automatically if Grunt Runner was able to find and
+ parse a `Gruntfile`, otherwise you can toggle it on yourself.
  * If your task doesn't end automatically (e.g. watches files for changes) you
- can force it stop from the menu or by pressing `ctrl-alt-shift-g`.
+ can force it stop from the toolbar or by pressing `ctrl-alt-shift-g`.
 
 Some [issues still exist](#known-issues).
 
 ## Installation
 
-#### For Use
 Install Grunt Runner package using the command line
 
     apm install grunt-runner
 
 Or install it from the Atom Package Manager.
 
-#### For Development
-If you want to make changes to this project. Install the package using
-
-    apm develop grunt-runner
-
-Then open Atom in developer mode (Atom command tools must be installed)
-
-    cd path/to/package
-    atom --dev
-
 ## Known issues
 
- * Grunt Runner currently only supports one open project at a time. If
- multiple projects with Gruntfiles are open then running a task from
- `Packages->Grunt->` menu will have unexpected results.
+ * The Gruntfile must be in the root of your project directory to successfully
+ get the available tasks. Additionally, all `grunt` commands will be called
+ in the root directory.
 
- * Tasks added to a Gruntfile will not be reflected in the menu until
- the package reloads, this can forced by reopening your project or
- pressing `ctlr-alt-cmd-L`.
+ * Tasks added to a Gruntfile will not be automatically added until the project
+ is reloaded or the page gets refreshed. They will still be callable from from
+ the toolbar.
 
- * `.coffee` files are not currently supported.
+ * Currently hard to add tasks that prefix another task. For example, if you
+ have a task in the task list called `develop`, it is impossible to add or call
+ a task called `dev`

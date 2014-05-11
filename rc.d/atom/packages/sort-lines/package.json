@@ -1,10 +1,11 @@
 {
   "name": "sort-lines",
   "main": "./lib/sort-lines",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "Sorts your lines. Never gets tired.",
   "activationEvents": [
-    "sort-lines:sort"
+    "sort-lines:sort",
+    "sort-lines:reverse-sort"
   ],
   "repository": {
     "type": "git",
@@ -15,16 +16,16 @@
     "atom": ">0.39.0"
   },
   "dependencies": {},
-  "readme": "# Sort Lines Package\n\nSorts your lines in Atom, never gets tired.\n\n![sort-lines-demo](https://f.cloud.github.com/assets/2988/1796891/85e69ff2-6a93-11e3-89ac-31927f604592.gif)\n",
+  "readme": "# Sort Lines Package [![Build Status](https://travis-ci.org/atom/sort-lines.svg?branch=master)](https://travis-ci.org/atom/sort-lines)\n\nSorts your lines in Atom, never gets tired.\n\n![sort-lines-demo](https://f.cloud.github.com/assets/2988/1796891/85e69ff2-6a93-11e3-89ac-31927f604592.gif)\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/atom/sort-lines/issues"
   },
   "homepage": "https://github.com/atom/sort-lines",
-  "_id": "sort-lines@0.2.0",
+  "_id": "sort-lines@0.4.0",
   "dist": {
-    "shasum": "a98c6dc1ff1e2eab1c87fd2f562a6f834bfa1078"
+    "shasum": "9fd6261ebe8ac288524508526c2c6b98aa8462b5"
   },
-  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48350-41rsmb/package.tgz",
-  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-11426-48350-41rsmb/package.tgz"
+  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91737-1ja7e1b/package.tgz",
+  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91737-1ja7e1b/package.tgz"
 }
