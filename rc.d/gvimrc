@@ -1,0 +1,4 @@
+set background=dark
+hi Normal guibg='#1d1f21'
+set transparency=15
+
