@@ -27,7 +27,7 @@ smudge = git-expand-ident
 [github]
   user = ngs
 [push]
-  default = matching
+	default = current
 [color]
   ui = auto
 
