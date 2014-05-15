@@ -1,0 +1,7 @@
+'.source.c\\+\\+.arduino':
+  'loop':
+    'prefix': 'loop'
+    'body': 'void loop() {\n  ${1:/* code */}\n}'
+  'setup':
+    'prefix': 'setup'
+    'body': 'void setup() {\n  ${1:/* code */}\n}'

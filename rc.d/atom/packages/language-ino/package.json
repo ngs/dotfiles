@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "name": "language-ino",
+  "description": "Atom language support for Arduino's INO files",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cannikin/language-ino.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "readme": "# Arduino INO language support in Atom\n\nAdds syntax highlighting and snippets to INO files in Atom.\n\nCopied from the [language-c package](https://github.com/atom/language-c) for Atom which\nwas originally [converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom the [C TextMate bundle](https://github.com/textmate/c.tmbundle).\n\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/cannikin/language-ino/issues"
+  },
+  "homepage": "https://github.com/cannikin/language-ino",
+  "_id": "language-ino@0.1.0",
+  "dist": {
+    "shasum": "d89fedd03c48940301e7442cdc9a08c646470c1c"
+  },
+  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114415-43480-1wztp1s/package.tgz",
+  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114415-43480-1wztp1s/package.tgz"
+}
