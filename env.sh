@@ -1,9 +1,9 @@
-UNAME=$(uname -s)
-HOSTNAME=$(hostname)
-DOTFILES=$HOME/dotfiles
-ENVD=$DOTFILES/env.d
+export DOTFILES=${HOME}/dotfiles
 export PATH=${HOME}/bin:${HOME}/local/bin:${DOTFILES}/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=vim
+UNAME=$(uname -s)
+HOSTNAME=$(hostname)
+ENVD=$DOTFILES/env.d
 loadenv() {
   for f in $1/*.sh ; do
     if [ -f $f ] ; then
