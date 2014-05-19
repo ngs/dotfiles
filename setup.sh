@@ -66,6 +66,7 @@ if [ $UNAME == 'Darwin' ]; then
     /bin/sh $DOTFILES/setup/boxen.sh
   else
     /bin/sh $DOTFILES/setup/darwin.sh
+    /bin/sh $DOTFILES/setup/keyremap4macbook.sh
   fi
 fi
 
