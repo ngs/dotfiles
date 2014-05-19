@@ -11,6 +11,8 @@
   addorg = remote add origin
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
   pruneall = fetch --all --prune
+  cancel = reset HEAD^
+  seturl = remote set-url
 [core]
   quotepath = false
   ignorecase = false
