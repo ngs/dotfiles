@@ -1,6 +1,6 @@
 {
   "name": "jslint",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "description": "JSLint error reports for your Atom editor",
   "main": "lib/init",
   "repository": {
@@ -20,16 +20,16 @@
     "atom-message-panel": "^0.3.0",
     "atom-keymap-plus": "^0.1.0"
   },
-  "readme": "# JSLint\n\n> [JSLint](https://github.com/douglascrockford/JSLint) error reports for your [Atom](http://atom.io) editor.\n\n![preview](https://raw.github.com/tcarlsen/atom-jslint/master/preview.png)\n\n## Installation\n\nYou can install this plugin via the Packages manager in Atom itself or manually through the terminal\n\n```bash\n$ apm install jslint\n```\n\n## Usage\n\nJSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `cmd+alt+l` or run `Jslint` from the Command Palette.\n\nIf you like you can even set it to validate while typing in the package settings.\n\n## Features\n\n * Validate on keymap\n * Validate on command\n * Validate on save *(toggle in settings)*\n * Validate on change *(toggle in settings)*\n * Option to hide the error panel if no errors were found *(toggle in settings)*\n * Option to use `fold mode` by default *(toggle in settings)*\n * Supports `.jslintrc` config files *(project located file will overwrite the global file)*\n\n## License\n\n[MIT](http://opensource.org/licenses/MIT) © tcarlsen\n",
+  "readme": "# JSLint\n\n> [JSLint](https://github.com/douglascrockford/JSLint) error reports for your [Atom](http://atom.io) editor.\n\n![preview](https://raw.github.com/tcarlsen/atom-jslint/master/preview.png)\n\n## Installation\n\nYou can install this plugin via the Packages manager in Atom itself or manually through the terminal\n\n```bash\n$ apm install jslint\n```\n\n## Usage\n\nJSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `cmd+alt+l` on OS X or `ctrl-alt-l` on Windows and Linux.\n\nIf you like you can even set it to validate while typing in the package settings.\n\n## Features\n\n * Validate on keymap\n * Validate on command\n * Validate on save *(toggle in settings)*\n * Validate on change *(toggle in settings)*\n * Option to hide the error panel if no errors were found *(toggle in settings)*\n * Option to use `fold mode` by default *(toggle in settings)*\n * Supports `.jslintrc` config files *(project located file will overwrite the global file)*\n\n## License\n\n[MIT](http://opensource.org/licenses/MIT) © tcarlsen\n",
   "readmeFilename": "readme.md",
   "bugs": {
     "url": "https://github.com/tcarlsen/atom-jslint/issues"
   },
   "homepage": "https://github.com/tcarlsen/atom-jslint",
-  "_id": "jslint@0.9.1",
+  "_id": "jslint@0.10.0",
   "dist": {
-    "shasum": "34a516e2d308998805a0c660c0e2efc26efebb51"
+    "shasum": "50cc3583c389bed8665d9c0f5c7bc9254dd9d81e"
   },
-  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91726-1h3qry0/package.tgz",
-  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91726-1h3qry0/package.tgz"
+  "_resolved": "/var/folders/gp/rvlg3sm958bdv752vtfdddcm0000gn/T/d-11451-27200-60etvn/package.tgz",
+  "_from": "/var/folders/gp/rvlg3sm958bdv752vtfdddcm0000gn/T/d-11451-27200-60etvn/package.tgz"
 }

@@ -1,7 +1,7 @@
 {
   "name": "command-logger",
-  "version": "0.16.0",
-  "main": "./lib/command-logger",
+  "version": "0.20.0",
+  "main": "./lib/main",
   "description": "View a treemap of your Atom activity. Open from the command palette.",
   "license": "MIT",
   "dependencies": {
@@ -22,10 +22,10 @@
     "url": "https://github.com/kevinsawicki/command-logger/issues"
   },
   "homepage": "https://github.com/kevinsawicki/command-logger",
-  "_id": "command-logger@0.16.0",
+  "_id": "command-logger@0.20.0",
   "dist": {
-    "shasum": "ac7f9d0b6c91203a2c5de31fb31803be6214842e"
+    "shasum": "f5febe60d182492f18bdb0c5e4169cc2707f014a"
   },
-  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91705-1uihpgl/package.tgz",
-  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91705-1uihpgl/package.tgz"
+  "_resolved": "/var/folders/gp/rvlg3sm958bdv752vtfdddcm0000gn/T/d-11451-27197-mxhpwn/package.tgz",
+  "_from": "/var/folders/gp/rvlg3sm958bdv752vtfdddcm0000gn/T/d-11451-27197-mxhpwn/package.tgz"
 }

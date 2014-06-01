@@ -14,7 +14,7 @@ $ apm install jslint
 
 ## Usage
 
-JSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `cmd+alt+l` or run `Jslint` from the Command Palette.
+JSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `cmd+alt+l` on OS X or `ctrl-alt-l` on Windows and Linux.
 
 If you like you can even set it to validate while typing in the package settings.
 

@@ -5,8 +5,12 @@ describe "CommandLogger", ->
 
   beforeEach ->
     atom.workspaceView = new WorkspaceView
-    atom.workspaceView.openSync('sample.js')
-    editor = atom.workspaceView.getActiveView()
+
+    waitsForPromise ->
+      atom.workspace.open('sample.js')
+
+    runs ->
+      editor = atom.workspaceView.getActiveView()
 
     waitsForPromise ->
       atom.packages.activatePackage('command-logger')
@@ -15,7 +19,7 @@ describe "CommandLogger", ->
       commandLogger = atom.packages.getActivePackage('command-logger').mainModule
       commandLogger.eventLog = {}
 
-  describe "when a command is triggered", ->
+  describe "when a command is triggered on a view", ->
     it "records the number of times the command is triggered", ->
       expect(commandLogger.eventLog['core:backspace']).toBeUndefined()
       editor.trigger 'core:backspace'
@@ -36,6 +40,14 @@ describe "CommandLogger", ->
         editor.trigger 'core:backspace'
         expect(commandLogger.eventLog['core:backspace'].lastRun).toBeGreaterThan lastRun
 
+  describe "when a command is triggered via a keybinding", ->
+    it "records the event", ->
+      expect(commandLogger.eventLog['core:backspace']).toBeUndefined()
+      atom.keymap.emit 'matched', binding: command: 'core:backspace'
+      expect(commandLogger.eventLog['core:backspace'].count).toBe 1
+      atom.keymap.emit 'matched', binding: command: 'core:backspace'
+      expect(commandLogger.eventLog['core:backspace'].count).toBe 2
+
   describe "when the data is cleared", ->
     it "removes all triggered events from the log", ->
       expect(commandLogger.eventLog['core:backspace']).toBeUndefined()
@@ -46,14 +58,20 @@ describe "CommandLogger", ->
 
   describe "when an event is ignored", ->
     it "does not create a node for that event", ->
-      commandLoggerView = commandLogger.createView()
-      commandLoggerView.ignoredEvents.push 'editor:delete-line'
-      editor.trigger 'editor:delete-line'
-      commandLoggerView.eventLog = commandLogger.eventLog
-      nodes = commandLoggerView.createNodes()
-      for {name, children} in nodes when name is 'Editor'
-        for child in children
-          expect(child.name.indexOf('Delete Line')).toBe -1
+      atom.workspaceView.trigger 'command-logger:open'
+
+      waitsFor ->
+        atom.workspaceView.getActivePaneItem().treeMap?
+
+      runs ->
+        commandLoggerView = atom.workspaceView.getActivePaneItem()
+        commandLoggerView.ignoredEvents.push 'editor:delete-line'
+        editor.trigger 'editor:delete-line'
+        commandLoggerView.eventLog = commandLogger.eventLog
+        nodes = commandLoggerView.createNodes()
+        for {name, children} in nodes when name is 'Editor'
+          for child in children
+            expect(child.name.indexOf('Delete Line')).toBe -1
 
   describe "command-logger:open", ->
     it "opens the command logger in a pane", ->
