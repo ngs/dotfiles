@@ -18,6 +18,7 @@ install xcproj
 install xctool
 install zsh
 install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
+install chrome-cli
 
 ## Cask
 tap ngs/homebrew-cask || true
