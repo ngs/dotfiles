@@ -96,3 +96,8 @@ EOT
 function pg_terminate_backend() {
   psql -Upostgres -c "SELECT pg_terminate_backend(procpid) FROM pg_stat_activity WHERE procpid <> pg_backend_pid() AND datname = '$1';"
 }
+
+propen() {
+  local current_branch_name=$(git symbolic-ref --short HEAD | ruby -ruri -e 'print URI.escape STDIN.read.strip')
+  git config --get remote.origin.url | sed -e "s/^.*[:\/]\(.*\/.*\).git$/https:\/\/github.com\/\1\//" | sed -e "s/$/pull\/${current_branch_name}/" | xargs open
+}
