@@ -1,0 +1,39 @@
+#!/bin/sh 
+
+GIT='git'
+
+if test `uname` = "Darwin" ; then
+    SED_OPT='-E'
+    OPEN='open'
+else
+    SED_OPT='-r'
+    OPEN=''
+fi
+
+FETCH_URL=`$GIT remote show origin -n  | sed -n '/Fetch URL/p' | awk '{print $3}' | sed $SED_OPT 's/[:@]/ /g' `
+PROTOCOL=`echo $FETCH_URL | cut -f 1 -d" "`
+echo $PROTOCOL | 'grep' http > /dev/null
+if [ $? -eq 0 ];then
+  # http
+  echo $FETCH_URL
+  HOST=`echo $FETCH_URL | sed $SED_OPT 's/\/+/ /g' | awk '{print $2}'`
+  REPOS=`echo $FETCH_URL | sed $SED_OPT 's/\/\// /' | sed $SED_OPT 's/\// /' | awk '{print $3}' | sed 's/.git$//'`
+else
+  # git
+  HOST=`echo $FETCH_URL | awk '{print $2}' | sed $SED_OPT 's/^\/+//'`
+  REPOS=`echo $FETCH_URL | awk '{print $3}' | sed 's/.git$//'`
+fi
+
+ORIGIN="http://$HOST/"
+BRANCH=`$GIT branch | fgrep '*' | sed 's/^* //'`
+
+echo $HOST
+echo $REPOS
+echo $ORIGIN
+echo $BRANCH
+
+echo https://circleci.com/gh/$REPOS/tree/$BRANCH
+open https://circleci.com/gh/$REPOS/tree/$BRANCH
+
+
+
