@@ -31,3 +31,6 @@ source $DOTFILES/rc.d/zsh/zaw/zaw.zsh
 #
 zstyle ':filter-select' case-insensitive yes
 bindkey '^@' zaw-cdr
+
+# added by travis gem
+[ -f /Users/ngs/.travis/travis.sh ] && source /Users/ngs/.travis/travis.sh
