@@ -1,8 +1,0 @@
-{
-    ".platform-darwin .editor.javascript": {
-        "cmd-alt-l": "jslint:lint"
-    },
-    ".platform-win32 .editor.javascript, .platform-linux .editor.javascript": {
-        "ctrl-alt-l": "jslint:lint"
-    }
-}

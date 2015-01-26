@@ -16,7 +16,7 @@
 [core]
   quotepath = false
   ignorecase = false
-  excludesfile = ~/dotfiles/rc.d/gitignore
+  excludesfile = /opt/boxen/config/git/gitignore
 [filter "ident"]
 smudge = git-expand-ident
   clean = perl -pe \"s/\\\\\\$(Id|Tree|Parent|Author|Commiter|Log|Date)[^\\\\\\$]*\\\\\\$/\\\\\\$\\${1}\\\\\\$/\"
@@ -29,7 +29,7 @@ smudge = git-expand-ident
 [github]
   user = ngs
 [push]
-	default = current
+	default = matching
 [color]
   ui = auto
 
@@ -37,4 +37,61 @@ smudge = git-expand-ident
   protocol = https
 
 [credential]
-  helper = cache
+  helper = /opt/boxen/bin/boxen-git-credential
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
+[merge]
+tool = Kaleidoscope
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+trustExitCode = true
+
+[difftool "Kaleidoscope"]
+cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

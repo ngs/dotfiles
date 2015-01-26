@@ -2,16 +2,20 @@ coffee = require 'coffee-script'
 vm     = require 'vm'
 
 module.exports =
+  configDefaults:
+    showOutputPane: true
+
   activate: ->
-    atom.workspaceView.on 'coffee-eval:eval', => @coffeeEval()
+    atom.workspaceView.command 'coffee-eval:eval', => @coffeeEval()
 
   coffeeEval: ->
-    editor = atom.workspaceView.getActivePaneItem()
+    editor = atom.workspace.getActivePaneItem()
     return unless editor.getGrammar()?.scopeName is 'source.coffee'
 
     code = editor.getSelectedText() or editor.getText()
     output = @evaluateCode(code)
-    @showOutput(output)
+    if atom.config.get 'coffee-eval.showOutputPane'
+      @showOutput(output)
 
   evaluateCode: (code) ->
     try
@@ -24,7 +28,7 @@ module.exports =
     output
 
   showOutput: (output, activePane) ->
-    activePane ?= atom.workspaceView.getActivePane()
+    activePane ?= atom.workspaceView.getActivePaneView()
     unless @outputEditor?
       atom.project.open().then (@outputEditor) =>
         @outputEditor.on 'destroyed', => @outputEditor = null

@@ -1,7 +1,7 @@
 {
   "name": "coffee-eval",
   "main": "./lib/coffee-eval",
-  "version": "0.4.0",
+  "version": "0.8.0",
   "private": true,
   "description": "Evals CoffeeScript",
   "repository": {
@@ -21,10 +21,76 @@
     "url": "https://github.com/probablycorey/coffee-eval/issues"
   },
   "homepage": "https://github.com/probablycorey/coffee-eval",
-  "_id": "coffee-eval@0.4.0",
-  "dist": {
-    "shasum": "24dbf1caf5dbf9f6e52fb6171012707004164e37"
-  },
-  "_resolved": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91689-17vzs8h/package.tgz",
-  "_from": "/var/folders/j9/p3qf4r99241bl3syr93shy_00000gn/T/d-114411-91689-17vzs8h/package.tgz"
+  "_id": "coffee-eval@0.8.0",
+  "_shasum": "3d84f4222fb49001a584d25a44683be3aad74b2d",
+  "_resolved": "file:../d-115026-9364-qb8h49/package.tgz",
+  "_from": "../d-115026-9364-qb8h49/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "coffee-script",
+        "version": "1.7.1",
+        "path": "node_modules/coffee-script/lib/coffee-script/coffee-script.js"
+      },
+      {
+        "name": "mkdirp",
+        "version": "0.3.5",
+        "path": "node_modules/coffee-script/node_modules/mkdirp/index.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/coffee-eval.coffee"
+      ],
+      ".js": [
+        "node_modules/coffee-script/lib/coffee-script/browser.js",
+        "node_modules/coffee-script/lib/coffee-script/cake.js",
+        "node_modules/coffee-script/lib/coffee-script/coffee-script.js",
+        "node_modules/coffee-script/lib/coffee-script/command.js",
+        "node_modules/coffee-script/lib/coffee-script/grammar.js",
+        "node_modules/coffee-script/lib/coffee-script/helpers.js",
+        "node_modules/coffee-script/lib/coffee-script/index.js",
+        "node_modules/coffee-script/lib/coffee-script/lexer.js",
+        "node_modules/coffee-script/lib/coffee-script/nodes.js",
+        "node_modules/coffee-script/lib/coffee-script/optparse.js",
+        "node_modules/coffee-script/lib/coffee-script/parser.js",
+        "node_modules/coffee-script/lib/coffee-script/register.js",
+        "node_modules/coffee-script/lib/coffee-script/repl.js",
+        "node_modules/coffee-script/lib/coffee-script/rewriter.js",
+        "node_modules/coffee-script/lib/coffee-script/scope.js",
+        "node_modules/coffee-script/lib/coffee-script/sourcemap.js",
+        "node_modules/coffee-script/node_modules/mkdirp/examples/pow.js",
+        "node_modules/coffee-script/node_modules/mkdirp/index.js",
+        "node_modules/coffee-script/register.js"
+      ],
+      ".json": [
+        "node_modules/coffee-script/node_modules/mkdirp/package.json",
+        "node_modules/coffee-script/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec",
+          "spec/fixtures"
+        ],
+        "dependencies": {
+          "coffee-script": "1.7.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/coffee-script/lib/coffee-script",
+          "node_modules/coffee-script"
+        ],
+        "dependencies": {
+          "mkdirp": "~0.3.5"
+        }
+      }
+    ]
+  }
 }

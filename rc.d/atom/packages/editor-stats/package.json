@@ -1,6 +1,6 @@
 {
   "name": "editor-stats",
-  "version": "0.14.0",
+  "version": "0.16.0",
   "main": "./lib/editor-stats",
   "description": "Display a graph of keyboard and mouse usage for the last 6 hours.",
   "license": "MIT",
@@ -15,16 +15,75 @@
   "engines": {
     "atom": "*"
   },
-  "readme": "# Editor Stats package\n\nView a graph of your mouse and keyboard activity for the last 6 hours.\n\nUse `cmd-alt-s` to open and close the graph.\n\n![](https://f.cloud.github.com/assets/671378/2262223/843b1172-9e57-11e3-9c60-8d28d542f39c.png)\n",
+  "readme": "# Editor Stats package [![Build Status](https://travis-ci.org/atom/editor-stats.svg?branch=master)](https://travis-ci.org/atom/editor-stats)\n\nView a graph of your mouse and keyboard activity for the last 6 hours.\n\nThe blue bar indicates the time of greatest activity.\n\nUse `cmd-alt-s` to open and close the graph.\n\n![](https://f.cloud.github.com/assets/671378/2262223/843b1172-9e57-11e3-9c60-8d28d542f39c.png)\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/atom/editor-stats/issues"
   },
   "homepage": "https://github.com/atom/editor-stats",
-  "_id": "editor-stats@0.14.0",
-  "dist": {
-    "shasum": "72004b2cff3b6d9c022fd74e730cdb1e0e567227"
-  },
-  "_resolved": "/var/folders/gp/rvlg3sm958bdv752vtfdddcm0000gn/T/d-11451-27558-k61i9r/package.tgz",
-  "_from": "/var/folders/gp/rvlg3sm958bdv752vtfdddcm0000gn/T/d-11451-27558-k61i9r/package.tgz"
+  "_id": "editor-stats@0.16.0",
+  "_shasum": "df97ccdc5415bf7eec13b65341324e279ac478bb",
+  "_resolved": "file:../d-115026-9388-18dnaq3/package.tgz",
+  "_from": "../d-115026-9388-18dnaq3/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "d3-browserify",
+        "version": "3.3.13",
+        "path": "node_modules/d3-browserify/d3.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.6",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/editor-stats-view.coffee",
+        "lib/editor-stats.coffee",
+        "lib/stats-tracker.coffee"
+      ],
+      ".js": [
+        "node_modules/d3-browserify/d3.js",
+        "node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      ],
+      ".json": [
+        "node_modules/d3-browserify/package.json",
+        "node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/underscore-plus/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "d3-browserify": "3.3.13",
+          "underscore-plus": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
 }

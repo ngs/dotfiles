@@ -2,7 +2,7 @@
 
 > [JSLint](https://github.com/douglascrockford/JSLint) error reports for your [Atom](http://atom.io) editor.
 
-![preview](https://raw.github.com/tcarlsen/atom-jslint/master/preview.png)
+![preview](https://cloud.githubusercontent.com/assets/145288/5823960/41af30f8-a0e1-11e4-814e-3f97c7a05599.png)
 
 ## Installation
 
@@ -14,9 +14,19 @@ $ apm install jslint
 
 ## Usage
 
-JSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `cmd+alt+l` on OS X or `ctrl-alt-l` on Windows and Linux.
+JSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `ctrl-alt-l`.
 
 If you like you can even set it to validate while typing in the package settings.
+
+## Configuration
+JSlint options can be configured via `.jslintrc` config files, located in
+
+ * your home directory *(global options)* and
+ * your project root directory *(project specific options)*.
+
+The `.jslintrc` config files are JSON files see [`.jslintrc-example`](.jslintrc-example) for an example.
+Specifications of the different options can be found in the [JSlint documentation](http://www.jslint.com/lint.html#options).
+
 
 ## Features
 

@@ -8,12 +8,12 @@
     # -------------------------------------
         hexToRgb: (hex) ->
             hex = hex.replace '#', ''
-            if hex.length is 3 then hex = hex.replace /(.)(.)(.)/, "$1$1$2$2$3$3"
+            hex = hex.replace /(.)(.)(.)/, "$1$1$2$2$3$3" if hex.length is 3
 
             return [
-                (parseInt (hex.substr 0, 2), 16),
-                (parseInt (hex.substr 2, 2), 16),
-                (parseInt (hex.substr 4, 2), 16)
+                parseInt (hex.substr 0, 2), 16
+                parseInt (hex.substr 2, 2), 16
+                parseInt (hex.substr 4, 2), 16
             ]
 
     # -------------------------------------
@@ -26,8 +26,7 @@
     #  HEX to HSL
     # -------------------------------------
         hexToHsl: (hex) ->
-            hex = hex.replace '#', ''
-            return @rgbToHsl @hexToRgb hex
+            return @rgbToHsl @hexToRgb hex.replace '#', ''
 
     # -------------------------------------
     #  RGB to HEX
@@ -38,8 +37,8 @@
                 return if _hex.length is 1 then "0#{ _hex }" else _hex
 
             return [
-                (_componentToHex rgb[0]),
-                (_componentToHex rgb[1]),
+                (_componentToHex rgb[0])
+                (_componentToHex rgb[1])
                 (_componentToHex rgb[2])
             ].join ''
 
@@ -78,7 +77,7 @@
     #  RGB to HSV
     # -------------------------------------
         rgbToHsv: (rgb) ->
-            if typeof rgb is 'string' then rgb = rgb.match /(\d+)/g
+            rgb = rgb.match /(\d+)/g if typeof rgb is 'string'
 
             [r, g, b] = rgb
 
@@ -86,7 +85,7 @@
             computedS = 0
             computedV = 0
 
-            #remove spaces from input RGB values, convert to int
+            # Remove spaces from input RGB values, convert to int
             r = parseInt(("" + r).replace(/\s/g, ""), 10)
             g = parseInt(("" + g).replace(/\s/g, ""), 10)
             b = parseInt(("" + b).replace(/\s/g, ""), 10)
@@ -117,6 +116,7 @@
             # Colors other than black-gray-white:
             d = (if (r is minRGB) then g - b else ((if (b is minRGB) then r - g else b - r)))
             h = (if (r is minRGB) then 3 else ((if (b is minRGB) then 1 else 5)))
+
             computedH = 60 * (h - d / (maxRGB - minRGB))
             computedS = (maxRGB - minRGB) / maxRGB
             computedV = maxRGB
@@ -132,7 +132,7 @@
     # -------------------------------------
         hsvToHsl: ([h, s, v]) ->
             return [
-                h,
+                h
                 s * v / (if (h = (2 - s) * v) < 1 then h else 2 - h)
                 h / 2
             ]
@@ -144,7 +144,7 @@
             s *= if l < .5 then l else 1 - l
 
             return [
-                h,
+                h
                 2 * s / (l + s)
                 l + s
             ]

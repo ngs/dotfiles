@@ -1,104 +1,58 @@
-{$, $$$, EditorView, ScrollView} = require 'atom'
-coffee = require 'coffee-script'
-_ = require 'underscore-plus'
-path = require 'path'
-fs = require 'fs'
+{TextEditorView} = require 'atom-space-pen-views'
+util = require './util'
 
 module.exports =
-class CoffeeCompileView extends ScrollView
-  @content: ->
-    @div class: 'coffee-compile native-key-bindings', tabindex: -1, =>
-      @div class: 'editor editor-colors', =>
-        @div outlet: 'compiledCode', class: 'lang-javascript lines'
-
-  constructor: (@editorId) ->
+class CoffeeCompileView extends TextEditorView
+  constructor: ({@sourceEditorId, @sourceEditor}) ->
     super
 
-    @editor = @getEditor @editorId
-    if @editor?
-      @trigger 'title-changed'
-      @bindEvents()
-    else
-      @parents('.pane').view()?.destroyItem(this)
+    # Used for unsubscribing callbacks on editor text buffer
+    @disposables = []
+
+    if @sourceEditorId? and not @sourceEditor
+      @sourceEditor = util.getTextEditorById @sourceEditorId
+
+    if @sourceEditor?
+      @bindCoffeeCompileEvents()
+
+    # set editor grammar to Javascript
+    this.getModel().setGrammar atom.grammars.selectGrammar("hello.js")
+
+    @renderCompiled()
+
+    if atom.config.get('coffee-compile.compileOnSave') or
+        atom.config.get('coffee-compile.compileOnSaveWithoutPreview')
+      util.compileToFile @sourceEditor
+
+  bindCoffeeCompileEvents: ->
+    if atom.config.get('coffee-compile.compileOnSave') and not
+        atom.config.get('coffee-compile.compileOnSaveWithoutPreview')
+
+      @disposables.push @sourceEditor.getBuffer().onDidSave => @renderAndSave()
+      @disposables.push @sourceEditor.getBuffer().onDidReload => @renderAndSave()
 
   destroy: ->
-    @unsubscribe()
+    disposable.dispose() for disposable in @disposables
 
-  bindEvents: ->
-    @subscribe atom.syntax, 'grammar-updated', _.debounce((=> @renderCompiled()), 250)
-    @subscribe this, 'core:move-up', => @scrollUp()
-    @subscribe this, 'core:move-down', => @scrollDown()
+  renderAndSave: ->
+    @renderCompiled()
+    util.compileToFile @sourceEditor
 
-    if atom.config.get('coffee-compile.compileOnSave')
-      @subscribe @editor.buffer, 'saved', => @saveCompiled()
-
-  getEditor: (id) ->
-    for editor in atom.workspace.getEditors()
-      return editor if editor.id?.toString() is id.toString()
-    return null
-
-  getSelectedCode: ->
-    range = @editor.getSelectedBufferRange()
-    code  =
-      if range.isEmpty()
-        @editor.getText()
-      else
-        @editor.getTextInBufferRange(range)
-
-    return code
-
-  compile: (code) ->
-    grammarScopeName = @editor.getGrammar().scopeName
-
-    bare     = atom.config.get('coffee-compile.noTopLevelFunctionWrapper') or true
-    literate = grammarScopeName is "source.litcoffee"
-
-    return coffee.compile code, {bare, literate}
-
-  saveCompiled: (callback) ->
-    try
-      text     = @compile @editor.getText()
-      srcPath  = @editor.getPath()
-      srcExt   = path.extname srcPath
-      destPath = path.join(
-        path.dirname(srcPath), "#{path.basename(srcPath, srcExt)}.js"
-      )
-      fs.writeFileSync destPath, text
-
-    catch e
-      console.error "Coffee-compile: #{e.stack}"
-
-    callback?()
-
-  renderCompiled: (callback) ->
-    code = @getSelectedCode()
+  renderCompiled: ->
+    code = util.getSelectedCode @sourceEditor
 
     try
-      text = @compile code
+      literate = util.isLiterate @sourceEditor
+      text     = util.compile code, literate
     catch e
       text = e.stack
 
-    grammar = atom.syntax.selectGrammar("hello.js", text)
-    @compiledCode.empty()
-
-    for tokens in grammar.tokenizeLines(text)
-      attributes = class: "line"
-      @compiledCode.append(EditorView.buildLineHtml({tokens, text, attributes}))
-
-    # Match editor styles
-    @compiledCode.css
-      fontSize: atom.config.get('editor.fontSize') or 12
-      fontFamily: atom.config.get('editor.fontFamily')
-
-    callback?()
+    this.getModel().setText text
 
   getTitle: ->
-    if @editor.getPath()
-      "Compiled #{path.basename(@editor.getPath())}"
-    else if @editor
-      "Compiled #{@editor.getTitle()}"
+    if @sourceEditor?
+      "Compiled #{@sourceEditor.getTitle()}"
     else
       "Compiled Javascript"
 
-  getUri:   -> "coffeecompile://editor/#{@editorId}"
-  getPath:  -> @editor.getPath()
+  getURI: -> "coffeecompile://editor/#{@sourceEditorId}"

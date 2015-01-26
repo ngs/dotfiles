@@ -1,5 +1,4 @@
 CoffeeCompileView = require '../lib/coffee-compile-view'
-{WorkspaceView} = require 'atom'
 fs = require 'fs'
 
 describe "CoffeeCompileView", ->
@@ -7,44 +6,19 @@ describe "CoffeeCompileView", ->
   editor   = null
 
   beforeEach ->
-    atom.workspaceView = new WorkspaceView
-    atom.workspace = atom.workspaceView.model
-
-    editor = atom.project.openSync('test.coffee')
-    compiled = new CoffeeCompileView editor.id
-
     waitsForPromise ->
       atom.packages.activatePackage('language-coffee-script')
 
-  afterEach ->
-    compiled.destroy()
+    waitsForPromise ->
+      atom.packages.activatePackage 'coffee-compile'
 
-  describe "renderCompiled", ->
-    it "should compile the whole file and display compiled js", ->
-      waitsFor ->
-        done = false
-        compiled.renderCompiled -> done = true
-        return done
-      , "Coffeescript should be compiled", 750
+    waitsForPromise ->
+      atom.project.open('test.coffee').then (o) ->
+        editor = o
 
-      runs ->
-        expect(compiled.find('.line')).toExist()
+  it "should compile the whole file and display compiled js", ->
+    spyOn CoffeeCompileView.prototype, "renderCompiled"
 
-  describe "saveCompiled", ->
-    filePath = null
-    beforeEach ->
-      filePath = editor.getPath()
-      filePath = filePath.replace ".coffee", ".js"
+    compiled = new CoffeeCompileView {sourceEditor: editor}
 
-    afterEach ->
-      fs.unlink(filePath) if fs.existsSync(filePath)
-
-    it "should compile and create a js file", ->
-      waitsFor ->
-        done = false
-        compiled.saveCompiled -> done = true
-        return done
-      , "Compile on save", 750
-
-      runs ->
-        expect(fs.existsSync(filePath)).toBeTruthy()
+    expect(CoffeeCompileView.prototype.renderCompiled).toHaveBeenCalled()

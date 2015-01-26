@@ -1,6 +1,4 @@
 ## Setup
-update
-upgrade
 
 tap ngs/homebrew-cask || true
 install brew-cask

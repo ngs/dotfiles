@@ -1,6 +1,6 @@
 {
   "name": "language-jade",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Jade TextMate bundle converted for Atom",
   "repository": {
@@ -12,16 +12,24 @@
     "atom": ">0.50.0"
   },
   "dependencies": {},
-  "readme": "# atom-jade\n\nThe [Jade TextMate bundle](https://github.com/miksago/jade-tmbundle) converted\nfor [Atom](https://atom.io/).\n",
+  "readme": "# atom-jade\n\nThe [Jade TextMate bundle](https://github.com/davidrios/jade-tmbundle) converted\nfor [Atom](https://atom.io/).\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/devongovett/atom-jade/issues"
   },
   "homepage": "https://github.com/devongovett/atom-jade",
-  "_id": "language-jade@0.1.0",
-  "dist": {
-    "shasum": "bd44e162189884707282e4f06c12e897ad8c0df0"
-  },
-  "_resolved": "/var/folders/gp/rvlg3sm958bdv752vtfdddcm0000gn/T/d-11451-25840-1mg88xo/package.tgz",
-  "_from": "/var/folders/gp/rvlg3sm958bdv752vtfdddcm0000gn/T/d-11451-25840-1mg88xo/package.tgz"
+  "_id": "language-jade@0.3.0",
+  "_shasum": "d304bdbf4a32ec2fc85c07f3289050de7b373d96",
+  "_resolved": "file:../d-115026-9428-1su2fic/package.tgz",
+  "_from": "../d-115026-9428-1su2fic/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }
