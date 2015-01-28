@@ -8,3 +8,4 @@
 /.bundle
 /vendor/ruby/
 /rc.d/atom/.node-gyp
+/rc.d/atom/config.cson
