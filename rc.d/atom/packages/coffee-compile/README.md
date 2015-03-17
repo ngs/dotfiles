@@ -1,6 +1,6 @@
 # coffee-compile package [![Build Status](https://travis-ci.org/adrianlee44/atom-coffee-compile.svg?branch=master)](https://travis-ci.org/adrianlee44/atom-coffee-compile)
 
-Preview and/or save compiled Javascript in Atom
+Preview, compile and/or save CoffeeScript in editor to Javascript
 - Mac: `cmd+shift+c`
 - Linux/Windows: `ctrl-alt-c`
 
@@ -18,6 +18,9 @@ Preview and/or save compiled Javascript in Atom
 - Add sourcemap support
 
 ## Changelog
+- 2015-03-01   v0.11.0   Fixed compiled not searchable. Added coffee-compile to menu
+- 2015-01-29   v0.10.0   Updated coffee-script to 1.9.0
+- 2015-01-26   v0.9.1   Fixed `No top level function wrapper` not working
 - 2015-01-24   v0.9.0   Updated to using Atom 1.0 API
 - 2014-10-27   v0.8.4   Reenabled focusing on editor. Cleaned up package.
 - 2014-10-22   v0.8.3   Fixed preview not working due to API changes

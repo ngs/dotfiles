@@ -1,5 +1,5 @@
 _ = require 'underscore-plus'
-{$, ScrollView} = require 'atom'
+{$, ScrollView} = require 'atom-space-pen-views'
 d3 = require 'd3-browserify'
 
 module.exports =
@@ -23,13 +23,13 @@ class EditorStatsView extends ScrollView
       return unless @isOnDom()
       @draw()
       @update()
-    @subscribe $(window), 'resize', _.debounce(resizer, 300)
+    $(window).on 'resize', _.debounce(resizer, 300)
 
   draw: ->
     @editorStats.empty()
     @x ?= d3.scale.ordinal().domain d3.range(@stats.hours * 60)
     @y ?= d3.scale.linear()
-    w = atom.workspaceView.vertical.width()
+    w = $(atom.views.getView(atom.workspace)).find('.vertical').width()
     h = @height()
     data = d3.entries @stats.eventLog
     max  = d3.max data, (d) -> d.value
@@ -87,17 +87,18 @@ class EditorStatsView extends ScrollView
     @bars.classed('max', (d, i) -> d.value == max)
 
   toggle: (@stats) ->
-    if @hasParent()
+    if @panel?.isVisible()
       @detach()
     else
       @attach()
 
   attach: ->
-    atom.workspaceView.prependToBottom(this)
+    @panel ?= atom.workspace.addBottomPanel(item: this)
+    @panel.show()
     @draw()
 
   detach: ->
-    super
+    @panel?.hide()
 
     clearInterval(@updateInterval)
-    atom.workspaceView.focus()
+    $(atom.views.getView(atom.workspace)).focus()

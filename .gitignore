@@ -9,3 +9,4 @@
 /vendor/ruby/
 /rc.d/atom/.node-gyp
 /rc.d/atom/config.cson
+/rc.d/atom/.apm

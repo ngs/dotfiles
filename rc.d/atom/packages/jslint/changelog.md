@@ -1,4 +1,16 @@
 
+1.1.0 / 2015-02-09
+==================
+
+  * adding titles to config settings
+  * adding ability to choose jslint version
+
+1.0.2 / 2015-02-03
+===================
+
+  * making lint variables global (#21)
+  * fixes issue #22
+
 1.0.0 / 2015-01-20
 ==================
 

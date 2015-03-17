@@ -21,7 +21,8 @@ module.exports =
   @returns {String} Compiled code
   ###
   compile: (code, literate = false) ->
-    bare = atom.config.get('coffee-compile.noTopLevelFunctionWrapper') or true
+    bare  = atom.config.get('coffee-compile.noTopLevelFunctionWrapper')
+    bare ?= true
 
     return coffee.compile code, {bare, literate}
 
@@ -68,3 +69,7 @@ module.exports =
 
     catch e
       console.error "Coffee-compile: #{e.stack}"
+
+  checkGrammar: (editor) ->
+    grammars = atom.config.get('coffee-compile.grammars') or []
+    return (grammar = editor.getGrammar().scopeName) in grammars

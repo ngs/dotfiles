@@ -36,6 +36,7 @@ Specifications of the different options can be found in the [JSlint documentatio
  * Validate on change *(toggle in settings)*
  * Option to hide the error panel if no errors were found *(toggle in settings)*
  * Option to use `fold mode` by default *(toggle in settings)*
+ * Choose between different JSLint versions *(select in settings)*
  * Supports `.jslintrc` config files *(project located file will overwrite the global file)*
 
 ## License
