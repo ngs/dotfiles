@@ -1,4 +1,4 @@
 #!/bin/sh
-cli=/Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli
+cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
 $cli set repeat.wait 10
 $cli set repeat.initial_wait 200

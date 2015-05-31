@@ -71,3 +71,6 @@ DEPENDENCIES
   blink1-formatter
   nyan-cat-formatter
   travis
+
+BUNDLED WITH
+   1.10.2
