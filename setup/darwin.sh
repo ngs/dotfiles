@@ -1,6 +1,6 @@
 DOTFILES=$(cd $(dirname $0)/.. && pwd)
 ##
-[ `which brew` ] || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+[ `which brew` ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew bundle "${DOTFILES}/Brewfiles/default"
 brew bundle "${DOTFILES}/Brewfiles/kaizen"
 brew bundle "${DOTFILES}/Brewfiles/fonts"
