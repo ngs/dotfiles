@@ -1,6 +1,6 @@
 {
   "name": "jslint",
-  "version": "1.2.1",
+  "version": "1.3.3",
   "description": "JSLint error reports for your Atom editor",
   "main": "lib/main",
   "repository": {
@@ -17,24 +17,24 @@
   },
   "dependencies": {
     "jslint": "^0.7.2",
-    "atom-message-panel": "1.2.2"
+    "atom-message-panel": "1.2.4"
   },
-  "readme": "# JSLint\n\n> [JSLint](https://github.com/douglascrockford/JSLint) error reports for your [Atom](http://atom.io) editor.\n\n![preview](https://cloud.githubusercontent.com/assets/145288/5823960/41af30f8-a0e1-11e4-814e-3f97c7a05599.png)\n\n## Installation\n\nYou can install this plugin via the Packages manager in Atom itself or manually through the terminal\n\n```bash\n$ apm install jslint\n```\n\n## Usage\n\nJSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `ctrl-alt-l`.\n\nIf you like you can even set it to validate while typing in the package settings.\n\n## Configuration\nJSlint options can be configured via `.jslintrc` config files, located in\n\n * your home directory *(global options)* and\n * your project root directory *(project specific options)*.\n\nThe `.jslintrc` config files are JSON files see [`.jslintrc-example`](.jslintrc-example) for an example.\nSpecifications of the different options can be found in the [JSlint documentation](http://www.jslint.com/lint.html#options).\n\n\n## Features\n\n * Validate on keymap\n * Validate on command\n * Validate on save *(toggle in settings)*\n * Validate on change *(toggle in settings)*\n * Option to hide the error panel if no errors were found *(toggle in settings)*\n * Option to use `fold mode` by default *(toggle in settings)*\n * Choose between different JSLint versions *(select in settings)*\n * Supports `.jslintrc` config files *(project located file will overwrite the global file)*\n\n## License\n\n[MIT](http://opensource.org/licenses/MIT) © tcarlsen\n",
+  "readme": "# JSLint\n\n![](https://img.shields.io/apm/v/jslint.svg)\n![](https://img.shields.io/apm/dm/jslint.svg)\n![](https://img.shields.io/apm/l/jslint.svg)\n\n> [JSLint](https://github.com/douglascrockford/JSLint) error reports for your [Atom](http://atom.io) editor.\n\n![preview](https://cloud.githubusercontent.com/assets/145288/5823960/41af30f8-a0e1-11e4-814e-3f97c7a05599.png)\n\n## Installation\n\nYou can install this plugin via the Packages manager in Atom itself or manually through the terminal\n\n```bash\n$ apm install jslint\n```\n\n## Usage\n\nJSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `ctrl-alt-l`.\n\nIf you like you can even set it to validate while typing in the package settings.\n\n## Configuration\nJSlint options can be configured via `.jslintrc` config files, located in\n\n * your home directory *(global options)* and\n * your project root directory *(project specific options)*.\n\nThe `.jslintrc` config files are JSON files see [`.jslintrc-example`](.jslintrc-example) for an example.\nSpecifications of the different options can be found in the [JSlint documentation](http://www.jslint.com/lint.html#options).\n\n\n## Features\n\n * Validate on keymap\n * Validate on command\n * Validate on save *(toggle in settings)*\n * Validate on change *(toggle in settings)*\n * Option to hide the error panel if no errors were found *(toggle in settings)*\n * Option to use `fold mode` by default *(toggle in settings)*\n * Choose between different JSLint versions *(select in settings)*\n * Supports `.jslintrc` config files *(project located file will overwrite the global file)*\n\n## License\n\n[MIT](http://opensource.org/licenses/MIT) © tcarlsen\n",
   "readmeFilename": "readme.md",
   "bugs": {
     "url": "https://github.com/tcarlsen/atom-jslint/issues"
   },
   "homepage": "https://github.com/tcarlsen/atom-jslint",
-  "_id": "jslint@1.2.1",
-  "_shasum": "466359a50d36958f9ceda6b5ae0c4f298ac7732e",
-  "_resolved": "file:../d-115217-25429-1t0vuwd/package.tgz",
-  "_from": "../d-115217-25429-1t0vuwd/package.tgz",
+  "_id": "jslint@1.3.3",
+  "_shasum": "a2a86a7abb515dcba170664b6e4657cd64ec4c86",
+  "_resolved": "file:../d-11552-54193-1oolznm/package.tgz",
+  "_from": "../d-11552-54193-1oolznm/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "atom-message-panel",
-        "version": "1.2.2",
+        "version": "1.2.4",
         "path": "node_modules/atom-message-panel/lib/index.js"
       },
       {
@@ -44,12 +44,12 @@
       },
       {
         "name": "grim",
-        "version": "1.2.0",
+        "version": "1.4.1",
         "path": "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/lib/grim.js"
       },
       {
         "name": "coffeestack",
-        "version": "1.1.1",
+        "version": "1.1.2",
         "path": "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/coffeestack/index.js"
       },
       {
@@ -64,7 +64,7 @@
       },
       {
         "name": "fs-plus",
-        "version": "2.5.0",
+        "version": "2.8.1",
         "path": "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/coffeestack/node_modules/fs-plus/lib/fs-plus.js"
       },
       {
@@ -99,7 +99,7 @@
       },
       {
         "name": "es6-weak-map",
-        "version": "0.1.2",
+        "version": "0.1.4",
         "path": "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/index.js"
       },
       {
@@ -109,13 +109,8 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.6",
+        "version": "0.10.7",
         "path": "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
-      },
-      {
-        "name": "es6-symbol",
-        "version": "2.0.1",
-        "path": "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
         "name": "es6-iterator",
@@ -125,11 +120,6 @@
       {
         "name": "es6-symbol",
         "version": "2.0.1",
-        "path": "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/index.js"
-      },
-      {
-        "name": "es6-symbol",
-        "version": "0.1.1",
         "path": "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol/index.js"
       },
       {
@@ -184,7 +174,7 @@
       },
       {
         "name": "minimatch",
-        "version": "2.0.4",
+        "version": "2.0.8",
         "path": "node_modules/jslint/node_modules/glob/node_modules/minimatch/minimatch.js"
       },
       {
@@ -204,7 +194,7 @@
       },
       {
         "name": "once",
-        "version": "1.3.1",
+        "version": "1.3.2",
         "path": "node_modules/jslint/node_modules/glob/node_modules/once/once.js"
       },
       {
@@ -214,12 +204,12 @@
       },
       {
         "name": "nopt",
-        "version": "3.0.1",
+        "version": "3.0.2",
         "path": "node_modules/jslint/node_modules/nopt/lib/nopt.js"
       },
       {
         "name": "abbrev",
-        "version": "1.0.5",
+        "version": "1.0.7",
         "path": "node_modules/jslint/node_modules/nopt/node_modules/abbrev/abbrev.js"
       },
       {
@@ -455,6 +445,11 @@
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/function/valid-function.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/global.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/iterable/for-each.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/iterable/index.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/iterable/is.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/iterable/validate-object.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/iterable/validate.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/math/_pack-ieee754.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/math/_unpack-ieee754.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/math/acosh/implement.js",
@@ -526,13 +521,6 @@
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/math/trunc/index.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/math/trunc/is-implemented.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/math/trunc/shim.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/implement.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/is-implemented.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/is-native-implemented.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/is-symbol.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/polyfill.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/validate-symbol.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/number/#/index.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/number/#/pad.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/number/epsilon/implement.js",
@@ -616,6 +604,10 @@
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/valid-callable.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/valid-object.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/valid-value.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/validate-array-like-object.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/validate-array-like.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/validate-stringifiable-value.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/validate-stringifiable.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/reg-exp/#/index.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/reg-exp/#/is-sticky.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/reg-exp/#/is-unicode.js",
@@ -701,13 +693,6 @@
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/get.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/index.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/is-iterable.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/implement.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/index.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/is-implemented.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/is-native-implemented.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/is-symbol.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/polyfill.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/validate-symbol.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/string.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/valid-iterable.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol/implement.js",
@@ -716,7 +701,7 @@
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol/is-native-implemented.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol/is-symbol.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol/polyfill.js",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol/valid-symbol.js",
+        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol/validate-symbol.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/polyfill.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/valid-weak-map.js",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/mixto/lib/mixin.js",
@@ -808,9 +793,7 @@
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/coffeestack/node_modules/source-map/package.json",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/coffeestack/package.json",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/d/package.json",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/package.json",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/package.json",
-        "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/package.json",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/package.json",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol/package.json",
         "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/package.json",
@@ -853,7 +836,7 @@
         ],
         "dependencies": {
           "jslint": "^0.7.2",
-          "atom-message-panel": "1.2.2"
+          "atom-message-panel": "1.2.4"
         }
       },
       {
@@ -949,9 +932,9 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.4",
-          "es6-iterator": "~0.1.1",
-          "es6-symbol": "0.1.x"
+          "es5-ext": "~0.10.6",
+          "es6-iterator": "~0.1.3",
+          "es6-symbol": "~2.0.1"
         }
       },
       {
@@ -990,6 +973,7 @@
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/function/#",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/function",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext",
+          "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/iterable",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/math",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/math/acosh",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/math/asinh",
@@ -1065,6 +1049,7 @@
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/test/error",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/test/function/#",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/test/function",
+          "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/test/iterable",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/test/math",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/test/math/acosh",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/test/math/asinh",
@@ -1123,16 +1108,6 @@
       },
       {
         "paths": [
-          "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol",
-          "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/test"
-        ],
-        "dependencies": {
-          "d": "~0.1.1",
-          "es5-ext": "~0.10.5"
-        }
-      },
-      {
-        "paths": [
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/#",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/test/#",
@@ -1146,22 +1121,12 @@
       },
       {
         "paths": [
-          "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol",
-          "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-iterator/node_modules/es6-symbol/test"
-        ],
-        "dependencies": {
-          "d": "~0.1.1",
-          "es5-ext": "~0.10.5"
-        }
-      },
-      {
-        "paths": [
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol",
           "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es6-symbol/test"
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.4"
+          "es5-ext": "~0.10.5"
         }
       },
       {

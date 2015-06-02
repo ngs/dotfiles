@@ -1,4 +1,4 @@
 ## KAIZEN platform
-tap kaizenplatform/homebrew-kaizenplatform || true
-install planbcd --HEAD
-install planbcd-log --HEAD
+tap 'kaizenplatform/homebrew-kaizenplatform'
+brew 'planbcd', args: ['HEAD']
+brew 'planbcd-log', args: ['HEAD']

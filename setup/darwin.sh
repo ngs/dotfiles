@@ -1,9 +1,10 @@
 DOTFILES=$(cd $(dirname $0)/.. && pwd)
 ##
 [ `which brew` ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew bundle "${DOTFILES}/Brewfiles/default"
-brew bundle "${DOTFILES}/Brewfiles/kaizen"
-brew bundle "${DOTFILES}/Brewfiles/fonts"
+brew tap Homebrew/bundle
+brew bundle --file="${DOTFILES}/Brewfiles/default"
+# brew bundle --file="${DOTFILES}/Brewfiles/kaizen"
+brew bundle --file="${DOTFILES}/Brewfiles/fonts"
 ##
 ## Import iTerm 2 Themes
 ##

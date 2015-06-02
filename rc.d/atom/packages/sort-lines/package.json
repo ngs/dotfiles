@@ -1,7 +1,7 @@
 {
   "name": "sort-lines",
   "main": "./lib/sort-lines",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Sorts your lines. Never gets tired.",
   "activationCommands": {
     "atom-text-editor": [
@@ -26,10 +26,10 @@
     "url": "https://github.com/atom/sort-lines/issues"
   },
   "homepage": "https://github.com/atom/sort-lines",
-  "_id": "sort-lines@0.10.0",
-  "_shasum": "b87c1368027a357dc4a0a794a0db82ec99928c88",
-  "_resolved": "file:../d-115217-25434-1ciqt5l/package.tgz",
-  "_from": "../d-115217-25434-1ciqt5l/package.tgz",
+  "_id": "sort-lines@0.11.0",
+  "_shasum": "66c825b24ebecec457dcfbdc6c1ca3270a93b79a",
+  "_resolved": "file:../d-11552-54221-1a7e5c0/package.tgz",
+  "_from": "../d-11552-54221-1a7e5c0/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

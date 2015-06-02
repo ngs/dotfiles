@@ -1,4 +1,4 @@
 ## Setup
 
 tap ngs/homebrew-cask || true
-install brew-cask
+tap caskroom/cask || true

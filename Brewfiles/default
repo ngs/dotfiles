@@ -1,56 +1,65 @@
-## Setup
-update
-upgrade
-
 ## Modules
-install git
-install hub
-install jq
-install mecab
-install mecab-ipadic
-install tig
-install tmux
-install tree
-install vim --override-system-vi
-install watch
-install wget
-install xcproj
-install xctool
-install zsh
-install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
-install chrome-cli
+brew "git"
+brew "hub"
+brew "jq"
+brew "mecab"
+brew "mecab-ipadic"
+brew "tig"
+brew "tmux"
+brew "tree"
+brew "vim", args: ['override-system-vi']
+brew "watch"
+brew "wget"
+brew "xcproj"
+brew "xctool"
+brew "zsh"
+brew "reattach-to-user-namespace", args: ['wrap-pbcopy-and-pbpaste']
+brew "chrome-cli"
+brew "rbenv"
+brew "rbenv-gemset"
+brew "rbenv-gem-rehash"
+brew "ruby-build"
+brew "nodenv"
+brew "nginx"
+brew "libxml2"
+brew "mysql"
+brew "v8"
+brew "openssl"
+brew "redis"
+brew "dynamodb-local"
+brew "libxslt"
 
 ## Cask
-tap ngs/homebrew-cask || true
-install brew-cask
-cask install adobe-creative-cloud
-cask install arq
-cask install arduino
-cask install atom
-cask install bitcasa
-cask install dropbox
-cask install firefox
-cask install garmin-communicator
-cask install garmin-express
-cask install google-chrome
-cask install google-drive
-cask install google-japanese-ime
-cask install handbrake
-cask install heroku-toolbelt
-cask install hipchat
-cask install iterm2
-cask install java
-cask install kaleidoscope
-cask install kobito
-cask install mou
-cask install sqwiggle
-cask install steam
-cask install testflight
-cask install skype
-cask install vagrant
-cask install virtualbox
-cask install vlc
-cask install vmware-fusion
+tap "ngs/homebrew-cask"
+tap "caskroom/cask"
+# cask "adobe-creative-cloud"
+cask "arq"
+cask "arduino"
+cask "atom"
+cask "dropbox"
+cask "firefox"
+cask "karabiner"
+cask "garmin-communicator"
+cask "garmin-express"
+cask "github"
+cask "google-chrome"
+cask "google-drive"
+cask "google-japanese-ime"
+cask "handbrake"
+cask "heroku-toolbelt"
+cask "iterm2"
+cask "java"
+cask "kaleidoscope"
+cask "kobito"
+cask "mou"
+cask "sequel-pro"
+cask "sqwiggle"
+cask "steam"
+cask "skype"
+cask "vagrant"
+cask "virtualbox"
+cask "vlc"
+cask "vmware-fusion"
 
 ## Finalize
 # update
