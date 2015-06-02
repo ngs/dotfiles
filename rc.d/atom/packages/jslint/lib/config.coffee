@@ -3,7 +3,7 @@ fs = require("fs")
 
 module.exports = ->
   defaultConfigPath = path.normalize(path.join(process.env.HOME or process.env.HOMEPATH, ".jslintrc"))
-  projectConfigPath = path.normalize(path.join(atom.project.getPath(), ".jslintrc"))
+  projectConfigPath = path.normalize(path.join(atom.project.getPaths()[0], ".jslintrc"))
   config = {}
 
   try

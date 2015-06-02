@@ -26,20 +26,23 @@ module.exports =
 
   activate: ->
     editor = atom.workspace.getActiveTextEditor()
+    subscriptions =
+      onSave: null
+      onChange: null
 
     atom.commands.add "atom-workspace", "jslint:lint", linter
     atom.config.observe "jslint.validateOnSave", (value) ->
       if value is true
-        atom.workspace.eachEditor (editor) ->
-          editor.buffer.on "saved", linter
+        atom.workspace.observeTextEditors (editor) ->
+          subscriptions.onSave = editor.buffer.onDidSave linter
       else
-        atom.workspace.eachEditor (editor) ->
-          editor.buffer.off "saved", linter
+        atom.workspace.observeTextEditors (editor) ->
+          subscriptions.onSave?.dispose()
 
     atom.config.observe "jslint.validateOnChange", (value) ->
       if value is true
-        atom.workspace.eachEditor (editor) ->
-          editor.buffer.on "contents-modified", linter
+        atom.workspace.observeTextEditors (editor) ->
+          subscriptions.onChange = editor.buffer.onDidStopChanging linter
       else
-        atom.workspace.eachEditor (editor) ->
-          editor.buffer.off "contents-modified", linter
+        atom.workspace.observeTextEditors (editor) ->
+          subscriptions.onChange?.dispose()

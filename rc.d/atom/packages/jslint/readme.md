@@ -1,5 +1,9 @@
 # JSLint
 
+![](https://img.shields.io/apm/v/jslint.svg)
+![](https://img.shields.io/apm/dm/jslint.svg)
+![](https://img.shields.io/apm/l/jslint.svg)
+
 > [JSLint](https://github.com/douglascrockford/JSLint) error reports for your [Atom](http://atom.io) editor.
 
 ![preview](https://cloud.githubusercontent.com/assets/145288/5823960/41af30f8-a0e1-11e4-814e-3f97c7a05599.png)

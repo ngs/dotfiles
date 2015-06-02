@@ -27,6 +27,7 @@ brew "v8"
 brew "openssl"
 brew "redis"
 brew "dynamodb-local"
+brew "libxslt"
 
 ## Cask
 tap "ngs/homebrew-cask"

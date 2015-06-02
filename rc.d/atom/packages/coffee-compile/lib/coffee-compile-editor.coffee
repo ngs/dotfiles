@@ -1,36 +1,24 @@
 {TextEditor} = require 'atom'
 util = require './util'
+pluginManager = require './plugin-manager'
 
 module.exports =
 class CoffeeCompileEditor extends TextEditor
   constructor: ({@sourceEditor}) ->
     super
 
-    # Used for unsubscribing callbacks on editor text buffer
-    @disposables = []
-    
-    @bindCoffeeCompileEvents() if @sourceEditor?
+    if atom.config.get('coffee-compile.compileOnSave') and not
+        atom.config.get('coffee-compile.compileOnSaveWithoutPreview')
+      @disposables.add @sourceEditor.getBuffer().onDidSave => @renderAndSave()
+      @disposables.add @sourceEditor.getBuffer().onDidReload => @renderAndSave()
 
-    # set editor grammar to Javascript
-    @setGrammar atom.grammars.selectGrammar("hello.js")
-
-    @renderCompiled()
+    # set editor grammar to correct language
+    grammar = atom.grammars.selectGrammar pluginManager.getCompiledScopeByEditor(@sourceEditor)
+    @setGrammar grammar
 
     if atom.config.get('coffee-compile.compileOnSave') or
         atom.config.get('coffee-compile.compileOnSaveWithoutPreview')
       util.compileToFile @sourceEditor
-
-  bindCoffeeCompileEvents: ->
-    if atom.config.get('coffee-compile.compileOnSave') and not
-        atom.config.get('coffee-compile.compileOnSaveWithoutPreview')
-
-      @disposables.push @sourceEditor.getBuffer().onDidSave => @renderAndSave()
-      @disposables.push @sourceEditor.getBuffer().onDidReload => @renderAndSave()
-
-  destroyed: ->
-    disposable.dispose() for disposable in @disposables
-
-    super
 
   renderAndSave: ->
     @renderCompiled()
@@ -40,17 +28,11 @@ class CoffeeCompileEditor extends TextEditor
     code = util.getSelectedCode @sourceEditor
 
     try
-      literate = util.isLiterate @sourceEditor
-      text     = util.compile code, literate
+      text = util.compile code, @sourceEditor
     catch e
       text = e.stack
 
     @setText text
 
-  getTitle: ->
-    if @sourceEditor?
-      "Compiled #{@sourceEditor.getTitle()}"
-    else
-      "Compiled Javascript"
-
-  getURI: -> "coffeecompile://editor/#{@sourceEditorId}"
+  getTitle: -> "Compiled #{@sourceEditor?.getTitle() or ''}".trim()
+  getURI:   -> "coffeecompile://editor/#{@sourceEditor.id}"

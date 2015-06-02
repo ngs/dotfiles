@@ -7,14 +7,17 @@ discover the projects grunt commands. Logs errors and output.
 Also launches an Atom BufferedProcess to run grunt when needed.
 ###
 
-{View, BufferedProcess, Task, $} = require 'atom'
+{BufferedProcess, Task} = require 'atom'
+{View, $} = require 'atom-space-pen-views'
 ListView = require './task-list-view'
+path = require 'path'
 
 module.exports = class ResultsView extends View
 
     path: null,
     process: null,
     taskList: null,
+    tasks: [],
 
     originalPaths: process.env.NODE_PATH.split(':'),
 
@@ -29,7 +32,7 @@ module.exports = class ResultsView extends View
                       @button outlet:'startstopbtn', click:'startStopAction', class:'btn', 'Start Grunt'
                       @button outlet:'logbtn', click:'toggleLog', class:'btn', 'Toggle Log'
                       @button outlet:'panelbtn', click:'togglePanel', class:'btn', 'Hide'
-              @div outlet:'panel', class: 'panel-body padded', =>
+              @div outlet:'panel', class: 'panel-body padded', tabindex: -1, =>
                   @ul outlet:'errors', class: 'list-group'
 
     # called after the view is constructed
@@ -37,29 +40,39 @@ module.exports = class ResultsView extends View
     initialize:(state = {}) ->
         view = @
 
-        atom.project.on 'path-changed', -> view.parseGruntFile()
+        atom.project.onDidChangePaths -> view.parseGruntFile()
 
-        @taskList = new ListView @startProcess.bind(@), state.taskList
+        @taskList = new ListView state.taskList
         @on 'mousedown', '.grunt-runner-resizer-handle', (e) => @resizeStarted(e)
 
-        @startstopbtn.setTooltip "Start", command: 'grunt-runner:run'
-        @logbtn.setTooltip "", command: 'grunt-runner:toggle-log'
-        @panelbtn.setTooltip "", command: 'grunt-runner:toggle-panel'
+        atom.tooltips.add @startstopbtn,
+            title: "Start"
+            keyBindingCommand: 'grunt-runner:run'
+
+        atom.tooltips.add @logbtn,
+            title: ""
+            keyBindingCommand: 'grunt-runner:toggle-log'
+        atom.tooltips.add @panelbtn,
+            title: ""
+            keyBindingCommand: 'grunt-runner:toggle-panel'
 
 
     # launches a task to parse the projects gruntfile if it exists
     parseGruntFile:(starting) ->
-        @path = atom.project.getPath()
+        @paths = atom.project.getPaths()
 
-        gruntPaths = atom.config.get('grunt-runner').gruntPaths
+        # Assume the "real" paths is the first path.
+        # TODO: Real fix
+        @path = @paths[0]
+
+        gruntPaths = atom.config.get('grunt-runner.gruntPaths')
         gruntPaths = if Array.isArray gruntPaths then gruntPaths else []
         paths = @originalPaths.concat(gruntPaths, [@path + '/node_modules'])
-        process.env.NODE_PATH = paths.join(':')
+        process.env.NODE_PATH = paths.join(path.delimiter)
         view = @
 
         # clear panel output and tasklist items
         @emptyPanel()
-        @taskList.clearItems()
         @status.attr 'data-status', null
 
         if !@path
@@ -73,8 +86,8 @@ module.exports = class ResultsView extends View
                     view.toggleLog()
                 else
                     view.addLine "Grunt file parsed, found #{tasks.length} tasks"
+                    view.tasks = tasks
                     view.togglePanel()
-                    view.taskList.addItems tasks
 
     startStopAction: ->
         return @toggleTaskList() if @process == null
@@ -83,10 +96,14 @@ module.exports = class ResultsView extends View
     setStartStopBtn:(isRunning) ->
         if isRunning
             @.startstopbtn.text 'Stop'
-            @.startstopbtn.setTooltip "", command: 'grunt-runner:stop'
+            atom.tooltips.add @.startstopbtn,
+                title: ""
+                keyBindingCommand: 'grunt-runner:stop'
         else
             @.startstopbtn.text 'Start'
-            @.startstopbtn.setTooltip "", command: 'grunt-runner:run'
+            atom.tooltips.add @.startstopbtn,
+                title: ""
+                keyBindingCommand: 'grunt-runner:run'
 
     # called to start the process
     # task name is gotten from the input element
@@ -111,7 +128,7 @@ module.exports = class ResultsView extends View
 
     # toggles the visibility of the entire panel
     togglePanel: ->
-        return atom.workspaceView.prependToBottom @ unless @.isOnDom()
+        return atom.workspace.addBottomPanel(item: this) unless @.isOnDom()
         return @detach() if @.isOnDom()
 
     # toggles the visibility of the log
@@ -120,13 +137,11 @@ module.exports = class ResultsView extends View
         if @container.hasClass 'closed'
             @container.parent().height 'auto'
         else
-            @container.parent().height '110px'
+            @container.parent().height '130px'
 
     # toggles the visibility of the tasklist
     toggleTaskList: ->
-        return @taskList.attach() unless @taskList.isOnDom()
-        return @taskList.cancel()
-
+        @taskList.toggle(@)
 
     # adds an entry to the log
     # converts all newlines to <br>
