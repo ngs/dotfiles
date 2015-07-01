@@ -1,4 +1,0 @@
-## KAIZEN platform
-tap 'kaizenplatform/homebrew-kaizenplatform'
-brew 'planbcd', args: ['HEAD']
-brew 'planbcd-log', args: ['HEAD']
