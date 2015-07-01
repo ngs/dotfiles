@@ -32,6 +32,10 @@ brew "redis"
 brew "dynamodb-local"
 brew "libxslt"
 
+tap "homebrew/binary"
+brew "docker"
+brew "boot2docker"
+
 ## Cask
 tap "ngs/homebrew-cask"
 tap "caskroom/cask"
