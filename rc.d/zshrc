@@ -33,4 +33,6 @@ zstyle ':filter-select' case-insensitive yes
 bindkey '^@' zaw-cdr
 
 # added by travis gem
-[ -f /Users/ngs/.travis/travis.sh ] && source /Users/ngs/.travis/travis.sh
+if [ -f /Users/ngs/.travis/travis.sh ]; then
+  source /Users/ngs/.travis/travis.sh
+fi
