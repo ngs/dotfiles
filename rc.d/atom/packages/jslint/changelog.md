@@ -1,4 +1,11 @@
 
+1.4.0 / 2015-06-10
+==================
+
+  * adding the new jslint version to config selection
+  * updating jslint to 0.9.0
+  * Fixed subscription / disposables issue
+
 1.3.2 / 2015-05-05
 ==================
 

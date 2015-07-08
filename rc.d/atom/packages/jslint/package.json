@@ -1,6 +1,6 @@
 {
   "name": "jslint",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "JSLint error reports for your Atom editor",
   "main": "lib/main",
   "repository": {
@@ -16,7 +16,7 @@
     "atom": ">0.174.0"
   },
   "dependencies": {
-    "jslint": "^0.7.2",
+    "jslint": "^0.9.0",
     "atom-message-panel": "1.2.4"
   },
   "readme": "# JSLint\n\n![](https://img.shields.io/apm/v/jslint.svg)\n![](https://img.shields.io/apm/dm/jslint.svg)\n![](https://img.shields.io/apm/l/jslint.svg)\n\n> [JSLint](https://github.com/douglascrockford/JSLint) error reports for your [Atom](http://atom.io) editor.\n\n![preview](https://cloud.githubusercontent.com/assets/145288/5823960/41af30f8-a0e1-11e4-814e-3f97c7a05599.png)\n\n## Installation\n\nYou can install this plugin via the Packages manager in Atom itself or manually through the terminal\n\n```bash\n$ apm install jslint\n```\n\n## Usage\n\nJSlint is by default validating on save (this can be changed in the package settings), you can also execute it by hitting `ctrl-alt-l`.\n\nIf you like you can even set it to validate while typing in the package settings.\n\n## Configuration\nJSlint options can be configured via `.jslintrc` config files, located in\n\n * your home directory *(global options)* and\n * your project root directory *(project specific options)*.\n\nThe `.jslintrc` config files are JSON files see [`.jslintrc-example`](.jslintrc-example) for an example.\nSpecifications of the different options can be found in the [JSlint documentation](http://www.jslint.com/lint.html#options).\n\n\n## Features\n\n * Validate on keymap\n * Validate on command\n * Validate on save *(toggle in settings)*\n * Validate on change *(toggle in settings)*\n * Option to hide the error panel if no errors were found *(toggle in settings)*\n * Option to use `fold mode` by default *(toggle in settings)*\n * Choose between different JSLint versions *(select in settings)*\n * Supports `.jslintrc` config files *(project located file will overwrite the global file)*\n\n## License\n\n[MIT](http://opensource.org/licenses/MIT) © tcarlsen\n",
@@ -25,10 +25,10 @@
     "url": "https://github.com/tcarlsen/atom-jslint/issues"
   },
   "homepage": "https://github.com/tcarlsen/atom-jslint",
-  "_id": "jslint@1.3.3",
-  "_shasum": "a2a86a7abb515dcba170664b6e4657cd64ec4c86",
-  "_resolved": "file:../d-11552-54193-1oolznm/package.tgz",
-  "_from": "../d-11552-54193-1oolznm/package.tgz",
+  "_id": "jslint@1.4.0",
+  "_shasum": "466a67daf1f861bc353a0d615fe85c81326592d6",
+  "_resolved": "file:../d-11568-18133-cw7co/package.tgz",
+  "_from": "../d-11568-18133-cw7co/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -89,7 +89,7 @@
       },
       {
         "name": "amdefine",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "path": "node_modules/atom-message-panel/node_modules/space-pen/node_modules/grim/node_modules/coffeestack/node_modules/source-map/node_modules/amdefine/amdefine.js"
       },
       {
@@ -144,7 +144,7 @@
       },
       {
         "name": "jslint",
-        "version": "0.7.3",
+        "version": "0.9.1",
         "path": "node_modules/jslint/lib/nodelint.js"
       },
       {
@@ -204,7 +204,7 @@
       },
       {
         "name": "nopt",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "path": "node_modules/jslint/node_modules/nopt/lib/nopt.js"
       },
       {
@@ -724,6 +724,9 @@
         "node_modules/jslint/lib/jslint-2014-02-06.js",
         "node_modules/jslint/lib/jslint-2014-04-21.js",
         "node_modules/jslint/lib/jslint-2014-07-08.js",
+        "node_modules/jslint/lib/jslint-2015-05-08.js",
+        "node_modules/jslint/lib/jslint-es5.js",
+        "node_modules/jslint/lib/jslint-es6.js",
         "node_modules/jslint/lib/jslint-latest.js",
         "node_modules/jslint/lib/jslint.js",
         "node_modules/jslint/lib/jsonreportstream.js",
@@ -835,7 +838,7 @@
           ""
         ],
         "dependencies": {
-          "jslint": "^0.7.2",
+          "jslint": "^0.9.0",
           "atom-message-panel": "1.2.4"
         }
       },

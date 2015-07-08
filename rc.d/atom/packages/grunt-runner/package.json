@@ -11,7 +11,7 @@
     "package",
     "run"
   ],
-  "version": "0.10.0",
+  "version": "0.11.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/nickclaw/atom-grunt-runner"
@@ -35,10 +35,10 @@
     "url": "https://github.com/nickclaw/atom-grunt-runner/issues"
   },
   "homepage": "https://github.com/nickclaw/atom-grunt-runner",
-  "_id": "grunt-runner@0.10.0",
-  "_shasum": "1e1d7333a1d98fd8e20585454e05261fffa27a9a",
-  "_resolved": "file:../d-11552-54186-1scx575/package.tgz",
-  "_from": "../d-11552-54186-1scx575/package.tgz",
+  "_id": "grunt-runner@0.11.0",
+  "_shasum": "0b81958cfe852254cc171f9a7debca614c4429a9",
+  "_resolved": "file:../d-11568-18126-1o54ake/package.tgz",
+  "_from": "../d-11568-18126-1o54ake/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -104,7 +104,7 @@
       },
       {
         "name": "amdefine",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/coffeestack/node_modules/source-map/node_modules/amdefine/amdefine.js"
       },
       {
@@ -219,7 +219,7 @@
       },
       {
         "name": "lru-cache",
-        "version": "2.6.4",
+        "version": "2.6.5",
         "path": "node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js"
       },
       {
@@ -324,7 +324,7 @@
       },
       {
         "name": "lru-cache",
-        "version": "2.6.4",
+        "version": "2.6.5",
         "path": "node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js"
       },
       {
