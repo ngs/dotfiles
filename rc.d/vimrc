@@ -46,6 +46,8 @@ Plugin 'slim-template/vim-slim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'Blackrush/vim-gocode'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
