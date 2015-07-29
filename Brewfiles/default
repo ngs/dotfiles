@@ -1,6 +1,7 @@
 ## Modules
 brew "ansible"
 brew "git"
+brew "imagemagick"
 brew "heroku-toolbelt"
 brew "hub"
 brew "jq"
@@ -31,6 +32,7 @@ brew "python"
 brew "redis"
 brew "dynamodb-local"
 brew "libxslt"
+brew "maven"
 
 tap "homebrew/binary"
 brew "docker"

@@ -92,6 +92,7 @@
                         100 - (y / Saturation.element.getHeight() * 100)]
 
                     # Render Saturation canvas
+                    previousRender: null
                     render: (smartColor) ->
                         _hslArray = ( do ->
                             unless smartColor
@@ -99,26 +100,29 @@
                             else return smartColor
                         ).toHSLArray()
 
+                        _joined = _hslArray.join ','
+                        return if @previousRender and @previousRender is _joined
+
                         # Get context and clear it
                         _context = @getContext()
                         _context.clearRect 0, 0, _elementWidth, _elementHeight
 
                         # Draw hue channel on top
                         _gradient = _context.createLinearGradient 0, 0, _elementWidth, 1
-                        _gradient.addColorStop .01, 'hsl(0, 100%, 100%)'
-                        _gradient.addColorStop .99, "hsl(#{ _hslArray[0] }, 100%, 50%)"
+                        _gradient.addColorStop .01, 'hsl(0,100%,100%)'
+                        _gradient.addColorStop .99, "hsl(#{ _hslArray[0] },100%,50%)"
 
                         _context.fillStyle = _gradient
                         _context.fillRect 0, 0, _elementWidth, _elementHeight
 
                         # Draw saturation channel on the bottom
                         _gradient = _context.createLinearGradient 0, 0, 1, _elementHeight
-                        _gradient.addColorStop .01, 'rgba(0, 0, 0, 0)'
-                        _gradient.addColorStop .99, 'rgba(0, 0, 0, 1)'
+                        _gradient.addColorStop .01, 'rgba(0,0,0,0)'
+                        _gradient.addColorStop .99, 'rgba(0,0,0,1)'
 
                         _context.fillStyle = _gradient
                         _context.fillRect 0, 0, _elementWidth, _elementHeight
-                        return
+                        return @previousRender = _joined
 
                 # Render again on Hue selection change
                 Hue.onColorChanged (smartColor) =>
@@ -150,6 +154,16 @@
                         return _el
                     isGrabbing: no
 
+                    previousControlPosition: null
+                    updateControlPosition: (x, y) ->
+                        _joined = "#{ x },#{ y }"
+                        return if @previousControlPosition and @previousControlPosition is _joined
+
+                        requestAnimationFrame =>
+                            @el.style.left = "#{ x }px"
+                            @el.style.top = "#{ y }px"
+                        return @previousControlPosition = _joined
+
                     selection:
                         x: null
                         y: 0
@@ -174,18 +188,15 @@
                             _x = @selection.x
                             _y = @selection.y
 
-                        _x = @selection.x = Math.max 0, (Math.min _width, _x)
-                        _y = @selection.y = Math.max 0, (Math.min _height, _y)
+                        _x = @selection.x = Math.max 0, (Math.min _width, Math.round _x)
+                        _y = @selection.y = Math.max 0, (Math.min _height, Math.round _y)
 
                         _position =
                             x: Math.max 6, (Math.min (_width - 7), _x)
                             y: Math.max 6, (Math.min (_height - 7), _y)
 
                         @selection.color = Saturation.canvas.getColorAtPosition _x, _y
-
-                        requestAnimationFrame =>
-                            @el.style.left = "#{ _position.x }px"
-                            @el.style.top = "#{ _position.y }px"
+                        @updateControlPosition _position.x, _position.y
                         return Saturation.emitSelectionChanged()
 
                     refreshSelection: -> @setSelection()

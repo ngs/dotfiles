@@ -1,4 +1,19 @@
-## v0.16.0 (2015-06-13)
+## v0.17.3 (2015-07-28)
+- Make sure all variables are string before joining
+
+## v0.17.2 (2015-07-27)
+- Fix src check breaking when not opened in project
+
+## v0.17.1 (2015-07-27)
+- Fix empty preview pane when `compileOnSaveWithoutPreview` is on
+
+## v0.17.0 (2015-07-26)
+- Add `cwd` and `source` option for writing to files
+  - `cwd` sets the root folder to compile (relative to project root)
+  - `source(s)` are folders to compile (relative to cwd)
+- Show error notifications when failed to compile to file
+
+## v0.16.1 (2015-06-13)
 - Suppress exception when saving on preview pane
 
 ## v0.16.0 (2015-05-25)

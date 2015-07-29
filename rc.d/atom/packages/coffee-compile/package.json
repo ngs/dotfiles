@@ -1,7 +1,7 @@
 {
   "name": "coffee-compile",
   "main": "./lib/main",
-  "version": "0.16.1",
+  "version": "0.17.3",
   "private": true,
   "description": "Preview, compile and/or save CoffeeScript in editor to Javascript",
   "repository": {
@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "coffee-react-transform": "3.1.0",
-    "coffee-script": "1.9.2",
-    "mkdirp": "^0.5.0"
+    "coffee-script": "1.9.2"
   },
   "consumedServices": {
     "coffee-compile.provider": {
@@ -25,16 +24,16 @@
       }
     }
   },
-  "readme": "# coffee-compile package [![Build Status](https://img.shields.io/travis/adrianlee44/atom-coffee-compile/master.svg?style=flat-square)](https://travis-ci.org/adrianlee44/atom-coffee-compile)\n\nPreview, compile and/or save CoffeeScript in editor to Javascript\n- Mac: `cmd+shift+c`\n- Linux/Windows: `ctrl-alt-c`\n\n## Options\n- Compile on save (default: false)\n- Compile on save without preview pane (default: false)\n- Destination filepath (default: '.')\n- Flatten (default: false)\n- No top level function wrapper (default: true)\n- Focus editor after compile (default: false)\n- Compile CJSX (default: false)\n\n![](https://raw.github.com/adrianlee44/atom-coffee-compile/master/screenshot.png)\n\n## TODO\n- Recompile on change option\n- Add sourcemap support\n\n## Changelog\n- 2015-06-13   v0.16.1   Suppress exception when saving on preview pane\n- 2015-05-25   v0.16.0   Made `Compile on save without preview` option work with autosave\n\nCheck [changelog](https://github.com/adrianlee44/atom-coffee-compile/blob/master/CHANGELOG.md) for more information\n",
+  "readme": "# coffee-compile package [![Build Status](https://img.shields.io/travis/adrianlee44/atom-coffee-compile/master.svg?style=flat-square)](https://travis-ci.org/adrianlee44/atom-coffee-compile)\n\nPreview, compile and/or save CoffeeScript in editor to Javascript\n- Mac: `cmd+shift+c`\n- Linux/Windows: `ctrl-alt-c`\n\n## Options\n- `Compile on save` (default: false)\n- `Compile on save without preview pane` (default: false)\n- `Destination filepath` (default: '.')\n- `Flatten` (default: false)\n- `cwd` - All sources are relative to this path (default: '.')\n- `Source(s)` - Source folders to compile, relative to cwd (default: '.')\n- `No top level function wrapper` (default: true)\n- `Focus editor after compile` (default: false)\n- `Compile CJSX` (default: false)\n\n![](https://raw.github.com/adrianlee44/atom-coffee-compile/master/screenshot.png)\n\n## TODO\n- Recompile on change option\n- Add sourcemap support\n\n## Changelog\nSee [changelog](https://github.com/adrianlee44/atom-coffee-compile/blob/master/CHANGELOG.md) for more information\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/adrianlee44/atom-coffee-compile/issues"
   },
   "homepage": "https://github.com/adrianlee44/atom-coffee-compile",
-  "_id": "coffee-compile@0.16.1",
-  "_shasum": "59f130b8e2bfebce25f6d4cbfa04888d8fd3fcf3",
-  "_resolved": "file:../d-11568-18112-1b3qson/package.tgz",
-  "_from": "../d-11568-18112-1b3qson/package.tgz",
+  "_id": "coffee-compile@0.17.3",
+  "_shasum": "c453d41754ed93ebc99ba5399b3bdc722ed5bc32",
+  "_resolved": "file:../d-115629-36748-14zhbkr/package.tgz",
+  "_from": "../d-115629-36748-14zhbkr/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -47,16 +46,6 @@
         "name": "coffee-script",
         "version": "1.9.2",
         "path": "node_modules/coffee-script/lib/coffee-script/coffee-script.js"
-      },
-      {
-        "name": "mkdirp",
-        "version": "0.5.1",
-        "path": "node_modules/mkdirp/index.js"
-      },
-      {
-        "name": "minimist",
-        "version": "0.0.8",
-        "path": "node_modules/mkdirp/node_modules/minimist/index.js"
       }
     ],
     "extensions": {
@@ -95,19 +84,12 @@
         "node_modules/coffee-script/lib/coffee-script/scope.js",
         "node_modules/coffee-script/lib/coffee-script/sourcemap.js",
         "node_modules/coffee-script/register.js",
-        "node_modules/coffee-script/repl.js",
-        "node_modules/mkdirp/bin/cmd.js",
-        "node_modules/mkdirp/examples/pow.js",
-        "node_modules/mkdirp/index.js",
-        "node_modules/mkdirp/node_modules/minimist/example/parse.js",
-        "node_modules/mkdirp/node_modules/minimist/index.js"
+        "node_modules/coffee-script/repl.js"
       ],
       ".json": [
         "node_modules/coffee-react-transform/package.json",
         "node_modules/coffee-script/bower.json",
         "node_modules/coffee-script/package.json",
-        "node_modules/mkdirp/node_modules/minimist/package.json",
-        "node_modules/mkdirp/package.json",
         "package.json"
       ]
     },
@@ -120,19 +102,7 @@
         ],
         "dependencies": {
           "coffee-react-transform": "3.1.0",
-          "coffee-script": "1.9.2",
-          "mkdirp": "^0.5.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/mkdirp/bin",
-          "node_modules/mkdirp/examples",
-          "node_modules/mkdirp",
-          "node_modules/mkdirp/test"
-        ],
-        "dependencies": {
-          "minimist": "0.0.8"
+          "coffee-script": "1.9.2"
         }
       }
     ]

@@ -53,15 +53,23 @@ module.exports =
   ###
   @name compileToFile
   @param {Editor} editor
-  @param {Function} callback
   ###
-  compileToFile: (editor, callback) ->
+  compileToFile: (editor) ->
     try
+      srcPath = editor.getPath()
+
+      return unless fsUtil.isPathInSrc srcPath
+
       text     = @compile editor.getText(), editor
-      srcPath  = editor.getPath()
       destPath = fsUtil.resolvePath editor.getPath()
+
+      unless atom.project.contains(destPath)
+        atom.notifications.addError "Compile-compile: Failed to compile to file",
+          detail: "Cannot write outside of project root"
+
       destPath = fsUtil.toExt destPath, 'js'
-      fsUtil.writeFile destPath, text, callback
+      fsUtil.writeFile destPath, text
 
     catch e
-      console.error "Coffee-compile: #{e.stack}"
+      atom.notifications.addError "Compile-compile: Failed to compile to file",
+        detail: e.stack

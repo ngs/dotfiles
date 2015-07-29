@@ -5,6 +5,7 @@ CoffeeCompileEditor = require './coffee-compile-editor'
 util                = require './util'
 pluginManager       = require './plugin-manager'
 coffeeProvider      = require './coffee-provider'
+fsUtil              = require './fs-util'
 
 module.exports =
   config:
@@ -25,15 +26,29 @@ module.exports =
       default: false
       description: 'Provides support for an equivalent of JSX syntax in Coffeescript'
       title: 'Compile CJSX'
+
+    # file path configurations
+    flatten:
+      type: 'boolean'
+      default: false
+      description: 'Remove all path parts'
+    cwd:
+      type: 'string'
+      default: '.'
+      title: 'cwd'
+      description: 'All sources are relative to this path'
     destination:
       type: 'string'
       default: '.'
       title: 'Destination filepath'
       description: 'Relative to project root'
-    flatten:
-      type: 'boolean'
-      default: false
-      description: 'Remove all path parts'
+    source:
+      type: 'array'
+      default: ['.']
+      title: 'Source filepath(s)'
+      description: 'Source folder, relative to cwd'
+      items:
+        type: 'string'
 
   activate: ->
     saveDisposables = []
@@ -52,7 +67,8 @@ module.exports =
             @save(editor)
 
     # NOTE: Remove once coffeescript provider is moved to a new package
-    @registerProviders coffeeProvider
+    unless pluginManager.isPluginRegistered(coffeeProvider)
+      @registerProviders coffeeProvider
 
     atom.workspace.addOpener (uriToOpen) ->
       {protocol, pathname} = url.parse uriToOpen
@@ -68,7 +84,11 @@ module.exports =
       return new CoffeeCompileEditor {sourceEditor}
 
   save: (editor)->
-    if pluginManager.isEditorLanguageSupported(editor)
+    return unless editor?
+
+    isPathInSrc = !!editor.getPath() and fsUtil.isPathInSrc(editor.getPath())
+
+    if isPathInSrc and pluginManager.isEditorLanguageSupported(editor)
       util.compileToFile editor
 
   display: ->

@@ -1,6 +1,5 @@
-fs = require 'fs'
 path = require 'path'
-mkdirp = require 'mkdirp'
+{File} = require 'atom'
 
 module.exports =
   toExt: (srcPath, ext) ->
@@ -11,8 +10,9 @@ module.exports =
     )
 
   resolvePath: (srcPath) ->
-    relative = atom.config.get('coffee-compile.destination') or '.'
-    flatten = atom.config.get('coffee-compile.flatten')
+    destination = atom.config.get('coffee-compile.destination') or '.'
+    flatten     = atom.config.get('coffee-compile.flatten')
+    cwd         = atom.config.get('coffee-compile.cwd') or '.'
 
     [projectPath, relativePath] = atom.project.relativizePath(srcPath)
 
@@ -20,12 +20,30 @@ module.exports =
     if flatten
       relativePath = path.basename relativePath
 
-    return path.join projectPath, relative, relativePath
+    relativePath = path.relative cwd, relativePath
+    return path.join projectPath, destination, relativePath
 
-  writeFile: (filename, data, callback) ->
-    folder = path.dirname filename
+  writeFile: (filename, data) ->
+    file = new File(filename)
+    file.create().then ->
+      file.write data
 
-    mkdirp folder, (err) ->
-      throw err if err?
+  isPathInSrc: (srcPath) ->
+    source = atom.config.get('coffee-compile.source') or ['.']
+    cwd    = atom.config.get('coffee-compile.cwd') or '.'
 
-      fs.writeFile filename, data, callback
+    [projectPath, relativePath] = atom.project.relativizePath(srcPath)
+
+    return false unless !!projectPath
+
+    source.some (folderPath) ->
+      # if for some reason projectPath, cwd or folderPath aren't strings
+      if typeof projectPath isnt 'string' or
+          typeof cwd isnt 'string' or
+          typeof folderPath isnt 'string'
+        return false
+
+      fullFolderPath = path.join projectPath, cwd, folderPath
+      relative = path.relative srcPath, fullFolderPath
+
+      return relative isnt "" and !/\w+/.test(relative)
