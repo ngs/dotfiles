@@ -1,76 +1,39 @@
 url         = require 'url'
 querystring = require 'querystring'
+cson        = require 'season'
 
 CoffeeCompileEditor = require './coffee-compile-editor'
-util                = require './util'
-pluginManager       = require './plugin-manager'
-coffeeProvider      = require './coffee-provider'
+coffeeProvider      = require './providers/coffee-provider'
+configManager       = require './config-manager'
 fsUtil              = require './fs-util'
+pluginManager       = require './plugin-manager'
+util                = require './util'
+{CompositeDisposable} = require 'atom'
 
 module.exports =
-  config:
-    noTopLevelFunctionWrapper:
-      type: 'boolean'
-      default: true
-    compileOnSave:
-      type: 'boolean'
-      default: false
-    compileOnSaveWithoutPreview:
-      type: 'boolean'
-      default: false
-    focusEditorAfterCompile:
-      type: 'boolean'
-      default: false
-    compileCjsx:
-      type: 'boolean'
-      default: false
-      description: 'Provides support for an equivalent of JSX syntax in Coffeescript'
-      title: 'Compile CJSX'
-
-    # file path configurations
-    flatten:
-      type: 'boolean'
-      default: false
-      description: 'Remove all path parts'
-    cwd:
-      type: 'string'
-      default: '.'
-      title: 'cwd'
-      description: 'All sources are relative to this path'
-    destination:
-      type: 'string'
-      default: '.'
-      title: 'Destination filepath'
-      description: 'Relative to project root'
-    source:
-      type: 'array'
-      default: ['.']
-      title: 'Source filepath(s)'
-      description: 'Source folder, relative to cwd'
-      items:
-        type: 'string'
-
+  config: require '../config'
   activate: ->
-    saveDisposables = []
+    configManager.initProjectConfig()
+
+    @saveDisposables = new CompositeDisposable
+    @pkgDisposables = new CompositeDisposable
 
     atom.commands.add 'atom-workspace', 'coffee-compile:compile': => @display()
 
-    atom.config.observe 'coffee-compile.compileOnSaveWithoutPreview', (value) =>
-      if not value and saveDisposables.length > 0
-        sd.dispose() for sd in saveDisposables
-        saveDisposables = []
+    @pkgDisposables.add configManager.observe 'compileOnSaveWithoutPreview', (value) =>
+      @saveDisposables.dispose()
+      @saveDisposables = new CompositeDisposable
 
-      else if value
-        saveDisposables = []
-        saveDisposables.push atom.workspace.observeTextEditors (editor) =>
-          saveDisposables.push editor.onDidSave =>
+      if value
+        @saveDisposables.add atom.workspace.observeTextEditors (editor) =>
+          @saveDisposables.add editor.onDidSave =>
             @save(editor)
 
     # NOTE: Remove once coffeescript provider is moved to a new package
     unless pluginManager.isPluginRegistered(coffeeProvider)
       @registerProviders coffeeProvider
 
-    atom.workspace.addOpener (uriToOpen) ->
+    @pkgDisposables.add atom.workspace.addOpener (uriToOpen) ->
       {protocol, pathname} = url.parse uriToOpen
       pathname = querystring.unescape(pathname) if pathname
 
@@ -83,7 +46,10 @@ module.exports =
 
       return new CoffeeCompileEditor {sourceEditor}
 
-  save: (editor)->
+  deactivate: ->
+    @pkgDisposables.dispose()
+
+  save: (editor) ->
     return unless editor?
 
     isPathInSrc = !!editor.getPath() and fsUtil.isPathInSrc(editor.getPath())
@@ -106,7 +72,7 @@ module.exports =
     .then (editor) ->
       editor.renderCompiled()
 
-      if atom.config.get('coffee-compile.focusEditorAfterCompile')
+      if configManager.get('focusEditorAfterCompile')
         activePane.activate()
 
   registerProviders: (provider) ->

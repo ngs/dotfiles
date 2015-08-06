@@ -1,0 +1,18 @@
+{
+    "preset": "jquery",
+    "requireDotNotation": {
+        "allExcept": ["snake_case", "keywords"]
+    },
+    "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~"],
+    "disallowSpaceBeforePostfixUnaryOperators": true,
+    "maximumLineLength": null,
+    "requireVarDeclFirst": true,
+    "requireSpaceAfterPrefixUnaryOperators": ["!"],
+    "requireSpacesInsideBrackets": null,
+    "requireSpacesInsideParentheses": {
+        "all": true,
+        "except": [ "{", "}", "[", "]", "function" ]
+    },
+    "requireYodaConditions": ["==", "!=", "===", "!=="],
+    "validateQuoteMarks": "'"
+}
