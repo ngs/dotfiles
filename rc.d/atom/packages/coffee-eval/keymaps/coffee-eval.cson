@@ -1,5 +1,0 @@
-'.platform-darwin .editor':
-  'cmd-k enter': 'coffee-eval:eval'
-
-'.platform-win32 .editor, .platform-linux .editor':
-  'ctrl-k enter': 'coffee-eval:eval'
