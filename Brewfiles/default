@@ -33,6 +33,7 @@ brew "redis"
 brew "dynamodb-local"
 brew "libxslt"
 brew "maven"
+brew "mongodb"
 
 tap "homebrew/binary"
 brew "docker"
