@@ -19,11 +19,13 @@ class LinterRegistry
   addLinter: (linter) ->
     try
       validate.linter(linter)
+      linter.deactivated = false
       @linters.push(linter)
     catch e then helpers.error(e)
 
   deleteLinter: (linter) ->
     return unless @hasLinter(linter)
+    linter.deactivated = true
     @linters.splice(@linters.indexOf(linter), 1)
 
   lint: ({onChange, editorLinter}) ->
@@ -60,7 +62,7 @@ class LinterRegistry
   onDidUpdateMessages: (callback) ->
     return @emitter.on('did-update-messages', callback)
 
-  deactivate: ->
+  dispose: ->
     @emitter.dispose()
     # Intentionally set it to empty array instead of null 'cause this would
     # disallow further execution, while still not throwing in current one

@@ -1,0 +1,53 @@
+{
+  "name": "es6-javascript",
+  "main": "./lib/es6-javascript",
+  "version": "0.5.0",
+  "description": "A collection of commands and ES6 focused snippets for optimizing modern Javascript development productivity.",
+  "activationCommands": {
+    "atom-text-editor": [
+      "es6-javascript:end-line",
+      "es6-javascript:end-line-comma",
+      "es6-javascript:end-new-line",
+      "es6-javascript:wrap-block"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hharnisc/atom-es6-javascript"
+  },
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "javascript",
+    "snippets",
+    "es6",
+    "productivity"
+  ],
+  "engines": {
+    "atom": ">0.200.0"
+  },
+  "dependencies": {},
+  "readme": "# es6-javascript\nA collection of commands and ES6 focused snippets for optimizing modern Javascript development productivity.\n\n*Note: this is a fork of [turbo-javascript](extrabacon/atom-turbo-javascript) that uses arrow functions by default and adds a few more snippets for chai and classes for convenience.*\n\n## Commands\n\nUse the following keymaps to speed up your development. You can quickly terminate lines with semicolons or manipulate blocks of code with ease.\n\n#### End Line `CTRL-;`\nTerminates the current line with a semicolon.\n\n#### End Line with a comma `CTRL-,`\nTerminates the current line with a comma (great for object literals).\n\n#### End New Line `CTRL-ENTER`\nTerminates the current line with a colon or semicolon, followed with a new line. A comma is inserted when the cursor is inside an object literal, otherwise a semicolon is inserted.\n\n#### Easy Blocks `CTRL-B`\nCreates a statement block `{ ... }` with the selected text placed inside and properly indented. If the selection is already wrapped with a block, the block is removed and its content is unindented.\n\n## Snippets\n\nSnippets are optimized to be short and easy to remember. Some snippets are \"chainable\" and render differently when preceded by a \".\".\n\nFor example, `.fe` renders a chain-friendly version of the forEach snippet, while `fe` renders a full code block.\n\n### Declarations\n\n#### `v⇥` var statement\n```js\nvar ${1:name};\n```\n\n#### `ve⇥` var assignment\n```js\nvar ${1:name} = ${2:value};\n```\n\n#### `l⇥` let statement\n```js\nlet ${1:name};\n```\n\n#### `le⇥` let assignment\n```js\nlet ${1:name} = ${2:value};\n```\n\n#### `co⇥` const statement\n```js\nconst ${1:name};\n```\n\n#### `coe⇥` const assignment\n```js\nconst ${1:name} = ${2:value};\n```\n\n#### `cos⇥` const symbol\n```js\nconst ${1:name} = Symbol(\"${1:name}\");\n```\n\n\n### Flow Control\n\n#### `if⇥` if statement\n```js\nif (${1:condition}) {\n  ${0}\n}\n```\n\n#### `el⇥` else statement\n```js\nelse {\n  ${0}\n}\n```\n\n#### `ife⇥` else statement\n```js\nif (${1:condition}) {\n  ${2}\n} else {\n  ${3}\n}\n```\n\n#### `ei⇥` else if statement\n```js\nelse if (${1:condition}) {\n  ${0}\n}\n```\n\n#### `fl⇥` for loop\n```js\nfor (let ${1:i} = 0; ${1:i} < ${2:iterable}${3:.length}; ${1:i}++) {\n  ${4}\n}\n```\n\n#### `fi⇥` for in loop\n```js\nfor (let ${1:key} in ${2:source}) {\n  if (${2:source}.hasOwnProperty(${1:key})) {\n    ${0}\n  }\n}\n```\n\n#### `fo⇥` for of loop (ES6)\n```js\nfor (let ${1:key} of ${2:source}) {\n  ${0}\n}\n```\n\n#### `wl⇥` while loop\n```js\nwhile (${1:condition}) {\n  ${0}\n}\n```\n\n#### `tc⇥` try/catch\n```js\ntry {\n  ${1}\n} catch (${2:err}) {\n  ${3}\n}\n```\n\n#### `tf⇥` try/finally\n```js\ntry {\n ${1}\n} finally {\n ${2}\n}\n```\n\n#### `tcf⇥` try/catch/finally\n```js\ntry {\n  ${1}\n} catch (${2:err}) {\n  ${3}\n} finally {\n  ${4}\n}\n```\n\n### Functions\n\n#### `f⇥` anonymous function\n```js\nfunction (${1:arguments}) {${0}}\n```\n\n#### `fn⇥` named function\n```js\nfunction ${1:name}(${2:arguments}) {\n  ${0}\n}\n```\n\n#### `iife⇥` immediately-invoked function expression (IIFE)\n```js\n((${1:arguments}) => {\n  ${0}\n})(${2});\n```\n\n#### `fa⇥` function apply\n```js\n${1:fn}.apply(${2:this}, ${3:arguments})\n```\n\n#### `fc⇥` function call\n```js\n${1:fn}.call(${2:this}, ${3:arguments})\n```\n\n#### `fb⇥` function bind\n```js\n${1:fn}.bind(${2:this}, ${3:arguments})\n```\n\n#### `af⇥` arrow function (ES6)\n```js\n${1:(arguments)} => ${2:statement}\n```\n\n#### `afb⇥` arrow function with body (ES6)\n```js\n${1:(arguments)} => {\n\\t${0}\n}\n```\n\n#### `gf⇥` generator function (ES6)\n```js\nfunction* (${1:arguments}) {\n  ${0}\n}\n```\n\n#### `gfn⇥` named generator function (ES6)\n```js\nfunction* ${1:name}(${1:arguments}) {\n  ${0}\n}\n```\n\n### Iterables\n\n#### `fe⇥` forEach loop (chainable)\n```js\n${1:iterable}.forEach((${2:item}) => {\n  ${0}\n});\n```\n\n#### `map⇥` map function (chainable)\n```js\n${1:iterable}.map((${2:item}) => {\n  ${0}\n});\n```\n\n#### `reduce⇥` reduce function (chainable)\n```js\n${1:iterable}.reduce((${2:previous}, ${3:current}) => {\n  ${0}\n}${4:, initial});\n```\n\n#### `filter⇥` filter function (chainable)\n```js\n${1:iterable}.filter((${2:item}) => {\n  ${0}\n});\n```\n\n#### `find⇥` ES6 find function (chainable)\n```js\n${1:iterable}.find((${2:item}) => {\n  ${0}\n});\n```\n\n### Objects and classes\n\n#### `c⇥` class (ES6)\n```js\nclass ${1:name} {\n  constructor(${2:arguments}) {\n    ${0}\n  }\n}\n```\n\n#### `cex⇥` child class (ES6)\n```js\nclass ${1:name} extends ${2:base} {\n  constructor(${2:arguments}) {\n    super(${2:arguments})\n    ${0}\n  }\n}\n```\n\n#### `cf⇥` class function (ES6)\n\n```js\n{$1:name} ({$2:arguments}) {\n  ${0}\n}\n```\n\n#### `kv⇥` key/value pair\nJavascript:\n```js\n${1:key}: ${2:\"value\"}\n```\n\n#### `m⇥` method (ES6 syntax)\n```js\n${1:method}(${2:arguments}) {\n  ${0}\n}\n```\n\n#### `get⇥` getter (ES6 syntax)\n```js\nget ${1:property}() {\n  ${0}\n}\n```\n\n#### `set⇥` setter (ES6 syntax)\n```js\nset ${1:property}(${2:value}) {\n  ${0}\n}\n```\n\n#### `gs⇥` getter and setter (ES6 syntax)\n```js\nget ${1:property}() {\n  ${0}\n}\nset ${1:property}(${2:value}) {\n\n}\n```\n\n#### `proto⇥` prototype method (chainable)\n```js\n${1:Class}.prototype.${2:methodName} = function (${3:arguments}) {\n  ${0}\n};\n```\n\n### Returning values\n\n#### `r⇥` return\n```js\nreturn ${0};\n```\n\n#### `rth⇥` return this\n```js\nreturn this;\n```\n\n#### `rn⇥` return null\n```js\nreturn null;\n```\n\n#### `rt⇥` return true\n```js\nreturn true;\n```\n\n#### `rf⇥` return false\n```js\nreturn false;\n```\n\n#### `r0⇥` return 0\n```js\nreturn 0;\n```\n\n#### `r-1⇥` return -1\n```js\nreturn -1;\n```\n\n#### `rp⇥` return Promise (ES6)\n```js\nreturn new Promise((resolve, reject) => {\n  ${0}\n});\n```\n\n### Types\n\n#### `S⇥` String\n#### `N⇥` Number\n#### `O⇥` Object\n#### `A⇥` Array\n#### `D⇥` Date\n#### `Rx⇥` RegExp\n\n#### `tof⇥` typeof comparison\n```js\ntypeof ${1:source} === \"${2:undefined}\"\n```\n\n#### `iof⇥` instanceof comparison\n```js\n${1:source} instanceof ${2:Object}\n```\n\n### Promises\n\n#### `p⇥` new Promise (ES6)\n```js\nnew Promise((resolve, reject) => {\n  ${0}\n})\n```\n\n#### `then⇥` Promise.then (chainable)\n```js\n${1:promise}.then((${2:value}) => {\n  ${0}\n});\n```\n\n#### `catch⇥` Promise.catch (chainable)\n```js\n${1:promise}.catch((${2:err}) => {\n  ${0}\n});\n```\n\n### ES6 modules\n\n#### `ex⇥` module export\n```js\nexport ${1:member};\n```\n\n#### `im⇥` module import\n```js\nimport ${1:*} from \"${2:module}\";\n```\n\n#### `ima⇥` module import as\n```js\nimport ${1:*} as ${2:name} from \"${3:module}\";\n```\n\n#### `imn⇥` named module import\n```js\nimport \\{ ${1:name} \\} from \"${2:module}\";\n```\n\n### BDD testing (Mocha, Jasmine, etc.)\n\n#### `desc⇥` describe\n```js\ndescribe(\"${1:description}\", () => {\n  ${0}\n});\n```\n\n#### `its⇥` synchronous \"it\"\n```js\nit(\"${1:description}\", () => {\n  ${0}\n});\n```\n\n#### `ita⇥` asynchronous \"it\"\n```js\nit(\"${1:description}\", (done) => {\n  ${0}\n});\n```\n\n#### `bef⇥` before\n```js\nbefore(() => {\n  ${0}\n});\n```\n\n#### `befe⇥` beforeEach\n```js\nbeforeEach(() => {\n  ${0}\n});\n```\n\n#### `aft⇥` after\n```js\nafter(() => {\n  ${0}\n});\n```\n\n#### `afte⇥` afterEach\n```js\nafterEach(() => {\n  ${0}\n});\n```\n\n### Console\n\n#### `cl⇥` console.log\n```js\nconsole.log(\"${1:title}\", ${2:$1}$0);\n```\n\n#### `cll⇥` console.log (text only)\n```js\nconsole.log(${0});\n```\n\n#### `ce⇥` console.error\n```js\nconsole.error(${0});\n```\n\n#### `cw⇥` console.warn\n```js\nconsole.warn(${0});\n```\n\n### Timers\n\n#### `st⇥` setTimeout\n```js\nsetTimeout(() => {\n  ${0}\n}, ${1:delay});\n```\n\n#### `si⇥` setInterval\n```js\nsetTimeout(() => {\n  ${0}\n}, ${1:delay});\n```\n\n#### `sim⇥` setInterval\n```js\nsetImmediate(() => {\n  ${0}\n});\n```\n\n\n### DOM specifics\n\n#### `ae⇥` addEventListener\n```js\n${1:document}.addEventListener(\"${2:event}\", function (e) {\n  ${0}\n});\n```\n\n#### `gi⇥` getElementById\n```js\n${1:document}.getElementById(\"${2:id}\")\n```\n\n#### `gc⇥` getElementsByClassName\n```js\nArray.from(${1:document}.getElementsByClassName(\"${2:class}\"))\n```\n`Array.from` polyfill required for ES5\n\n#### `gt⇥` getElementsByTagName\n```js\nArray.from(${1:document}.getElementsByTagName(\"${2:tag}\"))\n```\n`Array.from` polyfill required for ES5\n\n#### `qs⇥` querySelector\n```js\n${1:document}.querySelector(\"${2:selector}\")\n```\n\n#### `qsa⇥` querySelectorAll\n```js\nArray.from(${1:document}.querySelectorAll(\"${2:selector}\"))\n```\n`Array.from` polyfill required for ES5\n\n### Node.js specifics\n\n#### `cb⇥` Node.js style callback\n```js\n(err${1:, value}) => {${0}}\n```\n\n#### `re⇥` require a module\n```js\nrequire(\"${1:module}\");\n```\n\n#### `em⇥` export member\n```js\nexports.${1:name} = ${2:value};\n```\n\n#### `me⇥` module.exports\n```js\nmodule.exports = ${1:name};\n```\n\n#### `on⇥` attach an event handler (chainable)\n```js\n${1:emitter}.on(\"${2:event}\", (${3:arguments}) => {\n  ${0}\n});\n```\n\n### Miscellaneous\n\n#### `us⇥` use strict\n```js\n\"use strict\";\n```\n\n# License\n\nThe MIT License (MIT)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/hharnisc/atom-es6-javascript/issues"
+  },
+  "homepage": "https://github.com/hharnisc/atom-es6-javascript",
+  "_id": "es6-javascript@0.5.0",
+  "_shasum": "1a56ff05d31be88a345637bdcfe14cbf3f2fa287",
+  "_resolved": "file:../d-115717-37803-1akk7sp/package.tgz",
+  "_from": "../d-115717-37803-1akk7sp/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/es6-javascript.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}
