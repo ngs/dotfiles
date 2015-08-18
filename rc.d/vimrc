@@ -12,7 +12,6 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'Haml'
 Plugin 'Jasmine-snippets-for-snipMate'
-Plugin 'JavaScript-syntax'
 Plugin 'Markdown'
 Plugin 'Markdown-syntax'
 Plugin 'Puppet-Syntax-Highlighting'
