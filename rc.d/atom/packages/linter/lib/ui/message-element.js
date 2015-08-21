@@ -3,15 +3,11 @@
 const NewLine = /\r?\n/
 
 export class Message extends HTMLElement {
-  initialize(message, scope) {
+  initialize(message) {
     this.message = message
-    this.updateVisibility(scope)
     return this
   }
   updateVisibility(scope) {
-
-    if (scope !== 'Line' && scope == this.scope) return ; // Nothing's changed
-
     let status = true
     if (scope === 'Line')
       status = this.message.currentLine
@@ -27,7 +23,6 @@ export class Message extends HTMLElement {
       this.removeAttribute('hidden')
     else
       this.setAttribute('hidden', true)
-    this.scope = scope
   }
   attachedCallback() {
     this.appendChild(Message.getRibbon(this.message))
@@ -100,8 +95,8 @@ export class Message extends HTMLElement {
     el.textContent = message.type
     return el
   }
-  static fromMessage(message, scope) {
-    return new MessageElement().initialize(message, scope)
+  static fromMessage(message) {
+    return new MessageElement().initialize(message)
   }
 }
 
