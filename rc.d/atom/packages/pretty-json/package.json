@@ -1,0 +1,148 @@
+{
+  "main": "./index.coffee",
+  "name": "pretty-json",
+  "version": "0.4.1",
+  "description": "Format JSON",
+  "keywords": [
+    "JSON",
+    "format",
+    "pretty",
+    "prettify",
+    "minify",
+    "uglify"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/federomero/pretty-json"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {
+    "json-stable-stringify": "~0.1.1",
+    "jsonminify": "^0.2.3"
+  },
+  "scripts": {},
+  "readme": "Pretty JSON\n===========\n\n[Atom](http://atom.io/) plugin. Format JSON documents.\n\n![](http://i.imgur.com/Nd4GvtP.gif)\n\nJust select the text to format and select the prettify command. In a JSON file, it formats the whole file.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/federomero/pretty-json/issues"
+  },
+  "homepage": "https://github.com/federomero/pretty-json",
+  "_id": "pretty-json@0.4.1",
+  "_shasum": "de86743b77f6ea75dcd02d86f604a2b427ab7371",
+  "_resolved": "file:../d-115726-31939-zgkrzw/package.tgz",
+  "_from": "../d-115726-31939-zgkrzw/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "json-stable-stringify",
+        "version": "0.1.3",
+        "path": "node_modules/json-stable-stringify/index.js"
+      },
+      {
+        "name": "jsonify",
+        "version": "0.0.0",
+        "path": "node_modules/json-stable-stringify/node_modules/jsonify/index.js"
+      },
+      {
+        "name": "jsonminify",
+        "version": "0.2.3",
+        "path": "node_modules/jsonminify/minify.json.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "index.coffee"
+      ],
+      ".js": [
+        "node_modules/json-stable-stringify/example/key_cmp.js",
+        "node_modules/json-stable-stringify/example/nested.js",
+        "node_modules/json-stable-stringify/example/str.js",
+        "node_modules/json-stable-stringify/example/value_cmp.js",
+        "node_modules/json-stable-stringify/index.js",
+        "node_modules/json-stable-stringify/node_modules/jsonify/index.js",
+        "node_modules/json-stable-stringify/node_modules/jsonify/lib/parse.js",
+        "node_modules/json-stable-stringify/node_modules/jsonify/lib/stringify.js",
+        "node_modules/jsonminify/docs/scripts/linenumber.js",
+        "node_modules/jsonminify/docs/scripts/prettify/lang-css.js",
+        "node_modules/jsonminify/docs/scripts/prettify/prettify.js",
+        "node_modules/jsonminify/minify.json.js",
+        "node_modules/jsonminify/report/assets/scripts/bundles/codemirror.js",
+        "node_modules/jsonminify/report/assets/scripts/bundles/core-bundle.js",
+        "node_modules/jsonminify/report/assets/scripts/codemirror.markpopovertext.js",
+        "node_modules/jsonminify/report/assets/scripts/plato-file.js",
+        "node_modules/jsonminify/report/assets/scripts/plato-overview.js",
+        "node_modules/jsonminify/report/assets/scripts/plato-sortable-file-list.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/bootstrap-popover.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/bootstrap-tooltip.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/codemirror.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/javascript.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/closetag.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/colorize.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/continuecomment.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/continuelist.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/dialog.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/foldcode.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/formatting.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/javascript-hint.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/loadmode.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/match-highlighter.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/matchbrackets.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/multiplex.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/overlay.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/pig-hint.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/runmode-standalone.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/runmode.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/search.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/searchcursor.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/simple-hint.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/codemirror/util/xml-hint.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/jquery-1.8.3.min.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/jquery.fittext.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/lodash.min.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/morris.min.js",
+        "node_modules/jsonminify/report/assets/scripts/vendor/raphael-min.js",
+        "node_modules/jsonminify/report/files/minify_json_js/report.history.js",
+        "node_modules/jsonminify/report/files/minify_json_js/report.js",
+        "node_modules/jsonminify/report/report.history.js",
+        "node_modules/jsonminify/report/report.js"
+      ],
+      ".json": [
+        "node_modules/json-stable-stringify/node_modules/jsonify/package.json",
+        "node_modules/json-stable-stringify/package.json",
+        "node_modules/jsonminify/.jsdoc3.json",
+        "node_modules/jsonminify/package.json",
+        "node_modules/jsonminify/report/files/minify_json_js/report.history.json",
+        "node_modules/jsonminify/report/files/minify_json_js/report.json",
+        "node_modules/jsonminify/report/report.history.json",
+        "node_modules/jsonminify/report/report.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "json-stable-stringify": "~0.1.1",
+          "jsonminify": "^0.2.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/json-stable-stringify/example",
+          "node_modules/json-stable-stringify",
+          "node_modules/json-stable-stringify/test"
+        ],
+        "dependencies": {
+          "jsonify": "~0.0.0"
+        }
+      }
+    ]
+  }
+}

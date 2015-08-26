@@ -80,7 +80,7 @@
         {
           "comment": "e.g. 'play': function(arg1, arg2) {  }",
           "name": "meta.function.json.js",
-          "begin": "\\s*(?<c1>(?<c2>\\'|\\\")(?<c3>\\b[_$a-zA-Z][$\\w]*)(?<c4>\\k<c2>))\\s*(?<c5>:)\\s*(?<c6>async)?\\s+(?<c7>\\bfunction\\b)\\s*(?<c8>\\*\\s*)?\\s*(?=\\(|<)",
+          "begin": "\\s*(('|\\\")(\\b[_$a-zA-Z][$\\w]*)(\\k<2>))\\s*(:)\\s*(async)?\\s+(\\bfunction\\b)\\s*(\\*\\s*)?\\s*(?=\\(|<)",
           "end": "(?=\\{)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -104,7 +104,7 @@
         {
           "comment": "# e.g. play: async <T>(args) => { }",
           "name": "meta.function.json.arrow.js",
-          "begin": "\\s*(?<c1>\\b[_$a-zA-Z][$\\w]*)\\s*(?<c2>:)\\s*(?<c3>\\basync\\b)?\\s*(?<c4>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*(?<bpa>\\((?:(?>[^()]+)|\\g<bpa>)*\\))\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "\\s*(\\b[_$a-zA-Z][$\\w]*)\\s*(:)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*(\\((?:(?>[^()]+)|\\g<-1>)*\\))\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -123,7 +123,7 @@
         {
           "comment": "# e.g. play: arg => { }",
           "name": "meta.function.json.arrow.js",
-          "begin": "\\s*(?<c1>\\b[_$a-zA-Z][$\\w]*)\\s*(?<c2>:)\\s*(?<c3>\\basync\\b)?\\s*(?<c4>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "\\s*(\\b[_$a-zA-Z][$\\w]*)\\s*(:)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -137,13 +137,13 @@
           },
           "patterns": [
             { "include": "#flowtype-polymorphs"},
-            { "include": "#flowtype-arguments" }
+            { "include": "#flowtype-variable" }
           ]
         },
         {
           "comment": "# e.g. 'play': (args) => { }",
           "name": "meta.function.json.arrow.js",
-          "begin": "\\s*(?<c1>(?<c2>'|\\\")(?<c3>\\b[_$a-zA-Z][$\\w]*)(?<c4>\\k<c2>))\\s*(?<c5>:)\\s*(?<c6>\\basync\\b)?\\s*(?<c7>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*(?<bpa>\\((?:(?>[^()]+)|\\g<bpa>)*\\))\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "\\s*(('|\\\")(\\b[_$a-zA-Z][$\\w]*)(\\k<2>))\\s*(:)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*(\\((?:(?>[^()]+)|\\g<-1>)*\\))\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "endCaptures": {
@@ -165,7 +165,7 @@
         {
           "comment": "# e.g. 'play': arg => { }",
           "name": "meta.function.json.arrow.js",
-          "begin": "\\s*(?<c1>(?<c2>'|\\\")(?<c3>\\b[_$a-zA-Z][$\\w]*)(?<c4>\\k<c2>))\\s*(?<c5>:)\\s*(?<c6>\\basync\\b)?\\s*(?<c7>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "\\s*(('|\\\")(\\b[_$a-zA-Z][$\\w]*)(\\k<2>))\\s*(:)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -182,7 +182,7 @@
           },
           "patterns": [
             { "include": "#flowtype-polymorphs"},
-            { "include": "#flowtype-arguments" }
+            { "include": "#flowtype-variable" }
           ]
         }
       ]
@@ -325,6 +325,7 @@
             "0": { "name": "meta.brace.round.js" }
           },
           "patterns": [
+            { "include": "#flowtype-typecast" },
             { "include": "#expression" }
           ]
         }
@@ -472,7 +473,37 @@
             "0": { "name": "punctuationterminator.statement.js"}
           },
           "patterns": [
-            { "include": "#flowtype-arguments"}
+            { "include": "#flowtype-variable"}
+          ]
+        },
+        {
+          "comment": "flowtype objects {a,b,{z}} with a : to indicate type",
+          "comment": "these statements must end in a ; ",
+          "begin": "(?<!\\.)\\b(const|let|var)\\b\\s+(?=(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})\\s*:)",
+          "end": "\\;",
+          "beginCaptures": {
+            "1": { "name": "storage.type.js"}
+          },
+          "endCaptures": {
+            "0": { "name": "punctuationterminator.statement.js"}
+          },
+          "patterns": [
+            { "include": "#flowtype-destruct-lhs"}
+          ]
+        },
+        {
+          "comment": "flowtype arrays [a,[b,c]] with a : to indicate type",
+          "comment": "these statements must end in a ; ",
+          "begin": "(?<!\\.)\\b(const|let|var)\\b\\s+(?=(\\[(?:(?>[^\\[\\]]+)|\\g<-1>)*\\])\\s*:)",
+          "end": "\\;",
+          "beginCaptures": {
+            "1": { "name": "storage.type.js"}
+          },
+          "endCaptures": {
+            "0": { "name": "punctuationterminator.statement.js"}
+          },
+          "patterns": [
+            { "include": "#flowtype-destruct-lhs"}
           ]
         },
         {
@@ -799,7 +830,9 @@
                 { "include": "#comments" },
                 { "include": "#es7-class-properties" },
                 { "include": "#literal-method"},
-                { "include": "#flowtype-class-fields" }
+                { "include": "#flowtype-class-fields" },
+                { "include": "#expression"}
+
               ]
             }
           ]
@@ -883,9 +916,14 @@
           "name": "constant.character.escape.newline.js",
           "match": "\\\\\\s*\\n"
         },
-        {
-          "name": "constant.character.escape.js",
-          "match": "\\\\(x[\\da-fA-F]{2}|u[\\da-fA-F]{4}|.)"
+        { "name": "constant.character.escape",
+          "match": "\\\\\\\\|\\\\'|\\\\b|\\\\f|\\\\n|\\\\r|\\\\t|\\\\v|\\\\\"|\\0"
+        },
+        { "name": "constant.character.escape",
+          "match": "\\\\u((\\{[0-9a-fA-F]+\\})|[0-9a-fA-F]{4})"
+        },
+        { "name": "constant.character.escape",
+          "match": "\\\\x[0-9a-fA-F]{2}"
         }
       ]
     },
@@ -935,7 +973,7 @@
         {
           "comment": "e.g. (args) => { }",
           "name": "meta.function.arrow.js",
-          "begin": "(?<c1>\\basync\\b)?\\s*(?<c2>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*(?<bpa>\\((?:(?>[^()]+)|\\g<bpa>)*\\))\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*(\\((?:(?>[^()]+)|\\g<-1>)*\\))\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "endCaptures": {
@@ -953,7 +991,7 @@
         {
           "comment": "# e.g. arg => { }",
           "name": "meta.function.arrow.js",
-          "begin": "(?<c1>\\basync\\b)?\\s*(?<c2>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -965,13 +1003,13 @@
           },
           "patterns": [
             { "include": "#flowtype-polymorphs"},
-            { "include": "#flowtype-arguments" }
+            { "include": "#flowtype-variable" }
           ]
         },
         {
           "comment": "# e.g. play = (args) => { }",
           "name": "meta.function.arrow.js",
-          "begin": "(?<c1>\\b[_$a-zA-Z][$\\w]*)\\s*(?<c2>=)\\s*(?<c3>\\basync\\b)?\\s*(?<c4>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*(?<bpa>\\((?:(?>[^()]+)|\\g<bpa>)*\\))\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "(\\b[_$a-zA-Z][$\\w]*)\\s*(=)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*(\\((?:(?>[^()]+)|\\g<-1>)*\\))\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -991,7 +1029,7 @@
         {
           "comment": "# e.g. play = arg => { }",
           "name": "meta.function.arrow.js",
-          "begin": "(?<c1>\\b[_$a-zA-Z][$\\w]*)\\s*(?<c2>=)\\s*(?<c3>\\basync\\b)?\\s*(?<c3>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "(\\b[_$a-zA-Z][$\\w]*)\\s*(=)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -1005,13 +1043,13 @@
           },
           "patterns": [
             { "include": "#flowtype-polymorphs"},
-            { "include": "#flowtype-arguments" }
+            { "include": "#flowtype-variable" }
           ]
         },
         {
           "comment": "Sound.prototype.play = (args) => { }",
           "name": "meta.prototype.function.arrow.js",
-          "begin": "(?<c1>\\b[A-Z][$\\w]*)?(?<c2>\\.)(?<c3>prototype)(?<c4>\\.)(?<c5>[_$a-zA-Z][$\\w]*)\\s*(?<c6>=)\\s*(?<c7>\\basync\\b)?\\s*(?<c8>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*(?<bpa>\\((?:(?>[^()]+)|\\g<bpa>)*\\))\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "(\\b[A-Z][$\\w]*)?(\\.)(prototype)(\\.)([_$a-zA-Z][$\\w]*)\\s*(=)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*(\\((?:(?>[^()]+)|\\g<-1>)*\\))\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -1034,7 +1072,7 @@
         {
           "comment": "# e.g. Sound.prototype.play = arg => { }",
           "name": "meta.prototype.function.arrow.js",
-          "begin": "(?<c1>\\b_?[A-Z][$\\w]*)?(?<c2>\\.)(?<c3>prototype)(?<c4>\\.)(?<c5>[_$a-zA-Z][$\\w]*)\\s*(?<c6>=)\\s*(?<c7>\\basync\\b)?\\s*(?<c8>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "(\\b_?[A-Z][$\\w]*)?(\\.)(prototype)(\\.)([_$a-zA-Z][$\\w]*)\\s*(=)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -1049,13 +1087,13 @@
           },
           "patterns": [
             { "include": "#flowtype-polymorphs"},
-            { "include": "#flowtype-arguments" }
+            { "include": "#flowtype-variable" }
           ]
         },
         {
           "comment": "e.g. Sound.play = (args) => { }",
           "name": "meta.function.static.arrow.js",
-          "begin": "(?<c1>\\b_?[A-Z][$\\w]*)?(?<c2>\\.)(?<c3>[_$a-zA-Z][$\\w]*)\\s*(?<c4>=)\\s*(?<c5>\\basync\\b)?\\s*(?<c6>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*(?<bpa>\\((?:(?>[^()]+)|\\g<bpa>)*\\))\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "(\\b_?[A-Z][$\\w]*)?(\\.)([_$a-zA-Z][$\\w]*)\\s*(=)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*(\\((?:(?>[^()]+)|\\g<-1>)*\\))\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -1077,7 +1115,7 @@
         {
           "comment": "# e.g. Sound.play = arg => { }",
           "name": "meta.function.static.arrow.js",
-          "begin": "(?<c1>\\b_?[A-Z][$\\w]*)?(?<c2>\\.)(?<c3>[_$a-zA-Z][$\\w]*)\\s*(?<c4>=)\\s*(?<c5>\\basync\\b)?\\s*(?<c6>\\*?)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
+          "begin": "(\\b_?[A-Z][$\\w]*)?(\\.)([_$a-zA-Z][$\\w]*)\\s*(=)\\s*(\\basync\\b)?\\s*(\\*?)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?\\s*([_$a-zA-Z][$\\w]*)\\s*(?:\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s*=>)",
           "end": "\\s*(=>)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -1090,7 +1128,7 @@
           },
           "patterns": [
             { "include": "#flowtype-polymorphs"},
-            { "include": "#flowtype-arguments" }
+            { "include": "#flowtype-variable" }
           ]
         }
       ]
@@ -1100,7 +1138,7 @@
         {
           "comment": " e.g. play<T,T>(arg1, arg2): Type<T> {  }",
           "name": "meta.function.method.js",
-          "begin": "(?:\\b(static)\\s+)?(?:\\b(async)\\s+)?(?:(\\*)\\s*)?([_$a-zA-Z][$\\w]*)\\s*(?=(?<ab><(?:(?>[^<>]+)|\\g<ab>)*>)?(?<bpa>\\((?:(?>[^()]+)|\\g<bpa>)*\\))\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(?<ab1><(?:(?>[^<>]+)|\\g<ab1>)*>)?|\\s*(?<bcb>\\{(?:(?>[^{}]+)|\\g<bcb>)*\\})|\\s*(\\s*(?<qt>[\"']).*?\\k<qt>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s{)",
+          "begin": "(?:\\b(static)\\s+)?(?:\\b(async)\\s+)?(?:(\\*)\\s*)?([_$a-zA-Z][$\\w]*)\\s*(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?(\\((?:(?>[^()]+)|\\g<-1>)*\\))\\s*(\\s*(:|\\|)(\\s*[$_a-zA-Z0-9]+(<(?:(?>[^<>]+)|\\g<-1>)*>)?|\\s*(\\{(?:(?>[^{}]+)|\\g<-1>)*\\})|\\s*(\\s*([\"']).*?\\k<-1>(?<!\\\\.))|\\s*[x0-9A-Fa-f]+))*\\s{)",
           "end": "(?={)",
           "applyEndPatternLast": "1",
           "beginCaptures": {
@@ -1472,7 +1510,7 @@
         }
       ]
     },
-    "flowtype-arguments": {
+    "flowtype-variable": {
       "patterns": [
         {
           "comment": "name of variable spread var or optional ? var with flowtype :",
@@ -1483,6 +1521,71 @@
             "3": { "name": "puntuation.optional.parameter.flowtype" }
           }
         },
+        { "include": "#flowtype-vars-and-props" }
+      ]
+    },
+    "flowtype-destruct-lhs": {
+      "comment": "lhs destructs such as {a: z, [b,c] }",
+      "comment": "use this pattern to colour code the variable part correctly",
+      "patterns": [
+        {
+          "begin": "\\s*{",
+          "end": "\\s*}",
+          "patterns": [
+            { "include": "#flowtype-destruct-lhs"}
+          ]
+        },
+        {
+          "begin": "\\s*\\[",
+          "end": "\\s*\\]",
+          "patterns": [
+            { "include": "#flowtype-destruct-lhs"}
+          ]
+        },
+        {
+          "comment": "string as destructor target",
+          "match": "\\s*((['\\\"]).*?\\k<-1>(?<!\\\\.))\\s*(:)\\s*(([$_\\p{L}](?:[$.\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}])*+))",
+          "captures": {
+            "1": { "name": "string.quoted.js" },
+            "3": { "name": "punctuation"},
+            "4": { "name": "storage.type.variable.property.js"}
+          }
+        },
+        {
+          "comment": "prop name : var name as destructor target",
+          "match": "\\s*([$_\\p{L}](?:[$.\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}])*+)\\s*(:)\\s*(([$_\\p{L}](?:[$.\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}])*+))",
+          "captures": {
+            "1": { "name": "string.unquoted.js" },
+            "2": { "name": "punctuation"},
+            "3": { "name": "storage.type.variable.property.js"}
+          }
+        },
+        {
+          "comment": "var name as destructor target",
+          "match": "\\s*((?<!\\.)\\.\\.\\.)?([$_\\p{L}](?:[$.\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}])*+)",
+          "captures": {
+            "1": { "name": "keyword.operator.spread.js" },
+            "2": { "name": "storage.type.variable.js" }
+          }
+        },
+        { "match": ","},
+        { "include": "#flowtype-vars-and-props"}
+      ]
+    },
+    "flowtype-object-property": {
+      "patterns": [
+        {
+          "comment": "name of property which can be a string",
+          "match": "\\s*(('|\\\").*?(\\k<2>(?<!\\\\.)))|([$_\\p{L}](?:[$.\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}])*+)",
+          "captures": {
+            "0": { "name": "storage.type.variable.property.flowtype" }
+          }
+        },
+        { "include": "#flowtype-vars-and-props" }
+      ]
+    },
+    "flowtype-vars-and-props": {
+      "patterns": [
         {
           "comment": "typed entity :",
           "begin": "\\s*(:)",
@@ -1501,7 +1604,7 @@
           "end": "(?=.)",
           "applyEndPatternLast": "1",
           "patterns": [
-            { "include": "#flowtype-arguments"}
+            { "include": "#flowtype-variable"}
           ]
         },
         {
@@ -1579,7 +1682,8 @@
             "match": "\\s*\\&"
           },
           {
-            "name": "kewyword.operator.existential.flowtype as per React declares in flowtype github",
+            "comment": "as per React declares in flowtype github",
+            "name": "kewyword.operator.existential.flowtype",
             "match": "\\s*\\*"
           },
           { "include": "#literal-string" },
@@ -1605,7 +1709,7 @@
             "1": { "name": "punctuation.definition.parameters.begin.js" }
           },
           "patterns": [
-            { "include": "#flowtype-arguments"}
+            { "include": "#flowtype-variable"}
           ]
         }
       ]
@@ -1668,7 +1772,7 @@
         "1": { "name": "meta.brace.round.close.flowtype" }
       },
       "patterns": [
-        { "include": "#flowtype-arguments"}
+        { "include": "#flowtype-object-property"}
       ]
     },
     "flowtype-parse-array": {
@@ -1682,7 +1786,7 @@
         "1": { "name": "meta.brace.square.end.flowtype" }
       },
       "patterns": [
-        { "include": "#flowtype-arguments"}
+        { "include": "#flowtype-parse-types"}
       ]
     },
     "flowtype-class-fields": {
@@ -1699,6 +1803,11 @@
     },
     "flowtype-type-aliases": {
       "patterns": [
+        {
+          "comment": "import for types",
+          "name": "keyword.control.module.js",
+          "match": "(?<!\\.)\\b(import)\\b\\s*(type)\\b"
+        },
         {
           "comment": "handle other types",
           "begin": "\\s*\\b(type)\\s+(?=[$_\\p{L}])",
@@ -1723,7 +1832,7 @@
               },
               "patterns": [
                 { "include": "#flowtype" },
-                { "include": "#flowtype-arguments"},
+                { "include": "#flowtype-variable"},
                 { "include": "#comments"},
                 { "include": "#flowtype-function-name"}
               ]
@@ -1795,6 +1904,7 @@
           },
           "patterns": [
             { "include": "#flowtype-declare-classes"},
+            { "include": "#flowtype-declare-modules"},
             { "include": "#flowtype-declare-function"},
             { "include": "#flowtype-declare-vars"}
           ]
@@ -1802,7 +1912,7 @@
       ]
     },
     "flowtype-declare-modules": {
-      "match": "\\s*\\bmodule\\s+",
+      "match": "\\s*\\bmodule\\b\\s+",
       "name": "support.type.object.module.js"
     },
     "flowtype-declare-classes": {
@@ -1872,7 +1982,18 @@
             "1": { "name": "storage.type.var.js" }
           },
           "patterns": [
-            { "include": "#flowtype-arguments"}
+            { "include": "#flowtype-variable"}
+          ]
+        }
+      ]
+    },
+    "flowtype-typecast": {
+      "patterns": [
+        {
+          "begin": "\\s*:",
+          "end": "(?=\\s*\\))",
+          "patterns": [
+            { "include": "#flowtype-parse-types"}
           ]
         }
       ]

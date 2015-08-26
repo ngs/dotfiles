@@ -1,3 +1,4 @@
+'use strict';
 // Based on https://github.com/zenparsing/es-observable/blob/master/src/Observable.js
 var global     = require('./$.global')
   , core       = require('./$.core')
@@ -11,7 +12,7 @@ var global     = require('./$.global')
   , OBSERVER   = require('./$.wks')('observer');
 
 // === Abstract Operations ===
-function cancelSubscription(observer){
+var cancelSubscription = function(observer){
   var subscription = observer._subscription;
   if(!subscription)return;
   // Drop the reference to the subscription so that we don't unsubscribe
@@ -25,21 +26,21 @@ function cancelSubscription(observer){
     // will be sent
     observer._observer = undefined;
   }
-}
+};
 
-function closeSubscription(observer){
+var closeSubscription = function(observer){
   observer._observer = undefined;
   cancelSubscription(observer);
-}
+};
 
-function hasUnsubscribe(x){
+var hasUnsubscribe = function(x){
   return isObject(x) && typeof x.unsubscribe == 'function';
-}
+};
 
-function SubscriptionObserver(observer){
+var SubscriptionObserver = function(observer){
   this._observer = observer;
   this._subscription = undefined;
-}
+};
 $mix(SubscriptionObserver.prototype, {
   next: function(value){
     var observer = this._observer
