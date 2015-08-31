@@ -151,7 +151,7 @@
           },
           "beginCaptures": {
             "1": { "name": "string.quoted.js" },
-            "3": { "name": "punctuation.definition.string.begin.js" },
+            "2": { "name": "punctuation.definition.string.begin.js" },
             "3": { "name": "entity.name.function.js" },
             "4": { "name": "punctuation.definition.string.end.js" },
             "5": { "name": "punctuation.separator.key-value.js" },
@@ -367,6 +367,14 @@
         }
       ]
     },
+    "jsdoc": {
+      "patterns": [
+        {
+          "match": "(?<!\\w)@(abstract|access|alias|also|arg|arguments|augments|author|borrows|callback|class|classdesc|constant|const|constructor|constructs|copyright|default|defaultvalue|deprecated|desc|description|emits|enum|event|example|exception|exports|extends|external|file|fileoverview|fires|function|func|global|host|ignore|implements|inheritdoc|inner|instance|interface|kind|lends|license|listens|member|memberof|method|mixes|mixin|module|name|namsepace|overview|param|private|prop|property|protected|public|readonly|requires|return|returns|see|since|static|summary|this|todo|throws|tutorial|type|typedef|undocumented|var|variation|version|virtual)\\b",
+          "name": "storage.type.class.jsdoc"
+        }
+      ]
+    },
     "comments": {
       "patterns": [
         { "include": "#special-comments-conditional-compilation" },
@@ -376,7 +384,10 @@
           "end": "\\*/",
           "captures": {
             "0": { "name": "punctuation.definition.comment.js" }
-          }
+          },
+          "patterns": [
+              { "include": "#jsdoc" }
+          ]
         },
         {
           "name": "comment.block.js",
@@ -1620,10 +1631,12 @@
       "patterns": [
         {
           "comment": "call back with a form  ) => type",
-          "name": "storage.type.function.arrow.js",
           "begin": "(?<=\\))\\s*=>",
           "end": "(?=.)",
           "applyEndPatternLast": "1",
+          "beginCaptures": {
+            "0": { "name": "storage.type.function.arrow.js" }
+          },
           "patterns": [
             { "include": "#flowtype-parse-types" }
           ]
@@ -1652,7 +1665,7 @@
             "match": "\\s*(?:(\\?)?)\\s*\\b((?>any|boolean|mixed|number|string|void))\\b",
             "captures": {
               "1": { "name": "punctuation.flowtype"},
-              "2": { "name": "support.type.primitve.flowtype" }
+              "2": { "name": "support.type.builtin.primitve.flowtype" }
             }
           },
           {
@@ -1660,15 +1673,23 @@
             "match": "\\s*(?:(\\?)?)\\s*\\b((?>Boolean|Function|Number|Object|String))\\b",
             "captures": {
               "1": { "name": "punctuation.flowtype"},
-              "2": { "name": "support.type.builtin.flowtype" }
+              "2": { "name": "support.type.builtin.class.flowtype" }
             }
           },
           {
-            "comment": "custom Types e.g. abc ",
-            "match": "\\s*(?:(\\?)?)\\s*([$_\\p{L}][$.\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}]*)",
+            "comment": "custom Class Types e.g. Abc ",
+            "match": "\\s*(?:(\\?)?)\\s*([$_[\\p{Lu}\\p{Lt}\\p{Lm}\\p{Lo}]][$.\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}]*)",
             "captures": {
               "1": { "name": "punctuation.flowtype"},
               "2": { "name": "support.type.class.flowtype" }
+            }
+          },
+          {
+            "comment": "custom primitive/var Types e.g. abc ",
+            "match": "\\s*(?:(\\?)?)\\s*([$_\\p{L}][$.\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}]*)",
+            "captures": {
+              "1": { "name": "punctuation.flowtype"},
+              "2": { "name": "support.type.primitive.flowtype" }
             }
           },
           {

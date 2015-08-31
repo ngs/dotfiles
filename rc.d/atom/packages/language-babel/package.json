@@ -1,7 +1,7 @@
 {
   "name": "language-babel",
   "main": "./lib/babel-transpiler",
-  "version": "0.11.11",
+  "version": "0.12.0",
   "description": "Babel JavaScript ES2015, React JSX & Flow Grammar & Transpiler",
   "keywords": [
     "babel",
@@ -13,7 +13,7 @@
   "activationCommands": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gandm/language-babel"
+    "url": "git+https://github.com/gandm/language-babel.git"
   },
   "license": "MIT",
   "engines": {
@@ -30,17 +30,17 @@
   "bugs": {
     "url": "https://github.com/gandm/language-babel/issues"
   },
-  "homepage": "https://github.com/gandm/language-babel",
-  "_id": "language-babel@0.11.11",
-  "_shasum": "10e35f01fece1153713a528c54c1c58cb725e251",
-  "_resolved": "file:../d-115727-50876-bomczr/package.tgz",
-  "_from": "../d-115727-50876-bomczr/package.tgz",
+  "homepage": "https://github.com/gandm/language-babel#readme",
+  "_id": "language-babel@0.12.0",
+  "_shasum": "6baac71f973c503e77b3b91a8f732481ad0fdd05",
+  "_resolved": "file:../d-115731-46633-1yjzqff/package.tgz",
+  "_from": "../d-115731-46633-1yjzqff/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "babel-core",
-        "version": "5.8.22",
+        "version": "5.8.23",
         "path": "node_modules/babel-core/index.js"
       },
       {
@@ -125,7 +125,7 @@
       },
       {
         "name": "babylon",
-        "version": "5.8.22",
+        "version": "5.8.23",
         "path": "node_modules/babel-core/node_modules/babylon/lib/index.js"
       },
       {
@@ -180,7 +180,7 @@
       },
       {
         "name": "core-js",
-        "version": "1.1.1",
+        "version": "1.1.3",
         "path": "node_modules/babel-core/node_modules/core-js/index.js"
       },
       {
@@ -240,7 +240,7 @@
       },
       {
         "name": "is-integer",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "path": "node_modules/babel-core/node_modules/is-integer/index.js"
       },
       {
@@ -252,26 +252,6 @@
         "name": "number-is-nan",
         "version": "1.0.0",
         "path": "node_modules/babel-core/node_modules/is-integer/node_modules/is-finite/node_modules/number-is-nan/index.js"
-      },
-      {
-        "name": "is-nan",
-        "version": "1.2.1",
-        "path": "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/index.js"
-      },
-      {
-        "name": "define-properties",
-        "version": "1.1.1",
-        "path": "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/index.js"
-      },
-      {
-        "name": "foreach",
-        "version": "2.0.5",
-        "path": "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/foreach/index.js"
-      },
-      {
-        "name": "object-keys",
-        "version": "1.0.7",
-        "path": "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/object-keys/index.js"
       },
       {
         "name": "js-tokens",
@@ -1543,7 +1523,6 @@
         "node_modules/babel-core/node_modules/core-js/library/modules/es7.object.entries.js",
         "node_modules/babel-core/node_modules/core-js/library/modules/es7.object.get-own-property-descriptors.js",
         "node_modules/babel-core/node_modules/core-js/library/modules/es7.object.values.js",
-        "node_modules/babel-core/node_modules/core-js/library/modules/es7.observable.js",
         "node_modules/babel-core/node_modules/core-js/library/modules/es7.regexp.escape.js",
         "node_modules/babel-core/node_modules/core-js/library/modules/es7.set.to-json.js",
         "node_modules/babel-core/node_modules/core-js/library/modules/es7.string.at.js",
@@ -1742,7 +1721,6 @@
         "node_modules/babel-core/node_modules/core-js/modules/es7.object.entries.js",
         "node_modules/babel-core/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js",
         "node_modules/babel-core/node_modules/core-js/modules/es7.object.values.js",
-        "node_modules/babel-core/node_modules/core-js/modules/es7.observable.js",
         "node_modules/babel-core/node_modules/core-js/modules/es7.regexp.escape.js",
         "node_modules/babel-core/node_modules/core-js/modules/es7.set.to-json.js",
         "node_modules/babel-core/node_modules/core-js/modules/es7.string.at.js",
@@ -1797,15 +1775,6 @@
         "node_modules/babel-core/node_modules/is-integer/index.js",
         "node_modules/babel-core/node_modules/is-integer/node_modules/is-finite/index.js",
         "node_modules/babel-core/node_modules/is-integer/node_modules/is-finite/node_modules/number-is-nan/index.js",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/implementation.js",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/index.js",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/index.js",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/foreach/index.js",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/foreach/test.js",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/object-keys/index.js",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/object-keys/isArguments.js",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/polyfill.js",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/shim.js",
         "node_modules/babel-core/node_modules/is-integer/test.js",
         "node_modules/babel-core/node_modules/js-tokens/esprima-compare.js",
         "node_modules/babel-core/node_modules/js-tokens/generate-index.js",
@@ -2613,14 +2582,6 @@
         "node_modules/babel-core/node_modules/home-or-tmp/package.json",
         "node_modules/babel-core/node_modules/is-integer/node_modules/is-finite/node_modules/number-is-nan/package.json",
         "node_modules/babel-core/node_modules/is-integer/node_modules/is-finite/package.json",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/.jscs.json",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/.jscs.json",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/foreach/component.json",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/foreach/package.json",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/object-keys/.jscs.json",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/node_modules/object-keys/package.json",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/package.json",
-        "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/package.json",
         "node_modules/babel-core/node_modules/is-integer/package.json",
         "node_modules/babel-core/node_modules/js-tokens/package.json",
         "node_modules/babel-core/node_modules/json5/package.json",
@@ -2798,7 +2759,7 @@
           "babel-plugin-runtime": "^1.0.7",
           "babel-plugin-undeclared-variables-check": "^1.0.2",
           "babel-plugin-undefined-to-void": "^1.1.6",
-          "babylon": "^5.8.22",
+          "babylon": "^5.8.23",
           "bluebird": "^2.9.33",
           "chalk": "^1.0.0",
           "convert-source-map": "^1.1.0",
@@ -2910,8 +2871,7 @@
           "node_modules/babel-core/node_modules/is-integer"
         ],
         "dependencies": {
-          "is-finite": "^1.0.0",
-          "is-nan": "^1.0.1"
+          "is-finite": "^1.0.0"
         }
       },
       {
@@ -2920,25 +2880,6 @@
         ],
         "dependencies": {
           "number-is-nan": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan",
-          "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/test"
-        ],
-        "dependencies": {
-          "define-properties": "^1.1.1"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties",
-          "node_modules/babel-core/node_modules/is-integer/node_modules/is-nan/node_modules/define-properties/test"
-        ],
-        "dependencies": {
-          "foreach": "^2.0.5",
-          "object-keys": "^1.0.7"
         }
       },
       {
