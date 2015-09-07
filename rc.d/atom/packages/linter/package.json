@@ -47,8 +47,8 @@
   "homepage": "https://github.com/atom-community/linter#readme",
   "_id": "linter@1.5.0",
   "_shasum": "5261f9cd424f163e956ddf8c5d5485ecbcb12f1a",
-  "_resolved": "file:../d-11587-91621-dvc7ru/package.tgz",
-  "_from": "../d-11587-91621-dvc7ru/package.tgz",
+  "_resolved": "file:../d-11588-70532-1sssgaf/package.tgz",
+  "_from": "../d-11588-70532-1sssgaf/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
