@@ -4,11 +4,11 @@
   "author": {
     "name": "atom-community"
   },
-  "version": "1.4.3",
+  "version": "1.5.0",
   "description": "A Base Linter with Cow Powers",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom-community/linter"
+    "url": "git+https://github.com/atom-community/linter.git"
   },
   "license": "MIT",
   "scripts": {
@@ -37,20 +37,18 @@
     }
   },
   "dependencies": {
-    "grim": "^1.4.1",
-    "temp": "^0.8.3",
-    "xregexp": "^2.0.0"
+    "grim": "^1.4.1"
   },
   "readme": "Linter\n======\n\n[![Slack Badge](https://img.shields.io/badge/chat-atom.io%20slack-blue.svg?style=flat-square)](http://atom-slack.herokuapp.com/)\n[![Build Status](https://img.shields.io/travis/atom-community/linter.svg?style=flat-square)](https://travis-ci.org/atom-community/linter)\n[![Plugin installs!](https://img.shields.io/apm/dm/linter.svg?style=flat-square)](https://atom.io/packages/linter)\n[![Package version!](https://img.shields.io/apm/v/linter.svg?style=flat-square)](https://atom.io/packages/linter)\n[![Dependencies!](https://img.shields.io/david/atom-community/Linter.svg?style=flat-square)](https://david-dm.org/atom-community/linter)\n\nLinter is a base linter provider for the Hackable [Atom Editor](http://atom.io).\n\nIt provides a top-level API to it's consumer that allow them to visualize errors and other kind-of messages, easily.\n\n\n![Preview](http://g.recordit.co/13RfmirPz2.gif)\n\n#### How to / Installation\n\nInstall package through Atom or use CLI:\n\n```\n$ apm install linter\n```\n\n#### Available linters\n\n[Full linters list](http://atomlinter.github.io/)\n\n#### API Documentation\n\n[Linter API wiki](https://github.com/atom-community/linter/wiki/Linter-API)\n\n#### Contribute\n\nStick to imposed codestyle:\n\n* `$ npm i -g coffeelint eslint`\n* `$ npm run lint`\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/atom-community/linter/issues"
   },
-  "homepage": "https://github.com/atom-community/linter",
-  "_id": "linter@1.4.3",
-  "_shasum": "a5fa697d7e1cffa2ec15e683bec1e512f85273d4",
-  "_resolved": "file:../d-115721-12061-1m1lzel/package.tgz",
-  "_from": "../d-115721-12061-1m1lzel/package.tgz",
+  "homepage": "https://github.com/atom-community/linter#readme",
+  "_id": "linter@1.5.0",
+  "_shasum": "5261f9cd424f163e956ddf8c5d5485ecbcb12f1a",
+  "_resolved": "file:../d-11587-91621-dvc7ru/package.tgz",
+  "_from": "../d-11587-91621-dvc7ru/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -108,26 +106,6 @@
         "name": "underscore",
         "version": "1.6.0",
         "path": "node_modules/grim/node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore.js"
-      },
-      {
-        "name": "temp",
-        "version": "0.8.3",
-        "path": "node_modules/temp/lib/temp.js"
-      },
-      {
-        "name": "os-tmpdir",
-        "version": "1.0.1",
-        "path": "node_modules/temp/node_modules/os-tmpdir/index.js"
-      },
-      {
-        "name": "rimraf",
-        "version": "2.2.8",
-        "path": "node_modules/temp/node_modules/rimraf/rimraf.js"
-      },
-      {
-        "name": "xregexp",
-        "version": "2.0.0",
-        "path": "node_modules/xregexp/xregexp-all.js"
       }
     ],
     "extensions": {
@@ -144,10 +122,6 @@
         "node_modules/grim/node_modules/emissary/node_modules/underscore-plus/package.json",
         "node_modules/grim/node_modules/emissary/package.json",
         "node_modules/grim/package.json",
-        "node_modules/temp/node_modules/os-tmpdir/package.json",
-        "node_modules/temp/node_modules/rimraf/package.json",
-        "node_modules/temp/package.json",
-        "node_modules/xregexp/package.json",
         "package.json"
       ],
       ".coffee": [
@@ -580,17 +554,7 @@
         "node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
         "node_modules/grim/node_modules/emissary/node_modules/underscore-plus/lib/underscore-plus.js",
         "node_modules/grim/node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
-        "node_modules/grim/node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore.js",
-        "node_modules/temp/examples/grepcount.js",
-        "node_modules/temp/examples/pdfcreator.js",
-        "node_modules/temp/lib/temp.js",
-        "node_modules/temp/no_cleanup.js",
-        "node_modules/temp/no_cleanup_on_exit.js",
-        "node_modules/temp/no_cleanup_on_exit.spec.js",
-        "node_modules/temp/node_modules/os-tmpdir/index.js",
-        "node_modules/temp/node_modules/rimraf/bin.js",
-        "node_modules/temp/node_modules/rimraf/rimraf.js",
-        "node_modules/xregexp/xregexp-all.js"
+        "node_modules/grim/node_modules/emissary/node_modules/underscore-plus/node_modules/underscore/underscore.js"
       ]
     },
     "folders": [
@@ -599,14 +563,12 @@
           "",
           "lib",
           "lib/ui",
-          "spec/config",
           "spec",
+          "spec/config",
           "spec/ui"
         ],
         "dependencies": {
-          "grim": "^1.4.1",
-          "temp": "^0.8.3",
-          "xregexp": "^2.0.0"
+          "grim": "^1.4.1"
         }
       },
       {
@@ -851,18 +813,6 @@
         ],
         "dependencies": {
           "underscore": "~1.6.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/temp/examples",
-          "node_modules/temp/lib",
-          "node_modules/temp",
-          "node_modules/temp/test"
-        ],
-        "dependencies": {
-          "os-tmpdir": "^1.0.0",
-          "rimraf": "~2.2.6"
         }
       }
     ]

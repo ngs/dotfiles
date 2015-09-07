@@ -1,7 +1,19 @@
+### 0.13.2
+  - Fixes #57. Highlighting breaks down.
+  - Remove generators from arrow functions
+  - Ternary/Typecast detection
+
+### 0.13.1
+  - Fixes #55 missing scope on JSX self closing tags.
+
+### 0.13.0
+  - Add jsduck documentation keywords.
+  - Fixes #53 ternary operator being parsed as flow type.
+
 ### 0.12.0
   - PR #50 Add simple JSDoc grammar.
   - Scope fixes.
-  
+
 ### 0.11.11
   - Fixes #49 incorrect handling of escapes within strings.
 
