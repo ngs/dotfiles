@@ -5,6 +5,6 @@ Host remote rubyforge.org
   Hostname rubyforge.org
   IdentityFile ~/Dropbox/Credentials/ssh/id_dsa.rubyforge
 
-Host 10.3.1.74 172.31.87.140
+Host 10.3.1.74 172.31.87.140 10.2.0.68 10.2.1.73
   User oneteam
   ProxyCommand ssh oneteam@gateway01-common.one-team.jp nc %h %p 2>&1
