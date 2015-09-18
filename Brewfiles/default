@@ -1,5 +1,6 @@
 ## Modules
 brew "ansible"
+brew "awscli"
 brew "chrome-cli"
 brew "dynamodb-local"
 brew "git"
@@ -24,6 +25,7 @@ brew "rbenv-gemset"
 brew "reattach-to-user-namespace", args: ['wrap-pbcopy-and-pbpaste']
 brew "redis"
 brew "ruby-build"
+brew "sbt"
 brew "terraform"
 brew "tig"
 brew "tmux"
