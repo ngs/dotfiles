@@ -1,4 +1,5 @@
 ## Modules
+brew "ant"
 brew "ansible"
 brew "awscli"
 brew "chrome-cli"
@@ -67,6 +68,7 @@ cask "skype"
 cask "vagrant"
 cask "virtualbox"
 cask "vlc"
+cask "eclipse-java"
 
 ## Finalize
 # update
