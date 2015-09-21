@@ -16,9 +16,7 @@ Install via ATOM or by using `apm install language-babel`
 
 By default the language-babel package will detect file types `.js`,`.babel`,`.jsx` and `es6`. Use the standard ATOM interface to enable it for other file types. This provides a grammar that scopes the file in order to colour the text in a meaningful way. If other JavaScript grammars are enabled these may take precedence over language-babel. Look at the bottom right status bar indicator to determine the language grammar of a file being edited. language-babel will be shown as `Babel ES6 JavaScript`
 
-By default the package also supports the [Babel](http://babeljs.io/) transpiler. Out of the box any file saved will be transpiled and any errors and/or successful completions notified in the ATOM workspace.
-
-It is likely users of Babel will use a workflow ( grunt, gulp, etc ) and will not want transpiled output saved. However, language-babel fully supports transpiled output, maps, .babelrc files and the setting of most Babel options.
+The package also supports the [Babel](http://babeljs.io/) transpiler. It is likely users of Babel will use a workflow ( grunt, gulp, Nuclide etc ) and will not want transpiled output saved. language-babel fully supports transpiled output, maps, .babelrc files and the setting of most Babel options. It is also possible to do a quick Babel transpile check on each save.
 
 See the sections *"Use Cases"* and *"Package Settings"* for more information on Babel configuration options.
 
@@ -38,27 +36,42 @@ See the sections *"Use Cases"* and *"Package Settings"* for more information on 
 
 ## Package Settings
 
-By using the ATOM settings panel for language-babel you can control many of the operations of the transpiler.
+By using the ATOM settings panel for language-babel you can control many of the operations of the transpiler. The package settings provide global settings for all language-babel projects edited in Atom. From V0.14.0 many options can be controlled by providing `.languagebabel` JSON configuration file whose properties will overide the global settings. See *".languagebabel Configuration"*
 
 * #### Transpile On Save
   On any file save of a language-babel enabled file the Babel transpiler  is called. Any errors and/or successful indications are notified by a ATOM pop-up.
 
+  `.languagebabel property` `{"transpileOnSave": true|false}`
+
+* #### Allow Local Override
+  If set this allows `.languagebabel` file properties to be override the global package settings.
+
 * #### Disable When No Babelrc File In Path
   Disables transpiler if no `.babelrc` files are found in the source file path.
+
+  `.languagebabel property` `{"disableWhenNoBabelrcFileInPath": true|false}`
 
 * #### Suppress Transpile On Save Messages
   Suppress all successful save messages. Errors are still notified.
 
+  `.languagebabel property` `{"suppressTranspileOnSaveMessages": true|false}`
+
 * #### Create Transpiled Code
   If enabled the transpile phase will output JavaScript code to a `.js` file with the same prefix as the original. By using the `path` options below it is possible to transpile to a different target directory.
+
+  `.languagebabel property` `{"createTranspiledCode": true|false}`
 
 * #### Create Map
   A source map can be generated as required. The source file name will be used with a new suffix of `.js.map`. To avoid any possible XSSI issues the map file is prefixed with `)]}`
 
   If `.babelrc` files use `sourceMaps: inline` or `sourceMaps both` options then turn this option off.
 
+  `.languagebabel property` `{"createMap": true|false}`
+
 * #### Babel Maps Add Url
   If a source map is created this allows a Url reference `//# sourceURL=originalBabelSourcefile` to be appended to the generated JavaScript file.  
+
+  `.languagebabel property` `{"babelMapsAddUrl": true|false}`
 
 * #### Babel Source Path, Babel Transpile Path and Babel Maps Path
   These a directories based on the project root. ATOM now supports more than one project root folder, so these paths are based on each project root folder.
@@ -73,11 +86,21 @@ By using the ATOM settings panel for language-babel you can control many of the 
 
   `/proj2/babelSource/dirBar/foo.es6` -> `/proj2/babelTranspile/dirBar/foo.js`,`/proj2/babelMaps/dirBar/foo.js.map`
 
+  `.languagebabel property`
+  `{
+    "babelSourcePath": "relPath",
+    "babelTranspilePath": "relPath",
+    "babelMapsPath": "relPath" }`
+
 * #### Suppress Source Path Messages
   By default when a file is saved that is outside the `Babel Source Path` directory a message is generated. Enabling this disables these messages. This is particularly useful when you have mixed ES2015 and ES3-5 environment. ES2015 files can be placed inside a `Babel Source Path` where they will be transpiled and other files will not pop up annoying messages when being saved.
 
+  `.languagebabel property` `{"suppressSourcePathMessages": true|false}`
+
 * #### Create Target Directories
   When enabled any target directories that do not exist will be created prior to a transpilation.
+
+  `.languagebabel property` `{"createTargetDirectories": true|false}`
 
 * #### Babel Stage
   The ECMA standards stage to enforce. See [Babel Stages](http://babeljs.io/docs/usage/experimental/) for more information.
@@ -89,5 +112,29 @@ By using the ATOM settings panel for language-babel you can control many of the 
   The module loader format to use. Either `common` to use CommonJS, `amd` to use Asynchronous Module Definition or `umd` to use Universal Module Definition   Please refer to [Babel Modules](http://babeljs.io/docs/usage/modules/) for further information.
 
 * #### Transformer Options
-  The remaining transformer options may contain comma seperated lists of transformer names.
+  The remaining transformer options may contain comma separated lists of transformer names.
   Please refer to [Babel Transformers](http://babeljs.io/docs/advanced/transformers/) and [Babel Runtime](http://babeljs.io/docs/usage/runtime/) for further information.
+
+## .languagebabel Configuration
+
+`.languagebabel` JSON configuration files can exist in any directory of the path that contains a source file to be compiled. `.languagebabel` file properties override the Package Settings above. `.languagebabel` files if present are read and merged starting in the source files directory up to the project root directory. `.languagebabel` properties defined closest the source file take precedence.
+
+To use this option please enable the `Allow Local Override` package setting.
+
+A `.languagebabel` file may contain one or more of the following properties.
+
+```
+{
+  "babelMapsPath":                    "relPath",
+  "babelMapsAddUrl":                  true|false,
+  "babelSourcePath:                   "relPath",
+  "babelTranspilePath":               "relPath",
+  "createMap":                        true|false,
+  "createTargetDirectories":          true|false,
+  "createTranspiledCode":             true|false,
+  "disableWhenNoBabelrcFileInPath":   true|false,
+  "suppressSourcePathMessages":       true|false,
+  "suppressTranspileOnSaveMessages":  true|false,
+  "transpileOnSave":                  true|false
+}
+```

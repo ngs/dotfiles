@@ -1,3 +1,31 @@
+### 0.15.1
+  - Support flowtype class mixins and multiple inheritance via interface extends
+  - Various fixes.
+
+### 0.15.0
+  - Added a new option `Allow Local Override` to enable the `.languagebabel` option.
+  - Various other fixes in grammar.
+  - Workaround to fix issues on Nuclide Remote Filesystems causing endless loop.
+
+### 0.14.0
+  - BREAKING: `Transpile On Save` is now disabled by default. Please re-enable if required. [See Issue 64](https://github.com/gandm/language-babel/issues/64)
+  - Local configuration of language-babel options via JSON configuration files - `.languagebabel` is now supported. Please [README](https://github.com/gandm/language-babel/blob/master/README.md) [See Issue 51](https://github.com/gandm/language-babel/issues/51)
+
+### 0.13.6
+  - Small fixes in ternary handling
+  - Fixes #63
+
+### 0.13.5
+  - Changed scopenames for vars in func defs and calls to use variable...
+
+### 0.13.4
+  - Fixes #61 Regression - Class not in first column no scoped.
+
+### 0.13.3
+  - Fix issues with parens/braces not terminating scope.
+  - Fix optional flowtype params and maybe type handling.
+  - Change scope when 'constructor', 'super' and 'self' used as method names.
+
 ### 0.13.2
   - Fixes #57. Highlighting breaks down.
   - Remove generators from arrow functions
