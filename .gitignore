@@ -11,3 +11,4 @@
 /rc.d/atom/config.cson
 /rc.d/atom/.apm
 workbench.xmi
+khal.db
