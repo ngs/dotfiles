@@ -74,3 +74,6 @@ fi
 vim +PluginInstall +qall > /dev/null 2>&1
 
 [ -L $DOTFILES/rc.d/vim/bundle/closetag ] || ln -s $DOTFILES/rc.d/vim/bundle/closetag.vim $DOTFILES/rc.d/vim/bundle/closetag
+
+pip install --upgrade -r requirements.tx
+
