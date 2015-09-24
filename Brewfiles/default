@@ -28,6 +28,7 @@ brew "reattach-to-user-namespace", args: ['wrap-pbcopy-and-pbpaste']
 brew "redis"
 brew "ruby-build"
 brew "sbt"
+brew "terminal-notifier"
 brew "terraform"
 brew "tig"
 brew "tmux"
