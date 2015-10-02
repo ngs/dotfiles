@@ -78,4 +78,4 @@ vim +PluginInstall +qall > /dev/null 2>&1
 brew unlink awscli
 
 pip install --upgrade -r requirements.txt
-
+[ -e ~/Documents/tomorrow-theme ] || /bin/sh -c 'git clone git@github.com:chriskempson/tomorrow-theme.git ~/Documents/tomorrow-theme'
