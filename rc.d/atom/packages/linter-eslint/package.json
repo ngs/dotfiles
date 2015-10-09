@@ -2,11 +2,11 @@
   "name": "linter-eslint",
   "main": "./lib/linter-eslint",
   "activationCommands": [],
-  "version": "3.0.2",
+  "version": "3.1.1",
   "description": "Lint JavaScript on the fly, using ESLint",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AtomLinter/linter-eslint.git"
+    "url": "git+https://github.com/AtomLinter/linter-eslint.git"
   },
   "license": "MIT",
   "engines": {
@@ -16,8 +16,12 @@
     "atom-linter": "^2.0.1",
     "eslint": "^0.24.0",
     "loophole": "^1.1.0",
-    "resolve": "^1.1.5"
+    "resolve": "^1.1.5",
+    "atom-package-deps": "^2.1.3"
   },
+  "package-deps": [
+    "linter"
+  ],
   "providedServices": {
     "linter": {
       "versions": {
@@ -25,23 +29,28 @@
       }
     }
   },
-  "readme": "# linter-eslint\n\nThis linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides an interface to [eslint](http://eslint.org). It will be used with files that have the “JavaScript” syntax.\n\n## Installation\nLinter package must be installed in order to use this plugin. If Linter is not installed, please follow the instructions [here](https://github.com/AtomLinter/Linter).\n\n### Package installation\n\n* `$ apm install linter-eslint`\n\n`linter-eslint` will look for a version of `eslint` local to your project and use it if it's available. If none is found it will fall back to the version it ships with.\n\nLets say you depend on a specific version of `eslint`, maybe it has unreleased features, maybe it's just newer than what linter-eslint ships with. If `your-project/node_modules/eslint` exists `linter-eslint` will be used.\n\n## Use with plugins\n\nYou have two options:\n\n* Install locally to your project `eslint` and the plugin\n  * `$ npm i --save-dev eslint [eslint-plugins]`\n\n\n* Install globaly `eslint` and plugins\n  * `$ npm i -g eslint [eslint-plugins]`\n  * Activate `Use Global Eslint` package option\n  * (Optional) Set `Global Node Path` with `$ npm config get prefix`\n\n## Settings\n\nYou can configure linter-eslint by editing ~/.atom/config.cson (choose Open Your Config in Atom menu) or in Preferences:\n\n```coffee\n'linter-eslint':\n  'eslintRulesDir': 'mydir'\n  'disableWhenNoEslintrcFileInPath': true\n  'useGlobalEslint': true\n  'showRuleIdInMessage': true\n  'globalNodePath': '/Users/foo/.nvm/versions/io.js/v2.3.1'\n```\n\n* `eslintRulesDir` is relative to the working directory (project root)\n* `disableWhenNoEslintrcFileInPath` allows disabling linter-eslint when there is no `.eslintrc` found in project\n* `useGlobalEslint` allows using globally installed eslint and plugins for it\n* `showRuleIdInMessage`\n  * `true` will append the `eslint` ruleId to warning/error messages\n\n\n## Contributing\n\nIf you would like to contribute enhancements or fixes, please do the following:\n\n* Fork the plugin repository\n* Hack on a separate topic branch created from the latest `master`\n* Commit and push the topic branch\n* Make a pull request\n* Welcome to the club\n\nPlease note that modifications should follow these coding guidelines:\n\n* Indent is 2 spaces\n* Code should pass `coffeelint` linter\n* Vertical whitespace helps readability, don’t be afraid to use it\n\nThank you for helping out!\n",
+  "readme": "# linter-eslint\n\nThis linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides\nan interface to [eslint](http://eslint.org). It will be used with files that\nhave the “JavaScript” syntax.\n\n## Installation\n```ShellSession\napm install linter-eslint\n```\n\n`linter-eslint` will look for a version of `eslint` local to your project and\nuse it if it's available. If none is found it will fall back to the version it\nships with.\n\nLets say you depend on a specific version of `eslint`, maybe it has unreleased\nfeatures, maybe it's just newer than what linter-eslint ships with. If\n`your-project/node_modules/eslint` exists `linter-eslint` will be used.\n\nNote that if you do not have the `linter` package installed it will be installed\nfor you. If you are using an alternative `linter-*` consumer feel free to disable\nthe `linter` package.\n\n## Use with plugins\n\nYou have two options:\n\n* Install locally to your project `eslint` and the plugin\n  * `$ npm i --save-dev eslint [eslint-plugins]`\n\n* Install globaly `eslint` and plugins\n  * `$ npm i -g eslint [eslint-plugins]`\n  * Activate `Use Global Eslint` package option\n  * (Optional) Set `Global Node Path` with `$ npm config get prefix`\n\n## Settings\n\nYou can configure linter-eslint by editing ~/.atom/config.cson (choose Open Your Config in Atom menu) or in Preferences:\n\n```cson\n'linter-eslint':\n  'eslintRulesDir': 'mydir'\n  'disableWhenNoEslintrcFileInPath': true\n  'useGlobalEslint': true\n  'showRuleIdInMessage': true\n  'globalNodePath': '/Users/foo/.nvm/versions/io.js/v2.3.1'\n```\n\n* `eslintRulesDir` is relative to the working directory (project root)\n* `disableWhenNoEslintrcFileInPath` allows disabling linter-eslint when there is no `.eslintrc` found in project\n* `useGlobalEslint` allows using globally installed eslint and plugins for it\n* `showRuleIdInMessage`\n  * `true` will append the `eslint` ruleId to warning/error messages\n\n\n## Contributing\n\nIf you would like to contribute enhancements or fixes, please do the following:\n\n0. Fork the plugin repository\n0. Hack on a separate topic branch created from the latest `master`\n0. Commit and push the topic branch\n0. Make a pull request\n0. Welcome to the club!\n\nPlease note that modifications should follow these coding guidelines:\n\n* Indent is 2 spaces\n* Code should pass `coffeelint` linter with the provided `coffeelint.json`\n* Vertical whitespace helps readability, don’t be afraid to use it\n\nThank you for helping out!\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-eslint/issues"
   },
-  "homepage": "https://github.com/AtomLinter/linter-eslint",
-  "_id": "linter-eslint@3.0.2",
-  "_shasum": "2a0fb8631ef7d1c700d54f762e09899869fe3e34",
-  "_resolved": "file:../d-115717-61088-8d39g6/package.tgz",
-  "_from": "../d-115717-61088-8d39g6/package.tgz",
+  "homepage": "https://github.com/AtomLinter/linter-eslint#readme",
+  "_id": "linter-eslint@3.1.1",
+  "_shasum": "529401bd05fb1011c2dc99f6f8f8717ff6ef1b61",
+  "_resolved": "file:../d-11599-15542-1d1frsy/package.tgz",
+  "_from": "../d-11599-15542-1d1frsy/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "xregexp",
-        "version": "2.0.0",
+        "version": "3.0.0",
         "path": "node_modules/atom-linter/node_modules/xregexp/xregexp-all.js"
+      },
+      {
+        "name": "atom-package-deps",
+        "version": "2.1.3",
+        "path": "node_modules/atom-package-deps/lib/main.js"
       },
       {
         "name": "eslint",
@@ -50,7 +59,7 @@
       },
       {
         "name": "chalk",
-        "version": "1.1.0",
+        "version": "1.1.1",
         "path": "node_modules/eslint/node_modules/chalk/index.js"
       },
       {
@@ -110,7 +119,7 @@
       },
       {
         "name": "process-nextick-args",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "path": "node_modules/eslint/node_modules/concat-stream/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
       },
       {
@@ -120,7 +129,7 @@
       },
       {
         "name": "util-deprecate",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "path": "node_modules/eslint/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/node.js"
       },
       {
@@ -175,12 +184,17 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.7",
+        "version": "0.10.8",
         "path": "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/index.js"
       },
       {
+        "name": "es6-iterator",
+        "version": "2.0.0",
+        "path": "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/index.js"
+      },
+      {
         "name": "es6-symbol",
-        "version": "2.0.1",
+        "version": "3.0.0",
         "path": "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -195,8 +209,18 @@
       },
       {
         "name": "es6-set",
-        "version": "0.1.1",
+        "version": "0.1.2",
         "path": "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/index.js"
+      },
+      {
+        "name": "es6-iterator",
+        "version": "2.0.0",
+        "path": "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/index.js"
+      },
+      {
+        "name": "es6-symbol",
+        "version": "3.0.0",
+        "path": "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/index.js"
       },
       {
         "name": "es6-symbol",
@@ -205,7 +229,7 @@
       },
       {
         "name": "event-emitter",
-        "version": "0.3.3",
+        "version": "0.3.4",
         "path": "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/index.js"
       },
       {
@@ -220,8 +244,18 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.7",
+        "version": "0.10.8",
         "path": "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
+      },
+      {
+        "name": "es6-iterator",
+        "version": "2.0.0",
+        "path": "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/index.js"
+      },
+      {
+        "name": "es6-symbol",
+        "version": "3.0.0",
+        "path": "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
         "name": "es6-iterator",
@@ -245,7 +279,7 @@
       },
       {
         "name": "espree",
-        "version": "2.2.4",
+        "version": "2.2.5",
         "path": "node_modules/eslint/node_modules/espree/espree.js"
       },
       {
@@ -260,7 +294,7 @@
       },
       {
         "name": "globals",
-        "version": "8.3.0",
+        "version": "8.11.0",
         "path": "node_modules/eslint/node_modules/globals/index.js"
       },
       {
@@ -280,7 +314,7 @@
       },
       {
         "name": "figures",
-        "version": "1.3.5",
+        "version": "1.4.0",
         "path": "node_modules/eslint/node_modules/inquirer/node_modules/figures/index.js"
       },
       {
@@ -315,7 +349,7 @@
       },
       {
         "name": "is-my-json-valid",
-        "version": "2.12.1",
+        "version": "2.12.2",
         "path": "node_modules/eslint/node_modules/is-my-json-valid/index.js"
       },
       {
@@ -335,7 +369,7 @@
       },
       {
         "name": "jsonpointer",
-        "version": "1.1.0",
+        "version": "2.0.0",
         "path": "node_modules/eslint/node_modules/is-my-json-valid/node_modules/jsonpointer/jsonpointer.js"
       },
       {
@@ -345,7 +379,7 @@
       },
       {
         "name": "js-yaml",
-        "version": "3.3.1",
+        "version": "3.4.2",
         "path": "node_modules/eslint/node_modules/js-yaml/index.js"
       },
       {
@@ -375,7 +409,7 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.0",
+        "version": "1.1.1",
         "path": "node_modules/eslint/node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
@@ -479,6 +513,7 @@
         "coffeelint.json",
         "node_modules/atom-linter/node_modules/xregexp/package.json",
         "node_modules/atom-linter/package.json",
+        "node_modules/atom-package-deps/package.json",
         "node_modules/eslint/conf/eslint.json",
         "node_modules/eslint/node_modules/chalk/node_modules/ansi-styles/package.json",
         "node_modules/eslint/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/package.json",
@@ -510,15 +545,20 @@
         "node_modules/eslint/node_modules/escape-string-regexp/package.json",
         "node_modules/eslint/node_modules/escope/bower.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/d/package.json",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-symbol/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-iterator/node_modules/es6-symbol/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-iterator/package.json",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/package.json",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-symbol/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/d/package.json",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/package.json",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es6-iterator/package.json",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es6-symbol/package.json",
@@ -549,8 +589,6 @@
         "node_modules/eslint/node_modules/is-my-json-valid/node_modules/jsonpointer/package.json",
         "node_modules/eslint/node_modules/is-my-json-valid/node_modules/xtend/package.json",
         "node_modules/eslint/node_modules/is-my-json-valid/package.json",
-        "node_modules/eslint/node_modules/js-yaml/bower.json",
-        "node_modules/eslint/node_modules/js-yaml/examples/dumper.json",
         "node_modules/eslint/node_modules/js-yaml/node_modules/argparse/node_modules/lodash/package.json",
         "node_modules/eslint/node_modules/js-yaml/node_modules/argparse/node_modules/sprintf-js/bower.json",
         "node_modules/eslint/node_modules/js-yaml/node_modules/argparse/node_modules/sprintf-js/package.json",
@@ -589,6 +627,9 @@
       ],
       ".js": [
         "node_modules/atom-linter/node_modules/xregexp/xregexp-all.js",
+        "node_modules/atom-package-deps/lib/helper.js",
+        "node_modules/atom-package-deps/lib/main.js",
+        "node_modules/atom-package-deps/lib/view.js",
         "node_modules/eslint/bin/eslint.js",
         "node_modules/eslint/conf/environments.js",
         "node_modules/eslint/lib/api.js",
@@ -1061,6 +1102,14 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/math/trunc/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/math/trunc/is-implemented.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/math/trunc/shim.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/#/chain.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/array.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/for-of.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/get.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/index.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/is-iterable.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/string.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/valid-iterable.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-symbol/implement.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-symbol/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-symbol/is-implemented.js",
@@ -1086,6 +1135,7 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/number/is-nan/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/number/is-nan/is-implemented.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/number/is-nan/shim.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/number/is-natural.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/number/is-number.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/number/is-safe-integer/implement.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/number/is-safe-integer/index.js",
@@ -1115,6 +1165,8 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/object/eq.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/object/every.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/object/filter.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/object/find-key.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/object/find.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/object/first-key.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/object/flatten.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/object/for-each.js",
@@ -1222,6 +1274,7 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/string/#/starts-with/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/string/#/starts-with/is-implemented.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/string/#/starts-with/shim.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/string/#/uncapitalize.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/string/format-method.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/string/from-code-point/implement.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/string/from-code-point/index.js",
@@ -1251,6 +1304,7 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-iterator/valid-iterable.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/ext/copy.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/ext/every.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/ext/filter.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/ext/get-first.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/ext/get-last.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/ext/some.js",
@@ -1261,6 +1315,21 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/is-set.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/lib/iterator.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/lib/primitive-iterator.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/#/chain.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/array.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/for-of.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/get.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/index.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/is-iterable.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/string.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/valid-iterable.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/implement.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/index.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/is-implemented.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/is-native-implemented.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/is-symbol.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/polyfill.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/validate-symbol.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/polyfill.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/primitive/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/valid-set.js",
@@ -1274,6 +1343,7 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/all-off.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/benchmark/many-on.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/benchmark/single-on.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/emit-error.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/has-listeners.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/pipe.js",
@@ -1497,6 +1567,21 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/math/trunc/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/math/trunc/is-implemented.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/math/trunc/shim.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/#/chain.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/array.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/for-of.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/get.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/index.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/is-iterable.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/string.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/valid-iterable.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/implement.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/is-implemented.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/is-native-implemented.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/is-symbol.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/polyfill.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/validate-symbol.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/#/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/#/pad.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/epsilon/implement.js",
@@ -1515,6 +1600,7 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/is-nan/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/is-nan/is-implemented.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/is-nan/shim.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/is-natural.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/is-number.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/is-safe-integer/implement.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/number/is-safe-integer/index.js",
@@ -1544,6 +1630,8 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/object/eq.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/object/every.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/object/filter.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/object/find-key.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/object/find.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/object/first-key.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/object/flatten.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/object/for-each.js",
@@ -1651,6 +1739,7 @@
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/string/#/starts-with/index.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/string/#/starts-with/is-implemented.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/string/#/starts-with/shim.js",
+        "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/string/#/uncapitalize.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/string/format-method.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/string/from-code-point/implement.js",
         "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/string/from-code-point/index.js",
@@ -2529,9 +2618,7 @@
         "node_modules/eslint/node_modules/is-my-json-valid/require.js",
         "node_modules/eslint/node_modules/js-yaml/bin/js-yaml.js",
         "node_modules/eslint/node_modules/js-yaml/dist/js-yaml.js",
-        "node_modules/eslint/node_modules/js-yaml/examples/custom_types.js",
-        "node_modules/eslint/node_modules/js-yaml/examples/dumper.js",
-        "node_modules/eslint/node_modules/js-yaml/examples/sample_document.js",
+        "node_modules/eslint/node_modules/js-yaml/dist/js-yaml.min.js",
         "node_modules/eslint/node_modules/js-yaml/index.js",
         "node_modules/eslint/node_modules/js-yaml/lib/js-yaml/common.js",
         "node_modules/eslint/node_modules/js-yaml/lib/js-yaml/dumper.js",
@@ -3093,7 +3180,8 @@
           "atom-linter": "^2.0.1",
           "eslint": "^0.24.0",
           "loophole": "^1.1.0",
-          "resolve": "^1.1.5"
+          "resolve": "^1.1.5",
+          "atom-package-deps": "^2.1.3"
         }
       },
       {
@@ -3401,8 +3489,21 @@
           "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/test/string/raw"
         ],
         "dependencies": {
-          "es6-iterator": "~0.1.3",
-          "es6-symbol": "~2.0.1"
+          "es6-iterator": "2",
+          "es6-symbol": "3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/#",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/test/#",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es5-ext/node_modules/es6-iterator/test"
+        ],
+        "dependencies": {
+          "d": "^0.1.1",
+          "es5-ext": "^0.10.7",
+          "es6-symbol": "3"
         }
       },
       {
@@ -3412,7 +3513,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.5"
+          "es5-ext": "~0.10.7"
         }
       },
       {
@@ -3451,10 +3552,33 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.4",
-          "es6-iterator": "~0.1.1",
-          "es6-symbol": "~0.1.1",
-          "event-emitter": "~0.3.1"
+          "es5-ext": "~0.10.8",
+          "es6-iterator": "2",
+          "es6-symbol": "3",
+          "event-emitter": "~0.3.4"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/#",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/test/#",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-iterator/test"
+        ],
+        "dependencies": {
+          "d": "^0.1.1",
+          "es5-ext": "^0.10.7",
+          "es6-symbol": "3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/es6-set/node_modules/es6-symbol/test"
+        ],
+        "dependencies": {
+          "d": "~0.1.1",
+          "es5-ext": "~0.10.7"
         }
       },
       {
@@ -3474,7 +3598,7 @@
           "node_modules/eslint/node_modules/escope/node_modules/es6-map/node_modules/event-emitter/test"
         ],
         "dependencies": {
-          "es5-ext": "~0.10.5",
+          "es5-ext": "~0.10.7",
           "d": "~0.1.1"
         }
       },
@@ -3655,8 +3779,31 @@
           "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/test/string/raw"
         ],
         "dependencies": {
-          "es6-iterator": "~0.1.3",
-          "es6-symbol": "~2.0.1"
+          "es6-iterator": "2",
+          "es6-symbol": "3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/#",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/test/#",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-iterator/test"
+        ],
+        "dependencies": {
+          "d": "^0.1.1",
+          "es5-ext": "^0.10.7",
+          "es6-symbol": "3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol",
+          "node_modules/eslint/node_modules/escope/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/test"
+        ],
+        "dependencies": {
+          "d": "~0.1.1",
+          "es5-ext": "~0.10.7"
         }
       },
       {
@@ -3737,7 +3884,7 @@
         "dependencies": {
           "generate-function": "^2.0.0",
           "generate-object-property": "^1.1.0",
-          "jsonpointer": "^1.1.0",
+          "jsonpointer": "2.0.0",
           "xtend": "^4.0.0"
         }
       },
@@ -3752,9 +3899,8 @@
       {
         "paths": [
           "node_modules/eslint/node_modules/js-yaml/bin",
-          "node_modules/eslint/node_modules/js-yaml",
           "node_modules/eslint/node_modules/js-yaml/dist",
-          "node_modules/eslint/node_modules/js-yaml/examples",
+          "node_modules/eslint/node_modules/js-yaml",
           "node_modules/eslint/node_modules/js-yaml/lib/js-yaml",
           "node_modules/eslint/node_modules/js-yaml/lib/js-yaml/schema",
           "node_modules/eslint/node_modules/js-yaml/lib/js-yaml/type",
@@ -3792,8 +3938,7 @@
       },
       {
         "paths": [
-          "node_modules/eslint/node_modules/minimatch/node_modules/brace-expansion",
-          "node_modules/eslint/node_modules/minimatch/node_modules/brace-expansion/test"
+          "node_modules/eslint/node_modules/minimatch/node_modules/brace-expansion"
         ],
         "dependencies": {
           "balanced-match": "^0.2.0",

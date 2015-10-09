@@ -1,3 +1,16 @@
+### 0.15.5
+  - Fix methods that have array/string forms.
+  
+### 0.15.4
+  - Removed lodash dependency & lazy load jjv.
+
+### 0.15.3
+  - Fixes #86 JSX Attribute names not scoped when terminated by > or />
+
+### 0.15.2
+  - Various non critical PR's
+  - Change perceived package load time for language-babel.
+
 ### 0.15.1
   - Support flowtype class mixins and multiple inheritance via interface extends
   - Various fixes.

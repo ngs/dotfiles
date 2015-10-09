@@ -6,10 +6,6 @@ path = require 'path'
 {CompositeDisposable} = require 'atom'
 {allowUnsafeNewFunction} = require 'loophole'
 
-linterPackage = atom.packages.getLoadedPackage 'linter'
-unless linterPackage
-  return atom.notifications.addError 'Linter should be installed first, `apm install linter`', dismissable: true
-
 module.exports =
   config:
     eslintRulesDir:
@@ -33,6 +29,7 @@ module.exports =
       description: 'Run `$ npm config get prefix` to find it'
 
   activate: ->
+    require('atom-package-deps').install('linter-eslint')
     console.log 'activate linter-eslint'
     @subscriptions = new CompositeDisposable
 
@@ -44,6 +41,7 @@ module.exports =
 
   provideLinter: ->
     provider =
+      name: 'ESLint'
       grammarScopes: ['source.js', 'source.js.jsx', 'source.babel', 'source.js-semantic']
       scope: 'file'
       lintOnFly: true
@@ -109,25 +107,23 @@ module.exports =
             allowUnsafeNewFunction ->
               results = linter
                 .verify TextEditor.getText(), config, filePath
-                .map ({message, line, severity, ruleId}) ->
+                .map ({message, line, severity, ruleId, column}) ->
 
-                  # Calculate range to make the error whole line
-                  # without the indentation at begining of line
                   indentLevel = TextEditor.indentationForBufferRow line - 1
-                  startCol = TextEditor.getTabLength() * indentLevel
-                  endCol = TextEditor.getBuffer().lineLengthForRow line - 1
-                  range = [[line - 1, startCol], [line - 1, endCol]]
+                  startCol = (column or TextEditor.getTabLength() * indentLevel) - 1
+                  endOfLine = TextEditor.getBuffer().lineLengthForRow line - 1
+                  range = [[line - 1, startCol], [line - 1, endOfLine]]
 
                   if showRuleId
                     {
-                      type: if severity is 1 then 'warning' else 'error'
+                      type: if severity is 1 then 'Warning' else 'Error'
                       html: '<span class="badge badge-flexible">' + ruleId + '</span> ' + message
                       filePath: filePath
                       range: range
                     }
                   else
                     {
-                      type: if severity is 1 then 'warning' else 'error'
+                      type: if severity is 1 then 'Warning' else 'Error'
                       text: message
                       filePath: filePath
                       range: range
@@ -142,7 +138,7 @@ module.exports =
 
             [
               {
-                type: 'error'
+                type: 'Error'
                 text: 'error while linting file, open the console for more information'
                 file: filePath
                 range: [[0, 0], [0, 0]]

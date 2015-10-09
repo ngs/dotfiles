@@ -1,3 +1,17 @@
+## v0.19.1 (2015-10-08)
+- Add source.coffee.jsx to list of selectors
+
+## v0.19.0 (2015-10-05)
+- Add `Split pane direction` option
+  - Can now choose the direction where to show the preview pane
+
+## v0.18.1 (2015-09-24)
+- Fix project config
+  - Fix project config not set on initial load
+  - Fix project config not clearing properly when removing file
+  - Fix project config not getting correct value when one of the config changes
+- Better source config handling
+
 ## v0.18.0 (2015-08-05)
 - Add project based configurations
 
