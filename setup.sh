@@ -3,10 +3,6 @@
 UNAME=$(uname -s)
 TS=$(date +'%Y%m%d%H%M%S')
 DOTFILES=$(cd $(dirname $0) && pwd)
-DOTATOM="${HOME}/.atom"
-DOTATOM_BK="${HOME}/_atom-${TS}"
-ATOM_CACHE="${DOTATOM}/compile-cache"
-ATOM_CACHE_BK="${DOTATOM_BK}/compile-cache"
 ###
 symlink() {
   cd $HOME
@@ -38,9 +34,6 @@ ZSH=$HOME/.oh-my-zsh
 grep `which zsh` /etc/shells > /dev/null || sudo sh -c 'which zsh >> /etc/shells'
 [ -d $ZSH ] || git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
 ##
-## Backup .atom
-[ -d $DOTATOM ] && [ ! -L $DOTATOM ] && mv $DOTATOM $DOTATOM_BK
-##
 ## Symlink
 ##
 for f in $DOTFILES/rc.d/* ; do
@@ -57,11 +50,6 @@ symlink "${DOTFILES}/rc.d/subversion/config" "${HOME}/.subversion/config"
 ensure_directory "${HOME}/.ssh"
 symlink "${DOTFILES}/rc.d/ssh/config" "${HOME}/.ssh/config"
 chmod 600 "${HOME}/.ssh/config"
-## Move .atom compile-cache
-if [ -d $ATOM_CACHE_BK ] && [ ! -d $ATOM_CACHE ]; then
-  echo "Moving: ${ATOM_CACHE_BK} ${ATOM_CACHE}"
-  mv $ATOM_CACHE_BK $ATOM_CACHE
-fi
 if [ $UNAME == 'Darwin' ]; then
   if [ -f /opt/boxen/env.sh ]; then
     /bin/sh $DOTFILES/setup/boxen.sh
@@ -75,7 +63,5 @@ vim +PluginInstall +qall > /dev/null 2>&1
 
 [ -L $DOTFILES/rc.d/vim/bundle/closetag ] || ln -s $DOTFILES/rc.d/vim/bundle/closetag.vim $DOTFILES/rc.d/vim/bundle/closetag
 
-brew unlink awscli
-
 pip install --upgrade -r requirements.txt
-[ -e ~/Documents/tomorrow-theme ] || /bin/sh -c 'git clone git@github.com:chriskempson/tomorrow-theme.git ~/Documents/tomorrow-theme'
+
