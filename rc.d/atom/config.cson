@@ -1,0 +1,18 @@
+"*":
+  "exception-reporting":
+    userId: "c62845f6-8a38-c74f-63f8-fb65bee62ffd"
+  welcome:
+    showOnStartup: false
+  "language-babel": {}
+  linter: {}
+  core:
+    themes: [
+      "one-dark-ui"
+      "tomorrow-night-eighties-syntax"
+    ]
+  editor:
+    invisibles: {}
+    fontSize: 12
+    showInvisibles: true
+    showIndentGuide: true
+  "one-dark-ui": {}
