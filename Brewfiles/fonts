@@ -1,3 +1,4 @@
 tap 'caskroom/fonts'
 cask 'font-dejavu-sans-mono-for-powerline'
 cask 'font-inconsolata-dz-for-powerline'
+cask 'font-source-code-pro'
