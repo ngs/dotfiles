@@ -3,6 +3,7 @@
 .*.swp
 /rc.d/atom/compile-cache/
 /rc.d/atom/storage/
+/rc.d/atom/packages/
 /env.d/secret/*.sh
 /rc.d/vim/bundle/
 /.bundle
