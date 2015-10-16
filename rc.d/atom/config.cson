@@ -4,7 +4,8 @@
   welcome:
     showOnStartup: false
   "language-babel": {}
-  linter: {}
+  linter:
+    showErrorPanel: false
   core:
     themes: [
       "one-dark-ui"

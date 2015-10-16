@@ -101,6 +101,8 @@ syntax enable
 autocmd FileType html,erb,php,xml,xslt let b:closetag_html_style=1
 autocmd FileType html,erb,php,xml,xslt source ~/.vim/bundle/closetag/plugin/closetag.vim
 
+let g:vim_markdown_folding_disabled=1
+
 " Highlight status line on edit mode
 augroup InsertHook
   autocmd!
