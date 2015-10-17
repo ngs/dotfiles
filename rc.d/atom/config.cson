@@ -19,3 +19,6 @@
     showIndentGuide: true
     fontFamily: "Source Code Pro"
   "one-dark-ui": {}
+  "linter-eslint":
+    useGlobalEslint: true
+    globalNodePath: "/Users/ngs/.nodenv/versions/v4.1.0"
