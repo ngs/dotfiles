@@ -4,8 +4,7 @@
   welcome:
     showOnStartup: false
   "language-babel": {}
-  linter:
-    showErrorPanel: false
+  linter: {}
   core:
     themes: [
       "one-dark-ui"
@@ -14,11 +13,7 @@
     projectHome: "/Users/ngs/src"
   editor:
     invisibles: {}
-    fontSize: 12
     showInvisibles: true
     showIndentGuide: true
     fontFamily: "Source Code Pro"
   "one-dark-ui": {}
-  "linter-eslint":
-    useGlobalEslint: true
-    globalNodePath: "/Users/ngs/.nodenv/versions/v4.1.0"
