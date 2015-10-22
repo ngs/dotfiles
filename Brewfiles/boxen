@@ -1,4 +1,0 @@
-## Setup
-
-tap ngs/homebrew-cask || true
-tap caskroom/cask || true
