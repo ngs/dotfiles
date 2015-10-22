@@ -51,12 +51,8 @@ ensure_directory "${HOME}/.ssh"
 symlink "${DOTFILES}/rc.d/ssh/config" "${HOME}/.ssh/config"
 chmod 600 "${HOME}/.ssh/config"
 if [ $UNAME == 'Darwin' ]; then
-  if [ -f /opt/boxen/env.sh ]; then
-    /bin/sh $DOTFILES/setup/boxen.sh
-  else
-    /bin/sh $DOTFILES/setup/darwin.sh
-    /bin/sh $DOTFILES/setup/keyremap4macbook.sh
-  fi
+  /bin/sh $DOTFILES/setup/darwin.sh
+  /bin/sh $DOTFILES/setup/keyremap4macbook.sh
 fi
 
 vim +PluginInstall +qall > /dev/null 2>&1
