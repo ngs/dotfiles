@@ -16,4 +16,5 @@
     showInvisibles: true
     showIndentGuide: true
     fontFamily: "Source Code Pro"
+    fontSize: 12
   "one-dark-ui": {}
