@@ -18,3 +18,5 @@
     fontFamily: "Source Code Pro"
     fontSize: 12
   "one-dark-ui": {}
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true

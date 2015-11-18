@@ -9,10 +9,10 @@ ZSH_CUSTOM=$DOTFILES/rc.d/zsh/custom
 ZSH_THEME="ngs"
 if [ $UNAME = 'Darwin' ]; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-  plugins=(git rbenv osx)
+  plugins=(git rbenv osx docker)
 else
   fpath=(~/.zsh/completion $fpath)
-  plugins=(git rbenv)
+  plugins=(git rbenv docker)
 fi
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit
