@@ -1,3 +1,9 @@
+tap "caskroom/cask"
+tap "ngs/homebrew-cask"
+tap "homebrew/binary"
+
+cask "xquartz"
+
 ## Modules
 brew "ansible"
 brew "ant"
@@ -12,6 +18,7 @@ brew "ipcalc"
 brew "jq"
 brew "libxml2"
 brew "libxslt"
+brew "makensis"
 brew "maven"
 brew "mecab"
 brew "mecab-ipadic"
@@ -38,16 +45,13 @@ brew "v8"
 brew "vim", args: ['override-system-vi']
 brew "watch"
 brew "wget"
+brew "wine"
 brew "xcproj"
 brew "xctool"
 brew "zsh"
-
-tap "homebrew/binary"
 brew "docker"
 
 ## Cask
-tap "ngs/homebrew-cask"
-tap "caskroom/cask"
 # cask "adobe-creative-cloud"
 cask "android-studio"
 cask "arduino"
