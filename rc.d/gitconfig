@@ -40,3 +40,9 @@ smudge = git-expand-ident
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+
+[mergetool "storyboard"]
+  name = StoryboardMerge interactive merge
+  cmd = storyboard-merge $BASE $LOCAL $REMOTE $MERGED
+  trustExitCode = false
+
