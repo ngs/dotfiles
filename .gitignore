@@ -12,3 +12,4 @@
 /vendor/ruby/
 khal.db
 workbench.xmi
+/rc.d/atom/blob-store/
