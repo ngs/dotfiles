@@ -1,3 +1,5 @@
+# vim: set ft=ruby
+
 tap "caskroom/cask"
 tap "ngs/homebrew-cask"
 tap "homebrew/binary"
@@ -30,7 +32,6 @@ brew "nodenv"
 brew "openssl"
 brew "python"
 brew "rbenv"
-brew "rbenv-gem-rehash"
 brew "rbenv-gemset"
 brew "reattach-to-user-namespace", args: ['wrap-pbcopy-and-pbpaste']
 brew "redis"

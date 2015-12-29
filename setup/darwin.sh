@@ -25,3 +25,8 @@ apm list -bi > Atomfile
 for f in $DOTFILES/ide/sketch/*; do
   cat $f > ~/Library/Containers/com.bohemiancoding.sketch3/Data/Library/Application\ Support/com.bohemiancoding.sketch3/$(basename "$f")
 done
+
+##
+## Install Alcatraz
+##
+[ -d "${HOME}/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin" ] || curl -fsSL https://raw.github.com/alcatraz/Alcatraz/master/Scripts/install.sh | sh
