@@ -146,3 +146,5 @@ autocmd BufNewFile,BufRead *.cson set filetype=coffee
 " Go
 " =================================================
 set rtp+=$GOROOT/misc/vim
+
+autocmd filetype crontab setlocal nobackup nowritebackup
