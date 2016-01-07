@@ -35,3 +35,10 @@ done
 ## Set Atom as default text editor
 ##
 defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.github.atom;}'
+
+##
+## Setup Finder
+##
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder NewWindowTarget -string "PfHm" && \
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
