@@ -36,3 +36,5 @@ bindkey '^@' zaw-cdr
 if [ -f /Users/ngs/.travis/travis.sh ]; then
   source /Users/ngs/.travis/travis.sh
 fi
+
+eval "$(direnv hook zsh)"
