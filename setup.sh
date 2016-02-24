@@ -53,6 +53,7 @@ chmod 600 "${HOME}/.ssh/config"
 if [ $UNAME == 'Darwin' ]; then
   /bin/sh $DOTFILES/setup/darwin.sh
   /bin/sh $DOTFILES/setup/keyremap4macbook.sh
+  /bin/sh $DOTFILES/setup/atom.sh
 fi
 
 vim +PluginInstall +qall > /dev/null 2>&1

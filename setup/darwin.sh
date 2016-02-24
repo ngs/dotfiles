@@ -15,10 +15,6 @@ done
 
 [ -e ~/Documents/tomorrow-theme ] || /bin/sh -c 'git clone git@github.com:chriskempson/tomorrow-theme.git ~/Documents/tomorrow-theme'
 
-apm install --packages-file Atomfile
-apm upgrade --confirm=false
-apm list -bi > Atomfile
-
 ##
 ## Import Sketch presets
 ##
@@ -30,11 +26,6 @@ done
 ## Install Alcatraz
 ##
 [ -d "${HOME}/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin" ] || curl -fsSL https://raw.github.com/alcatraz/Alcatraz/master/Scripts/install.sh | sh
-
-##
-## Set Atom as default text editor
-##
-defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.github.atom;}'
 
 ##
 ## Setup Finder
