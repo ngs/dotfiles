@@ -52,6 +52,7 @@ brew "wine"
 brew "xcproj"
 brew "xctool"
 brew "zsh"
+brew "kylef/formulae/swiftenv"
 
 ## Cask
 # cask "adobe-creative-cloud"
