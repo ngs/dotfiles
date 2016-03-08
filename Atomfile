@@ -16,6 +16,7 @@ language-powershell@2.1.0
 language-scala@1.1.6
 language-slim@0.5.0
 language-stylus@0.2.0
+language-swift@0.4.0
 language-terraform@0.7.2
 linter@1.11.3
 linter-eslint@7.0.0
@@ -27,4 +28,5 @@ term3@0.21.2
 tomorrow@1.0.0
 tomorrow-night-eighties-syntax@0.11.0
 webbox-color@0.5.9
+wordcount@2.6.0
 
