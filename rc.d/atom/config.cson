@@ -1,21 +1,22 @@
 "*":
-  "exception-reporting":
-    userId: "c62845f6-8a38-c74f-63f8-fb65bee62ffd"
-  welcome:
-    showOnStartup: false
-  "language-babel": {}
-  linter: {}
   core:
+    projectHome: "/Users/ngs/src"
     themes: [
       "one-dark-ui"
       "tomorrow-night-eighties-syntax"
     ]
-    projectHome: "/Users/ngs/src"
   editor:
-    invisibles: {}
-    showInvisibles: true
-    showIndentGuide: true
     fontFamily: "Source Code Pro"
-  "one-dark-ui": {}
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "c62845f6-8a38-c74f-63f8-fb65bee62ffd"
+  jsformat: {}
+  "language-babel": {}
+  linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
+  "one-dark-ui": {}
+  welcome:
+    showOnStartup: false
