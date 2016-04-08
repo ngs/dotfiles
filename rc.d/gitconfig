@@ -47,3 +47,9 @@ smudge = git-expand-ident
   cmd = storyboard-merge $BASE $LOCAL $REMOTE $MERGED
   trustExitCode = false
 
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgsign = true
+
