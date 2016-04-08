@@ -55,6 +55,10 @@ if [ $UNAME == 'Darwin' ]; then
   /bin/sh $DOTFILES/setup/keyremap4macbook.sh
   /bin/sh $DOTFILES/setup/atom.sh
 fi
+## GNUPG
+ensure_directory "${HOME}/.gnupg"
+symlink "${DOTFILES}/rc.d/gpg-agent.conf" "${HOME}/.gnupg/gpg-agent.conf"
+symlink "${DOTFILES}/rc.d/gpg.conf" "${HOME}/.gnupg/gpg.conf"
 
 vim +PluginInstall +qall > /dev/null 2>&1
 
