@@ -13,3 +13,5 @@
 khal.db
 workbench.xmi
 /rc.d/atom/blob-store/
+rc.d/gnupg/*
+!rc.d/gnupg/*.conf
