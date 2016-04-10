@@ -4,7 +4,7 @@ color-picker@2.1.1
 command-logger@0.23.0
 editor-stats@0.17.0
 es6-javascript@0.5.0
-language-babel@2.17.0
+language-babel@2.17.1
 language-cjsx@0.3.0
 language-docker@1.1.6
 language-haml@0.24.0
