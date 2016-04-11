@@ -10,6 +10,8 @@
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
+    tabLength: 4
+    tabType: "soft"
   "exception-reporting":
     userId: "c62845f6-8a38-c74f-63f8-fb65bee62ffd"
   jsformat: {}
