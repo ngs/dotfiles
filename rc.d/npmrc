@@ -1,4 +1,1 @@
-#root = $HOME/.node_libraries
-#binroot = $HOME/bin
-#manroot = $HOME/share/man
-email = a@ngs.io
+email=a@ngs.io

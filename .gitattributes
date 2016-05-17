@@ -1,0 +1,3 @@
+rc.d/npmrc filter=git-crypt diff=git-crypt
+[merge]
+    renormalize=true
