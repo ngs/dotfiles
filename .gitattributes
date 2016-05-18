@@ -1,1 +1,2 @@
 rc.d/npmrc filter=git-crypt diff=git-crypt
+env.d/secret/*.sh filter=git-crypt diff=git-crypt
