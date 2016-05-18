@@ -2,7 +2,6 @@
 .DS_Store
 .netrwhist
 /.bundle
-/env.d/secret/*.sh
 /rc.d/atom/.apm
 /rc.d/atom/.node-gyp
 /rc.d/atom/compile-cache/
