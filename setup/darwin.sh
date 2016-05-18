@@ -8,10 +8,11 @@ brew bundle --file="${DOTFILES}/Brewfiles/default"
 brew bundle --file="${DOTFILES}/Brewfiles/fonts"
 
 ## Import gpg key
-if [ -d ~/Dropbox/Credentials/gpg ]; then
-  cd ~/Dropbox/Credentials/gpg
-  ./import.sh
-fi
+cd ~/Dropbox/Credentials/gpg
+./import.sh
+cd $DOTFILES
+git crypt init || true
+git crypt unlock
 
 ##
 ## Import iTerm 2 Themes
