@@ -24,3 +24,6 @@ alias screenr="screen -r"
 alias tmuxls="tmux list-sessions"
 alias tmuxa="tmux attach"
 alias tmux="tmux -2"
+
+alias moonphase='curl wttr.in/moon'
+alias weather='curl wttr.in'
