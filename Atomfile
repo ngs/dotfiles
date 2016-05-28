@@ -3,8 +3,8 @@ coffee-compile@0.21.1
 color-picker@2.1.1
 command-logger@0.23.0
 editor-stats@0.17.0
-es6-javascript@0.7.0
-language-babel@2.20.10
+es6-javascript@1.0.0
+language-babel@2.24.4
 language-cjsx@0.3.0
 language-docker@1.1.6
 language-haml@0.24.0
@@ -20,7 +20,7 @@ language-swift@0.4.0
 language-terraform@0.7.4
 linter@1.11.4
 linter-eslint@7.2.2
-pretty-json@1.2.0
+pretty-json@1.4.0
 run-command@0.3.2
 sort-lines@0.14.0
 stylus-autocompile@0.6.1
@@ -29,5 +29,4 @@ tomorrow@1.0.0
 tomorrow-night-eighties-syntax@0.13.0
 webbox-color@0.5.9
 wordcount@2.6.0
-
 
