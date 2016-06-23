@@ -6,7 +6,7 @@
       "tomorrow-night-eighties-syntax"
     ]
   editor:
-    fontFamily: "Source Code Pro"
+    fontFamily: "SFMono-Regular"
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
