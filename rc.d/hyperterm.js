@@ -4,7 +4,7 @@ module.exports = {
     fontSize: 12,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"SF Mono Light", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color (hex)
     cursorColor: '#F81CE5',
@@ -25,7 +25,7 @@ module.exports = {
     termCSS: '',
 
     // custom padding
-    padding: '12px 14px',
+    padding: '24px 24px',
 
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
@@ -55,7 +55,9 @@ module.exports = {
   //   `hypersolar`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: [
+    'hyperterm-atom-dark'
+  ],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
