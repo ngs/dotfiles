@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 11,
 
     // font family with optional fallbacks
     fontFamily: '"SF Mono Light", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
@@ -27,26 +27,6 @@ module.exports = {
     // custom padding
     padding: '24px 24px',
 
-    // some color overrides. see http://bit.ly/29k1iU2 for
-    // the full list
-    colors: [
-      '#000000',
-      '#ff0000',
-      '#33ff00',
-      '#ffff00',
-      '#0066ff',
-      '#cc00ff',
-      '#00ffff',
-      '#d0d0d0',
-      '#808080',
-      '#ff0000',
-      '#33ff00',
-      '#ffff00',
-      '#0066ff',
-      '#cc00ff',
-      '#00ffff',
-      '#ffffff'
-    ]
   },
 
   // a list of plugins to fetch and install from npm
@@ -56,11 +36,12 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyperterm-atom-dark'
+    'hyperterm-tomorrow-night-eighties'
   ],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: []
-};
+  localPlugins: [
+  ]
+}
