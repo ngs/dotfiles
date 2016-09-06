@@ -8,3 +8,7 @@ xcuserdata
 *.sublime-workspace
 .netrwhist
 .imdone
+.envrc
+node_modules
+npm-debug.log
+
