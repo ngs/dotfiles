@@ -120,7 +120,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 highlight LineNr     ctermfg=darkyellow
 highlight NonText    ctermfg=darkblue   ctermbg=NONE guibg=darkgray
 highlight Folded     ctermfg=blue
-highlight SpecialKey ctermfg=darkgray   ctermbg=NONE
+highlight SpecialKey ctermfg=235   ctermbg=NONE
 highlight Pmenu      ctermbg=lightgray  ctermfg=23
 highlight PmenuSel   ctermbg=black      ctermfg=yellow
 highlight PmenuSbar  ctermbg=yellow
