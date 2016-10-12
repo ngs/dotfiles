@@ -44,7 +44,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'slim-template/vim-slim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'digitaltoad/vim-jade'
-Plugin 'Blackrush/vim-gocode'
+Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'pangloss/vim-javascript'
@@ -146,5 +146,6 @@ autocmd BufNewFile,BufRead *.cson set filetype=coffee
 " Go
 " =================================================
 set rtp+=$GOROOT/misc/vim
+let g:go_fmt_command = "goimports"
 
 autocmd filetype crontab setlocal nobackup nowritebackup

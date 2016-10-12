@@ -56,8 +56,6 @@ if [ $UNAME == 'Darwin' ]; then
   /bin/sh $DOTFILES/setup/atom.sh
 fi
 
-vim +PluginInstall +qall > /dev/null 2>&1
-
-[ -L $DOTFILES/rc.d/vim/bundle/closetag ] || ln -s $DOTFILES/rc.d/vim/bundle/closetag.vim $DOTFILES/rc.d/vim/bundle/closetag
+/bin/sh $DOTFILES/setup/vim.sh
 
 pip install --upgrade -r requirements.txt
