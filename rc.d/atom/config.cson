@@ -13,6 +13,8 @@
     tabType: "soft"
   "exception-reporting":
     userId: "c62845f6-8a38-c74f-63f8-fb65bee62ffd"
+  "go-plus":
+    currentPanelHeight: "31.9047619047619vh"
   jsformat: {}
   "language-babel": {}
   linter: {}
