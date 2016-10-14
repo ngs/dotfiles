@@ -10,7 +10,7 @@ go-config@1.2.4
 go-debug@0.1.22
 go-get@2.1.1
 go-plus@4.3.2
-godoc@1.1.0
+godoc@1.1.1
 gofmt@1.2.0
 gometalinter-linter@1.2.2
 gorename@1.1.0
