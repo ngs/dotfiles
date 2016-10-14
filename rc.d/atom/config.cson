@@ -1,6 +1,7 @@
 "*":
   core:
     projectHome: "/Users/ngs/src"
+    telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
       "tomorrow-night-eighties-syntax"
