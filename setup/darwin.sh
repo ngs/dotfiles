@@ -42,3 +42,12 @@ done
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder NewWindowTarget -string "PfHm" && \
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+
+###
+### SSH Agent Startup https://github.com/jirsbek/SSH-keys-in-macOS-Sierra-keychain
+###
+SSH_ADD_A_PLIST=$HOME/Library/LaunchAgents/ssh-add-a.plist
+[ -f $SSH_ADD_A_PLIST ] && sudo chown $USER $SSH_ADD_A_PLIST
+cat ${DOTFILES}/setup/ssh-add-a.plist > $SSH_ADD_A_PLIST
+sudo chown root $SSH_ADD_A_PLIST
+sudo launchctl load $SSH_ADD_A_PLIST
