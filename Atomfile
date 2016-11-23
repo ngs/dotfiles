@@ -13,9 +13,7 @@ go-plus@4.3.2
 godoc@1.1.1
 gofmt@1.2.0
 gometalinter-linter@1.2.2
-gorename@1.1.0
-imdone-atom@1.3.31
-language-babel@2.44.1
+language-babel@2.45.0
 language-cjsx@0.3.0
 language-docker@1.1.7
 language-haml@0.24.0
@@ -31,17 +29,14 @@ language-swift@0.4.0
 language-terraform@0.7.4
 linter@1.11.18
 linter-eslint@8.0.0
-navigator-go@1.1.3
 pretty-json@1.6.1
 run-command@0.3.2
 sort-lines@0.14.0
 stylus-autocompile@0.6.1
 term3@0.22.1
-tester-go@2.0.2
 tomorrow@1.0.0
 tomorrow-night-eighties-syntax@0.17.0
 webbox-color@0.5.9
 wordcount@2.7.0
-xml-formatter@0.10.0
 
 
