@@ -1,5 +1,10 @@
 "*":
   core:
+    disabledPackages: [
+      "autocomplete-flow"
+      "ide-flow"
+      "linter-flow-plus"
+    ]
     projectHome: "/Users/ngs/src"
     telemetryConsent: "limited"
     themes: [
@@ -8,6 +13,7 @@
     ]
   editor:
     fontFamily: "SFMono-Regular"
+    fontSize: 13
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
@@ -17,7 +23,9 @@
   "go-config":
     gopath: "/Users/ngs/.go"
   "go-plus":
-    currentPanelHeight: "31.9047619047619vh"
+    currentPanelHeight: "23.489583333333332vh"
+  "ide-flow":
+    flowPath: "/Users/ngs/.nodenv/shims/flow"
   jsformat: {}
   "language-babel": {}
   linter: {}
