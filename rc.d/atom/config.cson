@@ -13,7 +13,6 @@
     ]
   editor:
     fontFamily: "SFMono-Regular"
-    fontSize: 13
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
