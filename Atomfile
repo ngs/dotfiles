@@ -8,9 +8,9 @@ command-logger@0.23.0
 editor-stats@0.17.0
 es6-javascript@1.0.0
 go-config@1.2.4
-go-debug@0.1.22
+go-debug@1.0.0
 go-get@2.1.1
-go-plus@4.3.2
+go-plus@5.0.5
 godoc@1.1.1
 gofmt@1.2.0
 gometalinter-linter@1.2.2
