@@ -51,9 +51,9 @@ ensure_directory "${HOME}/.ssh"
 symlink "${DOTFILES}/rc.d/ssh/config" "${HOME}/.ssh/config"
 chmod 600 "${HOME}/.ssh/config"
 if [ $UNAME == 'Darwin' ]; then
-  /bin/sh $DOTFILES/setup/darwin.sh
-  /bin/sh $DOTFILES/setup/keyremap4macbook.sh
-  /bin/sh $DOTFILES/setup/atom.sh
+  for f in $DOTFILES/setup/darwin/*.sh ; do
+    /bin/sh $f
+  done
 fi
 
 /bin/sh $DOTFILES/setup/vim.sh
