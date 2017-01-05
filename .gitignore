@@ -14,3 +14,7 @@ workbench.xmi
 /rc.d/atom/blob-store/
 rc.d/gnupg/*
 !rc.d/gnupg/*.conf
+!rc.d/btcd/*.conf
+!rc.d/btcwallet/*.conf
+rc.d/btcd/*
+rc.d/btcwallet/*
