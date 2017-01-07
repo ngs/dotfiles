@@ -5,12 +5,12 @@ color-picker@2.2.3
 command-logger@0.23.0
 editor-stats@0.17.0
 es6-javascript@1.0.0
-go-debug@1.0.0
-go-plus@5.0.6
+go-debug@1.0.2
+go-plus@5.0.9
 go-signature-statusbar@1.2.0
 hyperclick@0.0.39
 ide-flow@0.8.0
-imdone-atom@2.0.19
+imdone-atom@2.1.2
 language-babel@2.48.5
 language-cjsx@0.3.0
 language-docker@1.1.7
