@@ -9,6 +9,7 @@ cask "xquartz"
 ## Modules
 brew "ansible"
 brew "ant"
+brew "automake"
 brew "carthage"
 brew "chrome-cli"
 brew "direnv"
