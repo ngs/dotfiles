@@ -5,8 +5,8 @@ color-picker@2.2.3
 command-logger@0.23.0
 editor-stats@0.17.0
 es6-javascript@1.0.0
-go-debug@1.0.2
-go-plus@5.0.9
+go-debug@1.0.3
+go-plus@5.1.0
 go-signature-statusbar@1.2.0
 hyperclick@0.0.39
 ide-flow@0.8.0
