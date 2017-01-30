@@ -18,7 +18,7 @@ Plugin 'Puppet-Syntax-Highlighting'
 Plugin 'RubySinatra'
 Plugin 'Vim-Rspec'
 Plugin 'cocoa.vim'
-Plugin 'flymaker'
+" Plugin 'flymaker'
 Plugin 'ftpluginruby.vim'
 Plugin 'perl.vim'
 Plugin 'rails.vim'
@@ -31,25 +31,27 @@ Plugin 'xml.vim'
 " From GitHub
 " Lua needed
 " Plugin 'Shougo/neocomplete.vim'
-Plugin 'mtscout6/vim-cjsx'
+" Plugin 'jelera/vim-javascript-syntax'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Shougo/neosnippet.vim'
-Plugin 'docunext/closetag.vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-" Plugin 'jelera/vim-javascript-syntax'
-Plugin 'slim-template/vim-slim'
-Plugin 'tomtom/tlib_vim'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'fatih/vim-go'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'pangloss/vim-javascript'
-Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'docunext/closetag.vim'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'fatih/vim-go'
+Plugin 'garbas/vim-snipmate'
+Plugin 'godlygeek/tabular'
+Plugin 'honza/vim-snippets'
+Plugin 'mtscout6/vim-cjsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/nerdtree'
+Plugin 'slim-template/vim-slim'
+Plugin 'tomlion/vim-solidity'
+Plugin 'tomtom/tlib_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -149,3 +151,8 @@ set rtp+=$GOROOT/misc/vim
 let g:go_fmt_command = "goimports"
 
 autocmd filetype crontab setlocal nobackup nowritebackup
+
+" =================================================
+" NERDTree
+" =================================================
+let NERDTreeShowHidden=1
