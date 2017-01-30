@@ -65,7 +65,7 @@ brew "tig"
 brew "tmux"
 brew "tree"
 brew "v8"
-brew "vim", args: ['override-system-vi']
+brew "vim", args: ['with-override-system-vi', 'with-lua']
 brew "watch"
 brew "wget"
 brew "wine"
