@@ -1,0 +1,23 @@
+# vim: set ft=ruby
+
+mas '1Password', id: 443987910
+mas 'Clocks', id: 414554506
+mas 'Evernote', id: 406056744
+mas 'GIPHY CAPTURE', id: 668208984
+mas 'Keynote', id: 409183694
+mas 'LINE', id: 539883307
+mas 'Moon', id: 1029982041
+mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
+mas 'Realm Browser', id: 1007457278
+mas 'Reeder', id: 880001334
+mas 'Slack', id: 803453959
+mas 'Soulver', id: 413965349
+mas 'SoundMate', id: 675025930
+mas 'Transmit', id: 403388562
+mas 'Twitter', id: 409789998
+mas 'VOX', id: 461369673
+mas 'World Clock', id: 858446756
+mas 'Xcode', id: 497799835
+mas 'iA Writer', id: 775737590
+mas 'iConvert Icons', id: 515197296

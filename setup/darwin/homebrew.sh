@@ -6,4 +6,6 @@ brew update
 brew tap Homebrew/bundle
 brew bundle --file="${DOTFILES}/Brewfiles/default"
 brew bundle --file="${DOTFILES}/Brewfiles/fonts"
+brew bundle --file="${DOTFILES}/Brewfiles/casks"
+brew bundle --file="${DOTFILES}/Brewfiles/mas"
 

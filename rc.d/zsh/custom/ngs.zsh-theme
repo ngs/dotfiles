@@ -26,7 +26,7 @@ local host="%{$HOSTNAME_COLOR%}@%m%{$reset_color%}"
 local pwd="%{$fg[blue]%}%~%{$reset_color%}"
 
 PROMPT='${user}${host} ${pwd} \$ '
-RPS1='$(git_prompt_status) $(git_prompt_info)$(git_prompt_short_sha) %{$FG[246]%}ruby:$(rbenv_prompt_info)%{$reset_color%} ${time}${return_code}'
+RPS1='$(git_prompt_status) $(git_prompt_info)$(git_prompt_short_sha) %{$FG[246]%}rb:$(rbenv_prompt_info)/nd:$(nodenv_prompt_info)%{$reset_color%} ${time}${return_code}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[046]%}+%{$FG[196]%}-%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
