@@ -5,7 +5,6 @@ tap "homebrew/binary"
 tap "homebrew/versions"
 tap "thoughtbot/formulae"
 
-## Modules
 brew "ansible"
 brew "ant"
 brew "automake"
@@ -75,8 +74,3 @@ brew "xctool"
 brew "zsh"
 brew "zsh-completions"
 
-## Cask
-# cask "adobe-creative-cloud"
-## Finalize
-# update
-# doctor
