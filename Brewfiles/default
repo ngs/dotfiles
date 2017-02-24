@@ -9,6 +9,7 @@ tap "thoughtbot/formulae"
 brew "ansible"
 brew "ant"
 brew "automake"
+brew "awscli"
 brew "berkeley-db4"
 brew "boost", args: ["c++11"]
 brew "carthage"
