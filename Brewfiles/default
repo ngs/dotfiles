@@ -15,7 +15,6 @@ brew "boost", args: ["c++11"]
 brew "carthage"
 brew "chrome-cli"
 brew "direnv"
-brew "docker"
 brew "dynamodb-local"
 brew "git"
 brew "git-crypt"
