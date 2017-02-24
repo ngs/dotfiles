@@ -42,6 +42,8 @@
   linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
+  minimap:
+    displayCodeHighlights: false
   "one-dark-ui": {}
   "platformio-ide":
     showHomeScreen: false
