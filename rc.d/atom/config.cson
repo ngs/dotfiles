@@ -42,9 +42,6 @@
   linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
-  "linter-rubocop":
-    command: "/usr/local/opt/rbenv/shims/rubocop"
-    disableWhenNoConfigFile: true
   "one-dark-ui": {}
   "platformio-ide":
     showHomeScreen: false
