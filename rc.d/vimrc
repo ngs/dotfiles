@@ -10,7 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Haml'
 Plugin 'Jasmine-snippets-for-snipMate'
 Plugin 'Markdown'
 Plugin 'Markdown-syntax'
