@@ -2,6 +2,7 @@
 
 tap "caskroom/cask"
 
+cask "alfred"
 cask "android-studio"
 cask "arduino"
 cask "atom"
