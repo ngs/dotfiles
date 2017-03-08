@@ -11,23 +11,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'Jasmine-snippets-for-snipMate'
-Plugin 'Markdown'
-Plugin 'Markdown-syntax'
-Plugin 'Puppet-Syntax-Highlighting'
-Plugin 'RubySinatra'
-Plugin 'Vim-Rspec'
-Plugin 'cocoa.vim'
-" Plugin 'flymaker'
-Plugin 'ftpluginruby.vim'
-Plugin 'perl.vim'
-Plugin 'rails.vim'
-Plugin 'ruby.vim'
-Plugin 'vim-addon-ruby-debug-ide'
-Plugin 'vim-coffee-script'
-Plugin 'xml.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 if has("lua")
   " Lua needed
@@ -48,14 +32,20 @@ Plugin 'fatih/vim-go'
 Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'keith/swift.vim'
 Plugin 'mtscout6/vim-cjsx'
+Plugin 'othree/xml.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'slim-template/vim-slim'
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'tomlion/vim-solidity'
 Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
