@@ -1,5 +1,5 @@
 atom-force@0.3.4
-atom-typescript@10.1.14
+atom-typescript@10.1.15
 autocomplete-clang@0.10.0
 autocomplete-flow@1.6.0
 autocomplete-solidity@0.3.3
@@ -12,14 +12,14 @@ color-picker@2.2.5
 command-logger@0.23.0
 editor-stats@0.17.0
 es6-javascript@1.0.0
-file-icons@2.0.15
-go-debug@1.0.4
-go-plus@5.1.1
+file-icons@2.0.17
+go-debug@1.1.0
+go-plus@5.3.2
 go-signature-statusbar@1.2.0
 hyperclick@0.0.40
 ide-flow@0.8.0
-imdone-atom@2.1.19
-language-babel@2.55.4
+imdone-atom@2.1.21
+language-babel@2.56.0
 language-cjsx@0.3.0
 language-docker@1.1.7
 language-haml@0.24.1
@@ -40,7 +40,7 @@ linter@1.11.23
 linter-eslint@8.1.2
 linter-flow-plus@3.1.0
 linter-gcc@0.7.1
-linter-rubocop@0.5.3
+linter-rubocop@1.1.0
 linter-solidity@0.5.0
 minimap@4.26.8
 npm-plus@0.4.0
