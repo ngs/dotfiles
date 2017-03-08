@@ -1,6 +1,10 @@
-apm install --packages-file Atomfile
+#!/bin/sh
+
+DOTFILES=$(cd $(dirname $0)/../.. && pwd)
+
+apm install --packages-file "${DOTFILES}/Atomfile"
 apm upgrade --confirm=false
-apm list -bi > Atomfile
+apm list -bi > "${DOTFILES}/Atomfile"
 
 ##
 ## Set Atom as default text editor
