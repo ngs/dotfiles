@@ -5,7 +5,7 @@ DOTFILES=$(cd $(dirname $0)/../.. && pwd)
 ##
 for f in $DOTFILES/themes/iterm2/*; do
   THEME=$(basename "$f")
-  defaults write -app iTerm 'Custom Color Presets' -dict-add "$THEME" "$(cat "$f")"
+  defaults write -app '/usr/local/Caskroom/iterm2/2.0/iTerm.app' 'Custom Color Presets' -dict-add "$THEME" "$(cat "$f")"
 done
 
 [ -e ~/Documents/tomorrow-theme ] || /bin/sh -c 'git clone git@github.com:chriskempson/tomorrow-theme.git ~/Documents/tomorrow-theme'
