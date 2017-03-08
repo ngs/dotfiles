@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES=$(cd $(dirname $0) && pwd)
+DOTFILES=$(cd $(dirname $0)/.. && pwd)
 ###
 symlink() {
   cd $HOME
@@ -18,11 +18,11 @@ ensure_directory() {
   fi
 }
 
-for f in $DOTFILES/rc.d/* ; do
+for f in $DOTFILES/rc.d/*; do
   BASENAME=$(basename $f)
-  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'ssh' ]; then
+  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'sbt' ] && [ $BASENAME != 'ssh' ]; then
     rm -rf "${HOME}/${BASENAME}"
-    symlink $f "${HOME}/.$(basename $f)"
+    symlink $f "${HOME}/.${BASENAME}"
   fi
 done
 ## Subversion
@@ -32,3 +32,6 @@ symlink "${DOTFILES}/rc.d/subversion/config" "${HOME}/.subversion/config"
 ensure_directory "${HOME}/.ssh"
 symlink "${DOTFILES}/rc.d/ssh/config" "${HOME}/.ssh/config"
 chmod 600 "${HOME}/.ssh/config"
+## SSH
+ensure_directory "${HOME}/.sbt/0.13/plugins"
+symlink "${DOTFILES}/rc.d/sbt/0.13/plugins/build.sbt" "${HOME}/.sbt/0.13/plugins/build.sbt"
