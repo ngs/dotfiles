@@ -24,6 +24,7 @@ brew "gitsh"
 brew "go"
 brew "gpg"
 brew "gpg-agent"
+brew "graphviz"
 brew "heroku-toolbelt"
 brew "homebrew/versions/protobuf260", args: ["c++11"]
 brew "htop"
