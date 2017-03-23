@@ -36,7 +36,7 @@ language-stylus@0.2.0
 language-swift@0.5.0
 language-terraform@0.8.0
 lcov-info@0.12.0
-linter@2.1.0
+linter@2.1.1
 linter-eslint@8.1.4
 linter-flow-plus@3.1.0
 linter-gcc@0.7.1
