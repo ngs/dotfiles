@@ -48,7 +48,6 @@ brew "mysql", restart_service: :changed
 brew "nbc"
 brew "nexttool"
 brew "nginx", restart_service: :changed
-brew "ngrok"
 brew "nodenv"
 brew "openssl"
 brew "peco"
