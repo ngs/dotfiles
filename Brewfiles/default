@@ -2,7 +2,6 @@
 
 tap "ngs/formulae"
 tap "homebrew/binary"
-tap "homebrew/versions"
 tap "thoughtbot/formulae"
 tap "homebrew/services"
 tap "kylef/formulae"
@@ -27,10 +26,11 @@ brew "gpg-agent"
 brew "graphviz"
 brew "guetzli"
 brew "heroku-toolbelt"
-brew "homebrew/versions/protobuf260", args: ["c++11"]
+brew "protobuf2.6", args: ["c++11"]
+brew "phantomjs"
 brew "htop"
 brew "hub"
-brew "imagemagick"
+brew "imagemagick@6"
 brew "ipcalc"
 brew "jq"
 brew "libevent"
