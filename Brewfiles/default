@@ -22,11 +22,10 @@ brew "git-lfs"
 brew "gitsh"
 brew "go"
 brew "gpg"
-brew "gpg-agent"
 brew "graphviz"
 brew "guetzli"
 brew "heroku-toolbelt"
-brew "protobuf2.6", args: ["c++11"]
+brew "protobuf@2.6", args: ["c++11"]
 brew "phantomjs"
 brew "htop"
 brew "hub"
