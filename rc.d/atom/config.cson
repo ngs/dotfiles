@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "ca01e693-35aa-4191-a257-fad47a728024"
   core:
     disabledPackages: [
       "autocomplete-flow"
