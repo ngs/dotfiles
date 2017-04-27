@@ -101,3 +101,7 @@ propen() {
   local current_branch_name=$(git symbolic-ref --short HEAD | ruby -ruri -e 'print URI.escape STDIN.read.strip')
   git config --get remote.origin.url | sed -e "s/^.*[:\/]\(.*\/.*\).git$/https:\/\/github.com\/\1\//" | sed -e "s/$/pull\/${current_branch_name}/" | xargs open
 }
+
+cfls() {
+  aws cloudfront list-distributions --output table --query 'DistributionList.Items[*].[DomainName,Id,Origins.Items[0].DomainName]'
+}
