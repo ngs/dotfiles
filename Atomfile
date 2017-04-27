@@ -6,14 +6,14 @@ autocomplete-flow@1.6.0
 autocomplete-solidity@0.3.3
 build@0.67.0
 busy@0.7.0
-busy-signal@1.4.0
+busy-signal@1.4.1
 clock@1.9.0
 coffee-compile@0.25.0
 color-picker@2.2.5
 command-logger@0.23.0
 editor-stats@0.17.0
 es6-javascript@1.0.0
-file-icons@2.1.3
+file-icons@2.1.4
 go-debug@1.3.1
 go-plus@5.4.0
 go-signature-statusbar@1.2.0
