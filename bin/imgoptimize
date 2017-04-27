@@ -10,7 +10,7 @@ fi
 LOG=imgoptimize.log
 SIZE_BEFORE=$(du -s $DIR | cut -f1)
 echo $SIZE_BEFORE | tee -a $LOG
-/bin/sh -c "find $DIR -name '*.jpg' -type f -exec guetzli {} {} \;" | tee -a $LOG
+/bin/sh -c "find $DIR -name '*.jpg' -type f -exec bin/sh -c 'echo {}; guetzli {} {}' \;" | tee -a $LOG
 SIZE_AFTER=$(du -s $DIR | cut -f1)
 echo $SIZE_AFTER | tee -a $LOG
 ruby -e "puts %(#{${SIZE_BEFORE}.to_f / ${SIZE_AFTER}.to_f * 100}% reduced)" | tee -a $LOG
