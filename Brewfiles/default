@@ -25,13 +25,12 @@ brew "gpg"
 brew "graphviz"
 brew "guetzli"
 brew "heroku-toolbelt"
-brew "protobuf@2.6", args: ["c++11"]
-brew "phantomjs"
 brew "htop"
 brew "hub"
 brew "imagemagick@6"
 brew "ipcalc"
 brew "jq"
+brew "kryptco/tap/kr"
 brew "libevent"
 brew "libtool"
 brew "libxml2"
@@ -47,6 +46,8 @@ brew "mysql", restart_service: :changed
 brew "nbc"
 brew "nexttool"
 brew "nginx", restart_service: :changed
+brew "phantomjs"
+brew "protobuf@2.6", args: ["c++11"]
 brew "nodenv"
 brew "openssl"
 brew "peco"
