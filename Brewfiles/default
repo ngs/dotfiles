@@ -46,13 +46,15 @@ brew "mysql", restart_service: :changed
 brew "nbc"
 brew "nexttool"
 brew "nginx", restart_service: :changed
-brew "phantomjs"
-brew "protobuf@2.6", args: ["c++11"]
 brew "nodenv"
 brew "openssl"
 brew "peco"
+brew "perl-build"
+brew "phantomjs"
 brew "pinentry-mac"
 brew "pkg-config"
+brew "plenv"
+brew "protobuf@2.6", args: ["c++11"]
 brew "python"
 brew "qt5"
 brew "rbenv"
