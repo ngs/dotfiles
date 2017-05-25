@@ -48,7 +48,8 @@
   "linter-rubocop":
     command: "/usr/local/opt/rbenv/shims/rubocop"
     disableWhenNoConfigFile: true
-  "linter-ui-default": {}
+  "linter-ui-default":
+    showPanel: true
   "one-dark-ui": {}
   "platformio-ide":
     showHomeScreen: false
