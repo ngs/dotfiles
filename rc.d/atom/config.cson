@@ -49,7 +49,7 @@
     command: "/usr/local/opt/rbenv/shims/rubocop"
     disableWhenNoConfigFile: true
   "linter-ui-default":
-    panelHeight: 69
+    showPanel: true
   "one-dark-ui": {}
   "platformio-ide":
     showHomeScreen: false
