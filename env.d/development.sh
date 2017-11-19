@@ -19,7 +19,7 @@ if [ -d /usr/local/include ]; then
   CPPFLAGS+="-I/usr/local/include ${CPPFLAGS}"
 fi
 if [ -d "${HOME}/local/include" ]; then
-  CPPFLAGS+="-I${HOME}/local/include ${CPPFLAGS}"
+  CPPFLAGS+="-I${HOME}/local/include -I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib ${CPPFLAGS}"
 fi
 CFLAGS+=$CPPFLAGS
 #export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:/usr/local/lib:$HOME/local/lib
