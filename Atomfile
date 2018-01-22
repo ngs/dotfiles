@@ -20,9 +20,9 @@ go-plus@5.6.0
 go-signature-statusbar@1.2.3
 hyperclick@0.1.5
 ide-flow@0.8.0
-imdone-atom@2.2.7
+imdone-atom@2.2.10
 intentions@1.1.5
-language-babel@2.78.0
+language-babel@2.79.0
 language-cjsx@0.3.0
 language-docker@1.1.8
 language-haml@0.25.2
