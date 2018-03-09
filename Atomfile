@@ -38,6 +38,7 @@ language-slim@1.0.0
 language-stylus@0.2.0
 language-swift@0.5.0
 language-terraform@0.8.1
+language-vue@0.23.1
 lcov-info@0.12.0
 linter@2.2.0
 linter-eslint@8.4.1
