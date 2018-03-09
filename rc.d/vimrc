@@ -31,7 +31,7 @@ Plug 'mtscout6/vim-cjsx'
 Plug 'othree/xml.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'md', 'markdown', 'vue'] }
 Plug 'scrooloose/nerdtree'
 Plug 'slim-template/vim-slim'
 Plug 'thoughtbot/vim-rspec'
