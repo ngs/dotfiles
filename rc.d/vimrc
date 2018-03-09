@@ -17,31 +17,31 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Rip-Rip/clang_complete'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
-Plug 'derekwyatt/vim-scala'
-Plug 'digitaltoad/vim-jade'
+Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
+Plug 'digitaltoad/vim-jade', { 'for': ['jade', 'pug'] }
 Plug 'docunext/closetag.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'garbas/vim-snipmate'
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
-Plug 'kchmck/vim-coffee-script'
-Plug 'keith/swift.vim'
+Plug 'kchmck/vim-coffee-script', { 'for': ['cjsx', 'coffee'] }
+Plug 'keith/swift.vim', { 'for': ['swift'] }
 Plug 'leafgarland/typescript-vim'
-Plug 'mtscout6/vim-cjsx'
-Plug 'othree/xml.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'plasticboy/vim-markdown'
-Plug 'posva/vim-vue'
+Plug 'mtscout6/vim-cjsx', { 'for': ['cjsx', 'coffee'] }
+Plug 'othree/xml.vim', { 'for': ['xml'] }
+Plug 'pangloss/vim-javascript', { 'for': ['js'] }
+Plug 'plasticboy/vim-markdown', { 'for': ['md', 'mkdn', 'markdown'] }
+Plug 'posva/vim-vue', { 'for': ['vue'] }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'md', 'markdown', 'vue'] }
-Plug 'scrooloose/nerdtree'
-Plug 'slim-template/vim-slim'
-Plug 'thoughtbot/vim-rspec'
-Plug 'tomlion/vim-solidity'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'slim-template/vim-slim', { 'for': ['slim'] }
+Plug 'thoughtbot/vim-rspec', { 'for': ['rb'] }
+Plug 'tomlion/vim-solidity', { 'for': ['sol'] }
 Plug 'tomtom/tlib_vim'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-bundler', { 'for': ['rb'] }
+Plug 'tpope/vim-rails', { 'for': ['rb'] }
+Plug 'vim-ruby/vim-ruby', { 'for': ['rb'] }
 Plug 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
