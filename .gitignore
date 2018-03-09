@@ -9,6 +9,7 @@
 /rc.d/atom/storage/
 /rc.d/atom/recovery/
 /rc.d/vim/bundle/
+/rc.d/vim/plugged/
 /vendor/ruby/
 khal.db
 workbench.xmi
