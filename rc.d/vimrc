@@ -4,52 +4,45 @@ filetype off                  " required
 " https://git.io/vy8Iu
 execute pathogen#infect()
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 if has("lua")
   " Lua needed
-  Plugin 'Shougo/neocomplete.vim'
+  Plug 'Shougo/neocomplete.vim'
 else
-  Plugin 'Shougo/neocomplcache.vim'
+  Plug 'Shougo/neocomplcache.vim'
 endif
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'Rip-Rip/clang_complete'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'docunext/closetag.vim'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'fatih/vim-go'
-Plugin 'garbas/vim-snipmate'
-Plugin 'godlygeek/tabular'
-Plugin 'honza/vim-snippets'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'keith/swift.vim'
-Plugin 'mtscout6/vim-cjsx'
-Plugin 'othree/xml.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'scrooloose/nerdtree'
-Plugin 'slim-template/vim-slim'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tomlion/vim-solidity'
-Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'vim-syntastic/syntastic'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'Rip-Rip/clang_complete'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'digitaltoad/vim-jade'
+Plug 'docunext/closetag.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'garbas/vim-snipmate'
+Plug 'godlygeek/tabular'
+Plug 'honza/vim-snippets'
+Plug 'kchmck/vim-coffee-script'
+Plug 'keith/swift.vim'
+Plug 'mtscout6/vim-cjsx'
+Plug 'othree/xml.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/nerdtree'
+Plug 'slim-template/vim-slim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tomlion/vim-solidity'
+Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on
