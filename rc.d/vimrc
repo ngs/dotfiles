@@ -31,6 +31,7 @@ Plug 'mtscout6/vim-cjsx'
 Plug 'othree/xml.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 Plug 'scrooloose/nerdtree'
 Plug 'slim-template/vim-slim'
 Plug 'thoughtbot/vim-rspec'
@@ -275,3 +276,14 @@ let g:syntastic_swift_checkers = ['swiftlint']
 let g:syntastic_ruby_checkers = ['rubocop']
 " let g:syntastic_go_checkers = ['golint', 'govet', 'go']
 " let g:syntastic_go_checkers = ['golint', 'go']
+
+" =================================================
+" Prettier
+" =================================================
+
+let g:prettier#autoformat = 0
+if v:version < 800
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,**.vue Prettier
+else
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,**.vue PrettierAsync
+endif
