@@ -7,6 +7,7 @@
 /rc.d/atom/compile-cache/
 /rc.d/atom/packages/
 /rc.d/atom/storage/
+/rc.d/atom/recovery/
 /rc.d/vim/bundle/
 /vendor/ruby/
 khal.db

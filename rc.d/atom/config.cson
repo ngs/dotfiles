@@ -48,13 +48,20 @@
   "linter-rubocop":
     command: "/usr/local/opt/rbenv/shims/rubocop"
     disableWhenNoConfigFile: true
-  "linter-ui-default": {}
+  "linter-ui-default":
+    showPanel: true
   "one-dark-ui": {}
   "platformio-ide":
     showHomeScreen: false
   "platformio-ide-terminal":
     core:
       autoRunCommand: "export PATH=/Users/ngs/dotfiles/rc.d/atom/packages/platformio-ide/penv/bin:/usr/local/opt/rbenv/shims:/usr/local/opt/rbenv/bin:/Users/ngs/.yarn/bin:/Users/ngs/.swiftenv/shims:/Users/ngs/.nodenv/shims:/Users/ngs/.nodenv/shims:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/bin:/Users/ngs/.go/bin:/Users/ngs/.fastlane/bin:/opt/vagrant/bin:/opt/homebrew-cask/Caskroom/eclipse-java/4.5/Eclipse.app/Contents/Eclipse:/Users/ngs/bin:/Users/ngs/local/bin:/Users/ngs/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/rbenv/shims:/usr/local/opt/rbenv/bin:/Users/ngs/.yarn/bin:/Users/ngs/.swiftenv/shims:/Users/ngs/.nodenv/shims:/Users/ngs/.nodenv/shims:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/bin:/Users/ngs/.go/bin:/Users/ngs/.fastlane/bin:/opt/vagrant/bin:/opt/homebrew-cask/Caskroom/eclipse-java/4.5/Eclipse.app/Contents/Eclipse:/Users/ngs/bin:/Users/ngs/local/bin:/Users/ngs/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands::"
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+      showInStatusBar: true
+    useEslint: true
+    useStylelint: true
   "tool-bar":
     position: "Left"
   "tree-view":
