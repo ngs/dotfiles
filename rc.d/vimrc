@@ -19,7 +19,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
 Plug 'digitaltoad/vim-jade', { 'for': ['jade', 'pug'] }
-Plug 'docunext/closetag.vim'
+Plug 'docunext/closetag.vim', { 'for': ['html', 'erb', 'php', 'xml', 'xslt'] }
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'garbas/vim-snipmate'
@@ -101,7 +101,7 @@ syntax enable
 
 " Close XML tags
 autocmd FileType html,erb,php,xml,xslt let b:closetag_html_style=1
-autocmd FileType html,erb,php,xml,xslt source ~/.vim/bundle/closetag/plugin/closetag.vim
+autocmd FileType html,erb,php,xml,xslt source ~/.vim/plugged/closetag.vim/plugin/closetag.vim
 
 let g:vim_markdown_folding_disabled=1
 
