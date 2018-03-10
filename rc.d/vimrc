@@ -21,13 +21,14 @@ Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
 Plug 'digitaltoad/vim-jade', { 'for': ['jade', 'pug'] }
 Plug 'docunext/closetag.vim', { 'for': ['html', 'erb', 'php', 'xml', 'xslt'] }
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 Plug 'garbas/vim-snipmate'
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
 Plug 'kchmck/vim-coffee-script', { 'for': ['cjsx', 'coffee'] }
 Plug 'keith/swift.vim', { 'for': ['swift'] }
 Plug 'leafgarland/typescript-vim'
+Plug 'nsf/gocode', { 'rtp': 'vim', 'for': ['go'], 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'mtscout6/vim-cjsx', { 'for': ['cjsx', 'coffee'] }
 Plug 'othree/xml.vim', { 'for': ['xml'] }
 Plug 'pangloss/vim-javascript', { 'for': ['js'] }
