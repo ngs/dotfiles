@@ -21,3 +21,5 @@ rc.d/gnupg/*
 rc.d/btcd/*
 rc.d/btcwallet/*
 rc.d/vim/**/*/gocomplete.vim
+rc.d/vscode/extensions/*
+rc.d/vscode/userdata/workspaceStorage/*
