@@ -1,3 +1,4 @@
 {
-    "workbench.colorTheme": "Tomorrow Night - Eighties Contrast"
+    "workbench.colorTheme": "Tomorrow Night - Eighties Contrast",
+    "editor.formatOnSave": true
 }
