@@ -34,7 +34,7 @@ Plug 'othree/xml.vim', { 'for': ['xml'] }
 Plug 'pangloss/vim-javascript', { 'for': ['js'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'mkdn', 'markdown'] }
 Plug 'posva/vim-vue', { 'for': ['vue'] }
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'md', 'markdown', 'vue'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['ts', 'js', 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'md', 'markdown', 'vue'] }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'slim-template/vim-slim', { 'for': ['slim'] }
 Plug 'thoughtbot/vim-rspec', { 'for': ['rb'] }
@@ -44,6 +44,10 @@ Plug 'tpope/vim-bundler', { 'for': ['rb'] }
 Plug 'tpope/vim-rails', { 'for': ['rb'] }
 Plug 'vim-ruby/vim-ruby', { 'for': ['rb'] }
 Plug 'vim-syntastic/syntastic'
+
+if v:version >= 800
+  Plug 'Quramy/tsuquyomi', { 'do': 'npm i -g typescript', 'for': ['ts', 'tsx'] }
+endif
 
 " All of your Plugins must be added before the following line
 call plug#end()
