@@ -1,5 +1,6 @@
 {
     "workbench.colorTheme": "Tomorrow Night Eighties",
     "editor.fontFamily": "'SF Mono Regular', Menlo, Monaco, 'Courier New', monospace",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "git.autofetch": true
 }
