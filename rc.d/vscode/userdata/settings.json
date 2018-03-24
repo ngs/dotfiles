@@ -2,5 +2,10 @@
     "workbench.colorTheme": "Tomorrow Night Eighties",
     "editor.fontFamily": "'SF Mono Regular', Menlo, Monaco, 'Courier New', monospace",
     "editor.formatOnSave": true,
+    "go.testOnSave": true,
+    "go.testFlags": [
+        "-v"
+    ],
+    "go.coverOnSave": true,
     "git.autofetch": true
 }
