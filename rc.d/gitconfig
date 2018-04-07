@@ -1,7 +1,7 @@
 [user]
   name = Atsushi Nagase
   email = a@ngs.io
-	signingkey = 22691D00
+	signingkey = 036459B1
 
 [alias]
   st = status
