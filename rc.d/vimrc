@@ -25,11 +25,12 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 Plug 'garbas/vim-snipmate'
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
+Plug 'junegunn/goyo.vim'
 Plug 'kchmck/vim-coffee-script', { 'for': ['cjsx', 'coffee'] }
 Plug 'keith/swift.vim', { 'for': ['swift'] }
 Plug 'leafgarland/typescript-vim'
-Plug 'nsf/gocode', { 'rtp': 'vim', 'for': ['go'], 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'mtscout6/vim-cjsx', { 'for': ['cjsx', 'coffee'] }
+Plug 'nsf/gocode', { 'rtp': 'vim', 'for': ['go'], 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'othree/xml.vim', { 'for': ['xml'] }
 Plug 'pangloss/vim-javascript', { 'for': ['js'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'mkdn', 'markdown'] }
@@ -294,3 +295,8 @@ if v:version < 800
 else
   autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 endif
+
+" =================================================
+" Goyo
+" =================================================
+let g:goyo_width = 120
