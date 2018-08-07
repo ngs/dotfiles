@@ -1,6 +1,5 @@
 UNAME=$(uname -s)
 DOTFILES=$HOME/dotfiles
-source $DOTFILES/env.sh
 #
 # ohmyzsh
 #
@@ -38,3 +37,4 @@ if [ -f /Users/ngs/.travis/travis.sh ]; then
 fi
 
 eval "$(direnv hook zsh)"
+source $DOTFILES/env.sh
