@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eux
 
 DOTFILES=$(cd $(dirname $0)/.. && pwd)
 ###
