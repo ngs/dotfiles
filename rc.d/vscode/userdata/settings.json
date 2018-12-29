@@ -8,5 +8,9 @@
     ],
     "go.coverOnSave": true,
     "git.autofetch": true,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }
