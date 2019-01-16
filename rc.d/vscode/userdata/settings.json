@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Tomorrow Night Eighties",
     "editor.fontFamily": "'SF Mono Regular', Menlo, Monaco, 'Courier New', monospace",
     "editor.formatOnSave": true,
     "go.testOnSave": true,
@@ -8,5 +7,8 @@
     ],
     "go.coverOnSave": true,
     "git.autofetch": true,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Tomorrow Night Eighties",
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh"
 }

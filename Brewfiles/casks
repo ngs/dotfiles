@@ -47,6 +47,6 @@ cask "transmit"
 cask "vagrant"
 cask "virtualbox"
 cask "vlc"
-casl "visual-studio-code"
+cask "visual-studio-code"
 cask "xquartz"
 
