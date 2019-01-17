@@ -1,17 +1,19 @@
 {
-  "workbench.colorTheme": "Tomorrow Night Eighties",
-  "editor.fontFamily": "'SF Mono Regular', Menlo, Monaco, 'Courier New', monospace",
-  "editor.formatOnSave": true,
-  "go.testOnSave": true,
-  "go.testFlags": ["-v"],
-  "go.coverOnSave": true,
-  "git.autofetch": true,
-  "editor.minimap.enabled": false,
-  "explorer.confirmDelete": false,
-  "prettier.disableLanguages": [
-    "html"
-  ],
-  "window.zoomLevel": 0,
-  "breadcrumbs.enabled": true,
-  "git.confirmSync": false
+    "editor.fontFamily": "'SF Mono Regular', Menlo, Monaco, 'Courier New', monospace",
+    "editor.formatOnSave": true,
+    "go.testOnSave": true,
+    "go.testFlags": ["-v"],
+    "go.coverOnSave": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Tomorrow Night Eighties",
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "breadcrumbs.enabled": true,
+    "prettier.disableLanguages": ["html"],
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "breadcrumbs.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }

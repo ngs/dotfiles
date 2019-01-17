@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eux
 
 ZSH=$HOME/.oh-my-zsh
 grep `which zsh` /etc/shells > /dev/null || sudo sh -c 'which zsh >> /etc/shells'
