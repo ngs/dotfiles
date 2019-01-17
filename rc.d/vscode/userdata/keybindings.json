@@ -1,7 +1,22 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-    {
-        "key": "cmd+enter",
-        "command": "workbench.action.tasks.runTask"
-    }
+  {
+    "key": "cmd+enter",
+    "command": "workbench.action.tasks.runTask"
+  },
+  {
+    "key": "shift+cmd+l",
+    "command": "-editor.action.selectHighlights",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+l",
+    "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+i",
+    "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
+    "when": "editorTextFocus"
+  }
 ]

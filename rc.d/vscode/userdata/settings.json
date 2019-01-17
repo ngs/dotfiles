@@ -1,12 +1,17 @@
 {
-    "workbench.colorTheme": "Tomorrow Night Eighties",
-    "editor.fontFamily": "'SF Mono Regular', Menlo, Monaco, 'Courier New', monospace",
-    "editor.formatOnSave": true,
-    "go.testOnSave": true,
-    "go.testFlags": [
-        "-v"
-    ],
-    "go.coverOnSave": true,
-    "git.autofetch": true,
-    "editor.minimap.enabled": false
+  "workbench.colorTheme": "Tomorrow Night Eighties",
+  "editor.fontFamily": "'SF Mono Regular', Menlo, Monaco, 'Courier New', monospace",
+  "editor.formatOnSave": true,
+  "go.testOnSave": true,
+  "go.testFlags": ["-v"],
+  "go.coverOnSave": true,
+  "git.autofetch": true,
+  "editor.minimap.enabled": false,
+  "explorer.confirmDelete": false,
+  "prettier.disableLanguages": [
+    "html"
+  ],
+  "window.zoomLevel": 0,
+  "breadcrumbs.enabled": true,
+  "git.confirmSync": false
 }
