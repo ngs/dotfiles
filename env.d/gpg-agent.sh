@@ -9,3 +9,5 @@
 if [ ! -n "$(pgrep gpg-agent)" ]; then
     eval $(gpg-agent --daemon)
 fi
+
+export GPG_TTY=$(tty)
