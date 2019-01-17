@@ -1,4 +1,4 @@
 Brewfiles/* linguist-language=Ruby
-# env.d/secret/*.sh filter=git-crypt diff=git-crypt
+env.d/secret/*.sh filter=git-crypt diff=git-crypt
 rc.d/atom/github.cson filter=git-crypt diff=git-crypt
 rc.d/npmrc filter=git-crypt diff=git-crypt
