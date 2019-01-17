@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eux
 ###
 UNAME=$(uname -s)
 TS=$(date +'%Y%m%d%H%M%S')
