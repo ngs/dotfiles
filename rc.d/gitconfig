@@ -43,6 +43,10 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 
+[filter "ignore-npmrc"]
+  smudge = cat
+  clean = sed '/^\\/\\/registry\\.npmjs\\.org\\/:_authToken/d'
+
 [mergetool "storyboard"]
   name = StoryboardMerge interactive merge
   cmd = storyboard-merge $BASE $LOCAL $REMOTE $MERGED

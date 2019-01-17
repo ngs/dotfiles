@@ -1,1 +1,2 @@
 Brewfiles/* linguist-language=Ruby
+rc.d/npmrc filter=ignore-npmrc
