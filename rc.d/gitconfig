@@ -60,3 +60,5 @@
 
 [gpg]
 	program = gpg
+[url "https://"]
+	insteadOf = git://

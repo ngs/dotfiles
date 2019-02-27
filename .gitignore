@@ -14,6 +14,7 @@
 khal.db
 workbench.xmi
 /rc.d/atom/blob-store/
+/rc.d/atom/github.cson
 rc.d/gnupg/*
 !rc.d/gnupg/*.conf
 !rc.d/btcd/*.conf
@@ -23,3 +24,4 @@ rc.d/btcwallet/*
 rc.d/vim/**/*/gocomplete.vim
 rc.d/vscode/extensions/*
 rc.d/vscode/userdata/workspaceStorage/*
+state.vscdb*
