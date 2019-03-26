@@ -1,5 +1,5 @@
 export DOTFILES=${HOME}/dotfiles
-export PATH=${HOME}/bin:${HOME}/local/bin:${DOTFILES}/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=${PATH}:${HOME}/bin:${HOME}/local/bin:${DOTFILES}/bin:/usr/local/bin:/usr/local/sbin
 export EDITOR=vim
 UNAME=$(uname -s)
 HOSTNAME=$(hostname)

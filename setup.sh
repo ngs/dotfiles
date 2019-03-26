@@ -10,6 +10,7 @@ for f in $DOTFILES/setup/*.sh ; do
 done
 
 if [ $UNAME == 'Darwin' ]; then
+  /bin/sh $DOTFILES/setup/darwin/homebrew.sh
   for f in $DOTFILES/setup/darwin/*.sh ; do
     /bin/sh $f
   done

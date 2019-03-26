@@ -2,6 +2,7 @@ apollographql.vscode-apollo
 aStonedPenguin.tomorrow-night-eighties-contrast
 asvetliakov.snapshot-tools
 aws-amplify.aws-amplify-vscode
+dbaeumer.vscode-eslint
 EditorConfig.EditorConfig
 eg2.tslint
 esbenp.prettier-vscode
@@ -17,4 +18,5 @@ salesforce.salesforcedx-vscode-apex-debugger
 salesforce.salesforcedx-vscode-apex-replay-debugger
 salesforce.salesforcedx-vscode-core
 salesforce.salesforcedx-vscode-lightning
+salesforce.salesforcedx-vscode-lwc
 salesforce.salesforcedx-vscode-visualforce
