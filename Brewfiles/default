@@ -37,7 +37,7 @@ brew "mecab"
 brew "mecab-ipadic"
 brew "miniupnpc"
 brew "mongodb"
-brew "mysql", restart_service: :changed
+brew "mysql@5.7", restart_service: :changed
 brew "nbc"
 brew "nexttool"
 brew "nginx", restart_service: :changed
