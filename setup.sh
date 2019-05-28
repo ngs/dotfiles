@@ -15,4 +15,3 @@ if [ $UNAME == 'Darwin' ]; then
     /bin/sh $f
   done
 fi
-# teset
