@@ -1,6 +1,7 @@
 # vim: set ft=ruby
 
 tap "caskroom/cask"
+tap "homebrew/cask-versions"
 
 cask "alfred"
 cask "android-studio"
@@ -36,7 +37,7 @@ cask "microsoft-office"
 cask "ngrok"
 cask "oki-hiper-c-driver"
 cask "qlmarkdown"
-cask "sequel-pro"
+cask "sequel-pro-nightly"
 cask "sfdx"
 cask "skype"
 cask "sqlitemanager"
