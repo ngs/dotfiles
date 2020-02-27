@@ -17,5 +17,9 @@
   "breadcrumbs.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "eslint.autoFixOnSave": true,
-  "tslint.autoFixOnSave": true
+  "tslint.autoFixOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "window.zoomLevel": 0
 }

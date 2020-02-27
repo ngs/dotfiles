@@ -11,9 +11,9 @@ for app in $(find /usr/local/Caskroom/iterm2 -name 'iTerm.app'); do
   done
 done
 
-[ -e ~/Documents/tomorrow-theme ] || /bin/sh -c 'git clone git@github.com:chriskempson/tomorrow-theme.git ~/Documents/tomorrow-theme'
+[ -e ~/Dropbox/tomorrow-theme ] || /bin/sh -c 'git clone git@github.com:chriskempson/tomorrow-theme.git ~/Dropbox/tomorrow-theme'
 
-for f in ~/Documents/tomorrow-theme/OS\ X\ Terminal/*.terminal; do
+for f in ~/Dropbox/tomorrow-theme/OS\ X\ Terminal/*.terminal; do
   THEME=$(basename "$f")
   THEME=${THEME%.terminal}
   defaults write com.apple.Terminal "Window Settings" -dict-add "${THEME}" "$(cat "$f")"

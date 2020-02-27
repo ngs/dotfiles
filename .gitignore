@@ -25,4 +25,6 @@ rc.d/vim/**/*/gocomplete.vim
 rc.d/vscode/extensions/*
 rc.d/vscode/userdata/workspaceStorage/*
 rc.d/karabiner/automatic_backups/*.json
+rc.d/atom/.*socket*
 state.vscdb*
+Brewfiles/*.lock.json
