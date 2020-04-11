@@ -1,1 +1,1 @@
---color -r ~/dotfiles/script/rspec_formatters.rb
+--color --format=documentation

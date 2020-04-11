@@ -1,4 +1,4 @@
-Include ~/Dropbox/Credentials/ssh/config/*
+Include ~/.ssh/conf.d/*
 
 Host *
   ForwardAgent yes
