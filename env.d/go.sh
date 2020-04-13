@@ -6,4 +6,5 @@ if [ -d $GOENV_ROOT ]; then
   export GOENV_ROOT
   export PATH="$GOENV_ROOT/bin:$PATH"
   eval "$(goenv init -)"
+  export PATH="$GOPATH/bin:$PATH"
 fi

@@ -21,5 +21,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true
 }
