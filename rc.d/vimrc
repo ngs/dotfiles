@@ -35,6 +35,8 @@ Plug 'othree/xml.vim', { 'for': ['xml'] }
 Plug 'pangloss/vim-javascript', { 'for': ['js'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'mkdn', 'markdown'] }
 Plug 'posva/vim-vue', { 'for': ['vue'] }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['ts', 'js', 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'md', 'markdown', 'vue'] }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'slim-template/vim-slim', { 'for': ['slim'] }
@@ -260,6 +262,18 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+
+if executable('golsp')
+  augroup LspGo
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'go-lang',
+        \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd FileType go setlocal omnifunc=lsp#complete
+  augroup END
+endif
 
 " =================================================
 " NERDTree
