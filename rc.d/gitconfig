@@ -62,3 +62,8 @@
 	program = gpg
 [url "https://"]
 	insteadOf = git://
+
+[credential]
+	helper = store
+[url "git@github.com:"]
+	insteadOf = https://github.com/
