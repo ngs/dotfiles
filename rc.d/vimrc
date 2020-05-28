@@ -30,7 +30,6 @@ Plug 'kchmck/vim-coffee-script', { 'for': ['cjsx', 'coffee'] }
 Plug 'keith/swift.vim', { 'for': ['swift'] }
 Plug 'leafgarland/typescript-vim'
 Plug 'mtscout6/vim-cjsx', { 'for': ['cjsx', 'coffee'] }
-Plug 'nsf/gocode', { 'rtp': 'vim', 'for': ['go'], 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'othree/xml.vim', { 'for': ['xml'] }
 Plug 'pangloss/vim-javascript', { 'for': ['js'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'mkdn', 'markdown'] }
@@ -262,18 +261,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-
-if executable('golsp')
-  augroup LspGo
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'go-lang',
-        \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
-        \ 'whitelist': ['go'],
-        \ })
-    autocmd FileType go setlocal omnifunc=lsp#complete
-  augroup END
-endif
 
 " =================================================
 " NERDTree

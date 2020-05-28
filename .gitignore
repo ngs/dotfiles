@@ -21,7 +21,6 @@ rc.d/gnupg/*
 !rc.d/btcwallet/*.conf
 rc.d/btcd/*
 rc.d/btcwallet/*
-rc.d/vim/**/*/gocomplete.vim
 rc.d/vscode/extensions/*
 rc.d/vscode/userdata/workspaceStorage/*
 rc.d/karabiner/automatic_backups/*.json
