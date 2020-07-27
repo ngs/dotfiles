@@ -8,7 +8,7 @@ symlink() {
   ORG=$1
   DST=$2
   echo "Symlinking: ${ORG} -> ${DST}"
-  rm -f $DST
+  rm -rf $DST
   ln -s $ORG $DST
   cd - >/dev/null 2>&1
 }
