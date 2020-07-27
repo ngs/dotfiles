@@ -7,17 +7,17 @@ DOTFILES=$(cd $(dirname $0) && pwd)
 
 set +u
 if [ $CODESPACES ]; then
-  /bin/sh $DOTFILES/setup/codespaces/apt.sh
+  /bin/sh $DOTFILES/setup.d/codespaces/apt.sh
 fi
 set -u
 
-for f in $DOTFILES/setup/*.sh ; do
+for f in $DOTFILES/setup.d/*.sh ; do
   /bin/sh $f
 done
 
 if [ $UNAME == 'Darwin' ]; then
-  /bin/sh $DOTFILES/setup/darwin/homebrew.sh
-  for f in $DOTFILES/setup/darwin/*.sh ; do
+  /bin/sh $DOTFILES/setup.d/darwin/homebrew.sh
+  for f in $DOTFILES/setup.d/darwin/*.sh ; do
     /bin/sh $f
   done
 fi

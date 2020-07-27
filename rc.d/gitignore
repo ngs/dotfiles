@@ -13,3 +13,4 @@ xcuserdata
 node_modules
 npm-debug.log
 DerivedData
+*.icloud
