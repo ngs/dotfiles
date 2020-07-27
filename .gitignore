@@ -27,3 +27,4 @@ rc.d/karabiner/automatic_backups/*.json
 rc.d/atom/.*socket*
 state.vscdb*
 Brewfiles/*.lock.json
+Gemfile.lock
