@@ -74,3 +74,9 @@ propen() {
 cfls() {
   aws cloudfront list-distributions --output table --query 'DistributionList.Items[*].[DomainName,Id,Origins.Items[0].DomainName]'
 }
+
+dfdiff() {
+  cd $DOTFILES
+  git diff
+  cd -
+}
