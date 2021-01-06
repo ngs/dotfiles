@@ -14,14 +14,20 @@
   "prettier.disableLanguages": ["html"],
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-  "breadcrumbs.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "eslint.autoFixOnSave": true,
   "tslint.autoFixOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "go.formatTool": "goimports",
-  "go.useLanguageServer": true
+  "go.toolsEnvVars": {
+    "GOFLAGS": "-mod=vendor"
+  },
+  "go.useLanguageServer": true,
+  "go.liveErrors": {
+    "enabled": false,
+    "delay": 500
+  },
+  "go.gopath": "~/go/1.14.3"
 }
