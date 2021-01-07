@@ -1,6 +1,6 @@
 # vim: set ft=ruby
 
-tap "caskroom/fonts"
+tap "homebrew/cask-fonts"
 
 cask "font-dejavu-sans-mono-for-powerline"
 cask "font-inconsolata-dz-for-powerline"
