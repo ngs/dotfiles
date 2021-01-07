@@ -2,8 +2,9 @@
   "editor.fontFamily": "'SF Mono Regular', Menlo, Monaco, 'Courier New', monospace",
   "editor.formatOnSave": true,
   "go.testOnSave": true,
-  "go.testFlags": ["-v"],
-  "go.coverOnSave": true,
+  "go.testFlags": [
+    "-v"
+  ],
   "git.autofetch": true,
   "git.confirmSync": false,
   "editor.minimap.enabled": false,
@@ -20,7 +21,7 @@
     "source.fixAll.eslint": true
   },
   "window.zoomLevel": 1,
-  "go.formatTool": "goimports",
+  "go.formatTool": "gofmt",
   "go.toolsEnvVars": {
     "GOFLAGS": "-mod=vendor"
   },
@@ -29,5 +30,6 @@
     "enabled": false,
     "delay": 500
   },
-  "go.gopath": "~/go/1.14.3"
+  "go.gopath": "~/go/1.14.13",
+  "go.coverOnTestPackage": false
 }
