@@ -5,6 +5,9 @@ UNAME=$(uname -s)
 TS=$(date +'%Y%m%d%H%M%S')
 DOTFILES=$(cd $(dirname $0) && pwd)
 
+git submodule init
+git submodule update
+
 set +u
 if [ $CODESPACES ]; then
   /bin/sh $DOTFILES/setup.d/codespaces/apt.sh
