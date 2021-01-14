@@ -6,14 +6,13 @@ dbaeumer.vscode-eslint
 EditorConfig.EditorConfig
 eg2.tslint
 esbenp.prettier-vscode
+golang.go
 karunamurti.haml
-ms-vscode.csharp
-ms-vscode.Go
-ms-vscode.mono-debug
 ms-vscode.Theme-TomorrowKit
 octref.vetur
 rebornix.ruby
 ryanluker.vscode-coverage-gutters
+salesforce.salesforce-vscode-slds
 salesforce.salesforcedx-vscode
 salesforce.salesforcedx-vscode-apex
 salesforce.salesforcedx-vscode-apex-debugger
