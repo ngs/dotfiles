@@ -28,7 +28,8 @@
             "terminal.ansiMagenta":"#cc99cc",
             "terminal.ansiRed":"#f2777a",
             "terminal.ansiWhite":"#A89984",
-            "terminal.ansiYellow":"#ffcc66"
+            "terminal.ansiYellow":"#ffcc66",
+            "focusBorder": "#a33d0e"
         }
     },
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
