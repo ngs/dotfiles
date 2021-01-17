@@ -23,6 +23,7 @@ rc.d/btcd/*
 rc.d/btcwallet/*
 rc.d/vscode/extensions/*
 rc.d/vscode/userdata/workspaceStorage/*
+rc.d/vscode/userdata/sync/*
 rc.d/karabiner/automatic_backups/*.json
 rc.d/atom/.*socket*
 state.vscdb*

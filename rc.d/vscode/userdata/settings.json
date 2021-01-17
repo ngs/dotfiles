@@ -1,35 +1,13 @@
 {
-  "editor.fontFamily": "'SF Mono Regular', Menlo, Monaco, 'Courier New', monospace",
-  "editor.formatOnSave": true,
-  "go.testOnSave": true,
-  "go.testFlags": [
-    "-v"
-  ],
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "editor.minimap.enabled": false,
-  "workbench.colorTheme": "Tomorrow Night Eighties",
-  "terminal.integrated.shell.linux": "/usr/bin/zsh",
-  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-  "breadcrumbs.enabled": true,
-  "prettier.disableLanguages": ["html"],
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "tslint.autoFixOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "window.zoomLevel": 1,
-  "go.formatTool": "gofmt",
-  "go.toolsEnvVars": {
-    "GOFLAGS": "-mod=vendor"
-  },
-  "go.useLanguageServer": true,
-  "go.liveErrors": {
-    "enabled": false,
-    "delay": 500
-  },
-  "go.gopath": "~/go/1.14.13",
-  "go.coverOnTestPackage": false
+    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "go.formatTool": "goimports",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "go.autocompleteUnimportedPackages": true,
+    "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": false,
+    "go.gopath": "~/go/1.14.13",
+    "workbench.preferredDarkColorTheme": "Monokai Dimmed"
 }
