@@ -13,6 +13,7 @@ if command -v apt-get &> /dev/null; then
     moc \
     moc-ffmpeg-plugin \
     curl \
-    apt-transport-https
+    apt-transport-https \
+    direnv
 fi
 

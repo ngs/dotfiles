@@ -22,7 +22,7 @@ chmod 400 ~/.ssh/id_rsa
 chmod 700 ~/.ssh
 
 dbxcli get /Credentials/gpg/gpg-ngs-secret.key
-cat gpg-ngs-secret.key | gpg --import
+cat gpg-ngs-secret.key | gpg --import || true
 rm gpg-ngs-secret.key
 
 [ -f /usr/bin/pinentry ] && [ ! -f /usr/local/bin/pinentry ] && sudo ln -s /usr/bin/pinentry /usr/local/bin/pinentry
