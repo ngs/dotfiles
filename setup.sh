@@ -5,8 +5,10 @@ UNAME=$(uname -s)
 TS=$(date +'%Y%m%d%H%M%S')
 DOTFILES=$(cd $(dirname $0) && pwd)
 
+cd $DOTFILES
 git submodule init
 git submodule update
+cd -
 
 set +u
 if [ $CODESPACES ]; then

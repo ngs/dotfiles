@@ -9,7 +9,7 @@ if [ $UNAME == 'Darwin' ]; then
   DBIXCLI_ARCH='darwin-amd64'
 fi
 
-if ! command -v dbxcli &> /dev/null; then
+if ! command -v dbxcli 1>/dev/null 2>&1; then
   sudo wget "https://github.com/dropbox/dbxcli/releases/download/v${DBXCLI_VERSION}/dbxcli-${DBXCLI_ARCH}" -O /usr/local/bin/dbxcli
   sudo chmod +x /usr/local/bin/dbxcli
 fi
@@ -25,4 +25,4 @@ dbxcli get /Credentials/gpg/gpg-ngs-secret.key
 cat gpg-ngs-secret.key | gpg --import || true
 rm gpg-ngs-secret.key
 
-[ -f /usr/bin/pinentry ] && [ ! -f /usr/local/bin/pinentry ] && sudo ln -s /usr/bin/pinentry /usr/local/bin/pinentry
+([ -f /usr/bin/pinentry ] && [ ! -f /usr/local/bin/pinentry ] && sudo ln -s /usr/bin/pinentry /usr/local/bin/pinentry) || true
