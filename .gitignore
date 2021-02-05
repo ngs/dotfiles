@@ -29,3 +29,5 @@ rc.d/atom/.*socket*
 state.vscdb*
 Brewfiles/*.lock.json
 Gemfile.lock
+/rc.d/moc/*
+!/rc.d/moc/*.config
