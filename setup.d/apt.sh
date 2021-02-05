@@ -14,6 +14,8 @@ if command -v apt-get &> /dev/null; then
     moc-ffmpeg-plugin \
     curl \
     apt-transport-https \
-    direnv
+    direnv \
+    exfat-fuse \
+    ntfs-3g
 fi
 
