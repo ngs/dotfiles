@@ -16,6 +16,10 @@ if [ $CODESPACES ]; then
 fi
 set -u
 
+if  $UNAME == 'Linux' && [ -f /boot/config.txt ]; then
+  /bin/sh $DOTFILES/setup.d/raspberrypi/apt.sh
+fi
+
 for f in $DOTFILES/setup.d/*.sh ; do
   /bin/sh $f
 done
