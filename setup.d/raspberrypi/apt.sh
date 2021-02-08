@@ -3,19 +3,20 @@ set -eux
 
 sudo apt-get update -y
 sudo apt-get install -y \
-  python3-dev \
-  tmux \
-  build-essential \
-  git \
-  vim \
-  zsh \
-  moc \
-  moc-ffmpeg-plugin \
-  curl \
   apt-transport-https \
+  build-essential \
+  cmake \
+  curl \
   direnv \
   exfat-fuse \
-  ntfs-3g
+  git \
+  moc \
+  moc-ffmpeg-plugin \
+  ntfs-3g \
+  python3-dev \
+  tmux \
+  vim \
+  zsh
 
-curl https://rclone.org/install.sh | sudo bash
-curl -sL https://dtcooper.github.io/raspotify/install.sh | sh
+which rclone || curl https://rclone.org/install.sh | sudo bash
+systemctl is-active raspotify || curl -sL https://dtcooper.github.io/raspotify/install.sh | sh
