@@ -208,3 +208,9 @@ let g:goyo_width = 120
 " Snipmate
 " =================================================
 let g:snipMate = { 'snippet_version' : 1 }
+
+
+" =================================================
+" YouCompleteMe
+" =================================================
+let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
