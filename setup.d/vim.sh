@@ -7,7 +7,7 @@ curl -sfLo ${DOTFILES}/rc.d/vim/autoload/plug.vim https://raw.githubusercontent.
 
 vim +PlugInstall +qall
 
-cd "${DOTFILES}/rc.d/vim/plugged/YouCompleteMe"
-python3 install.py --all
-
-
+if [ ! -f /boot/config.txt ]; then
+  cd "${DOTFILES}/rc.d/vim/plugged/YouCompleteMe"
+  python3 install.py --all
+fi

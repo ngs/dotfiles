@@ -39,10 +39,13 @@ Plug 'tpope/vim-bundler', { 'for': ['rb'] }
 Plug 'tpope/vim-rails', { 'for': ['rb'] }
 Plug 'vim-ruby/vim-ruby', { 'for': ['rb'] }
 Plug 'vim-syntastic/syntastic'
-Plug 'ycm-core/YouCompleteMe'
 
 if v:version >= 800
   Plug 'Quramy/tsuquyomi', { 'do': 'npm i -g typescript', 'for': ['ts', 'tsx'] }
+endif
+
+if v:version > 801 || (v:version == 801 && has( 'patch2269' ))
+  Plug 'ycm-core/YouCompleteMe'
 endif
 
 " All of your Plugins must be added before the following line
