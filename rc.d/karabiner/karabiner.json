@@ -206,6 +206,56 @@
                     "ignore": false,
                     "manipulate_caps_lock_led": false,
                     "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 332,
+                        "vendor_id": 2131
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "pointing_button": "button4"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "open_bracket",
+                                    "modifiers": [
+                                        "left_gui"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "pointing_button": "button5"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "close_bracket",
+                                    "modifiers": [
+                                        "left_gui"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "pointing_button": "button3"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "spacebar"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
             "fn_function_keys": [
