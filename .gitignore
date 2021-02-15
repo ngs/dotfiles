@@ -31,3 +31,6 @@ Brewfiles/*.lock.json
 Gemfile.lock
 /rc.d/moc/*
 !/rc.d/moc/*.config
+/rc.d/cmus/*
+!/rc.d/cmus/*.rc
+

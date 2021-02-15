@@ -1,0 +1,4 @@
+set output_plugin=alsa
+set dsp.alsa.device=hw:2
+set mixer.alsa.device=hw:2
+set mixer.alsa.channel=Portable Headphone Amplifier  Playback Volu

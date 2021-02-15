@@ -21,7 +21,7 @@ ensure_directory() {
 
 for f in $DOTFILES/rc.d/*; do
   BASENAME=$(basename $f)
-  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'sbt' ] && [ $BASENAME != 'ssh' ] && [ $BASENAME != 'karabiner' ]; then
+  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'sbt' ] && [ $BASENAME != 'ssh' ] && [ $BASENAME != 'cmus' ] && [ $BASENAME != 'karabiner' ]; then
     rm -rf "${HOME}/${BASENAME}"
     symlink $f "${HOME}/.${BASENAME}"
   fi
@@ -39,3 +39,4 @@ symlink "${DOTFILES}/rc.d/sbt/0.13/plugins/build.sbt" "${HOME}/.sbt/0.13/plugins
 ## Karabiner Elements
 ensure_directory "${HOME}/.config"
 symlink "${DOTFILES}/rc.d/karabiner" "${HOME}/.config/karabiner"
+symlink "${DOTFILES}/rc.d/cmus" "${HOME}/.config/cmus"
