@@ -6,7 +6,7 @@ DBXCLI_ARCH='linux-arm'
 UNAME=$(uname -s)
 
 if [ $UNAME == 'Darwin' ]; then
-  DBIXCLI_ARCH='darwin-amd64'
+  DBXCLI_ARCH='darwin-amd64'
 fi
 
 if ! command -v dbxcli 1>/dev/null 2>&1; then
