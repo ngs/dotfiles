@@ -47,6 +47,10 @@
   smudge = cat
   clean = sed '/^\\/\\/registry\\.npmjs\\.org\\/:_authToken/d'
 
+[filter "gunzip"]
+  smudge = gzip -n --fast
+  clean = gunzip
+
 [mergetool "storyboard"]
   name = StoryboardMerge interactive merge
   cmd = storyboard-merge $BASE $LOCAL $REMOTE $MERGED
