@@ -69,3 +69,5 @@
 # 	insteadOf = https://github.com/
 [pull]
 	rebase = false
+[init]
+	defaultBranch = master
