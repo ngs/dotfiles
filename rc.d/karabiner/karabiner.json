@@ -145,6 +145,16 @@
                     "simple_modifications": [
                         {
                             "from": {
+                                "pointing_button": "button3"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "spacebar"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
                                 "pointing_button": "button4"
                             },
                             "to": [
@@ -166,16 +176,6 @@
                                     "modifiers": [
                                         "left_gui"
                                     ]
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "pointing_button": "button3"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "spacebar"
                                 }
                             ]
                         }
@@ -221,6 +221,16 @@
                     "simple_modifications": [
                         {
                             "from": {
+                                "pointing_button": "button3"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "spacebar"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
                                 "pointing_button": "button4"
                             },
                             "to": [
@@ -244,18 +254,21 @@
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            "from": {
-                                "pointing_button": "button3"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "spacebar"
-                                }
-                            ]
                         }
                     ]
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 33,
+                        "vendor_id": 1278
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": []
                 }
             ],
             "fn_function_keys": [
