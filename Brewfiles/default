@@ -60,6 +60,7 @@ brew "qt5"
 brew "rbenv"
 brew "rbenv-gemset"
 brew "redis", restart_service: :changed
+brew "postgresql@11", restart_service: :changed
 brew "ruby-build"
 brew "swiftenv"
 brew "swiftlint"
