@@ -54,14 +54,15 @@ brew "perl-build"
 brew "pinentry-mac"
 brew "pkg-config"
 brew "plenv"
+brew "postgresql@11", restart_service: :changed
 brew "pyenv"
 brew "python"
 brew "qt5"
 brew "rbenv"
 brew "rbenv-gemset"
 brew "redis", restart_service: :changed
-brew "postgresql@11", restart_service: :changed
 brew "ruby-build"
+brew "shared-mime-info"
 brew "swiftenv"
 brew "swiftlint"
 brew "terminal-notifier"
