@@ -65,6 +65,7 @@ brew "rbenv-gemset"
 brew "redis", restart_service: :changed
 brew "ruby-build"
 brew "shared-mime-info"
+brew "svn"
 brew "swiftenv"
 brew "swiftlint"
 brew "terminal-notifier"
