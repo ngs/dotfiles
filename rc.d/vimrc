@@ -22,7 +22,7 @@ Plug 'jparise/vim-graphql'
 Plug 'junegunn/goyo.vim'
 Plug 'kchmck/vim-coffee-script', { 'for': ['cjsx', 'coffee'] }
 Plug 'keith/swift.vim', { 'for': ['swift'] }
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'tsx'] }
 Plug 'mtscout6/vim-cjsx', { 'for': ['cjsx', 'coffee'] }
 Plug 'othree/xml.vim', { 'for': ['xml'] }
 Plug 'pangloss/vim-javascript', { 'for': ['js'] }
@@ -30,7 +30,7 @@ Plug 'plasticboy/vim-markdown', { 'for': ['md', 'mkdn', 'markdown'] }
 Plug 'posva/vim-vue', { 'for': ['vue'] }
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['ts', 'js', 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'md', 'markdown', 'vue'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['ts', 'js', 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'md', 'markdown', 'vue', 'tsx', 'typescriptreact'] }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'slim-template/vim-slim', { 'for': ['slim'] }
 Plug 'thoughtbot/vim-rspec', { 'for': ['rb'] }
