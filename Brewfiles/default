@@ -1,10 +1,11 @@
 # vim: set ft=ruby
 
-tap "ngs/formulae"
-tap "thoughtbot/formulae"
+tap "aws/tap"
 tap "homebrew/services"
 tap "kylef/formulae"
-tap "aws/tap"
+tap "microsoft/mssql-release", "https://github.com/Microsoft/homebrew-mssql-release"
+tap "ngs/formulae"
+tap "thoughtbot/formulae"
 
 brew "ansible"
 brew "arduino-cli"
@@ -44,6 +45,8 @@ brew "mecab"
 brew "mecab-ipadic"
 brew "miniupnpc"
 brew "mono0926/license-plist/license-plist"
+brew "msodbcsql"
+brew "mssql-tools"
 brew "mysql@5.7", restart_service: :changed
 brew "nbc"
 brew "nexttool"
