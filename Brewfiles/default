@@ -68,6 +68,7 @@ brew "rbenv"
 brew "rbenv-gemset"
 brew "redis", restart_service: :changed
 brew "ruby-build"
+brew "rustup-init"
 brew "shared-mime-info"
 brew "svn"
 brew "swiftenv"
