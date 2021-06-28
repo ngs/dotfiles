@@ -4,6 +4,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/cask-drivers"
 
+cask "adguard"
 cask "alfred"
 cask "android-studio"
 cask "arduino"
