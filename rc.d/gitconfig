@@ -45,7 +45,7 @@
 
 [filter "ignore-npmrc"]
   smudge = cat
-  clean = sed '/^\\/\\/registry\\.npmjs\\.org\\/:_authToken/d'
+  clean = sed '/:_authToken/d'
 
 [filter "gunzip"]
   smudge = gzip -n --fast
