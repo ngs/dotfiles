@@ -54,7 +54,6 @@ brew "nbc"
 brew "nexttool"
 brew "nginx", restart_service: :changed
 brew "nodenv"
-brew "nuget"
 brew "openssl"
 brew "peco"
 brew "perl-build"
