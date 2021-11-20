@@ -6,6 +6,7 @@ tap "homebrew/cask-drivers"
 
 cask "ableton-live-suite"
 cask "adguard"
+cask "adobe-creative-cloud"
 cask "alfred"
 cask "android-studio"
 cask "arduino"
