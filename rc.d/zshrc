@@ -1,5 +1,6 @@
 UNAME=$(uname -s)
 DOTFILES=$HOME/dotfiles
+source $DOTFILES/env.sh
 #
 # ohmyzsh
 #
@@ -8,7 +9,7 @@ ZSH_CUSTOM=$DOTFILES/rc.d/zsh/custom
 ZSH_THEME="ngs"
 if [ $UNAME = 'Darwin' ]; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-  plugins=(git rbenv osx docker)
+  plugins=(git rbenv macos docker)
 else
   fpath=(~/.zsh/completion $fpath)
   plugins=(git rbenv docker)
@@ -31,13 +32,7 @@ source $DOTFILES/rc.d/zsh/zaw/zaw.zsh
 zstyle ':filter-select' case-insensitive yes
 bindkey '^@' zaw-cdr
 
-# added by travis gem
-if [ -f /Users/ngs/.travis/travis.sh ]; then
-  source /Users/ngs/.travis/travis.sh
-fi
-
 eval "$(direnv hook zsh)"
-source $DOTFILES/env.sh
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`

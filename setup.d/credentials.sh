@@ -10,7 +10,7 @@ if [ $UNAME == 'Darwin' ]; then
 fi
 
 if ! command -v dbxcli 1>/dev/null 2>&1; then
-  sudo wget "https://github.com/dropbox/dbxcli/releases/download/v${DBXCLI_VERSION}/dbxcli-${DBXCLI_ARCH}" -O /usr/local/bin/dbxcli
+  sudo curl -L --output /usr/local/bin/dbxcli "https://github.com/dropbox/dbxcli/releases/download/v${DBXCLI_VERSION}/dbxcli-${DBXCLI_ARCH}"
   sudo chmod +x /usr/local/bin/dbxcli
 fi
 

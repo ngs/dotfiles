@@ -9,5 +9,5 @@ vim +PlugInstall +qall
 
 if [ ! -f /boot/config.txt ]; then
   cd "${DOTFILES}/rc.d/vim/plugged/YouCompleteMe"
-  python3 install.py --all
+  python3 ./install.py --clang-completer --ts-completer --system-libclang
 fi

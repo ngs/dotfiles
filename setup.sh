@@ -5,6 +5,8 @@ UNAME=$(uname -s)
 TS=$(date +'%Y%m%d%H%M%S')
 DOTFILES=$(cd $(dirname $0) && pwd)
 
+sudo mkdir -p /usr/local/bin
+
 cd $DOTFILES
 git submodule init
 git submodule update
