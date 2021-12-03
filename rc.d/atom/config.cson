@@ -26,7 +26,7 @@
     telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
-      "tomorrow-night-eighties-syntax"
+      "tomorrow-night-eighties"
     ]
   editor:
     fontFamily: "SFMono-Regular"
