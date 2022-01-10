@@ -25,7 +25,7 @@ brew "git"
 brew "git-crypt"
 brew "git-lfs"
 brew "gitsh"
-brew "goenv"
+brew "goenv", args: ['HEAD']
 brew "gpg"
 brew "graphviz"
 brew "guetzli"
