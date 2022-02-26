@@ -27,3 +27,5 @@ alias tmux="tmux -2"
 
 alias moonphase='curl wttr.in/moon'
 alias weather='curl wttr.in'
+
+alias xcopen='open *.xcodeproj'
