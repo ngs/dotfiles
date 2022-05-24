@@ -1,6 +1,5 @@
 # vim: set ft=ruby
 
-mas '1Password 7', id: 1333542190
 mas 'Clocks', id: 414554506
 mas 'Evernote', id: 406056744
 mas 'GIPHY CAPTURE', id: 668208984

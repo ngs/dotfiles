@@ -4,6 +4,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/cask-drivers"
 
+cask "1password"
 cask "1password-cli"
 cask "ableton-live-suite"
 cask "adguard"
