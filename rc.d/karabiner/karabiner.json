@@ -221,11 +221,11 @@
                     "simple_modifications": [
                         {
                             "from": {
-                                "pointing_button": "button3"
+                                "pointing_button": "button5"
                             },
                             "to": [
                                 {
-                                    "key_code": "spacebar"
+                                    "apple_vendor_keyboard_key_code": "mission_control"
                                 }
                             ]
                         },
@@ -235,23 +235,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "open_bracket",
-                                    "modifiers": [
-                                        "left_gui"
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "pointing_button": "button5"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "close_bracket",
-                                    "modifiers": [
-                                        "left_gui"
-                                    ]
+                                    "key_code": "launchpad"
                                 }
                             ]
                         }
@@ -291,6 +275,19 @@
                         "is_pointing_device": false,
                         "product_id": 34304,
                         "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 332,
+                        "vendor_id": 2131
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
@@ -424,18 +421,7 @@
                 "delay_milliseconds_before_open_device": 1000
             },
             "selected": true,
-            "simple_modifications": [
-                {
-                    "from": {
-                        "key_code": "caps_lock"
-                    },
-                    "to": [
-                        {
-                            "key_code": "left_control"
-                        }
-                    ]
-                }
-            ],
+            "simple_modifications": [],
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "indicate_sticky_modifier_keys_state": true,
