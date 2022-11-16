@@ -22,13 +22,13 @@ if [ $UNAME == 'Linux' ] && [ -f /boot/config.txt ]; then
   /bin/sh $DOTFILES/setup.d/raspberrypi/apt.sh
 fi
 
-for f in $DOTFILES/setup.d/*.sh ; do
-  /bin/sh $f
-done
-
 if [ $UNAME == 'Darwin' ]; then
   /bin/sh $DOTFILES/setup.d/darwin/homebrew.sh
   for f in $DOTFILES/setup.d/darwin/*.sh ; do
     /bin/sh $f
   done
 fi
+
+for f in $DOTFILES/setup.d/*.sh ; do
+  /bin/sh $f
+done

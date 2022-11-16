@@ -1,2 +1,1 @@
-# export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export PATH=/opt/homebrew/bin:$PATH
+[ -e /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)" 
