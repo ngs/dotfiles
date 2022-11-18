@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>ssh-add</string>
-        <string>-A</string>
+        <string>--apple-use-keychain</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
