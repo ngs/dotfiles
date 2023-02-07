@@ -1,6 +1,7 @@
 # vim: set ft=ruby
 
 mas 'Clocks', id: 414554506
+mas 'Colibri', id: 1178295426
 mas 'Evernote', id: 406056744
 mas 'GIPHY CAPTURE', id: 668208984
 mas 'Keynote', id: 409183694
