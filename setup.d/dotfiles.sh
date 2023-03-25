@@ -39,4 +39,5 @@ symlink "${DOTFILES}/rc.d/sbt/0.13/plugins/build.sbt" "${HOME}/.sbt/0.13/plugins
 ## Karabiner Elements
 ensure_directory "${HOME}/.config"
 symlink "${DOTFILES}/rc.d/karabiner" "${HOME}/.config/karabiner"
+symlink "${DOTFILES}/rc.d/gh" "${HOME}/.config/gh"
 symlink "${DOTFILES}/rc.d/cmus" "${HOME}/.config/cmus"
