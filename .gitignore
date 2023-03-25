@@ -34,4 +34,4 @@ Gemfile.lock
 !/rc.d/moc/eqsets
 /rc.d/cmus/*
 !/rc.d/cmus/*.rc
-
+/rc.d/gh/hosts.yml
