@@ -5,8 +5,11 @@ set -eu
 EDITOR=com.panic.Nova
 
 UTIS="
+  public.yaml
+  public.mpeg-2-transport-stream
   public.make-source
   public.unix-executable
+  public.json
   public.text
   public.data
   public.item
