@@ -6,7 +6,6 @@ EDITOR=com.panic.Nova
 
 UTIS="
   public.yaml
-  public.mpeg-2-transport-stream
   public.make-source
   public.unix-executable
   public.json
@@ -21,6 +20,37 @@ UTIS="
   org.golang.golang
 "
 
+EXTS="
+  css
+  go
+  gql
+  graphql
+  graphqls
+  js
+  json
+  jsx
+  lock
+  md
+  py
+  rb
+  sass
+  scss
+  sh
+  svg
+  toml
+  ts
+  tsx
+  txt
+  xml
+  yaml
+  yml
+"
+
 for I in $UTIS; do
   duti -s $EDITOR $I all
+done
+
+for I in $EXTS; do
+  # duti -s com.panic.Nova .sh all
+  duti -s $EDITOR ".$I" all
 done
