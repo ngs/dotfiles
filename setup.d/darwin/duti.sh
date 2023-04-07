@@ -36,6 +36,7 @@ EXTS="
   sass
   scss
   sh
+  sql
   svg
   toml
   ts
