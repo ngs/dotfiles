@@ -231,7 +231,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "launchpad"
+                                    "key_code": "f11"
                                 }
                             ]
                         },
