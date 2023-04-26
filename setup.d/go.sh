@@ -21,7 +21,7 @@ if command -v go 1>/dev/null 2>&1; then
   go install github.com/cweill/gotests/...@latest
   go install github.com/rogpeppe/godef@latest
   go install github.com/ramya-rao-a/go-outline@latest
-  if [[ $ARCH != 'armv7' ]] && [[ $ARCH != 'armv6l' ]]; then
+  if [ $ARCH != 'armv7' ] && [ $ARCH != 'armv6l' ]; then
     go install github.com/go-delve/delve/cmd/dlv@latest
   fi
 fi

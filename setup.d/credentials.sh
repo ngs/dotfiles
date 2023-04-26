@@ -2,7 +2,7 @@
 set -eux
 
 DBXCLI_VERSION='3.0.0'
-DBXCLI_ARCH='linux-arm'
+DBXCLI_ARCH='linux-amd64'
 UNAME=$(uname -s)
 
 if [ $UNAME == 'Darwin' ]; then

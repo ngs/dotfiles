@@ -13,8 +13,16 @@ git submodule update
 cd -
 
 set +u
+if [ $WSL_DISTRO_NAME == 'Ubuntu' ]; then
+  for f in $DOTFILES/setup.d/ubuntu/*.sh ; do
+    /bin/sh $f
+  done
+fi
+
 if [ $CODESPACES ]; then
-  /bin/sh $DOTFILES/setup.d/codespaces/apt.sh
+  for f in $DOTFILES/setup.d/ubuntu/*.sh ; do
+    /bin/sh $f
+  done
 fi
 set -u
 
