@@ -152,7 +152,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "f11"
+                                    "apple_vendor_keyboard_key_code": "mission_control"
                                 }
                             ]
                         },
@@ -203,7 +203,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "f11"
+                                    "apple_vendor_keyboard_key_code": "mission_control"
                                 }
                             ]
                         },
