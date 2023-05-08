@@ -152,7 +152,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "spacebar"
+                                    "key_code": "f11"
                                 }
                             ]
                         },
@@ -203,7 +203,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "spacebar"
+                                    "key_code": "f11"
                                 }
                             ]
                         },
