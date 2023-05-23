@@ -31,6 +31,7 @@ Plug 'posva/vim-vue', { 'for': ['vue'] }
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['ts', 'js', 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'md', 'markdown', 'vue', 'tsx', 'typescriptreact'] }
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'slim-template/vim-slim', { 'for': ['slim'] }
@@ -225,3 +226,13 @@ let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
 " Rust
 " =================================================
 let g:rustfmt_autosave = 1
+
+" =================================================
+" Black
+" =================================================
+
+augroup black_on_save
+  autocmd!
+  autocmd BufWritePre *.py Black
+augroup end
+
