@@ -2,14 +2,9 @@
 .DS_Store
 .netrwhist
 /.bundle
-/rc.d/atom/.apm
-/rc.d/atom/.node-gyp
-/rc.d/atom/compile-cache/
-/rc.d/atom/packages/
-/rc.d/atom/storage/
-/rc.d/atom/recovery/
 /rc.d/vim/bundle/
 /rc.d/vim/plugged/
+/rc.d/vim/black/
 /vendor/ruby/
 khal.db
 workbench.xmi
