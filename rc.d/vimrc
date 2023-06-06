@@ -16,6 +16,7 @@ Plug 'docunext/closetag.vim', { 'for': ['html', 'erb', 'php', 'xml', 'xslt'] }
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 Plug 'garbas/vim-snipmate'
+Plug 'github/copilot.vim'
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
