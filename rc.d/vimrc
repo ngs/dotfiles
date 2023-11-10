@@ -192,6 +192,8 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 " NERDTree
 " =================================================
 let NERDTreeShowHidden=1
+let NERDTreeMapOpenInTab='<ENTER>'
+let NERDTreeIgnore=['\.o$', '\~$', '\.DS_Store$', '\.swp$', '\.git$']
 
 au VimEnter *  NERDTree
 
