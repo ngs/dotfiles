@@ -60,7 +60,7 @@ brew "perl-build"
 brew "pinentry-mac"
 brew "pkg-config"
 brew "plenv"
-brew "postgresql@11", restart_service: :changed
+brew "postgresql@12", restart_service: :changed
 brew "pyenv"
 brew "python"
 brew "qt5"
