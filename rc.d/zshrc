@@ -45,3 +45,5 @@ eval "$(direnv hook zsh)"
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 function gam() { "/Users/ngs/bin/gam/gam" "$@" ; }
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
