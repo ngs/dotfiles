@@ -47,3 +47,6 @@ eval "$(direnv hook zsh)"
 function gam() { "/Users/ngs/bin/gam/gam" "$@" ; }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Created by `pipx` on 2024-11-27 08:49:38
+export PATH="$PATH:/Users/ngs/.local/bin"

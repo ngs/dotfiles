@@ -1,7 +1,7 @@
 source $HOME/dotfiles/env.sh
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export TREETAGGER_COMMAND=$HOME/tree-tagger/cmd/tree-tagger-english
 
 function gam() { "/Users/ngs/bin/gam/gam" "$@" ; }
