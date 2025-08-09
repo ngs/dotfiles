@@ -17,3 +17,4 @@ DerivedData
 ~$*
 schema.json
 *.pyc
+.byebug_history

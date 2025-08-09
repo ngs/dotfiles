@@ -6,6 +6,7 @@ tap "kylef/formulae"
 tap "microsoft/mssql-release", "https://github.com/Microsoft/homebrew-mssql-release"
 tap "ngs/formulae"
 tap "thoughtbot/formulae"
+tap "hashicorp/tap"
 
 brew "ansible"
 brew "arduino-cli"
