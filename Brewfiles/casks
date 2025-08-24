@@ -1,7 +1,5 @@
 # vim: set ft=ruby
 
-tap "homebrew/cask-versions"
-
 cask "1password"
 cask "1password-cli"
 cask "ableton-live-suite"
@@ -17,7 +15,6 @@ cask "azure-data-studio"
 cask "caprine"
 cask "ccmenu"
 cask "discord"
-cask "docker"
 cask "dotnet-sdk"
 cask "drawio"
 cask "dropbox"
