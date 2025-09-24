@@ -20,7 +20,7 @@ fi
 
 # [ -d ~/.ssh ] || mkdir ~/.ssh
 # [ -f ~/.ssh/id_rsa ] || dbxcli get /Credentials/gpg/gpg-ngs-secret.key ~/.ssh/id_rsa
-chmod 400 ~/.ssh/id_rsa
+[ -f ~/.ssh/id_rsa ] && chmod 400 ~/.ssh/id_rsa
 chmod 700 ~/.ssh
 
 # bxcli get /Credentials/gpg/gpg-ngs-secret.key

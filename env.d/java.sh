@@ -8,3 +8,8 @@ for jar in ${jars}; do
     CLASSPATH=${CLASSPATH}:${jar}
 done
 export CLASSPATH
+
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export JAVA_HOME="/opt/homebrew/opt/openjdk"
