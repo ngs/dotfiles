@@ -1,6 +1,5 @@
-Include /Users/nagase/.colima/ssh_config
-
 Include ~/.ssh/conf.d/*
+Include ~/.colima/ssh_config
 
 Host *
   ForwardAgent yes
