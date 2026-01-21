@@ -21,7 +21,7 @@ ensure_directory() {
 
 for f in $DOTFILES/rc.d/*; do
   BASENAME=$(basename $f)
-  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'sbt' ] && [ $BASENAME != 'ssh' ] && [ $BASENAME != 'cmus' ] && [ $BASENAME != 'karabiner' ]; then
+  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'sbt' ] && [ $BASENAME != 'ssh' ] && [ $BASENAME != 'cmus' ] && [ $BASENAME != 'karabiner' ] && [ $BASENAME != 'claude' ] && [ $BASENAME != 'gh' ]; then
     rm -rf "${HOME}/${BASENAME}"
     symlink $f "${HOME}/.${BASENAME}"
   fi
@@ -41,3 +41,7 @@ ensure_directory "${HOME}/.config"
 symlink "${DOTFILES}/rc.d/karabiner" "${HOME}/.config/karabiner"
 symlink "${DOTFILES}/rc.d/gh" "${HOME}/.config/gh"
 symlink "${DOTFILES}/rc.d/cmus" "${HOME}/.config/cmus"
+## Claude Code
+ensure_directory "${HOME}/.claude"
+symlink "${DOTFILES}/rc.d/claude/settings.json" "${HOME}/.claude/settings.json"
+symlink "${DOTFILES}/rc.d/claude/skills" "${HOME}/.claude/skills"
