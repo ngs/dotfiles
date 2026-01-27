@@ -3,9 +3,14 @@ name: commit-message-ja
 description: Generate commit message in Japanese from git diff.
 ---
 
-# Commit Message Generator
+# Commit Message Generator (日本語)
 
-Generate a commit message in Japanese from the current uncommitted git changes.
+**出力形式の制約（必ず守ること）:**
+レスポンス全体がコミットメッセージのテキストのみであること。
+- 前置き禁止（「分析した結果...」「以下がコミットメッセージです...」など）
+- マークダウンのコードブロックやバッククォート禁止
+- 説明文禁止（前後とも）
+- レスポンスはコミットタイプ（feat:, fix: など）から直接開始すること
 
 ## Instructions
 
@@ -19,36 +24,29 @@ Based on the changes, generate a commit message following these guidelines:
 ### Commit Message Format
 
 ```
-<type>: <subject>
+<type>: <subject in Japanese>
 
-<body>
+<body in Japanese>
 ```
 
 ### Types
 
-- `feat`: A new feature
-- `fix`: A bug fix
-- `docs`: Documentation only changes
-- `style`: Changes that do not affect the meaning of the code (formatting, etc.)
-- `refactor`: A code change that neither fixes a bug nor adds a feature
-- `perf`: A code change that improves performance
-- `test`: Adding missing tests or correcting existing tests
-- `chore`: Changes to the build process or auxiliary tools
+- `feat`: 新機能
+- `fix`: バグ修正
+- `docs`: ドキュメントのみの変更
+- `style`: コードの意味に影響しない変更（フォーマットなど）
+- `refactor`: バグ修正でも機能追加でもないコード変更
+- `perf`: パフォーマンス改善
+- `test`: テストの追加・修正
+- `chore`: ビルドプロセスや補助ツールの変更
 
 ### Rules
 
-- Subject line should be 50 characters or less
-- Use imperative mood ("Add feature" not "Added feature")
-- Do not end the subject line with a period
-- Body should explain what and why, not how
-- Wrap body at 72 characters
+- 件名は50文字以内
+- 件名の末尾に句点を付けない
+- 本文は「何を」「なぜ」を説明（「どのように」は不要）
+- 本文は72文字で折り返し
 
-### Output
+---
 
-CRITICAL RULES:
-- Output ONLY the raw commit message text
-- NO preamble like "Based on my analysis..." or "Here's the commit message:"
-- NO markdown code blocks or backticks
-- NO explanation before or after
-- Start directly with the type (feat, fix, etc.)
-- The output will be passed directly to `git commit -m` command
+**最終確認: レスポンス = 生のコミットメッセージのみ。他のテキストは一切不要。**

@@ -5,7 +5,12 @@ description: Generate commit message in English from git diff.
 
 # Commit Message Generator
 
-Generate a commit message in English from the current uncommitted git changes.
+**OUTPUT FORMAT CONSTRAINT (MUST FOLLOW):**
+Your entire response must be ONLY the commit message text itself.
+- NO preamble ("Based on...", "Here's...", "I'll generate...")
+- NO markdown code blocks or backticks
+- NO explanation before or after
+- Start your response directly with the commit type (feat:, fix:, etc.)
 
 ## Instructions
 
@@ -43,12 +48,6 @@ Based on the changes, generate a commit message following these guidelines:
 - Body should explain what and why, not how
 - Wrap body at 72 characters
 
-### Output
+---
 
-CRITICAL RULES:
-- Output ONLY the raw commit message text
-- NO preamble like "Based on my analysis..." or "Here's the commit message:"
-- NO markdown code blocks or backticks
-- NO explanation before or after
-- Start directly with the type (feat, fix, etc.)
-- The output will be passed directly to `git commit -m` command
+**FINAL REMINDER: Your response = raw commit message only. No other text.**
