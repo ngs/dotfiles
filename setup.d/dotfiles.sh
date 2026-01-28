@@ -43,5 +43,7 @@ symlink "${DOTFILES}/rc.d/gh" "${HOME}/.config/gh"
 symlink "${DOTFILES}/rc.d/cmus" "${HOME}/.config/cmus"
 ## Claude Code
 ensure_directory "${HOME}/.claude"
-symlink "${DOTFILES}/rc.d/claude/settings.json" "${HOME}/.claude/settings.json"
-symlink "${DOTFILES}/rc.d/claude/skills" "${HOME}/.claude/skills"
+for f in $DOTFILES/rc.d/claude/*; do
+  BASENAME=$(basename $f)
+  symlink "$f" "${HOME}/.claude/${BASENAME}"
+done
