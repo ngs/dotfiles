@@ -3,5 +3,9 @@
     "commit": "",
     "pr": ""
   },
-  "preferredCompletionMode": "disabled"
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "preferredCompletionMode": "disabled",
+  "language": "日本語"
 }
