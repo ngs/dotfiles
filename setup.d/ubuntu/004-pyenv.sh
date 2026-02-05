@@ -7,7 +7,7 @@ if [ ! -d ~/.pyenv ]; then
   cd ~/.pyenv && src/configure && make -C src
 fi
 
-eval "$(~/.nodenv/bin/pyenv init -)"
+eval "$(~/.pyenv/bin/pyenv init -)"
 
 VERSION=3.11.3
 

@@ -49,3 +49,5 @@ function gam() { "$HOME/bin/gam/gam" "$@" ; }
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH="$PATH:$HOME/.local/bin"
+
+[[ -d $HOME/.local/bin ]] && export PATH="${HOME}/.local/bin:${PATH}"
