@@ -17,6 +17,26 @@ if [ ! -d "$PROMPTS_DIR" ]; then
   git clone git@github.com:ngs/claude-log.git "$PROMPTS_DIR" 2>/dev/null
 fi
 
+# Set up union merge for markdown files to avoid conflicts
+if [ ! -f "$PROMPTS_DIR/.gitattributes" ]; then
+  echo '*.md merge=union' > "$PROMPTS_DIR/.gitattributes"
+fi
+
+# Pull latest changes and clean up any conflict markers
+(
+  cd "$PROMPTS_DIR" || exit 0
+  git pull --rebase --quiet 2>/dev/null || {
+    # If rebase fails, abort and try merge
+    git rebase --abort 2>/dev/null
+    git pull --quiet 2>/dev/null || true
+  }
+  # Remove conflict markers from all .md files
+  find . -name '*.md' -type f -exec sed -i '' \
+    -e '/^<<<<<<< /d' \
+    -e '/^=======/d' \
+    -e '/^>>>>>>> /d' {} + 2>/dev/null
+) &
+
 # Relative path from HOME
 PROJECT_PATH="${CWD#$HOME/}"
 TODAY=$(date +%Y-%m-%d)
