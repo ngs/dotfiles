@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Save prompt in daily summary format
 # ~/dotfiles/rc.d/claude/prompts/{project}/{date}.md
 
@@ -26,11 +26,11 @@ TIME=$(date +%H:%M:%S)
 (
   cd "$PROMPTS_DIR" || exit 0
 
-  # Detect uncommitted .md files other than today
-  OLD_FILES=$(git status --porcelain 2>/dev/null | grep '\.md$' | awk '{print $2}' | grep -v "$TODAY.md")
+  # Add all .md files except today's
+  find . -name '*.md' -not -name "*$TODAY.md" -type f -exec git add {} + 2>/dev/null
 
-  if [ -n "$OLD_FILES" ]; then
-    echo "$OLD_FILES" | xargs git add
+  # Commit if there are staged changes
+  if ! git diff --cached --quiet 2>/dev/null; then
     git commit -m "Add logs before $TODAY" --quiet 2>/dev/null
     git push --quiet 2>/dev/null &
   fi

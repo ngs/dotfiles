@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Append response to daily summary
 # Executed by Stop hook
 
