@@ -1,11 +1,36 @@
 {
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
   "attribution": {
     "commit": "",
     "pr": ""
   },
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
+  "language": "日本語",
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "preferredCompletionMode": "disabled",
-  "language": "日本語"
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/rc.d/claude/hooks/save-prompt.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/rc.d/claude/hooks/save-response.sh"
+          }
+        ]
+      }
+    ]
+  }
 }
