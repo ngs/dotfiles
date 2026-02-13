@@ -25,11 +25,14 @@ fi
 # Pull latest changes and clean up any conflict markers
 (
   cd "$PROMPTS_DIR" || exit 0
+  # Stash untracked files to avoid pull conflicts
+  git add -A 2>/dev/null
+  git stash --quiet 2>/dev/null
   git pull --rebase --quiet 2>/dev/null || {
-    # If rebase fails, abort and try merge
     git rebase --abort 2>/dev/null
     git pull --quiet 2>/dev/null || true
   }
+  git stash pop --quiet 2>/dev/null || true
   # Remove conflict markers from all .md files
   find . -name '*.md' -type f -exec sed -i '' \
     -e '/^<<<<<<< /d' \
