@@ -1,16 +1,11 @@
 {
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "attribution": {
     "commit": "",
     "pr": ""
   },
-  "language": "日本語",
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-  },
-  "preferredCompletionMode": "disabled",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -32,5 +27,11 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true
+  },
+  "language": "日本語",
+  "preferredCompletionMode": "disabled"
 }

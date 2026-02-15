@@ -22,40 +22,41 @@ if [ ! -f "$PROMPTS_DIR/.gitattributes" ]; then
   echo '*.md merge=union' > "$PROMPTS_DIR/.gitattributes"
 fi
 
-# Pull latest changes and clean up any conflict markers
-(
-  cd "$PROMPTS_DIR" || exit 0
-  # Stash untracked files to avoid pull conflicts
-  git add -A 2>/dev/null
-  git stash --quiet 2>/dev/null
-  git pull --rebase --quiet 2>/dev/null || {
-    git rebase --abort 2>/dev/null
-    git pull --quiet 2>/dev/null || true
-  }
-  git stash pop --quiet 2>/dev/null || true
-  # Remove conflict markers from all .md files
-  find . -name '*.md' -type f -exec sed -i '' \
-    -e '/^<<<<<<< /d' \
-    -e '/^=======/d' \
-    -e '/^>>>>>>> /d' {} + 2>/dev/null
-) &
-
 # Relative path from HOME
 PROJECT_PATH="${CWD#$HOME/}"
 TODAY=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M:%S)
 
-# Commit & push uncommitted files from previous days
+# Pull latest changes, commit previous days' logs, and push (all in one sequential background process)
 (
   cd "$PROMPTS_DIR" || exit 0
+
+  # Stash any local changes to avoid pull conflicts
+  git add -A 2>/dev/null
+  git stash --quiet 2>/dev/null
+
+  # Pull latest changes
+  git pull --rebase --quiet 2>/dev/null || {
+    git rebase --abort 2>/dev/null
+    git pull --quiet 2>/dev/null || true
+  }
+
+  # Restore stashed changes
+  git stash pop --quiet 2>/dev/null || true
+
+  # Remove conflict markers from all .md files
+  find . -name '*.md' -type f -exec sed -i '' \
+    -e '/^<<<<<<< /d' \
+    -e '/^=======/d' \
+    -e '/^>>>>>>> /d' {} + 2>/dev/null
 
   # Add all .md files except today's
   find . -name '*.md' -not -name "*$TODAY.md" -type f -exec git add {} + 2>/dev/null
 
-  # Commit if there are staged changes
+  # Commit and push if there are staged changes
   if ! git diff --cached --quiet 2>/dev/null; then
     git commit -m "Add logs before $TODAY" --quiet 2>/dev/null
-    git push --quiet 2>/dev/null &
+    git push --quiet 2>/dev/null
   fi
 ) &
 
