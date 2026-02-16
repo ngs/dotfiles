@@ -51,7 +51,10 @@ description: Generate daily report from claude
      - 新しい内容がある場合のみ、該当プロジェクトのセクションに加筆する
      - 既に記載済みの内容は重複して追加しない
 
-7. 以下の形式で日報をまとめて出力し、`$HOME/claude-log/_daily-reports/yyyy-mm-dd.md` に保存する:
+7. 以下の形式で日報をまとめて出力し、保存する:
+   - **重要**: ファイル名は必ず**引数で指定された日付**（または手順1で決定した日付）を使用する
+   - 保存先: `$HOME/claude-log/_daily-reports/{指定された日付}.md`
+   - 例: `/daily-report 2026-02-14` の場合 → `2026-02-14.md` として保存（今日の日付ではない）
 
 ```markdown
 # 日報: {日付}
