@@ -22,16 +22,15 @@ if [ ! -f "$PROMPTS_DIR/.gitattributes" ]; then
   echo '*.md merge=union' > "$PROMPTS_DIR/.gitattributes"
 fi
 
-# Pull latest changes (in background to avoid blocking)
+# Commit and pull latest changes (in background to avoid blocking)
 (
   cd "$PROMPTS_DIR" || exit 0
   git add -A 2>/dev/null
-  git stash --quiet 2>/dev/null
+  git commit -m "Auto-save $(date +%Y-%m-%d)" --quiet 2>/dev/null || true
   git pull --rebase --quiet 2>/dev/null || {
     git rebase --abort 2>/dev/null
     git pull --quiet 2>/dev/null || true
   }
-  git stash pop --quiet 2>/dev/null || true
 ) &
 
 # Relative path from HOME

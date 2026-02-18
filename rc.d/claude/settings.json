@@ -1,11 +1,21 @@
 {
   "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false"
+  },
+  "permissions": {
+    "ask": [
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(*&& git commit *)",
+      "Bash(*&& git push *)"
+    ]
   },
   "attribution": {
     "commit": "",
     "pr": ""
   },
+  "language": "日本語",
   "hooks": {
     "UserPromptSubmit": [
       {
