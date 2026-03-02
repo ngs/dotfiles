@@ -3,6 +3,10 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false"
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "ask": [
       "Bash(git commit *)",
@@ -11,11 +15,6 @@
       "Bash(*&& git push *)"
     ]
   },
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  },
-  "language": "日本語",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -42,5 +41,6 @@
     "gopls-lsp@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true
   },
+  "language": "日本語",
   "preferredCompletionMode": "disabled"
 }
