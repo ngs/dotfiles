@@ -42,5 +42,6 @@
     "swift-lsp@claude-plugins-official": true
   },
   "language": "日本語",
-  "preferredCompletionMode": "disabled"
+  "preferredCompletionMode": "disabled",
+  "effortLevel": "high"
 }

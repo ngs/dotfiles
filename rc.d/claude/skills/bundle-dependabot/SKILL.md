@@ -105,6 +105,26 @@ Display:
 - If merge conflicts occur (other than package-lock.json), pause and ask the user how to proceed
 - If PR creation fails, show the error and the manual command to create it
 
+### Step 5.5: Check for Newer Versions on Registry
+
+After merging all dependabot PRs, check if there are even newer versions available on the registries (npm, Go modules, etc.) beyond what dependabot proposed.
+
+For npm packages:
+```bash
+npm view <package-name> version
+```
+
+For Go modules:
+```bash
+# Check pkg.go.dev or use `go list -m -versions <module>`
+```
+
+If a newer version is found:
+1. Update the package to the latest version (e.g., `npm install <package>@<latest>`)
+2. Commit with a message like `chore(deps): bump <package> from <dependabot-version> to <latest>`
+
+This ensures we get the absolute latest versions rather than just what dependabot had proposed at the time.
+
 ### Notes
 
 - Do NOT squash commits locally - GitHub's "Squash and merge" will handle that
