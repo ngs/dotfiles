@@ -1,2 +1,3 @@
 Brewfiles/* linguist-language=Ruby
 rc.d/npmrc filter=ignore-npmrc
+*.colibriTheme diff text
