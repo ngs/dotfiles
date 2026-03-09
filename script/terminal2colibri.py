@@ -212,7 +212,7 @@ def convert(terminal_path, output_path=None, accent_key=None):
         output_path = Path(terminal_path).with_suffix(".colibriTheme")
 
     with open(output_path, "wb") as f:
-        plistlib.dump(theme, f, fmt=plistlib.FMT_BINARY)
+        plistlib.dump(theme, f, fmt=plistlib.FMT_XML)
 
     print(f"Created: {output_path}")
     print(f"  Name:   {name}")
