@@ -2,6 +2,8 @@
 # Append response to daily summary
 # Executed by Stop hook
 
+[ "$CLAUDE_LOG_ENABLED" != "1" ] && exit 0
+
 INPUT=$(cat)
 
 TRANSCRIPT_PATH=$(echo "$INPUT" | jq -r '.transcript_path // empty')

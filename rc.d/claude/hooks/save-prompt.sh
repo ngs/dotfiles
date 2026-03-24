@@ -2,6 +2,8 @@
 # Save prompt in daily summary format
 # ~/dotfiles/rc.d/claude/prompts/{project}/{date}.md
 
+[ "$CLAUDE_LOG_ENABLED" != "1" ] && exit 0
+
 INPUT=$(cat)
 
 PROMPT=$(echo "$INPUT" | jq -r '.prompt // empty')
