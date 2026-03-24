@@ -39,9 +39,11 @@
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true
+    "swift-lsp@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true
   },
   "language": "日本語",
+  "skipDangerousModePermissionPrompt": true,
   "preferredCompletionMode": "disabled",
   "effortLevel": "high"
 }
