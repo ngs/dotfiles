@@ -67,7 +67,40 @@ git add package-lock.json package.json
 git commit -m "<original PR title>"
 ```
 
-### Step 5: Push and Create PR
+### Step 5: Bump to Latest Available Versions
+
+After merging all dependabot PRs, check each updated package against the registry and bump to the **latest available version** if it is newer than what dependabot proposed.
+
+For npm packages:
+```bash
+npm view <package-name> version
+```
+
+For Go modules:
+```bash
+go list -m -versions <module> | awk '{print $NF}'
+```
+
+If a newer version is found, apply the update:
+
+For npm packages:
+```bash
+npm install <package-name>@<latest-version>
+git add package.json package-lock.json
+git commit -m "chore(deps): bump <package> from <dependabot-version> to <latest-version>"
+```
+
+For Go modules:
+```bash
+go get <module>@<latest-version>
+go mod tidy
+git add go.mod go.sum
+git commit -m "chore(deps): bump <module> from <dependabot-version> to <latest-version>"
+```
+
+If the update to the latest version fails (e.g., breaking changes), keep the dependabot-proposed version and note this in the PR description.
+
+### Step 6: Push and Create PR
 
 ```bash
 git push -u origin HEAD
@@ -92,7 +125,7 @@ EOF
 )"
 ```
 
-### Step 6: Output
+### Step 7: Output
 
 Display:
 1. List of dependabot PRs that were merged
@@ -104,26 +137,6 @@ Display:
 - If no open dependabot PRs are found, inform the user and exit
 - If merge conflicts occur (other than package-lock.json), pause and ask the user how to proceed
 - If PR creation fails, show the error and the manual command to create it
-
-### Step 5.5: Check for Newer Versions on Registry
-
-After merging all dependabot PRs, check if there are even newer versions available on the registries (npm, Go modules, etc.) beyond what dependabot proposed.
-
-For npm packages:
-```bash
-npm view <package-name> version
-```
-
-For Go modules:
-```bash
-# Check pkg.go.dev or use `go list -m -versions <module>`
-```
-
-If a newer version is found:
-1. Update the package to the latest version (e.g., `npm install <package>@<latest>`)
-2. Commit with a message like `chore(deps): bump <package> from <dependabot-version> to <latest>`
-
-This ensures we get the absolute latest versions rather than just what dependabot had proposed at the time.
 
 ### Notes
 
