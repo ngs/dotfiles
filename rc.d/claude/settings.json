@@ -45,7 +45,7 @@
     "chrome-devtools-mcp@claude-plugins-official": true
   },
   "language": "日本語",
-  "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
+  "effortLevel": "high",
   "preferredCompletionMode": "disabled"
 }
