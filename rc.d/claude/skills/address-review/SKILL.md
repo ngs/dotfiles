@@ -52,6 +52,36 @@ Get the repo owner/name:
 gh repo view --json nameWithOwner -q .nameWithOwner
 ```
 
+### jq caveats
+
+**In zsh, `!=` gets escaped to `\!=`, causing jq parse errors.** Always use the `| not` pattern instead of `!=`:
+
+```bash
+# ❌ BAD — breaks in zsh
+jq 'select(.body != null and .body != "")'
+
+# ✅ GOOD — safe in zsh
+jq 'select(.body | (. == null or . == "") | not)'
+```
+
+### Unreplied comment detection
+
+**Never hardcode or cache the replied-ID list.** Every time you need to determine which comments are unreplied, re-fetch all comments at that point and dynamically build the replied-ID list. Reusing a stale list from a previous fetch will miss comments added in the meantime.
+
+Concrete steps:
+```bash
+# ✅ Always run these two steps together to get unreplied comments
+REPLIED=$(gh api repos/{owner}/{repo}/pulls/{pr_number}/comments --paginate | \
+  jq '[.[] | select(.in_reply_to_id | . == null | not) | .in_reply_to_id] | unique')
+
+gh api repos/{owner}/{repo}/pulls/{pr_number}/comments --paginate | \
+  jq --argjson replied "$REPLIED" \
+  '[.[] | select(.in_reply_to_id == null) | select(.id as $id | $replied | index($id) | . == null) | ...]'
+```
+
+- Re-fetch at Step 3 (filtering) and again before Step 7 (replying)
+- Especially after a push, bots may post additional review comments — always re-fetch
+
 ### Step 3: Filter Bot Comments
 
 Unless `--all` is specified, filter comments to only those from automated reviewers:
