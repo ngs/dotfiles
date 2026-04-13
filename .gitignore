@@ -12,6 +12,7 @@ workbench.xmi
 /rc.d/atom/github.cson
 rc.d/gnupg/*
 !rc.d/gnupg/*.conf
+!rc.d/gnupg/*.conf.*
 !rc.d/btcd/*.conf
 !rc.d/btcwallet/*.conf
 rc.d/btcd/*

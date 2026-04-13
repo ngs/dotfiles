@@ -8,6 +8,14 @@
     "pr": ""
   },
   "permissions": {
+    "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "WebFetch",
+      "WebSearch"
+    ],
     "ask": [
       "Bash(git commit *)",
       "Bash(git push *)",

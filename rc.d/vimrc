@@ -43,6 +43,7 @@ Plug 'tpope/vim-bundler', { 'for': ['rb'] }
 Plug 'tpope/vim-rails', { 'for': ['rb'] }
 Plug 'vim-ruby/vim-ruby', { 'for': ['rb'] }
 Plug 'vim-syntastic/syntastic'
+Plug 'vlime/vlime', { 'rtp': 'vim/', 'for': ['lisp'] }
 
 if v:version >= 800
   Plug 'Quramy/tsuquyomi', { 'do': 'npm i -g typescript', 'for': ['ts', 'tsx'] }
@@ -257,4 +258,10 @@ augroup black_on_save
   autocmd!
   autocmd BufWritePre *.py Black
 augroup end
+
+" =================================================
+" Common Lisp (Vlime)
+" =================================================
+let g:vlime_cl_impl = 'ros'
+let g:vlime_cl_use_terminal = 1
 
