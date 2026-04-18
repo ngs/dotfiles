@@ -14,7 +14,8 @@
       "Write",
       "Edit",
       "WebFetch",
-      "WebSearch"
+      "WebSearch",
+      "Search"
     ],
     "ask": [
       "Bash(git commit *)",

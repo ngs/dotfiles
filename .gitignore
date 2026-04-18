@@ -32,3 +32,4 @@ Gemfile.lock
 !/rc.d/cmus/*.rc
 /rc.d/gh/hosts.yml
 .claude/*.local.json
+/rc.d/gnupg/gpg-agent.conf

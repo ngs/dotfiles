@@ -79,7 +79,8 @@ for f in "$DOTFILES/rc.d/gnupg"/*; do
     *) continue ;;
   esac
   resolve_os_name "$BASENAME" || continue
-  symlink "$f" "${HOME}/.gnupg/${LINKNAME}"
+  echo "Copying: ${f} -> ${HOME}/.gnupg/${LINKNAME}"
+  cp "$f" "${HOME}/.gnupg/${LINKNAME}"
 done
 ## Claude Code
 ensure_directory "${HOME}/.claude"

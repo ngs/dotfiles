@@ -11,11 +11,13 @@ Review code review comments from Copilot and other automated reviewers on the cu
 
 - `<pr-number>` - PR number (default: current branch's PR)
 - `--all` - Address all review comments, not just bot comments
+- `--loop` - After addressing comments and pushing, automatically request Copilot re-review, wait for new comments, and repeat until zero actionable comments remain (max 10 iterations)
 
 Examples:
 - `/address-review` - Address bot review comments on current branch's PR
 - `/address-review 42` - Address bot review comments on PR #42
 - `/address-review --all` - Address all review comments including human ones
+- `/address-review --loop` - Address comments and loop until Copilot is satisfied
 
 ## Instructions
 
@@ -133,7 +135,7 @@ After implementing all fixes, present a summary of changes to the user.
 
 ### Step 6: Commit & Push
 
-**Commit and push are separate confirmations. Both require explicit user permission.**
+**First iteration: Commit and push are separate confirmations. Both require explicit user permission.**
 
 First, stage only the files that were modified to address reviews and show the diff:
 
@@ -158,6 +160,8 @@ Then, ask the user for permission to **push**. Only after approval:
 ```bash
 git push
 ```
+
+**In `--loop` mode (iteration 2+):** After the user approved commit & push in the first iteration, subsequent iterations auto-commit and auto-push without re-asking. Always show the diff summary before committing so the user can see what changed.
 
 ### Step 7: Reply to Review Comments
 
@@ -213,6 +217,72 @@ Display a summary:
 3. List of files modified
 4. Link to the PR
 
+### Step 9: Loop Mode (`--loop`)
+
+If `--loop` is specified, after completing Step 7 (reply) and Step 8 (summary), continue with the following loop:
+
+#### 9a. Request Copilot re-review
+
+```bash
+# Find the latest Copilot review ID to dismiss (optional — Copilot auto-reviews on push)
+# Simply wait for Copilot to post new review comments after the push
+```
+
+Copilot automatically reviews new pushes. After pushing in Step 6, wait for Copilot to complete its review.
+
+#### 9b. Poll for new review comments
+
+Poll every 30 seconds for up to 5 minutes, checking if Copilot has posted new comments since the push:
+
+```bash
+# Get the push commit SHA
+PUSH_SHA=$(git rev-parse HEAD)
+
+# Check for new comments
+gh api repos/{owner}/{repo}/pulls/{pr_number}/comments --paginate | \
+  jq --arg sha "$PUSH_SHA" \
+  '[.[] | select(.original_commit_id == $sha or .commit_id == $sha)]'
+```
+
+Also check PR review status to see if Copilot review is complete:
+```bash
+gh api repos/{owner}/{repo}/pulls/{pr_number}/reviews --paginate | \
+  jq '[.[] | select(.user.login == "Copilot" or (.user.login | endswith("[bot]")))] | sort_by(.submitted_at) | last'
+```
+
+**Exit polling when:**
+- New comments from Copilot are detected (proceed to 9c)
+- Copilot submits a review with no inline comments (loop complete — Copilot is satisfied)
+- 5 minutes elapsed with no new review activity (assume Copilot is satisfied, exit loop)
+
+#### 9c. Process new comments
+
+Go back to **Step 3** (Filter Bot Comments) with the newly fetched comments. Only process comments that are:
+- New (not previously replied to)
+- From the current push (commit_id matches HEAD)
+
+#### 9d. Loop termination
+
+The loop terminates when any of these conditions are met:
+1. **No new actionable comments** — Copilot is satisfied
+2. **Maximum 10 iterations reached** — inform the user and stop
+3. **A fix is too complex** — inform the user and stop (don't auto-loop on risky changes)
+
+#### 9e. Loop summary
+
+When the loop completes, display a final summary:
+
+```
+## Loop Complete
+
+**Iterations:** 3
+**Total comments addressed:** 7
+**Total comments acknowledged:** 2
+**Files modified:** file1.go, file2.go, file3_test.go
+**Final status:** ✅ No remaining actionable comments
+**PR:** <link>
+```
+
 ### Error Handling
 
 - If `gh` is not authenticated, inform the user to run `gh auth login`
@@ -223,8 +293,8 @@ Display a summary:
 ### Notes
 
 - NEVER force-push
-- NEVER commit without explicit user permission
-- NEVER push without explicit user permission
+- NEVER commit without explicit user permission (first iteration only; `--loop` auto-commits on iteration 2+)
+- NEVER push without explicit user permission (first iteration only; `--loop` auto-pushes on iteration 2+)
 - When implementing fixes, prefer minimal changes that directly address the review feedback
 - If a review suggestion conflicts with existing code patterns in the project, flag this to the user
 - If multiple comments relate to the same file/area, batch the changes together
