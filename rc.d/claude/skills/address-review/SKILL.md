@@ -223,36 +223,51 @@ If `--loop` is specified, after completing Step 7 (reply) and Step 8 (summary), 
 
 #### 9a. Request Copilot re-review
 
+Copilot does **not** automatically re-review after a push. You must explicitly request a re-review using the GitHub API:
+
 ```bash
-# Find the latest Copilot review ID to dismiss (optional — Copilot auto-reviews on push)
-# Simply wait for Copilot to post new review comments after the push
+# Request re-review from Copilot
+gh api repos/{owner}/{repo}/pulls/{pr_number}/requested_reviewers \
+  -X POST -f 'reviewers[]=copilot-pull-request-reviewer[bot]' 2>/dev/null || true
 ```
 
-Copilot automatically reviews new pushes. After pushing in Step 6, wait for Copilot to complete its review.
+If the above fails (some repos use team-based Copilot assignment), try:
+```bash
+gh pr edit {pr_number} --add-reviewer '@copilot-pull-request-reviewer[bot]' 2>/dev/null || true
+```
+
+After requesting re-review, wait for Copilot to complete its review.
 
 #### 9b. Poll for new review comments
 
-Poll every 30 seconds for up to 5 minutes, checking if Copilot has posted new comments since the push:
+Poll every 30 seconds for up to 5 minutes, checking if Copilot has posted new review since the re-request:
 
 ```bash
-# Get the push commit SHA
-PUSH_SHA=$(git rev-parse HEAD)
-
-# Check for new comments
-gh api repos/{owner}/{repo}/pulls/{pr_number}/comments --paginate | \
-  jq --arg sha "$PUSH_SHA" \
-  '[.[] | select(.original_commit_id == $sha or .commit_id == $sha)]'
+# Record the timestamp before requesting re-review (ISO 8601)
+REREQUEST_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 ```
 
-Also check PR review status to see if Copilot review is complete:
+Then poll:
 ```bash
+# Check for new reviews submitted after the re-request
 gh api repos/{owner}/{repo}/pulls/{pr_number}/reviews --paginate | \
-  jq '[.[] | select(.user.login == "Copilot" or (.user.login | endswith("[bot]")))] | sort_by(.submitted_at) | last'
+  jq --arg since "$REREQUEST_TIME" \
+  '[.[] | select(.user.login == "copilot-pull-request-reviewer[bot]" or .user.login == "Copilot") | select(.submitted_at > $since)] | sort_by(.submitted_at) | last'
+```
+
+Once a new review is detected, fetch new unreplied comments:
+```bash
+REPLIED=$(gh api repos/{owner}/{repo}/pulls/{pr_number}/comments --paginate | \
+  jq '[.[] | select(.in_reply_to_id | . == null | not) | .in_reply_to_id] | unique')
+
+gh api repos/{owner}/{repo}/pulls/{pr_number}/comments --paginate | \
+  jq --argjson replied "$REPLIED" \
+  '[.[] | select(.in_reply_to_id == null) | select(.id as $id | $replied | index($id) | . == null) | select(.user.login == "Copilot" or (.user.login | endswith("[bot]")))]'
 ```
 
 **Exit polling when:**
-- New comments from Copilot are detected (proceed to 9c)
-- Copilot submits a review with no inline comments (loop complete — Copilot is satisfied)
+- A new Copilot review is detected with inline comments (proceed to 9c)
+- A new Copilot review is detected with no new unreplied inline comments (loop complete — Copilot is satisfied)
 - 5 minutes elapsed with no new review activity (assume Copilot is satisfied, exit loop)
 
 #### 9c. Process new comments
