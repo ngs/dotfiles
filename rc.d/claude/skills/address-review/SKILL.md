@@ -118,9 +118,13 @@ Present the categorized list to the user in this format:
 1. [file:line] <summary> — by <reviewer>
 ```
 
-If there are NO actionable comments, inform the user and ask if they want to reply to non-actionable comments with an acknowledgment. If the user confirms, go to Step 7 (reply only). If not, exit.
+If there are NO actionable comments:
+- **In `--loop` mode:** reply to non-actionable comments with acknowledgment automatically and proceed.
+- **Otherwise:** ask the user if they want to reply to non-actionable comments. If the user confirms, go to Step 7 (reply only). If not, exit.
 
-If there ARE actionable comments, ask the user for confirmation before proceeding with implementation.
+If there ARE actionable comments:
+- **In `--loop` mode:** proceed with implementation immediately without asking for confirmation.
+- **Otherwise:** ask the user for confirmation before proceeding with implementation.
 
 ### Step 5: Implement Fixes
 
@@ -135,14 +139,16 @@ After implementing all fixes, present a summary of changes to the user.
 
 ### Step 6: Commit & Push
 
-**First iteration: Commit and push are separate confirmations. Both require explicit user permission.**
-
-First, stage only the files that were modified to address reviews and show the diff:
+Stage only the files that were modified to address reviews and show the diff:
 
 ```bash
 git add <modified-files>
 git diff --cached --stat
 ```
+
+**In `--loop` mode:** Auto-commit and auto-push without asking. Always show the diff summary before committing so the user can see what changed.
+
+**Otherwise (no `--loop`):** Commit and push are separate confirmations. Both require explicit user permission.
 
 Ask the user for permission to **commit**. Only after approval:
 
@@ -160,8 +166,6 @@ Then, ask the user for permission to **push**. Only after approval:
 ```bash
 git push
 ```
-
-**In `--loop` mode (iteration 2+):** After the user approved commit & push in the first iteration, subsequent iterations auto-commit and auto-push without re-asking. Always show the diff summary before committing so the user can see what changed.
 
 ### Step 7: Reply to Review Comments
 
@@ -223,12 +227,11 @@ If `--loop` is specified, after completing Step 7 (reply) and Step 8 (summary), 
 
 #### 9a. Request Copilot re-review
 
-Copilot does **not** automatically re-review after a push. You must explicitly request a re-review using the GitHub API:
+**IMPORTANT: After pushing, you MUST explicitly request a Copilot re-review. Copilot does not automatically re-review after a push. Never skip this step.**
 
 ```bash
-# Request re-review from Copilot
 gh api repos/{owner}/{repo}/pulls/{pr_number}/requested_reviewers \
-  -X POST -f 'reviewers[]=copilot-pull-request-reviewer[bot]' 2>/dev/null || true
+  -X POST -f 'reviewers[]=copilot-pull-request-reviewer[bot]'
 ```
 
 If the above fails (some repos use team-based Copilot assignment), try:
@@ -266,9 +269,17 @@ gh api repos/{owner}/{repo}/pulls/{pr_number}/comments --paginate | \
 ```
 
 **Exit polling when:**
-- A new Copilot review is detected with inline comments (proceed to 9c)
-- A new Copilot review is detected with no new unreplied inline comments (loop complete — Copilot is satisfied)
-- 5 minutes elapsed with no new review activity (assume Copilot is satisfied, exit loop)
+- New comments from Copilot are detected (proceed to 9c)
+- Copilot submits a **new** review (review count increases) whose body contains `generated no comments` — this means Copilot is satisfied and the loop is complete.
+
+**IMPORTANT: Do NOT exit polling based on elapsed time alone. Keep polling until Copilot posts a new review. Never assume Copilot is satisfied just because time has passed — always wait for an actual new review to appear.**
+
+To detect the termination condition, check the latest review body:
+```bash
+gh api repos/{owner}/{repo}/pulls/{pr_number}/reviews --paginate | \
+  jq '[.[] | select(.user.login | endswith("[bot]") or . == "Copilot" or . == "copilot-pull-request-reviewer[bot]")] | sort_by(.submitted_at) | last | .body' | \
+  grep -q "generated no comments"
+```
 
 #### 9c. Process new comments
 
@@ -308,8 +319,8 @@ When the loop completes, display a final summary:
 ### Notes
 
 - NEVER force-push
-- NEVER commit without explicit user permission (first iteration only; `--loop` auto-commits on iteration 2+)
-- NEVER push without explicit user permission (first iteration only; `--loop` auto-pushes on iteration 2+)
+- **In `--loop` mode:** auto-commit and auto-push on ALL iterations (no user confirmation needed). Show diff summary before each commit.
+- **Without `--loop`:** NEVER commit or push without explicit user permission.
 - When implementing fixes, prefer minimal changes that directly address the review feedback
 - If a review suggestion conflicts with existing code patterns in the project, flag this to the user
 - If multiple comments relate to the same file/area, batch the changes together
