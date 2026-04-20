@@ -16,12 +16,6 @@
       "WebFetch",
       "WebSearch",
       "Search"
-    ],
-    "ask": [
-      "Bash(git commit *)",
-      "Bash(git push *)",
-      "Bash(*&& git commit *)",
-      "Bash(*&& git push *)"
     ]
   },
   "hooks": {
