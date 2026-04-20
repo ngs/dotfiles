@@ -16,7 +16,8 @@
       "WebFetch",
       "WebSearch",
       "Search"
-    ]
+    ],
+    "ask": []
   },
   "hooks": {
     "UserPromptSubmit": [
@@ -48,7 +49,7 @@
     "chrome-devtools-mcp@claude-plugins-official": true
   },
   "language": "日本語",
-  "skipDangerousModePermissionPrompt": true,
   "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true,
   "preferredCompletionMode": "disabled"
 }
