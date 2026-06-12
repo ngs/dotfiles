@@ -3,6 +3,10 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false"
   },
+  "statusLine": {
+    "type": "command",
+    "command": "$HOME/dotfiles/rc.d/claude/statusline.sh"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
