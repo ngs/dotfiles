@@ -21,6 +21,18 @@
     "ask": []
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command // \"\"' | grep -qE 'git[[:space:]]+(push[[:space:]](.*[[:space:]])?(--force[a-z-]*([[:space:]]|=|$)|--mirror([[:space:]]|$)|-[a-zA-Z]*f[a-zA-Z]*([[:space:]]|$))|reset[[:space:]](.*[[:space:]])?--hard([[:space:]]|$)|branch[[:space:]](.*[[:space:]])?-[a-zA-Z]*D[a-zA-Z]*([[:space:]]|$)|clean[[:space:]](.*[[:space:]])?-[a-zA-Z]*f[a-zA-Z]*([[:space:]]|$))' && { printf 'BLOCKED: destructive git command (push --force / push --mirror / reset --hard / branch -D / clean -f). Undo published commits with `git revert` instead.\\n' >&2; exit 2; } || exit 0",
+            "if": "Bash(git *)"
+          }
+        ]
+      }
+    ],
     "UserPromptSubmit": [
       {
         "hooks": [
@@ -47,10 +59,20 @@
     "swift-lsp@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "chrome-devtools-mcp@claude-plugins-official": true
+    "chrome-devtools-mcp@claude-plugins-official": true,
+    "firebase@firebase": true
+  },
+  "extraKnownMarketplaces": {
+    "firebase": {
+      "source": {
+        "source": "github",
+        "repo": "firebase/firebase-tools"
+      }
+    }
   },
   "language": "日本語",
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
-  "preferredCompletionMode": "disabled"
+  "preferredCompletionMode": "disabled",
+  "model": "claude-fable-5[1m]"
 }

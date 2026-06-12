@@ -19,4 +19,6 @@ schema.json
 *.pyc
 .byebug_history
 **/.claude/settings.local.json
+**/.claude/*.lock
 **/.claude/worktrees/
+.gcloud
