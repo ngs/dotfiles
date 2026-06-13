@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax check shell scripts
+        run: |
+          # 各スクリプトの shebang を見て、bash なら bash -n、それ以外 (#!/bin/sh
+          # = dash 等) は sh -n で構文チェックする。bash -n は dash で落ちる
+          # 構文を見逃すため、実際に使われるインタプリタに合わせて検査する。
+          status=0
+          while IFS= read -r -d '' f; do
+            case "$(head -n1 "$f")" in
+              *bash*) checker="bash -n" ;;
+              *)      checker="sh -n" ;;
+            esac
+            echo "==> $checker $f"
+            $checker "$f" || status=1
+          done < <(find setup.sh script/setup-ubuntu.sh setup.d -name '*.sh' -print0)
+          exit $status
+
+  ubuntu-setup:
+    # Codespaces / WSL の Ubuntu セットアップ (apt + 並列 *env install) を実走する
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      DOTFILES_SETUP_LOGDIR: /tmp/dotfiles-setup-logs
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Ubuntu setup
+        run: ./script/setup-ubuntu.sh
+
+      - name: Verify installed versions
+        run: |
+          export PATH="$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/.pyenv/bin:$HOME/.goenv/bin:$PATH"
+          eval "$(nodenv init -)"
+          eval "$(rbenv init -)"
+          eval "$(pyenv init -)"
+          eval "$(goenv init -)"
+          node --version
+          ruby --version
+          python --version
+          go version
+          gcloud --version
+
+      - name: Upload setup logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: setup-logs
+          path: /tmp/dotfiles-setup-logs/
+          if-no-files-found: ignore

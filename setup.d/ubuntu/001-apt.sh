@@ -13,7 +13,14 @@ sudo apt-get -y install \
   libssl-dev \
   libc6 \
   cmake \
-  python3.8-dev \
+  python3-dev \
+  zlib1g-dev \
+  libffi-dev \
+  libreadline-dev \
+  libbz2-dev \
+  libsqlite3-dev \
+  liblzma-dev \
+  libncurses-dev \
   vim \
   zsh \
   pinentry-curses \
@@ -22,7 +29,8 @@ sudo apt-get -y install \
   libyaml-dev \
   mysql-server \
   mysql-client \
-  postgresql-all \
+  postgresql \
+  libpq-dev \
   gh
 [ -f /usr/local/bin/pinentry ] || sudo ln -s /usr/bin/pinentry /usr/local/bin/pinentry
 
