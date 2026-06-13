@@ -10,6 +10,8 @@ fi
 # 新しいバージョン定義を取得するため更新する
 git -C ~/.pyenv pull
 
+# pyenv init - の出力が pyenv コマンド自体を呼ぶため、先に PATH を通しておく
+export PATH="${HOME}/.pyenv/bin:$PATH"
 eval "$(~/.pyenv/bin/pyenv init -)"
 
 # Python に LTS はないため最新安定版を使用 (3.14 系、サポートは 2030-10 まで)
