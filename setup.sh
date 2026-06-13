@@ -12,21 +12,19 @@ git submodule init
 git submodule update
 cd -
 
-set +u
-if [ $WSL_DISTRO_NAME == 'Ubuntu' ]; then
+if [ "${WSL_DISTRO_NAME:-}" = 'Ubuntu' ]; then
   /bin/bash "$DOTFILES/script/setup-ubuntu.sh"
 fi
 
-if [ $CODESPACES ]; then
+if [ -n "${CODESPACES:-}" ]; then
   /bin/bash "$DOTFILES/script/setup-ubuntu.sh"
 fi
-set -u
 
-if [ $UNAME == 'Linux' ] && [ -f /boot/config.txt ]; then
+if [ "$UNAME" = 'Linux' ] && [ -f /boot/config.txt ]; then
   /bin/sh $DOTFILES/setup.d/raspberrypi/apt.sh
 fi
 
-if [ $UNAME == 'Darwin' ]; then
+if [ "$UNAME" = 'Darwin' ]; then
   /bin/sh $DOTFILES/setup.d/darwin/homebrew.sh
   for f in $DOTFILES/setup.d/darwin/*.sh ; do
     /bin/sh $f

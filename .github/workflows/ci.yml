@@ -12,9 +12,19 @@ jobs:
       - uses: actions/checkout@v4
       - name: Syntax check shell scripts
         run: |
-          bash -n setup.sh
-          bash -n script/setup-ubuntu.sh
-          find setup.d -name '*.sh' -print0 | xargs -0 -n1 bash -n
+          # 各スクリプトの shebang を見て、bash なら bash -n、それ以外 (#!/bin/sh
+          # = dash 等) は sh -n で構文チェックする。bash -n は dash で落ちる
+          # 構文を見逃すため、実際に使われるインタプリタに合わせて検査する。
+          status=0
+          while IFS= read -r -d '' f; do
+            case "$(head -n1 "$f")" in
+              *bash*) checker="bash -n" ;;
+              *)      checker="sh -n" ;;
+            esac
+            echo "==> $checker $f"
+            $checker "$f" || status=1
+          done < <(find setup.sh script/setup-ubuntu.sh setup.d -name '*.sh' -print0)
+          exit $status
 
   ubuntu-setup:
     # Codespaces / WSL の Ubuntu セットアップ (apt + 並列 *env install) を実走する
