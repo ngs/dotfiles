@@ -16,7 +16,10 @@ cd ~/.nodenv/plugins/node-build
 git pull
 
 eval "$(~/.nodenv/bin/nodenv init -)"
-VERSION=18.16.0
+# Node.js 24 = Active LTS "Krypton" (サポートは 2028-04 まで)
+VERSION=24.16.0
+# ソースビルドになった場合に make を並列化 (node-build は通常プリビルドバイナリを取得)
+export MAKE_OPTS="-j$(nproc)"
 nodenv install -s $VERSION
 nodenv global $VERSION
 nodenv rehash
