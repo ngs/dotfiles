@@ -29,7 +29,8 @@ sudo apt-get -y install \
   libyaml-dev \
   mysql-server \
   mysql-client \
-  postgresql-all \
+  postgresql \
+  libpq-dev \
   gh
 [ -f /usr/local/bin/pinentry ] || sudo ln -s /usr/bin/pinentry /usr/local/bin/pinentry
 
