@@ -51,7 +51,15 @@ jobs:
             | sed "s/Plug '//; s/'//; s#.*/##" \
             | grep -vx 'YouCompleteMe' | sort -u | tr '\n' ' ')"
           echo "Installing: $list"
-          vim --not-a-term -es -c "PlugInstall --sync $list" -c 'qall!' || true
+          # -u is required so the vimrc (which calls plug#begin) is sourced and
+          # PlugInstall is defined; otherwise the command is unknown and nothing
+          # installs.
+          vim --not-a-term -es -u "$HOME/.vimrc" -c "PlugInstall --sync $list" -c 'qall!' || true
+          # Fail loudly if nothing was actually installed (e.g. vimrc didn't load).
+          if [ ! -d "$HOME/.vim/plugged" ] || [ -z "$(ls -A "$HOME/.vim/plugged")" ]; then
+            echo "✗ no plugins were installed — vimrc/plug#begin likely did not run"
+            exit 1
+          fi
 
       - name: Verify vimrc sources without a <Tab> conflict (E227)
         run: |
