@@ -53,6 +53,13 @@ if v:version > 801 || (v:version == 801 && has( 'patch2269' ))
   Plug 'ycm-core/YouCompleteMe'
 endif
 
+" Reserve <Tab> for vim-snipmate. copilot.vim maps <Tab> in insert mode by
+" default, which collides with snipMate's `imap <unique> <Tab>` (E227). This
+" must be set before plug#end() because copilot installs its mapping while its
+" plugin is sourced there. Copilot suggestions are accepted with <C-L> instead
+" (see the Copilot section below).
+let g:copilot_no_tab_map = v:true
+
 " All of your Plugins must be added before the following line
 call plug#end()
 filetype plugin indent on    " required
@@ -232,6 +239,13 @@ endif
 " Goyo
 " =================================================
 let g:goyo_width = 120
+
+" =================================================
+" Copilot
+" =================================================
+" <Tab> is reserved for snipMate (see g:copilot_no_tab_map before plug#end()).
+" Accept Copilot suggestions with <C-L> instead.
+imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
 
 " =================================================
 " Snipmate
