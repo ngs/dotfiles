@@ -1,0 +1,107 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax check shell scripts
+        run: |
+          # リポジトリ内の追跡対象シェルスクリプトを網羅的に構文チェックする。
+          # shebang を見てインタプリタを判定する:
+          #   - bash shebang        -> bash -n
+          #   - #!/bin/sh (= dash)  -> sh -n   (bash -n は dash で落ちる構文を見逃す)
+          #   - shebang なし        -> bash -n (env.sh / env.d/* は bash/zsh が source
+          #                            する断片で bash 構文を含むため sh -n だと誤検知)
+          st=0
+          while IFS= read -r f; do
+            case "$(head -n1 "$f")" in
+              *bash*)   checker="bash -n" ;;
+              '#!'*sh*) checker="sh -n" ;;
+              *)        checker="bash -n" ;;
+            esac
+            echo "==> $checker $f"
+            $checker "$f" || st=1
+          done < <(git ls-files '*.sh')
+          exit $st
+
+  ubuntu-setup:
+    # Codespaces / WSL の Ubuntu セットアップ (apt + 並列 *env install) を実走する
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      DOTFILES_SETUP_LOGDIR: /tmp/dotfiles-setup-logs
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Ubuntu setup
+        run: ./script/setup-ubuntu.sh
+
+      - name: Verify installed versions
+        run: |
+          set -euo pipefail
+          nodenv="$HOME/.nodenv/bin/nodenv"
+          rbenv="$HOME/.rbenv/bin/rbenv"
+          pyenv="$HOME/.pyenv/bin/pyenv"
+          goenv="$HOME/.goenv/bin/goenv"
+
+          # ピン留めバージョンは各 setup スクリプトの VERSION= から抽出し、
+          # ここでハードコードしないことで定義のドリフトを防ぐ。
+          expected_version() {
+            sed -n 's/^VERSION=\(.*\)$/\1/p' "$1" | head -n1
+          }
+
+          st=0
+          assert_version() {
+            name="$1"; expected="$2"; actual="$3"
+            if [ "$expected" = "$actual" ]; then
+              echo "✓ $name: $actual (expected $expected)"
+            else
+              echo "✗ $name: got '$actual', expected '$expected'"
+              st=1
+            fi
+          }
+
+          node_expected="$(expected_version setup.d/ubuntu/002-nodenv.sh)"
+          ruby_expected="$(expected_version setup.d/ubuntu/003-rbenv.sh)"
+          python_expected="$(expected_version setup.d/ubuntu/004-pyenv.sh)"
+          go_expected="$(expected_version setup.d/ubuntu/005-goenv.sh)"
+
+          # *env exec は PATH/shims に依存せず、各 *env が選択中バージョンの管理下
+          # バイナリを直接実行する。ただし *env はカレントディレクトリ階層の
+          # .ruby-version 等のローカル pin を global より優先する。このリポジトリ自身は
+          # ルートに `.ruby-version = system` を持つため、setup が入れた global を検証
+          # するには中立なディレクトリ ($HOME) で実行する必要がある。
+          # node --version → "v24.16.0" の先頭 v を除去
+          assert_version node "$node_expected" "$(cd "$HOME" && "$nodenv" exec node --version | sed 's/^v//')"
+          # ruby --version → "ruby 4.0.5 (...) ..." の 2 フィールド目
+          assert_version ruby "$ruby_expected" "$(cd "$HOME" && "$rbenv" exec ruby --version | awk '{print $2}')"
+          # python --version → "Python 3.14.6" の 2 フィールド目
+          assert_version python "$python_expected" "$(cd "$HOME" && "$pyenv" exec python --version | awk '{print $2}')"
+          # go version → "go version go1.26.4 linux/amd64" の go プレフィックスを除去
+          assert_version go "$go_expected" "$(cd "$HOME" && "$goenv" exec go version | awk '{print $3}' | sed 's/^go//')"
+
+          # 不一致時は原因切り分け用に各 *env の選択状況をダンプする
+          if [ "$st" -ne 0 ]; then
+            echo "--- diagnostics ---"
+            "$rbenv" version || true
+            "$rbenv" which ruby || true
+            "$goenv" version || true
+          fi
+
+          gcloud --version
+
+          exit $st
+
+      - name: Upload setup logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: setup-logs
+          path: /tmp/dotfiles-setup-logs/
+          if-no-files-found: ignore
