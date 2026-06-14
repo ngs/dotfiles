@@ -72,16 +72,19 @@ jobs:
           python_expected="$(expected_version setup.d/ubuntu/004-pyenv.sh)"
           go_expected="$(expected_version setup.d/ubuntu/005-goenv.sh)"
 
-          # *env exec は PATH/shims に依存せず、各 *env が global 設定の管理下バイナリを
-          # 直接実行する。これによりランナー同梱の system ruby/go に取られない。
+          # *env exec は PATH/shims に依存せず、各 *env が選択中バージョンの管理下
+          # バイナリを直接実行する。ただし *env はカレントディレクトリ階層の
+          # .ruby-version 等のローカル pin を global より優先する。このリポジトリ自身は
+          # ルートに `.ruby-version = system` を持つため、setup が入れた global を検証
+          # するには中立なディレクトリ ($HOME) で実行する必要がある。
           # node --version → "v24.16.0" の先頭 v を除去
-          assert_version node "$node_expected" "$("$nodenv" exec node --version | sed 's/^v//')"
+          assert_version node "$node_expected" "$(cd "$HOME" && "$nodenv" exec node --version | sed 's/^v//')"
           # ruby --version → "ruby 4.0.5 (...) ..." の 2 フィールド目
-          assert_version ruby "$ruby_expected" "$("$rbenv" exec ruby --version | awk '{print $2}')"
+          assert_version ruby "$ruby_expected" "$(cd "$HOME" && "$rbenv" exec ruby --version | awk '{print $2}')"
           # python --version → "Python 3.14.6" の 2 フィールド目
-          assert_version python "$python_expected" "$("$pyenv" exec python --version | awk '{print $2}')"
+          assert_version python "$python_expected" "$(cd "$HOME" && "$pyenv" exec python --version | awk '{print $2}')"
           # go version → "go version go1.26.4 linux/amd64" の go プレフィックスを除去
-          assert_version go "$go_expected" "$("$goenv" exec go version | awk '{print $3}' | sed 's/^go//')"
+          assert_version go "$go_expected" "$(cd "$HOME" && "$goenv" exec go version | awk '{print $3}' | sed 's/^go//')"
 
           # 不一致時は原因切り分け用に各 *env の選択状況をダンプする
           if [ "$st" -ne 0 ]; then
