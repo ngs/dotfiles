@@ -50,6 +50,10 @@ jobs:
           eval "$(rbenv init -)"
           eval "$(pyenv init -)"
           eval "$(goenv init -)"
+          # rbenv/goenv の init - は shims を PATH 先頭に入れない実装があり、
+          # ランナー同梱の system ruby/go が優先されてしまう。global 設定を確実に
+          # 反映するため shims を明示的に最優先へ置く。
+          export PATH="$HOME/.nodenv/shims:$HOME/.rbenv/shims:$HOME/.pyenv/shims:$HOME/.goenv/shims:$PATH"
 
           # ピン留めバージョンは各 setup スクリプトの VERSION= から抽出し、
           # ここでハードコードしないことで定義のドリフトを防ぐ。
