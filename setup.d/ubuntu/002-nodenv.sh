@@ -12,15 +12,16 @@ if [ ! -d ~/.nodenv/plugins/node-build ]; then
   git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
 fi
 
-# merge を作らないよう --ff-only で安全に更新する (git リポジトリのときだけ)
+# Update safely with --ff-only so no merge commit is created, and only when
+# it is actually a git repository.
 if [ -d ~/.nodenv/plugins/node-build/.git ]; then
   git -C ~/.nodenv/plugins/node-build pull --ff-only
 fi
 
 eval "$(~/.nodenv/bin/nodenv init -)"
-# Node.js 24 = Active LTS "Krypton" (サポートは 2028-04 まで)
+# Node.js 24 = Active LTS "Krypton" (supported until 2028-04)
 VERSION=24.16.0
-# ソースビルドになった場合に make を並列化 (node-build は通常プリビルドバイナリを取得)
+# Parallelize make in case a source build happens (node-build normally fetches a prebuilt binary)
 export MAKE_OPTS="-j$(nproc)"
 nodenv install -s $VERSION
 nodenv global $VERSION

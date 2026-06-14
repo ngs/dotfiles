@@ -1,54 +1,63 @@
 # AGENTS.md
 
-このリポジトリで作業する AI エージェント向けのガイド。リポジトリ固有のハマりどころを集約する。
+Guide for AI agents working in this repository. It collects repo-specific
+gotchas.
 
-## シェル / 実行環境
+## Shell / execution environment
 
-- **デフォルトシェルは zsh**（エージェントの Bash ツールも zsh で動く）。スクリプト内で
-  `status` を変数名に使わないこと — zsh では `status` は読み取り専用で `read-only variable`
-  エラーになる。`st` などに置き換える。
-- `jq` のフィルタで `!=` を使うと zsh が `\!=` にエスケープしてパースエラーになる。
-  `select(.x | . == null | not)` のように `| not` パターンで書く。
+- **The default shell is zsh** (the agent's Bash tool runs under zsh too). Do not
+  use `status` as a variable name in scripts — in zsh `status` is read-only and
+  assigning to it raises a `read-only variable` error. Use `st` or similar.
+- Using `!=` in a `jq` filter gets escaped by zsh to `\!=` and causes a parse
+  error. Write it with the `| not` pattern, e.g. `select(.x | . == null | not)`.
 
-## シェルスクリプトの構文チェック / lint
+## Shell script syntax checking / linting
 
-- `env.sh` と `env.d/**/*.sh` は **shebang を持たない**。シェル起動時に source される断片で、
-  bash/zsh 構文（関数定義・`[[ ]]` 等）を含む。したがって `sh -n`（dash）では誤検知する。
-  これらは `bash -n` で検査する。
-- CI（`.github/workflows/ci.yml` の lint ジョブ）は追跡対象の全 `*.sh` を `git ls-files` で
-  列挙し、shebang で判定する: `*bash*` → `bash -n`、`#!...sh` → `sh -n`、**shebang なし →
-  `bash -n`**（上記の source 断片のため）。
+- `env.sh` and `env.d/**/*.sh` have **no shebang**. They are fragments sourced at
+  shell startup and contain bash/zsh syntax (function definitions, `[[ ]]`, etc.),
+  so `sh -n` (dash) false-flags them. Check these with `bash -n`.
+- CI (the lint job in `.github/workflows/ci.yml`) enumerates every tracked `*.sh`
+  via `git ls-files` and decides the interpreter from the shebang: `*bash*` →
+  `bash -n`, `#!...sh` → `sh -n`, **no shebang → `bash -n`** (for the sourced
+  fragments above).
 
-## *env（言語ランタイム）
+## *env (language runtimes)
 
-- バージョンのピン留めは `setup.d/ubuntu/00X-*.sh` の `VERSION=` に一元化されている
-  （nodenv=002 / rbenv=003 / pyenv=004 / goenv=005）。変更はこのファイルだけを書き換える。
-- CI はインストール結果がこのピン留め値と一致するかをアサートする（不一致で fail）。期待値は
-  各 setup スクリプトの `VERSION=` から抽出するのでハードコードしない。
-- **バージョン検証時は shims を PATH 先頭に置くこと。** `rbenv init -` / `goenv init -` は
-  shims を PATH 先頭に入れない実装があり、ランナー同梱の system ruby/go が優先されてしまう。
-  `export PATH="$HOME/.rbenv/shims:$HOME/.goenv/shims:...:$PATH"` のように明示する
-  （nodenv/pyenv は `init -` だけで効く）。
-- リポジトリ更新は `git clone` 以外（パッケージ・手動展開・symlink）で配置された場合に備え、
-  `[ -d ~/.Xenv/.git ]` ガードで囲み `git pull --ff-only`（意図しない merge を作らない）。
+- Version pins are centralized in the `VERSION=` line of each
+  `setup.d/ubuntu/00X-*.sh` (nodenv=002 / rbenv=003 / pyenv=004 / goenv=005).
+  Change only that file.
+- CI asserts that the installed result matches this pin (and fails on mismatch).
+  The expected value is extracted from each setup script's `VERSION=` line, so do
+  not hardcode it.
+- **When verifying versions, run from a neutral directory and don't rely on
+  PATH/shims.** `rbenv init -` / `goenv init -` may not prepend shims to PATH, so
+  the runner's system ruby/go can win. Also, *env honors a directory-local pin
+  (e.g. `.ruby-version`) over the global one — and this repo's root has
+  `.ruby-version = system`. CI therefore runs `*env exec` from `$HOME` to check
+  the global version that setup installed.
+- For repo updates, guard with `[ -d ~/.Xenv/.git ]` and use `git pull --ff-only`
+  so a non-git install (package / manual extraction / symlink) doesn't break and
+  no unintended merge commit is created.
 
 ## GnuPG
 
-- `~/.gnupg` は `rc.d/gnupg` への symlink。`gpg-agent.conf` は **生成物で gitignore 対象**。
-  ソースは `rc.d/gnupg/gpg-agent.conf.linux` / `.darwin` で、`setup.d/dotfiles.sh` が
-  プラットフォーム別にコピー生成する。設定変更は生成物ではなく `.linux` / `.darwin` を編集する。
-  キャッシュ TTL は 1 年（一度 unlock すれば保持）。
-- コミットは GPG 署名される（鍵 `036459B1`）。エージェントの非 tty シェルでは対話的 pinentry が
-  動かずコミットがハングする。**セッション開始時に一度ユーザーが**
-  `echo | gpg --clearsign -u 036459B1 -o /dev/null` を実行してパスフレーズを agent に
-  キャッシュさせてから、コミット系の作業を進める。
+- `~/.gnupg` is a symlink to `rc.d/gnupg`. `gpg-agent.conf` is a **generated file
+  and is gitignored**. Its sources are `rc.d/gnupg/gpg-agent.conf.linux` /
+  `.darwin`, which `setup.d/dotfiles.sh` copies into place per platform. Edit the
+  `.linux` / `.darwin` sources, not the generated file. The cache TTL is one year
+  (unlock once and it stays cached).
+- Commits are GPG-signed (key `036459B1`). The agent's non-tty shell can't run an
+  interactive pinentry, so a commit would hang. **At the start of a session, have
+  the user run** `echo | gpg --clearsign -u 036459B1 -o /dev/null` **once** to
+  cache the passphrase in the agent before doing any commit work.
 
-## dotfiles の symlink 規約
+## dotfiles symlink conventions
 
-- プラットフォーム固有ファイルは `*.darwin` / `*.linux` サフィックスで管理し、
-  `setup.d/dotfiles.sh` の `resolve_os_name` が OS に応じて実体名へ解決する。
-- push は必ず `git push origin <current-branch>`（bare push 禁止）。
+- Platform-specific files are managed with a `*.darwin` / `*.linux` suffix;
+  `resolve_os_name` in `setup.d/dotfiles.sh` resolves them to the real name per OS.
+- Always push with `git push origin <current-branch>` (no bare push).
 
-## このファイルと CLAUDE.md
+## This file and CLAUDE.md
 
-- `CLAUDE.md` はこの `AGENTS.md` への symlink。内容は AGENTS.md 側を編集する。
+- `CLAUDE.md` is a symlink to this `AGENTS.md`. Edit the content on the AGENTS.md
+  side.
