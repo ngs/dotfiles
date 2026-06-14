@@ -1,0 +1,86 @@
+name: Vim
+
+# Only run when something Vim-related changes, so unrelated PRs don't pay for
+# a full plugin install.
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'rc.d/vimrc'
+      - 'rc.d/vim/**'
+      - 'setup.d/vim.sh'
+      - '.github/workflows/vim.yml'
+  pull_request:
+    paths:
+      - 'rc.d/vimrc'
+      - 'rc.d/vim/**'
+      - 'setup.d/vim.sh'
+      - '.github/workflows/vim.yml'
+
+jobs:
+  vim-setup:
+    # Verify the Vim setup: vim-plug installs every declared plugin and the
+    # vimrc sources without a <Tab> mapping conflict (E227, copilot vs snipMate).
+    # YouCompleteMe is excluded here — its huge recursive clone and native
+    # compile (handled by setup.d/vim.sh) are too heavy for CI — but every other
+    # declared plugin is installed and checked.
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vim
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y vim
+
+      - name: Link Vim config into $HOME
+        run: |
+          ln -sfn "$PWD/rc.d/vimrc" "$HOME/.vimrc"
+          ln -sfn "$PWD/rc.d/vim"  "$HOME/.vim"
+
+      - name: Install vim-plug and plugins
+        run: |
+          curl -sfLo rc.d/vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+          # Install every declared plugin except YouCompleteMe (see job comment).
+          # Some `do` hooks need toolchains not present here (go/yarn/npm); they
+          # may warn but don't block clones, and the assertions below check what
+          # actually matters.
+          list="$(grep -oE "Plug '[^']+'" rc.d/vimrc \
+            | sed "s/Plug '//; s/'//; s#.*/##" \
+            | grep -vx 'YouCompleteMe' | sort -u | tr '\n' ' ')"
+          echo "Installing: $list"
+          vim --not-a-term -es -c "PlugInstall --sync $list" -c 'qall!' || true
+
+      - name: Verify vimrc sources without a <Tab> conflict (E227)
+        run: |
+          set -euo pipefail
+          out="$(mktemp)"
+          # Load the real vimrc with all plugins active; E227 fires here if
+          # copilot and snipMate both try to own <Tab>.
+          vim --not-a-term -es -u "$HOME/.vimrc" \
+            -c 'redir! > '"$out" \
+            -c 'silent! echon "errmsg=[" . v:errmsg . "]"' \
+            -c 'redir END' -c 'qall!' 2>/dev/null || true
+          echo "startup $(cat "$out")"
+          if grep -q 'E227' "$out"; then
+            echo "✗ <Tab> mapping conflict (E227) at startup"
+            exit 1
+          fi
+          echo "✓ no <Tab> mapping conflict at startup"
+
+      - name: Verify all declared plugins are installed
+        run: |
+          set -euo pipefail
+          grep -oE "Plug '[^']+'" rc.d/vimrc \
+            | sed "s/Plug '//; s/'//; s#.*/##" \
+            | grep -vx 'YouCompleteMe' | sort -u > /tmp/declared.txt
+          ls "$HOME/.vim/plugged" | sort > /tmp/installed.txt
+          missing="$(comm -23 /tmp/declared.txt /tmp/installed.txt)"
+          if [ -n "$missing" ]; then
+            echo "✗ declared but not installed:"
+            echo "$missing"
+            exit 1
+          fi
+          echo "✓ all $(wc -l < /tmp/declared.txt) declared plugins installed (YouCompleteMe excluded)"
