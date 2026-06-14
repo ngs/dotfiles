@@ -7,21 +7,22 @@ if [ ! -d ~/.pyenv ]; then
   cd ~/.pyenv && src/configure && make -C src
 fi
 
-# 新しいバージョン定義を取得するため更新する。git clone 以外 (パッケージ
-# 管理・手動展開・シンボリックリンク等) で配置された場合に備え、git リポジトリ
-# のときだけ更新する。merge を作らないよう --ff-only で安全に取得する。
+# Update to pick up new version definitions. In case it was installed by
+# something other than git clone (package manager, manual extraction, symlink,
+# etc.), only update when it is a git repository. Use --ff-only so no merge
+# commit is created.
 if [ -d ~/.pyenv/.git ]; then
   git -C ~/.pyenv pull --ff-only
 fi
 
-# pyenv init - の出力が pyenv コマンド自体を呼ぶため、先に PATH を通しておく
+# `pyenv init -` output invokes the pyenv command itself, so put it on PATH first
 export PATH="${HOME}/.pyenv/bin:$PATH"
 eval "$(~/.pyenv/bin/pyenv init -)"
 
-# Python に LTS はないため最新安定版を使用 (3.14 系、サポートは 2030-10 まで)
+# Python has no LTS, so use the latest stable release (3.14 series, supported until 2030-10)
 VERSION=3.14.6
 
-# make を並列化してビルドを高速化
+# Parallelize make to speed up the build
 export MAKE_OPTS="-j$(nproc)"
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 

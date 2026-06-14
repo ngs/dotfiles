@@ -12,12 +12,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Syntax check shell scripts
         run: |
-          # リポジトリ内の追跡対象シェルスクリプトを網羅的に構文チェックする。
-          # shebang を見てインタプリタを判定する:
+          # Exhaustively syntax-check every tracked shell script in the repo.
+          # Pick the interpreter from the shebang:
           #   - bash shebang        -> bash -n
-          #   - #!/bin/sh (= dash)  -> sh -n   (bash -n は dash で落ちる構文を見逃す)
-          #   - shebang なし        -> bash -n (env.sh / env.d/* は bash/zsh が source
-          #                            する断片で bash 構文を含むため sh -n だと誤検知)
+          #   - #!/bin/sh (= dash)  -> sh -n   (bash -n misses syntax that fails under dash)
+          #   - no shebang          -> bash -n (env.sh / env.d/* are fragments sourced by
+          #                            bash/zsh and contain bash syntax, so sh -n false-flags)
           st=0
           while IFS= read -r f; do
             case "$(head -n1 "$f")" in
@@ -31,7 +31,7 @@ jobs:
           exit $st
 
   ubuntu-setup:
-    # Codespaces / WSL の Ubuntu セットアップ (apt + 並列 *env install) を実走する
+    # Actually run the Codespaces / WSL Ubuntu setup (apt + parallel *env install)
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
@@ -50,8 +50,8 @@ jobs:
           pyenv="$HOME/.pyenv/bin/pyenv"
           goenv="$HOME/.goenv/bin/goenv"
 
-          # ピン留めバージョンは各 setup スクリプトの VERSION= から抽出し、
-          # ここでハードコードしないことで定義のドリフトを防ぐ。
+          # Extract the pinned version from each setup script's VERSION= line
+          # rather than hardcoding it here, so the check never drifts from the source.
           expected_version() {
             sed -n 's/^VERSION=\(.*\)$/\1/p' "$1" | head -n1
           }
@@ -72,21 +72,21 @@ jobs:
           python_expected="$(expected_version setup.d/ubuntu/004-pyenv.sh)"
           go_expected="$(expected_version setup.d/ubuntu/005-goenv.sh)"
 
-          # *env exec は PATH/shims に依存せず、各 *env が選択中バージョンの管理下
-          # バイナリを直接実行する。ただし *env はカレントディレクトリ階層の
-          # .ruby-version 等のローカル pin を global より優先する。このリポジトリ自身は
-          # ルートに `.ruby-version = system` を持つため、setup が入れた global を検証
-          # するには中立なディレクトリ ($HOME) で実行する必要がある。
-          # node --version → "v24.16.0" の先頭 v を除去
+          # `*env exec` runs each *env's selected-version binary directly, without
+          # depending on PATH/shims ordering. However, *env honors a directory-local
+          # pin (e.g. .ruby-version) over the global one. This repo itself has
+          # `.ruby-version = system` at its root, so to verify the global that setup
+          # installed we must run from a neutral directory ($HOME).
+          # node --version → "v24.16.0": strip the leading v
           assert_version node "$node_expected" "$(cd "$HOME" && "$nodenv" exec node --version | sed 's/^v//')"
-          # ruby --version → "ruby 4.0.5 (...) ..." の 2 フィールド目
+          # ruby --version → "ruby 4.0.5 (...) ...": 2nd field
           assert_version ruby "$ruby_expected" "$(cd "$HOME" && "$rbenv" exec ruby --version | awk '{print $2}')"
-          # python --version → "Python 3.14.6" の 2 フィールド目
+          # python --version → "Python 3.14.6": 2nd field
           assert_version python "$python_expected" "$(cd "$HOME" && "$pyenv" exec python --version | awk '{print $2}')"
-          # go version → "go version go1.26.4 linux/amd64" の go プレフィックスを除去
+          # go version → "go version go1.26.4 linux/amd64": strip the go prefix
           assert_version go "$go_expected" "$(cd "$HOME" && "$goenv" exec go version | awk '{print $3}' | sed 's/^go//')"
 
-          # 不一致時は原因切り分け用に各 *env の選択状況をダンプする
+          # On mismatch, dump each *env's selection to help diagnose the cause
           if [ "$st" -ne 0 ]; then
             echo "--- diagnostics ---"
             "$rbenv" version || true

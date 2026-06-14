@@ -7,9 +7,10 @@ if [ ! -d ~/.goenv ]; then
   cd ~/.goenv && src/configure && make -C src
 fi
 
-# 新しいバージョン定義を取得するため更新する。git clone 以外 (パッケージ
-# 管理・手動展開・シンボリックリンク等) で配置された場合に備え、git リポジトリ
-# のときだけ更新する。merge を作らないよう --ff-only で安全に取得する。
+# Update to pick up new version definitions. In case it was installed by
+# something other than git clone (package manager, manual extraction, symlink,
+# etc.), only update when it is a git repository. Use --ff-only so no merge
+# commit is created.
 if [ -d ~/.goenv/.git ]; then
   git -C ~/.goenv pull --ff-only
 fi
@@ -17,10 +18,10 @@ fi
 export PATH="${HOME}/.goenv/bin:$PATH"
 eval "$(~/.goenv/bin/goenv init -)"
 
-# Go に LTS はなく最新 2 系列がサポート対象のため最新安定版を使用
+# Go has no LTS; the latest two release series are supported, so use the latest stable
 VERSION=1.26.4
 
-# goenv install は通常バイナリ取得のためビルドは走らないが、ソースビルド時に備えて並列化
+# goenv install usually fetches a binary so no build runs, but parallelize in case of a source build
 export MAKE_OPTS="-j$(nproc)"
 
 goenv install -s $VERSION

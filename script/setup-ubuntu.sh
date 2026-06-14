@@ -1,9 +1,10 @@
 #!/bin/bash
 #
-# setup.d/ubuntu/*.sh を実行する。001-apt.sh で依存パッケージを入れてから、
-# 残り (002〜 の *env 系・gcloud.sh) は互いに独立なので並列実行する。
-# 出力の interleave を避けるため各スクリプトのログはファイルに分離し、
-# 失敗時は末尾を表示する。setup.sh から呼ばれるほか、CI から単体でも実行できる。
+# Run setup.d/ubuntu/*.sh. First 001-apt.sh installs dependency packages, then
+# the rest (the 002+ *env scripts and gcloud.sh) are independent of each other
+# and run in parallel. To avoid interleaved output, each script's log is written
+# to a separate file, and its tail is shown on failure. Called from setup.sh, and
+# can also be run standalone from CI.
 set -eu
 
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
@@ -24,7 +25,7 @@ for f in "$DOTFILES"/setup.d/ubuntu/*.sh ; do
   fi
 done
 
-# どれか 1 つでも失敗したら非ゼロで exit する (全 PID を wait 済みなのでハングはしない)
+# Exit non-zero if any one of them failed (we wait on every PID, so no hang)
 status=0
 for job in $jobs; do
   pid=${job%%:*}
