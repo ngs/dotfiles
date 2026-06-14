@@ -3,10 +3,6 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false"
   },
-  "statusLine": {
-    "type": "command",
-    "command": "$HOME/dotfiles/rc.d/claude/statusline.sh"
-  },
   "attribution": {
     "commit": "",
     "pr": ""
@@ -24,6 +20,7 @@
     ],
     "ask": []
   },
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -58,6 +55,10 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "$HOME/dotfiles/rc.d/claude/statusline.sh"
+  },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
@@ -77,6 +78,5 @@
   "language": "日本語",
   "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
-  "preferredCompletionMode": "disabled",
-  "model": "claude-fable-5[1m]"
+  "preferredCompletionMode": "disabled"
 }
