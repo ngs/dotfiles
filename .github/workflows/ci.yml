@@ -45,15 +45,10 @@ jobs:
       - name: Verify installed versions
         run: |
           set -euo pipefail
-          export PATH="$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/.pyenv/bin:$HOME/.goenv/bin:$PATH"
-          eval "$(nodenv init -)"
-          eval "$(rbenv init -)"
-          eval "$(pyenv init -)"
-          eval "$(goenv init -)"
-          # rbenv/goenv の init - は shims を PATH 先頭に入れない実装があり、
-          # ランナー同梱の system ruby/go が優先されてしまう。global 設定を確実に
-          # 反映するため shims を明示的に最優先へ置く。
-          export PATH="$HOME/.nodenv/shims:$HOME/.rbenv/shims:$HOME/.pyenv/shims:$HOME/.goenv/shims:$PATH"
+          nodenv="$HOME/.nodenv/bin/nodenv"
+          rbenv="$HOME/.rbenv/bin/rbenv"
+          pyenv="$HOME/.pyenv/bin/pyenv"
+          goenv="$HOME/.goenv/bin/goenv"
 
           # ピン留めバージョンは各 setup スクリプトの VERSION= から抽出し、
           # ここでハードコードしないことで定義のドリフトを防ぐ。
@@ -61,14 +56,14 @@ jobs:
             sed -n 's/^VERSION=\(.*\)$/\1/p' "$1" | head -n1
           }
 
-          status=0
+          st=0
           assert_version() {
             name="$1"; expected="$2"; actual="$3"
             if [ "$expected" = "$actual" ]; then
               echo "✓ $name: $actual (expected $expected)"
             else
               echo "✗ $name: got '$actual', expected '$expected'"
-              status=1
+              st=1
             fi
           }
 
@@ -77,18 +72,28 @@ jobs:
           python_expected="$(expected_version setup.d/ubuntu/004-pyenv.sh)"
           go_expected="$(expected_version setup.d/ubuntu/005-goenv.sh)"
 
+          # *env exec は PATH/shims に依存せず、各 *env が global 設定の管理下バイナリを
+          # 直接実行する。これによりランナー同梱の system ruby/go に取られない。
           # node --version → "v24.16.0" の先頭 v を除去
-          assert_version node "$node_expected" "$(node --version | sed 's/^v//')"
+          assert_version node "$node_expected" "$("$nodenv" exec node --version | sed 's/^v//')"
           # ruby --version → "ruby 4.0.5 (...) ..." の 2 フィールド目
-          assert_version ruby "$ruby_expected" "$(ruby --version | awk '{print $2}')"
+          assert_version ruby "$ruby_expected" "$("$rbenv" exec ruby --version | awk '{print $2}')"
           # python --version → "Python 3.14.6" の 2 フィールド目
-          assert_version python "$python_expected" "$(python --version | awk '{print $2}')"
+          assert_version python "$python_expected" "$("$pyenv" exec python --version | awk '{print $2}')"
           # go version → "go version go1.26.4 linux/amd64" の go プレフィックスを除去
-          assert_version go "$go_expected" "$(go version | awk '{print $3}' | sed 's/^go//')"
+          assert_version go "$go_expected" "$("$goenv" exec go version | awk '{print $3}' | sed 's/^go//')"
+
+          # 不一致時は原因切り分け用に各 *env の選択状況をダンプする
+          if [ "$st" -ne 0 ]; then
+            echo "--- diagnostics ---"
+            "$rbenv" version || true
+            "$rbenv" which ruby || true
+            "$goenv" version || true
+          fi
 
           gcloud --version
 
-          exit $status
+          exit $st
 
       - name: Upload setup logs
         if: always()
