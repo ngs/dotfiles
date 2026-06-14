@@ -7,8 +7,12 @@ if [ ! -d ~/.goenv ]; then
   cd ~/.goenv && src/configure && make -C src
 fi
 
-# 新しいバージョン定義を取得するため更新する
-git -C ~/.goenv pull
+# 新しいバージョン定義を取得するため更新する。git clone 以外 (パッケージ
+# 管理・手動展開・シンボリックリンク等) で配置された場合に備え、git リポジトリ
+# のときだけ更新する。merge を作らないよう --ff-only で安全に取得する。
+if [ -d ~/.goenv/.git ]; then
+  git -C ~/.goenv pull --ff-only
+fi
 
 export PATH="${HOME}/.goenv/bin:$PATH"
 eval "$(~/.goenv/bin/goenv init -)"
