@@ -76,6 +76,7 @@
     }
   },
   "language": "日本語",
+  "cleanupPeriodDays": 365,
   "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
   "preferredCompletionMode": "disabled"
