@@ -57,6 +57,28 @@ gotchas.
   `resolve_os_name` in `setup.d/dotfiles.sh` resolves them to the real name per OS.
 - Always push with `git push origin <current-branch>` (no bare push).
 
+## Shared agent skills (Claude / Codex / Antigravity)
+
+- **Skills are tool-agnostic** (a folder with a `SKILL.md`, optional `references/`)
+  and shared across Claude Code, Codex, and Google Antigravity (`agy`). The single
+  source of truth is **`rc.d/agents/skills/<name>/`** — add and edit skills there,
+  never in a tool-specific copy.
+- Each tool reads the same files through symlinks:
+  - **Claude**: `rc.d/claude/skills` is a symlink → `../agents/skills` (committed,
+    git mode 120000). `~/.claude/skills` → `rc.d/claude/skills` resolves through it.
+  - **`~/.agents`** → `rc.d/agents` is created automatically by the generic
+    `for f in rc.d/*` loop (it's not in the exclusion list), giving the
+    tool-agnostic `~/.agents/skills/` global location for free.
+  - **Codex / Antigravity**: `setup.d/dotfiles.sh` symlinks each skill
+    individually into `~/.codex/skills/<name>` and `~/.gemini/config/skills/<name>`
+    (guarded on each tool's presence). It links per-skill — not the whole dir — so
+    tool-specific siblings (e.g. Codex's `.system`) and externally-managed skills
+    are left untouched. `[ -e ]` skips dangling skills (e.g. the `ccskill-gptimage`
+    symlink that points at an external `src/` checkout absent on some machines).
+- Antigravity (`agy`) reads global skills from **both** `~/.gemini/config/skills/`
+  and `~/.gemini/antigravity-cli/skills/`; we use `config/skills/` because it is
+  shared by the CLI, IDE, and 2.0. Workspace skills go in `<workspace>/.agents/skills/`.
+
 ## This file and CLAUDE.md
 
 - `CLAUDE.md` is a symlink to this `AGENTS.md`. Edit the content on the AGENTS.md

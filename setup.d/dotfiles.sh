@@ -89,3 +89,29 @@ for f in $DOTFILES/rc.d/claude/*; do
   resolve_os_name "$BASENAME" || continue
   symlink "$f" "${HOME}/.claude/${LINKNAME}"
 done
+## Shared agent skills (Codex / Google Antigravity)
+# The real skills live in rc.d/agents/skills. Claude reads them via the
+# rc.d/claude/skills -> ../agents/skills symlink (and ~/.agents -> rc.d/agents is
+# created by the generic loop above). Codex and Antigravity keep their own skills
+# dir holding tool-specific entries (e.g. Codex's .system), so we symlink each
+# shared skill individually instead of replacing the whole dir. Skip dangling
+# skills such as an external src checkout that isn't present on this machine.
+link_shared_skills() {
+  local dest=$1 name
+  ensure_directory "$dest"
+  for s in "${DOTFILES}/rc.d/agents/skills"/*; do
+    [ -e "$s" ] || continue
+    name=$(basename "$s")
+    echo "Symlinking skill: ${s} -> ${dest}/${name}"
+    rm -rf "${dest}/${name}"
+    ln -s "$s" "${dest}/${name}"
+  done
+}
+# Codex (~/.codex/skills; .system and unrelated skills are left untouched)
+if [ -d "${HOME}/.codex" ]; then
+  link_shared_skills "${HOME}/.codex/skills"
+fi
+# Google Antigravity / agy (config/skills is read by the CLI, IDE and 2.0)
+if [ -d "${HOME}/.gemini" ]; then
+  link_shared_skills "${HOME}/.gemini/config/skills"
+fi
