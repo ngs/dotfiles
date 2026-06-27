@@ -2,7 +2,8 @@
   "cleanupPeriodDays": 365,
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false"
+    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
+    "CLAUDE_CODE_DISABLE_MOUSE": "1"
   },
   "attribution": {
     "commit": "",
@@ -78,7 +79,7 @@
   },
   "language": "日本語",
   "effortLevel": "xhigh",
+  "tui": "default",
   "skipDangerousModePermissionPrompt": true,
-  "preferredCompletionMode": "disabled",
-  "tui": "fullscreen"
+  "preferredCompletionMode": "disabled"
 }
