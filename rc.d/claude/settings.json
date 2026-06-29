@@ -22,7 +22,6 @@
     ],
     "ask": []
   },
-  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
