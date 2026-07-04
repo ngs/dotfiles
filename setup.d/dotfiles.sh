@@ -89,6 +89,16 @@ for f in $DOTFILES/rc.d/claude/*; do
   resolve_os_name "$BASENAME" || continue
   symlink "$f" "${HOME}/.claude/${LINKNAME}"
 done
+## Codex
+# Keep runtime state, auth, logs, and caches in ~/.codex, but manage reusable
+# command approval rules from dotfiles.
+ensure_directory "${HOME}/.codex/rules"
+for f in "$DOTFILES/rc.d/codex/rules"/*; do
+  [ -e "$f" ] || continue
+  BASENAME=$(basename "$f")
+  resolve_os_name "$BASENAME" || continue
+  symlink "$f" "${HOME}/.codex/rules/${LINKNAME}"
+done
 ## Shared agent skills (Codex / Google Antigravity)
 # The real skills live in rc.d/agents/skills. Claude reads them via the
 # rc.d/claude/skills -> ../agents/skills symlink (and ~/.agents -> rc.d/agents is
