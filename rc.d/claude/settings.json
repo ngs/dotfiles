@@ -3,7 +3,9 @@
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
-    "CLAUDE_CODE_DISABLE_MOUSE": "1"
+    "CLAUDE_CODE_DISABLE_MOUSE": "1",
+    "CLAUDE_AFK_TIMEOUT_MS": "2147483647",
+    "CLAUDE_AFK_COUNTDOWN_MS": "0"
   },
   "attribution": {
     "commit": "",
@@ -11,14 +13,14 @@
   },
   "permissions": {
     "allow": [
-      "Bash",
       "Read",
       "Write",
-      "Edit",
       "WebFetch",
       "WebSearch",
       "Search",
-      "Monitor"
+      "Monitor",
+      "Bash",
+      "Edit"
     ],
     "ask": []
   },
@@ -77,8 +79,10 @@
     }
   },
   "language": "日本語",
-  "effortLevel": "xhigh",
+  "effortLevel": "medium",
   "tui": "default",
   "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "agentPushNotifEnabled": true,
   "preferredCompletionMode": "disabled"
 }

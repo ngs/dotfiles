@@ -52,3 +52,5 @@ export PATH="$PATH:$HOME/.local/bin"
 
 [[ -d $HOME/.local/bin ]] && export PATH="${HOME}/.local/bin:${PATH}"
 eval "$(uv generate-shell-completion zsh)"
+
+[[ -x $HOME/.ticloud/bin/ticloud ]] && export PATH="$HOME/.ticloud/bin:$PATH"
