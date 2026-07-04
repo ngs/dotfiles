@@ -48,7 +48,7 @@ resolve_os_name() {
 
 for f in $DOTFILES/rc.d/*; do
   BASENAME=$(basename $f)
-  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'sbt' ] && [ $BASENAME != 'ssh' ] && [ $BASENAME != 'cmus' ] && [ $BASENAME != 'karabiner' ] && [ $BASENAME != 'claude' ] && [ $BASENAME != 'gh' ] && [ $BASENAME != 'gnupg' ]; then
+  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'sbt' ] && [ $BASENAME != 'ssh' ] && [ $BASENAME != 'cmus' ] && [ $BASENAME != 'karabiner' ] && [ $BASENAME != 'claude' ] && [ $BASENAME != 'gh' ] && [ $BASENAME != 'gnupg' ] && [ $BASENAME != 'codex' ]; then
     resolve_os_name "$BASENAME" || continue
     rm -rf "${HOME}/${LINKNAME}"
     symlink "$f" "${HOME}/.${LINKNAME}"
@@ -91,7 +91,9 @@ for f in $DOTFILES/rc.d/claude/*; do
 done
 ## Codex
 # Keep runtime state, auth, logs, and caches in ~/.codex, but manage reusable
-# command approval rules from dotfiles.
+# config and command approval rules from dotfiles.
+ensure_directory "${HOME}/.codex"
+symlink "${DOTFILES}/rc.d/codex/config.toml" "${HOME}/.codex/config.toml"
 ensure_directory "${HOME}/.codex/rules"
 for f in "$DOTFILES/rc.d/codex/rules"/*; do
   [ -e "$f" ] || continue
