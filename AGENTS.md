@@ -78,6 +78,12 @@ gotchas.
 - Antigravity (`agy`) reads global skills from **both** `~/.gemini/config/skills/`
   and `~/.gemini/antigravity-cli/skills/`; we use `config/skills/` because it is
   shared by the CLI, IDE, and 2.0. Workspace skills go in `<workspace>/.agents/skills/`.
+- `rc.d/codex/config.toml` and `rc.d/codex/rules/*.rules` are public base files.
+  `setup.d/dotfiles.sh` copies them to `~/.codex/` only when the local file is
+  missing or is an old symlink. Do not symlink them: Codex appends machine-local
+  `[projects]` trust entries and command approval rules, and those must not be
+  committed to this public repo. Codex project trust entries are exact worktree
+  paths; do not rely on `~/src/*`-style wildcards there.
 
 ## This file and CLAUDE.md
 

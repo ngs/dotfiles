@@ -4,33 +4,6 @@ approval_policy = "never"
 approvals_reviewer = "user"
 sandbox_mode = "danger-full-access"
 
-[projects."/Users/nagase/src/dtp-career-journey-backend"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/think"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/color.recipes"]
-trust_level = "trusted"
-
-[projects."/private/tmp"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/ccskill-gptimage"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/agent-san-nikki"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/kinsoku"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/dtp-career-journey-webapp"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/bumblebee"]
-trust_level = "trusted"
-
 [plugins."github@openai-curated"]
 enabled = true
 

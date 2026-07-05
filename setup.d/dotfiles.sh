@@ -27,6 +27,19 @@ ensure_directory() {
     mkdir -p $1
   fi
 }
+install_codex_file() {
+  local label=$1 org=$2 dst=$3
+  if [ -L "$dst" ]; then
+    echo "Replacing ${label} symlink with local file: ${dst}"
+    rm -f "$dst"
+  elif [ -e "$dst" ]; then
+    echo "Keeping existing local ${label}: ${dst}"
+    return
+  fi
+  echo "Installing ${label}: ${org} -> ${dst}"
+  cp "$org" "$dst"
+  chmod 600 "$dst"
+}
 # Resolve OS-specific suffix. Sets LINKNAME and returns 0 to proceed, 1 to skip.
 resolve_os_name() {
   local name=$1
@@ -79,6 +92,10 @@ for f in "$DOTFILES/rc.d/gnupg"/*; do
     *) continue ;;
   esac
   resolve_os_name "$BASENAME" || continue
+  if [ "$f" -ef "${HOME}/.gnupg/${LINKNAME}" ]; then
+    echo "Skipping identical GnuPG config: ${f} -> ${HOME}/.gnupg/${LINKNAME}"
+    continue
+  fi
   echo "Copying: ${f} -> ${HOME}/.gnupg/${LINKNAME}"
   cp "$f" "${HOME}/.gnupg/${LINKNAME}"
 done
@@ -90,16 +107,17 @@ for f in $DOTFILES/rc.d/claude/*; do
   symlink "$f" "${HOME}/.claude/${LINKNAME}"
 done
 ## Codex
-# Keep runtime state, auth, logs, and caches in ~/.codex, but manage reusable
-# config and command approval rules from dotfiles.
+# Keep runtime state, auth, logs, caches, trust entries, and command approvals in
+# ~/.codex. Base config/rules are copied once because Codex may append local
+# [projects] entries and prefix rules.
 ensure_directory "${HOME}/.codex"
-symlink "${DOTFILES}/rc.d/codex/config.toml" "${HOME}/.codex/config.toml"
+install_codex_file "Codex config" "${DOTFILES}/rc.d/codex/config.toml" "${HOME}/.codex/config.toml"
 ensure_directory "${HOME}/.codex/rules"
 for f in "$DOTFILES/rc.d/codex/rules"/*; do
   [ -e "$f" ] || continue
   BASENAME=$(basename "$f")
   resolve_os_name "$BASENAME" || continue
-  symlink "$f" "${HOME}/.codex/rules/${LINKNAME}"
+  install_codex_file "Codex rule" "$f" "${HOME}/.codex/rules/${LINKNAME}"
 done
 ## Shared agent skills (Codex / Google Antigravity)
 # The real skills live in rc.d/agents/skills. Claude reads them via the
