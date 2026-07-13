@@ -6,12 +6,8 @@ HOSTNAME=$(hostname)
 ENVD=$DOTFILES/env.d
 export EVENT_NOKQUEUE=1
 
-# ssh-agent (共有ソケット)
-# export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
-# if [ ! -S "$SSH_AUTH_SOCK" ]; then
-#   eval "$(ssh-agent -a $SSH_AUTH_SOCK)" > /dev/null
-# fi
-# ssh-add -l > /dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519 2>/dev/null
+# SSH_AUTH_SOCK is handled per-platform: env.d/darwin/ssh.sh (macOS keeps its own
+# agent under launchd) and env.d/linux/ssh-agent.sh (starts one).
 
 loadenv() {
   for f in $1/*.sh ; do

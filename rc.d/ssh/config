@@ -3,6 +3,11 @@ Include ~/.colima/ssh_config
 
 Host *
   ForwardAgent yes
+  # Take the passphrase from the keychain rather than asking, and put the key
+  # into the agent on first use. Together these mean a working `git push` never
+  # depends on having remembered to run ssh-add — even if the agent is empty.
+  UseKeychain yes
+  AddKeysToAgent yes
 
 Host remote rubyforge.org
   Hostname rubyforge.org

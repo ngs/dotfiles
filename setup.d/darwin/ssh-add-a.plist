@@ -4,10 +4,14 @@
 <dict>
     <key>Label</key>
     <string>ssh-add-a</string>
+    <!-- The modern spelling of `ssh-add -A`: add the identities whose
+         passphrases are already in the keychain. (`--apple-use-keychain` is the
+         replacement for -K — it *stores* passphrases when adding a key — and is
+         not what this job wants: at login there is no one to type one.) -->
     <key>ProgramArguments</key>
     <array>
         <string>ssh-add</string>
-        <string>--apple-use-keychain</string>
+        <string>--apple-load-keychain</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
