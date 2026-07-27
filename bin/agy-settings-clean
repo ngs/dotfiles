@@ -1,0 +1,6 @@
+#!/bin/sh
+# git clean filter for rc.d/gemini/settings.json (see .gitattributes).
+# ~/.gemini/antigravity-cli/settings.json is a symlink into this repo, so
+# Antigravity writes runtime state straight into the working tree. Strip the
+# machine-local trusted-workspace list before staging.
+exec jq 'del(.trustedWorkspaces)'

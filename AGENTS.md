@@ -81,14 +81,33 @@ gotchas.
 
 ## Shared global agent instructions (AGENTS.md)
 
-- The global instructions for Claude Code and Codex are a single file:
-  **`rc.d/agents/AGENTS.md`** — edit it there, never a tool-side copy.
-- Tool-side files are committed symlinks to it: `rc.d/claude/CLAUDE.md` and
-  `rc.d/codex/AGENTS.md` both point to `../agents/AGENTS.md`, so
-  `~/.claude/CLAUDE.md` and `~/.codex/AGENTS.md` resolve through them.
+- The global instructions for Claude Code, Codex, and Antigravity are a single
+  file: **`rc.d/agents/AGENTS.md`** — edit it there, never a tool-side copy.
+- Tool-side files are committed symlinks to it: `rc.d/claude/CLAUDE.md`,
+  `rc.d/codex/AGENTS.md`, and `rc.d/gemini/AGENTS.md` all point to
+  `../agents/AGENTS.md`, so `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, and
+  `~/.gemini/config/AGENTS.md` (a standalone AGENTS.md in an Antigravity
+  customization root is loaded as global rules) resolve through them.
   `~/.agents/AGENTS.md` also works via the `~/.agents` → `rc.d/agents` link.
 - Keep the content tool-agnostic; a tool-specific rule belongs in the tool's own
   section within the shared file, not in a separate per-tool file.
+
+## Machine-local runtime state in synced configs (git clean filters)
+
+- Some tool configs are symlinked into `~` and the tool writes runtime state
+  back through the symlink into the working tree. That state is kept out of
+  commits with git clean filters (defined in `rc.d/gitconfig`, wired up in
+  `.gitattributes`, scripts in `bin/`):
+  - `rc.d/codex/config.toml` → `bin/codex-config-clean` strips `[projects.*]`
+    trust entries and `[tui.model_availability_nux]`.
+  - `rc.d/gemini/settings.json` → `bin/agy-settings-clean` strips
+    `trustedWorkspaces`.
+- The working-tree file keeps the full content (it is what the tool reads);
+  only the staged/committed blob is cleaned. `git diff` therefore stays quiet
+  even though the on-disk file contains machine-local state.
+- `rc.d/gemini` (like `claude`, `codex`, `gnupg`) is in the exclusion list of
+  the generic `rc.d/*` loop — `~/.gemini` holds runtime state and must never be
+  replaced wholesale; `setup.d/dotfiles.sh` links only the reusable pieces.
 
 ## This file and CLAUDE.md
 

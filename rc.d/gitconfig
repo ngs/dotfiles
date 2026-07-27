@@ -51,6 +51,10 @@
   smudge = cat
   clean = codex-config-clean
 
+[filter "agy-settings"]
+  smudge = cat
+  clean = agy-settings-clean
+
 [filter "gunzip"]
   smudge = gzip -n --fast
   clean = gunzip
