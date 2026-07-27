@@ -1,3 +1,4 @@
 Brewfiles/* linguist-language=Ruby
 rc.d/npmrc filter=ignore-npmrc
+rc.d/codex/config.toml filter=codex-config
 *.colibriTheme diff text

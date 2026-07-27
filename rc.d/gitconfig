@@ -47,6 +47,10 @@
   smudge = cat
   clean = sed '/:_authToken/d'
 
+[filter "codex-config"]
+  smudge = cat
+  clean = codex-config-clean
+
 [filter "gunzip"]
   smudge = gzip -n --fast
   clean = gunzip

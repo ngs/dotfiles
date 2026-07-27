@@ -1,35 +1,11 @@
-model = "gpt-5.5"
-model_reasoning_effort = "xhigh"
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
 approval_policy = "never"
 approvals_reviewer = "user"
 sandbox_mode = "danger-full-access"
 
-[projects."/Users/nagase/src/dtp-career-journey-backend"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/think"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/color.recipes"]
-trust_level = "trusted"
-
-[projects."/private/tmp"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/ccskill-gptimage"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/agent-san-nikki"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/kinsoku"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/dtp-career-journey-webapp"]
-trust_level = "trusted"
-
-[projects."/Users/nagase/src/bumblebee"]
-trust_level = "trusted"
+[features]
+apps = true
 
 [plugins."github@openai-curated"]
 enabled = true
@@ -41,11 +17,20 @@ enabled = true
 status_line = ["model-with-reasoning", "current-dir", "git-branch"]
 status_line_use_colors = true
 
-[tui.model_availability_nux]
-"gpt-5.5" = 4
+[apps._default]
+enabled = true
+default_tools_approval_mode = "prompt"
+
+[tool_suggest]
+discoverables = [
+  { type = "connector", id = "connector_947e0d954944416db111db556030eea6" },
+]
 
 [apps.connector_76869538009648d5b282a4bb21c3d157.tools."github.create_pull_request"]
 approval_mode = "approve"
 
 [notice]
 hide_full_access_warning = true
+
+[mcp_servers.circleback]
+url = "https://circleback.ai/api/mcp"
