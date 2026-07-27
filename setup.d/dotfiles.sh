@@ -94,6 +94,7 @@ done
 # config and command approval rules from dotfiles.
 ensure_directory "${HOME}/.codex"
 symlink "${DOTFILES}/rc.d/codex/config.toml" "${HOME}/.codex/config.toml"
+symlink "${DOTFILES}/rc.d/codex/AGENTS.md" "${HOME}/.codex/AGENTS.md"
 ensure_directory "${HOME}/.codex/rules"
 for f in "$DOTFILES/rc.d/codex/rules"/*; do
   [ -e "$f" ] || continue

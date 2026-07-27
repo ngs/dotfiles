@@ -79,6 +79,17 @@ gotchas.
   and `~/.gemini/antigravity-cli/skills/`; we use `config/skills/` because it is
   shared by the CLI, IDE, and 2.0. Workspace skills go in `<workspace>/.agents/skills/`.
 
+## Shared global agent instructions (AGENTS.md)
+
+- The global instructions for Claude Code and Codex are a single file:
+  **`rc.d/agents/AGENTS.md`** — edit it there, never a tool-side copy.
+- Tool-side files are committed symlinks to it: `rc.d/claude/CLAUDE.md` and
+  `rc.d/codex/AGENTS.md` both point to `../agents/AGENTS.md`, so
+  `~/.claude/CLAUDE.md` and `~/.codex/AGENTS.md` resolve through them.
+  `~/.agents/AGENTS.md` also works via the `~/.agents` → `rc.d/agents` link.
+- Keep the content tool-agnostic; a tool-specific rule belongs in the tool's own
+  section within the shared file, not in a separate per-tool file.
+
 ## This file and CLAUDE.md
 
 - `CLAUDE.md` is a symlink to this `AGENTS.md`. Edit the content on the AGENTS.md
