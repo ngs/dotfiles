@@ -167,6 +167,36 @@ Then, ask the user for permission to **push**. Only after approval:
 git push
 ```
 
+### Step 6.5: Check CI Status After Push
+
+After every push, verify that CI passes on the pushed commit. Wait for checks to complete:
+
+```bash
+gh pr checks {pr_number} --watch --interval 30
+```
+
+If `--watch` is unavailable or hangs, poll instead:
+
+```bash
+gh pr checks {pr_number}
+```
+
+and repeat every 30 seconds until no check is `pending`.
+
+**If any check fails:**
+
+1. Identify the failing run and fetch only the failed logs:
+   ```bash
+   gh run list --branch $(git branch --show-current) --limit 5
+   gh run view {run_id} --log-failed
+   ```
+2. Determine whether the failure was caused by the review fixes just pushed.
+   - **Caused by our changes:** implement a fix, then go back to Step 6 (commit & push). In `--loop` mode, do this automatically; otherwise ask the user first.
+   - **Pre-existing / unrelated failure** (also failing on the base branch or before our changes): do NOT attempt to fix it automatically. Report it to the user and continue.
+3. Never mark the run complete while CI is red due to our own changes.
+
+**If all checks pass:** proceed to Step 7.
+
 ### Step 7: Reply to Review Comments
 
 For each comment that was addressed, reply with a message that includes:
@@ -219,13 +249,16 @@ Display a summary:
 1. Number of comments addressed
 2. Number of comments acknowledged (non-actionable)
 3. List of files modified
-4. Link to the PR
+4. CI status of the pushed commit (from Step 6.5)
+5. Link to the PR
 
 ### Step 9: Loop Mode (`--loop`)
 
 If `--loop` is specified, after completing Step 7 (reply) and Step 8 (summary), continue with the following loop:
 
-#### 9a. Request Copilot re-review
+#### 9a. Wait for CI, then request Copilot re-review
+
+**Every iteration's push must go through Step 6.5 (CI check) before requesting a re-review.** If CI fails because of our changes, fix → commit → push → re-check CI, all automatically, before moving on. A Copilot re-review on a red build wastes an iteration.
 
 **IMPORTANT: After pushing, you MUST explicitly request a Copilot re-review. Copilot does not automatically re-review after a push. Never skip this step.**
 
@@ -290,9 +323,10 @@ Go back to **Step 3** (Filter Bot Comments) with the newly fetched comments. Onl
 #### 9d. Loop termination
 
 The loop terminates when any of these conditions are met:
-1. **No new actionable comments** — Copilot is satisfied
+1. **No new actionable comments AND CI is green** (excluding pre-existing failures unrelated to our changes) — Copilot is satisfied
 2. **Maximum 10 iterations reached** — inform the user and stop
 3. **A fix is too complex** — inform the user and stop (don't auto-loop on risky changes)
+4. **CI keeps failing after 3 consecutive fix attempts for the same check** — inform the user and stop
 
 #### 9e. Loop summary
 
@@ -305,6 +339,7 @@ When the loop completes, display a final summary:
 **Total comments addressed:** 7
 **Total comments acknowledged:** 2
 **Files modified:** file1.go, file2.go, file3_test.go
+**CI status:** ✅ All checks passing
 **Final status:** ✅ No remaining actionable comments
 **PR:** <link>
 ```
