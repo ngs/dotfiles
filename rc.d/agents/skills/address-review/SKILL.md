@@ -256,11 +256,26 @@ Display a summary:
 
 If `--loop` is specified, after completing Step 7 (reply) and Step 8 (summary), continue with the following loop:
 
-#### 9a. Wait for CI, then request Copilot re-review
+#### 9a. Run CI check and Copilot re-review in PARALLEL
 
-**Every iteration's push must go through Step 6.5 (CI check) before requesting a re-review.** If CI fails because of our changes, fix → commit → push → re-check CI, all automatically, before moving on. A Copilot re-review on a red build wastes an iteration.
+**Do NOT wait for CI before dealing with the re-review — run both in parallel.** Start the CI watch (Step 6.5) as a background task immediately after pushing, and handle the Copilot re-review concurrently.
 
-**IMPORTANT: After pushing, you MUST explicitly request a Copilot re-review. Copilot does not automatically re-review after a push. Never skip this step.**
+**Copilot may auto-review after a push (repos with Copilot auto-assignment re-review each new commit).** So first check whether a review on the pushed commit already exists or is pending, and only request one if not:
+
+```bash
+# Has Copilot already reviewed the pushed commit?
+HEAD_SHA=$(git rev-parse HEAD)
+gh api repos/{owner}/{repo}/pulls/{pr_number}/reviews --paginate | \
+  jq --arg sha "$HEAD_SHA" \
+  '[.[] | select(.user.login | test("copilot|Copilot")) | select(.commit_id == $sha)] | length'
+
+# Is a Copilot re-review already pending (requested but not yet submitted)?
+gh pr view {pr_number} --json reviewRequests -q '.reviewRequests'
+```
+
+- If a Copilot review for HEAD already exists → skip the re-request and go straight to 9b/9c with that review.
+- If a review request is pending → skip the re-request and poll (9b).
+- Otherwise, explicitly request a re-review:
 
 ```bash
 gh api repos/{owner}/{repo}/pulls/{pr_number}/requested_reviewers \
@@ -272,7 +287,7 @@ If the above fails (some repos use team-based Copilot assignment), try:
 gh pr edit {pr_number} --add-reviewer '@copilot-pull-request-reviewer[bot]' 2>/dev/null || true
 ```
 
-After requesting re-review, wait for Copilot to complete its review.
+**CI still gates the loop, not the review request:** before treating an iteration as done (9d condition 1), the background CI watch must have finished green. If CI fails because of our changes, fix → commit → push → re-check CI, all automatically. New comments found while CI is still running can be addressed in the meantime.
 
 #### 9b. Poll for new review comments
 
