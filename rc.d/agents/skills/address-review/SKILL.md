@@ -318,7 +318,7 @@ gh api repos/{owner}/{repo}/pulls/{pr_number}/comments --paginate | \
 
 **Exit polling when:**
 - New comments from Copilot are detected (proceed to 9c)
-- Copilot submits a **new** review (review count increases) whose body contains `generated no comments` — this means Copilot is satisfied and the loop is complete.
+- Copilot submits a **new** review (review count increases) whose body contains `generated no comments` or `generated no new comments` — this means Copilot is satisfied and the loop is complete.
 
 **IMPORTANT: Do NOT exit polling based on elapsed time alone. Keep polling until Copilot posts a new review. Never assume Copilot is satisfied just because time has passed — always wait for an actual new review to appear.**
 
@@ -326,7 +326,7 @@ To detect the termination condition, check the latest review body:
 ```bash
 gh api repos/{owner}/{repo}/pulls/{pr_number}/reviews --paginate | \
   jq '[.[] | select(.user.login | endswith("[bot]") or . == "Copilot" or . == "copilot-pull-request-reviewer[bot]")] | sort_by(.submitted_at) | last | .body' | \
-  grep -q "generated no comments"
+  grep -Eiq "generated no( new)? comments"
 ```
 
 #### 9c. Process new comments
