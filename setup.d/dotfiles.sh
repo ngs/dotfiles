@@ -61,7 +61,7 @@ resolve_os_name() {
 
 for f in $DOTFILES/rc.d/*; do
   BASENAME=$(basename $f)
-  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'sbt' ] && [ $BASENAME != 'ssh' ] && [ $BASENAME != 'cmus' ] && [ $BASENAME != 'karabiner' ] && [ $BASENAME != 'claude' ] && [ $BASENAME != 'gh' ] && [ $BASENAME != 'gnupg' ] && [ $BASENAME != 'codex' ]; then
+  if [ $BASENAME != 'subversion' ] && [ $BASENAME != 'sbt' ] && [ $BASENAME != 'ssh' ] && [ $BASENAME != 'cmus' ] && [ $BASENAME != 'karabiner' ] && [ $BASENAME != 'claude' ] && [ $BASENAME != 'gh' ] && [ $BASENAME != 'gnupg' ] && [ $BASENAME != 'codex' ] && [ $BASENAME != 'gemini' ]; then
     resolve_os_name "$BASENAME" || continue
     rm -rf "${HOME}/${LINKNAME}"
     symlink "$f" "${HOME}/.${LINKNAME}"
@@ -107,11 +107,13 @@ for f in $DOTFILES/rc.d/claude/*; do
   symlink "$f" "${HOME}/.claude/${LINKNAME}"
 done
 ## Codex
-# Keep runtime state, auth, logs, caches, trust entries, and command approvals in
-# ~/.codex. Base config/rules are copied once because Codex may append local
-# [projects] entries and prefix rules.
+# Keep runtime state, auth, logs, and caches in ~/.codex. config.toml is
+# symlinked: the machine-local state Codex appends through the symlink is
+# stripped at commit time by the codex-config clean filter. Rules are copied
+# once because Codex appends local command approvals there (no filter).
 ensure_directory "${HOME}/.codex"
-install_codex_file "Codex config" "${DOTFILES}/rc.d/codex/config.toml" "${HOME}/.codex/config.toml"
+symlink "${DOTFILES}/rc.d/codex/config.toml" "${HOME}/.codex/config.toml"
+symlink "${DOTFILES}/rc.d/codex/AGENTS.md" "${HOME}/.codex/AGENTS.md"
 ensure_directory "${HOME}/.codex/rules"
 for f in "$DOTFILES/rc.d/codex/rules"/*; do
   [ -e "$f" ] || continue
@@ -119,6 +121,18 @@ for f in "$DOTFILES/rc.d/codex/rules"/*; do
   resolve_os_name "$BASENAME" || continue
   install_codex_file "Codex rule" "$f" "${HOME}/.codex/rules/${LINKNAME}"
 done
+## Google Antigravity (agy)
+# ~/.gemini holds runtime state (auth, history, brain, ...), so it is excluded
+# from the generic rc.d loop and only the reusable pieces are symlinked.
+# ~/.gemini/config is a global customization root: a standalone AGENTS.md there
+# is loaded as global rules (same shared file as Claude/Codex).
+if [ -d "${HOME}/.gemini" ]; then
+  ensure_directory "${HOME}/.gemini/config"
+  symlink "${DOTFILES}/rc.d/gemini/AGENTS.md" "${HOME}/.gemini/config/AGENTS.md"
+  if [ -d "${HOME}/.gemini/antigravity-cli" ]; then
+    symlink "${DOTFILES}/rc.d/gemini/settings.json" "${HOME}/.gemini/antigravity-cli/settings.json"
+  fi
+fi
 ## Shared agent skills (Codex / Google Antigravity)
 # The real skills live in rc.d/agents/skills. Claude reads them via the
 # rc.d/claude/skills -> ../agents/skills symlink (and ~/.agents -> rc.d/agents is

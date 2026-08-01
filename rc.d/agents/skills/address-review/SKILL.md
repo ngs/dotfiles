@@ -167,6 +167,36 @@ Then, ask the user for permission to **push**. Only after approval:
 git push
 ```
 
+### Step 6.5: Check CI Status After Push
+
+After every push, verify that CI passes on the pushed commit. Wait for checks to complete:
+
+```bash
+gh pr checks {pr_number} --watch --interval 30
+```
+
+If `--watch` is unavailable or hangs, poll instead:
+
+```bash
+gh pr checks {pr_number}
+```
+
+and repeat every 30 seconds until no check is `pending`.
+
+**If any check fails:**
+
+1. Identify the failing run and fetch only the failed logs:
+   ```bash
+   gh run list --branch $(git branch --show-current) --limit 5
+   gh run view {run_id} --log-failed
+   ```
+2. Determine whether the failure was caused by the review fixes just pushed.
+   - **Caused by our changes:** implement a fix, then go back to Step 6 (commit & push). In `--loop` mode, do this automatically; otherwise ask the user first.
+   - **Pre-existing / unrelated failure** (also failing on the base branch or before our changes): do NOT attempt to fix it automatically. Report it to the user and continue.
+3. Never mark the run complete while CI is red due to our own changes.
+
+**If all checks pass:** proceed to Step 7.
+
 ### Step 7: Reply to Review Comments
 
 For each comment that was addressed, reply with a message that includes:
@@ -219,15 +249,33 @@ Display a summary:
 1. Number of comments addressed
 2. Number of comments acknowledged (non-actionable)
 3. List of files modified
-4. Link to the PR
+4. CI status of the pushed commit (from Step 6.5)
+5. Link to the PR
 
 ### Step 9: Loop Mode (`--loop`)
 
 If `--loop` is specified, after completing Step 7 (reply) and Step 8 (summary), continue with the following loop:
 
-#### 9a. Request Copilot re-review
+#### 9a. Run CI check and Copilot re-review in PARALLEL
 
-**IMPORTANT: After pushing, you MUST explicitly request a Copilot re-review. Copilot does not automatically re-review after a push. Never skip this step.**
+**Do NOT wait for CI before dealing with the re-review — run both in parallel.** Start the CI watch (Step 6.5) as a background task immediately after pushing, and handle the Copilot re-review concurrently.
+
+**Copilot may auto-review after a push (repos with Copilot auto-assignment re-review each new commit).** So first check whether a review on the pushed commit already exists or is pending, and only request one if not:
+
+```bash
+# Has Copilot already reviewed the pushed commit?
+HEAD_SHA=$(git rev-parse HEAD)
+gh api repos/{owner}/{repo}/pulls/{pr_number}/reviews --paginate | \
+  jq --arg sha "$HEAD_SHA" \
+  '[.[] | select(.user.login | test("copilot|Copilot")) | select(.commit_id == $sha)] | length'
+
+# Is a Copilot re-review already pending (requested but not yet submitted)?
+gh pr view {pr_number} --json reviewRequests -q '.reviewRequests'
+```
+
+- If a Copilot review for HEAD already exists → skip the re-request and go straight to 9b/9c with that review.
+- If a review request is pending → skip the re-request and poll (9b).
+- Otherwise, explicitly request a re-review:
 
 ```bash
 gh api repos/{owner}/{repo}/pulls/{pr_number}/requested_reviewers \
@@ -239,7 +287,7 @@ If the above fails (some repos use team-based Copilot assignment), try:
 gh pr edit {pr_number} --add-reviewer '@copilot-pull-request-reviewer[bot]' 2>/dev/null || true
 ```
 
-After requesting re-review, wait for Copilot to complete its review.
+**CI still gates the loop, not the review request:** before treating an iteration as done (9d condition 1), the background CI watch must have finished green. If CI fails because of our changes, fix → commit → push → re-check CI, all automatically. New comments found while CI is still running can be addressed in the meantime.
 
 #### 9b. Poll for new review comments
 
@@ -290,9 +338,10 @@ Go back to **Step 3** (Filter Bot Comments) with the newly fetched comments. Onl
 #### 9d. Loop termination
 
 The loop terminates when any of these conditions are met:
-1. **No new actionable comments** — Copilot is satisfied
+1. **No new actionable comments AND CI is green** (excluding pre-existing failures unrelated to our changes) — Copilot is satisfied
 2. **Maximum 10 iterations reached** — inform the user and stop
 3. **A fix is too complex** — inform the user and stop (don't auto-loop on risky changes)
+4. **CI keeps failing after 3 consecutive fix attempts for the same check** — inform the user and stop
 
 #### 9e. Loop summary
 
@@ -305,6 +354,7 @@ When the loop completes, display a final summary:
 **Total comments addressed:** 7
 **Total comments acknowledged:** 2
 **Files modified:** file1.go, file2.go, file3_test.go
+**CI status:** ✅ All checks passing
 **Final status:** ✅ No remaining actionable comments
 **PR:** <link>
 ```

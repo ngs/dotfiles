@@ -78,12 +78,44 @@ gotchas.
 - Antigravity (`agy`) reads global skills from **both** `~/.gemini/config/skills/`
   and `~/.gemini/antigravity-cli/skills/`; we use `config/skills/` because it is
   shared by the CLI, IDE, and 2.0. Workspace skills go in `<workspace>/.agents/skills/`.
-- `rc.d/codex/config.toml` and `rc.d/codex/rules/*.rules` are public base files.
-  `setup.d/dotfiles.sh` copies them to `~/.codex/` only when the local file is
-  missing or is an old symlink. Do not symlink them: Codex appends machine-local
-  `[projects]` trust entries and command approval rules, and those must not be
-  committed to this public repo. Codex project trust entries are exact worktree
-  paths; do not rely on `~/src/*`-style wildcards there.
+- `rc.d/codex/config.toml` is symlinked to `~/.codex/config.toml`; the
+  machine-local `[projects]` trust entries Codex appends through the symlink are
+  kept out of commits by a clean filter (see the clean-filters section below).
+  `rc.d/codex/rules/*.rules` are copied once by `setup.d/dotfiles.sh` (only when
+  the local file is missing or an old symlink) — Codex appends machine-local
+  command approval rules there and no filter covers them, so do not symlink the
+  rules. Codex project trust entries are exact worktree paths; do not rely on
+  `~/src/*`-style wildcards there.
+
+## Shared global agent instructions (AGENTS.md)
+
+- The global instructions for Claude Code, Codex, and Antigravity are a single
+  file: **`rc.d/agents/AGENTS.md`** — edit it there, never a tool-side copy.
+- Tool-side files are committed symlinks to it: `rc.d/claude/CLAUDE.md`,
+  `rc.d/codex/AGENTS.md`, and `rc.d/gemini/AGENTS.md` all point to
+  `../agents/AGENTS.md`, so `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, and
+  `~/.gemini/config/AGENTS.md` (a standalone AGENTS.md in an Antigravity
+  customization root is loaded as global rules) resolve through them.
+  `~/.agents/AGENTS.md` also works via the `~/.agents` → `rc.d/agents` link.
+- Keep the content tool-agnostic; a tool-specific rule belongs in the tool's own
+  section within the shared file, not in a separate per-tool file.
+
+## Machine-local runtime state in synced configs (git clean filters)
+
+- Some tool configs are symlinked into `~` and the tool writes runtime state
+  back through the symlink into the working tree. That state is kept out of
+  commits with git clean filters (defined in `rc.d/gitconfig`, wired up in
+  `.gitattributes`, scripts in `bin/`):
+  - `rc.d/codex/config.toml` → `bin/codex-config-clean` strips `[projects.*]`
+    trust entries and `[tui.model_availability_nux]`.
+  - `rc.d/gemini/settings.json` → `bin/agy-settings-clean` strips
+    `trustedWorkspaces`.
+- The working-tree file keeps the full content (it is what the tool reads);
+  only the staged/committed blob is cleaned. `git diff` therefore stays quiet
+  even though the on-disk file contains machine-local state.
+- `rc.d/gemini` (like `claude`, `codex`, `gnupg`) is in the exclusion list of
+  the generic `rc.d/*` loop — `~/.gemini` holds runtime state and must never be
+  replaced wholesale; `setup.d/dotfiles.sh` links only the reusable pieces.
 
 ## This file and CLAUDE.md
 

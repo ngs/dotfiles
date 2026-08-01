@@ -10,6 +10,7 @@ xcuserdata
 .netrwhist
 .imdone
 .envrc
+.envrc.*
 node_modules
 npm-debug.log
 DerivedData
@@ -22,3 +23,5 @@ schema.json
 **/.claude/*.lock
 **/.claude/worktrees/
 .gcloud
+
+**/.claude/.cc-writes/

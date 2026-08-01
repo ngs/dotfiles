@@ -1,3 +1,5 @@
 Brewfiles/* linguist-language=Ruby
 rc.d/npmrc filter=ignore-npmrc
+rc.d/codex/config.toml filter=codex-config
+rc.d/gemini/settings.json filter=agy-settings
 *.colibriTheme diff text

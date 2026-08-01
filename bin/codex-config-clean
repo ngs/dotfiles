@@ -1,0 +1,9 @@
+#!/bin/sh
+# git clean filter for rc.d/codex/config.toml (see .gitattributes).
+# ~/.codex/config.toml is a symlink into this repo, so Codex writes runtime
+# state straight into the working tree. Strip the machine-local sections
+# ([projects.*] trust entries and TUI nux state) before staging.
+exec awk '
+  /^\[/ { skip = ($0 ~ /^\[projects\./ || $0 == "[tui.model_availability_nux]") }
+  !skip
+'
