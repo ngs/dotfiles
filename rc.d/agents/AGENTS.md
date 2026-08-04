@@ -1,6 +1,12 @@
 # Global Instructions
 
-## Git Rules
+## Model usage: Fable designs, Opus implements (all projects)
+- When running on Fable (claude-fable-5), do NOT carry out sizable implementation work directly in the main loop — Fable quota burns out quickly.
+- Workflow: Fable writes an implementation spec detailed enough to follow with zero prior context (target repo/files/functions, exact changes, step order, acceptance criteria, tests to write/run), then delegates the implementation to Opus:
+  - Same session: spawn an Agent subagent with `model: "opus"` and hand it the spec.
+  - Separate session: save the spec as a file (in the target repo's docs/tmp area or the scratchpad) so an Opus session can execute it.
+- Fable may do directly: design, investigation, code review, doc/prose edits, and trivial few-line fixes.
+- Fable reviews the implementation output (diff vs. acceptance criteria) before reporting done.
 - Do NOT run `git commit` or `git push` on your own during normal conversation — wait for explicit user instruction.
 - EXCEPTION: when the user invokes an automated flow that includes commit/push as part of its contract (e.g. `/address-review --loop`, `/loop`, or similar skills), treat the invocation itself as authorization and proceed without per-step confirmation.
 - ALWAYS specify the remote and branch explicitly when pushing: `git push origin <current-branch>`. Never run a bare `git push` — `push.default` settings vary by machine and a bare push may target the wrong branch (e.g. push `master` instead of the feature branch). Determine the current branch with `git branch --show-current` first if unsure.
