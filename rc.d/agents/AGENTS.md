@@ -11,6 +11,12 @@
 - EXCEPTION: when the user invokes an automated flow that includes commit/push as part of its contract (e.g. `/address-review --loop`, `/loop`, or similar skills), treat the invocation itself as authorization and proceed without per-step confirmation.
 - ALWAYS specify the remote and branch explicitly when pushing: `git push origin <current-branch>`. Never run a bare `git push` — `push.default` settings vary by machine and a bare push may target the wrong branch (e.g. push `master` instead of the feature branch). Determine the current branch with `git branch --show-current` first if unsure.
 
+## Repository hygiene — never pollute repositories
+- NEVER add non-source artifacts (screenshots, verification images, logs, build outputs, temp files) to a source repository on your own — copying them into the working tree counts, even if never committed.
+- NEVER choose "commit assets into the repo" as a workaround for attaching images to a PR description. GitHub PR bodies only accept image uploads via browser drag & drop; say so and leave the attaching to the user.
+- Keep generated verification artifacts outside repositories: the scratchpad, `/tmp`, or `~/Desktop`.
+- The only new files you may create inside a repository are source, tests, and docs that genuinely belong in a commit. When in doubt, put the file outside the repo and ask.
+
 ## PR Titles
 - Never prefix PR titles with AI/tool labels such as `[codex]`, `codex:`, `Claude`, or generated-by markers.
 - Use the repository's normal PR title style and describe only the actual change.
