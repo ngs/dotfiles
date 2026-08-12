@@ -1,5 +1,10 @@
 # Global Instructions
 
+## Language by repository visibility
+- In PUBLIC repositories (e.g. ngs/dotfiles and other personal public repos): write EVERYTHING in English — commit messages, PR titles/bodies, issues, code comments, and docs.
+- Work-org repositories (lifeistech/*) keep their existing convention (Japanese commit messages / PR bodies).
+- When unsure, check `gh repo view --json visibility` before committing.
+
 ## Model usage: Fable designs, Opus implements (all projects)
 - When running on Fable (claude-fable-5), do NOT carry out sizable implementation work directly in the main loop — Fable quota burns out quickly.
 - Workflow: Fable writes an implementation spec detailed enough to follow with zero prior context (target repo/files/functions, exact changes, step order, acceptance criteria, tests to write/run), then delegates the implementation to Opus:
