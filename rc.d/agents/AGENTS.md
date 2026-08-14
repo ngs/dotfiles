@@ -22,6 +22,12 @@
 - Keep generated verification artifacts outside repositories: the scratchpad, `/tmp`, or `~/Desktop`.
 - The only new files you may create inside a repository are source, tests, and docs that genuinely belong in a commit. When in doubt, put the file outside the repo and ask.
 
+## No private-repo details in public dotfiles
+- The files under `~/.claude/` (settings.json, CLAUDE.md, hooks, skills) are symlinks into `~/dotfiles`, which is a PUBLIC repository. Never write anything there that mentions or describes a private repository: repo names, org names, internal domains, infrastructure details, locations of sensitive data, or repo-specific permission/deny rules.
+- When a setup flow (e.g. `/auto-mode-setup`) generates settings content that is specific to a private repository, put it in that repository's `.claude/settings.local.json` (gitignored) instead of the user-level settings.json. If it was already written to the user-level file, move it out before the dotfiles change is committed.
+- Knowledge or instructions specific to a private repository belong in that repository's own `CLAUDE.md` (committed there, synced via its git), never in this global file.
+- Before committing in `~/dotfiles`, scan the diff for private repo/org references and strip or relocate them.
+
 ## PR Titles
 - Never prefix PR titles with AI/tool labels such as `[codex]`, `codex:`, `Claude`, or generated-by markers.
 - Use the repository's normal PR title style and describe only the actual change.
