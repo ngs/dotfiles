@@ -48,6 +48,26 @@
         ]
       }
     ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/rc.d/claude/hooks/tmux-window-title.sh"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TMUX\" ] && [ -n \"$TMUX_PANE\" ] && { tmux set-option -w -t \"$TMUX_PANE\" -u automatic-rename-format; tmux set-option -w -t \"$TMUX_PANE\" -u automatic-rename; } 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
