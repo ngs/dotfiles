@@ -1,0 +1,7 @@
+#!/bin/sh
+# git clean filter for rc.d/claude/settings.json (see .gitattributes).
+# ~/.claude/settings.json is a symlink into this repo, so Claude Code setup
+# flows (e.g. /auto-mode-setup) can write repo-specific state straight into
+# the working tree. Strip it before staging: autoMode environment blocks
+# describe private repositories and must never land in this public repo.
+exec jq 'del(.autoMode)'

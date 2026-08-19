@@ -110,6 +110,10 @@ gotchas.
     trust entries and `[tui.model_availability_nux]`.
   - `rc.d/gemini/settings.json` → `bin/agy-settings-clean` strips
     `trustedWorkspaces`.
+  - `rc.d/claude/settings.json` → `bin/claude-settings-clean` strips
+    `autoMode` (repo-specific environment blocks written by setup flows such
+    as `/auto-mode-setup`; they describe private repositories and must never
+    be committed here — they belong in that repo's `.claude/settings.local.json`).
 - The working-tree file keeps the full content (it is what the tool reads);
   only the staged/committed blob is cleaned. `git diff` therefore stays quiet
   even though the on-disk file contains machine-local state.

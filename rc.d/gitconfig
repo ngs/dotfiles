@@ -55,6 +55,10 @@
   smudge = cat
   clean = agy-settings-clean
 
+[filter "claude-settings"]
+  smudge = cat
+  clean = claude-settings-clean
+
 [filter "gunzip"]
   smudge = gzip -n --fast
   clean = gunzip
