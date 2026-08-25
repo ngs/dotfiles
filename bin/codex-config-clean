@@ -2,8 +2,25 @@
 # git clean filter for rc.d/codex/config.toml (see .gitattributes).
 # ~/.codex/config.toml is a symlink into this repo, so Codex writes runtime
 # state straight into the working tree. Strip the machine-local sections
-# ([projects.*] trust entries and TUI nux state) before staging.
+# before staging: [projects.*] trust entries, TUI nux state, and the
+# app-managed runtime blocks the ChatGPT desktop app rewrites on every
+# update ([mcp_servers.node_repl*] / [mcp_servers.computer-use] with
+# versioned absolute paths, [marketplaces.*] local cache paths, [desktop]
+# UI state, and the top-level notify hook path).
 exec awk '
-  /^\[/ { skip = ($0 ~ /^\[projects\./ || $0 == "[tui.model_availability_nux]") }
-  !skip
+  /^\[/ {
+    skip = ($0 ~ /^\[projects\./ ||
+            $0 == "[tui.model_availability_nux]" ||
+            $0 ~ /^\[mcp_servers\.node_repl/ ||
+            $0 == "[mcp_servers.computer-use]" ||
+            $0 ~ /^\[marketplaces\./ ||
+            $0 == "[desktop]")
+  }
+  skip { next }
+  /^notify = / { eat_blank = 1; next }
+  eat_blank { eat_blank = 0; if ($0 == "") next }
+  # Buffer blank lines so those left dangling before a stripped section at
+  # EOF are dropped instead of accumulating as trailing blank lines.
+  $0 == "" { nblank++; next }
+  { for (; nblank > 0; nblank--) print ""; print }
 '
