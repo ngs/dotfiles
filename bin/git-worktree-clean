@@ -1,0 +1,37 @@
+#!/bin/bash
+# git worktree-clean — remove all linked worktrees and prune stale entries.
+#
+# Skips worktrees that git refuses to remove (dirty, locked, or the one you
+# are currently in) unless --force is given.
+
+set -eu
+
+usage() {
+  echo "usage: git worktree-clean [-n|--dry-run] [-f|--force]"
+}
+
+force=
+dry_run=
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -f|--force) force=1 ;;
+    -n|--dry-run) dry_run=1 ;;
+    -h|--help) usage; exit 0 ;;
+    *) usage >&2; exit 1 ;;
+  esac
+  shift
+done
+
+# The first entry of `git worktree list` is always the main worktree; keep it.
+git worktree list --porcelain | awk '/^worktree /{print substr($0, 10)}' | tail -n +2 |
+  while IFS= read -r wt; do
+    if [ -n "$dry_run" ]; then
+      echo "would remove: $wt"
+    elif git worktree remove ${force:+--force} "$wt" 2>/dev/null; then
+      echo "removed: $wt"
+    else
+      echo "skipped: $wt (dirty, locked, or in use — use --force)" >&2
+    fi
+  done
+
+[ -n "$dry_run" ] || git worktree prune
