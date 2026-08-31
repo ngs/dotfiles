@@ -56,6 +56,18 @@ git fetch origin <branch-name-1> <branch-name-2> ...
 git merge --no-ff origin/<branch-name> -m "<original PR title>"
 ```
 
+**Handling go.mod / go.sum conflicts (Go repos):**
+
+Do NOT use `git checkout --theirs` for `go.mod` / `go.sum`. Dependabot branches are cut from the target branch, so taking "theirs" rolls back every update merged earlier in the loop (observed: a 36-line aws-sdk group update silently reverted). Instead, union-merge:
+
+```bash
+git checkout --ours go.mod go.sum
+go get <module>@<version-from-this-PR> ...   # re-apply only the modules this PR bumps
+go mod tidy
+git add go.mod go.sum
+git commit -m "<original PR title>"
+```
+
 **Handling package-lock.json conflicts:**
 
 If a merge conflict occurs in `package-lock.json`:
