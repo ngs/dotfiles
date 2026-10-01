@@ -21,7 +21,7 @@
     "@cloudflare/workers-types": "^5.20260722.1",
     "typescript": "^5.4.0",
     "vitest": "^4.1.9",
-    "wrangler": "^4.105.0"
+    "wrangler": "^4.146.0"
   },
   "keywords": [
     "cloudflare",
