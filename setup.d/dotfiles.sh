@@ -139,13 +139,15 @@ fi
 # created by the generic loop above). Codex and Antigravity keep their own skills
 # dir holding tool-specific entries (e.g. Codex's .system), so we symlink each
 # shared skill individually instead of replacing the whole dir. Skip dangling
-# skills such as an external src checkout that isn't present on this machine.
+# skills such as an external src checkout that isn't present on this machine,
+# and synced/, which holds machine-local copies of app-synced skills.
 link_shared_skills() {
   local dest=$1 name
   ensure_directory "$dest"
   for s in "${DOTFILES}/rc.d/agents/skills"/*; do
     [ -e "$s" ] || continue
     name=$(basename "$s")
+    [ "$name" = "synced" ] && continue
     echo "Symlinking skill: ${s} -> ${dest}/${name}"
     rm -rf "${dest}/${name}"
     ln -s "$s" "${dest}/${name}"

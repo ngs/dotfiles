@@ -33,3 +33,5 @@ Gemfile.lock
 /rc.d/gh/hosts.yml
 .claude/*.local.json
 /rc.d/gnupg/gpg-agent.conf
+/rc.d/agents/skills/synced/
+/rc.d/agents/skills/.trash/
