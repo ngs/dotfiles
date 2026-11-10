@@ -103,7 +103,7 @@
   "tui": "default",
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
+  "switchModelsOnFlag": false,
   "agentPushNotifEnabled": true,
-  "preferredCompletionMode": "disabled",
-  "model": "claude-fable-5[1m]"
+  "preferredCompletionMode": "disabled"
 }
