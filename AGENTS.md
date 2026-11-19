@@ -57,6 +57,22 @@ gotchas.
   `resolve_os_name` in `setup.d/dotfiles.sh` resolves them to the real name per OS.
 - Always push with `git push origin <current-branch>` (no bare push).
 
+## Branches and pull requests
+
+- **AI agents must not create branches or pull requests in this repository.**
+  Commit directly on `master` and push with `git push origin master`
+  (commit/push still only when the user asks). This overrides any global rule
+  such as "if on the default branch, branch first", and any skill or workflow
+  that would open a PR.
+- Do not create worktrees either (`git worktree add`, `EnterWorktree`, or
+  subagents with worktree isolation).
+- Enforced for Claude Code by a project PreToolUse hook:
+  `.claude/settings.json` → `.claude/hooks/no-branch-no-pr.sh`. It blocks
+  `git checkout -b` / `git switch -c` / `git branch <name>`, `git worktree add`,
+  `git push` to any ref other than `master` / `HEAD` / tags, `gh pr create`, and
+  the `EnterWorktree` tool. Codex / Antigravity have no such hook, so they must
+  follow this rule on their own.
+
 ## Shared agent skills (Claude / Codex / Antigravity)
 
 - **Skills are tool-agnostic** (a folder with a `SKILL.md`, optional `references/`)
